@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8weeks Fujimi - Tranquil Retreat in Yatsugatake Mountains</title>
+    <meta name="description" content="Three vacation rentals in Fujimi-machi, Nagano, at 1000m elevation in the Yatsugatake mountains. A serene space for those who value the flow of time.">
+    <meta name="keywords" content="Fujimi,Yatsugatake,vacation rental,Airbnb,minimal,nature,accommodation">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="8weeks Fujimi - Tranquil Retreat in Yatsugatake Mountains">
+    <meta property="og:description" content="Pure mountain air at 1000m elevation, carefully curated spaces for reflection and harmony with nature.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://8weeks-fujimi.com/en">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-black: #2c3e34;
+            --color-gray-dark: #4a5c52;
+            --color-gray-medium: #6b7b71;
+            --color-gray-light: #f8f6f3;
+            --color-white: #ffffff;
+            --color-accent: #d4a574;
+            --color-warm: #f4e8d8;
+            --font-primary: 'Inter', sans-serif;
+            --border-thin: 1px solid #e8e3dc;
+            --shadow-subtle: 0 2px 8px rgba(44,62,52,0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: var(--color-black);
+            background: var(--color-white);
+        }
+
+        /* Grid System */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .container { padding: 0 16px; }
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .language-switcher a {
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: var(--color-gray-medium);
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .language-switcher a.active {
+            background: var(--color-accent);
+            color: var(--color-white);
+        }
+
+        .language-switcher a:hover {
+            background: var(--color-gray-light);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: var(--border-thin);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-black);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--color-gray-medium);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-black);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--color-warm) 0%, var(--color-white) 100%);
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--color-black);
+        }
+
+        .hero-content .subtitle {
+            font-size: 20px;
+            color: var(--color-gray-dark);
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+
+        .hero-content .location {
+            font-size: 14px;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 48px;
+        }
+
+        .logo-placeholder {
+            width: 120px;
+            height: 120px;
+            background: var(--color-accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 48px;
+            color: var(--color-white);
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 32px; }
+            .hero-content .subtitle { font-size: 18px; }
+            .nav-links { display: none; }
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            padding: 80px 0;
+            background: var(--color-white);
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 48px;
+            color: var(--color-black);
+        }
+
+        .philosophy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .philosophy-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--color-gray-dark);
+            margin-bottom: 24px;
+        }
+
+        /* Spaces Section */
+        .spaces {
+            padding: 80px 0;
+            background: var(--color-gray-light);
+        }
+
+        .spaces-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .space-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-subtle);
+            transition: var(--transition);
+        }
+
+        .space-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(44,62,52,0.12);
+        }
+
+        .space-image {
+            width: 100%;
+            height: 240px;
+            background: var(--color-gray-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gray-medium);
+        }
+
+        .space-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .space-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 24px 24px 8px;
+            color: var(--color-black);
+        }
+
+        .space-tagline {
+            font-size: 14px;
+            color: var(--color-accent);
+            font-weight: 500;
+            margin: 0 24px 12px;
+            line-height: 1.4;
+            font-style: italic;
+        }
+
+        .space-details {
+            font-size: 16px;
+            color: var(--color-gray-medium);
+            margin: 0 24px 16px;
+        }
+
+        .space-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 24px 24px;
+        }
+
+        .stars {
+            color: var(--color-accent);
+        }
+
+        .space-links {
+            display: flex;
+            gap: 12px;
+            margin: 0 24px 24px;
+        }
+
+        .space-link {
+            flex: 1;
+            padding: 12px 16px;
+            background: var(--color-black);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .space-link:hover {
+            background: var(--color-gray-dark);
+        }
+
+        .space-link.map-link {
+            background: var(--color-accent);
+        }
+
+        .space-link.map-link:hover {
+            background: #c49866;
+        }
+
+        /* Attractions Section */
+        .attractions {
+            padding: 80px 0;
+            background: var(--color-white);
+        }
+
+        .area-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .area-tab {
+            padding: 12px 24px;
+            background: var(--color-gray-light);
+            border: none;
+            border-radius: 24px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--color-gray-medium);
+            transition: var(--transition);
+        }
+
+        .area-tab.active {
+            background: var(--color-accent);
+            color: var(--color-white);
+        }
+
+        .area-panel {
+            display: none;
+        }
+
+        .area-panel.active {
+            display: block;
+        }
+
+        .category-section {
+            margin-bottom: 48px;
+        }
+
+        .category-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--color-black);
+            border-bottom: 2px solid var(--color-accent);
+            padding-bottom: 8px;
+        }
+
+        .area-spots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .spot-card {
+            background: var(--color-gray-light);
+            padding: 20px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .spot-card:hover {
+            background: var(--color-warm);
+        }
+
+        .spot-card h6 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--color-black);
+        }
+
+        .spot-card p {
+            font-size: 14px;
+            color: var(--color-gray-dark);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .spot-time {
+            font-size: 12px;
+            color: var(--color-accent);
+            font-weight: 600;
+        }
+
+        .insta-link {
+            font-size: 12px;
+            color: var(--color-accent);
+            text-decoration: none;
+            margin-left: 12px;
+            font-weight: 500;
+        }
+
+        .insta-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Booking Section */
+        .booking {
+            padding: 80px 0;
+            background: var(--color-gray-light);
+            text-align: center;
+        }
+
+        .booking-options {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 48px;
+            flex-wrap: wrap;
+        }
+
+        .booking-card {
+            background: var(--color-white);
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-subtle);
+            min-width: 300px;
+        }
+
+        .booking-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--color-black);
+        }
+
+        .booking-card p {
+            color: var(--color-gray-medium);
+            margin-bottom: 24px;
+        }
+
+        .property-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .property-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background: var(--color-gray-light);
+            border-radius: 6px;
+        }
+
+        .property-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--color-black);
+        }
+
+        .property-info p {
+            font-size: 14px;
+            color: var(--color-gray-medium);
+            margin: 0;
+        }
+
+        .property-btn {
+            padding: 8px 16px;
+            background: var(--color-accent);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .property-btn:hover {
+            background: #c49866;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 32px;
+            background: var(--color-black);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            background: var(--color-gray-dark);
+            transform: translateY(-2px);
+        }
+
+        .social-links {
+            margin-top: 24px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 12px;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 48px 0 24px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .footer-section h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--color-accent);
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--color-gray-light);
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: var(--color-white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--color-gray-dark);
+            padding-top: 24px;
+            text-align: center;
+            color: var(--color-gray-medium);
+        }
+
+        @media (max-width: 768px) {
+            .booking-options { flex-direction: column; }
+            .area-tabs { justify-content: center; }
+            .area-tab { font-size: 14px; padding: 8px 16px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">8weeks Fujimi</a>
+            <div class="nav-links">
+                <a href="#spaces">Spaces</a>
+                <a href="#attractions">Area Guide</a>
+                <a href="#booking">Booking</a>
+                <div class="language-switcher">
+                    <a href="index.html">日本語</a>
+                    <a href="index-en.html" class="active">English</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="logo-placeholder">Logo</div>
+                <h1>8weeks Fujimi</h1>
+                <p class="subtitle">Tranquil retreat spaces for those who cherish the flow of time, nestled in the Yatsugatake mountains</p>
+                <p class="location">1000m Elevation, Yatsugatake Mountains</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy">
+        <div class="container">
+            <h2 class="section-title">Our 8-Week Journey to This Place</h2>
+            <div class="philosophy-content">
+                <p>In 2020, we moved from the city with our one-year-old daughter<br>
+                and fell in love with Fujimi-machi, making the decision to relocate within 8 weeks.</p>
+                <p>Spending luxurious time surrounded by rich nature,<br>
+                by the end of 8 weeks, we found ourselves thinking "we want to continue living in this town."</p>
+                <p>We named it "8weeks" with the hope that our guests would also experience<br>
+                that feeling of "wanting to stay here."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Spaces Section -->
+    <section id="spaces" class="spaces">
+        <div class="container">
+            <h2 class="section-title">Three Spaces</h2>
+            <div class="spaces-grid">
+                <div class="space-card">
+                    <div class="space-image">
+                        <img src="fujimi.png" alt="8weeks Fujimi" loading="lazy">
+                    </div>
+                    <h3 class="space-name">8weeks Fujimi</h3>
+                    <p class="space-tagline">Private forest villa with grand piano</p>
+                    <p class="space-details">2 bedrooms・2 beds・1 bath・6 guests</p>
+                    <div class="space-rating">
+                        <span class="stars">★★★★★</span>
+                        <span>4.98</span>
+                    </div>
+                    <div class="space-links">
+                        <a href="https://airbnb.com/h/8weeksfujimi" class="space-link" target="_blank">View Details</a>
+                        <a href="https://maps.app.goo.gl/7EvAJLE3DuLRwecr7" class="space-link map-link" target="_blank">📍 Map</a>
+                    </div>
+                </div>
+
+                <div class="space-card">
+                    <div class="space-image">
+                        <img src="quriu.png" alt="8weeks Quriu" loading="lazy">
+                    </div>
+                    <h3 class="space-name">8weeks Quriu</h3>
+                    <p class="space-tagline">100m² private floor for multiple families,<br>mountain views</p>
+                    <p class="space-details">2 bedrooms・5 beds・2 baths・6 guests</p>
+                    <div class="space-rating">
+                        <span class="stars">★★★★★</span>
+                        <span>5.0</span>
+                    </div>
+                    <div class="space-links">
+                        <a href="https://airbnb.com/h/8weeks-quriu" class="space-link" target="_blank">View Details</a>
+                        <a href="https://maps.app.goo.gl/36fJ73qrijhShca76" class="space-link map-link" target="_blank">📍 Map</a>
+                    </div>
+                </div>
+
+                <div class="space-card">
+                    <div class="space-image">
+                        <img src="studio.png" alt="8weeks Studio" loading="lazy">
+                    </div>
+                    <h3 class="space-name">8weeks Studio</h3>
+                    <p class="space-tagline">Renovated flat in Fujimi shopping district,<br>accessible without a car</p>
+                    <p class="space-details">2 bedrooms・4 beds・1 bath・4 guests</p>
+                    <div class="space-rating">
+                        <span class="stars">★★★★★</span>
+                        <span>5.0</span>
+                    </div>
+                    <div class="space-links">
+                        <a href="https://airbnb.com/h/8weeks-studio" class="space-link" target="_blank">View Details</a>
+                        <a href="https://maps.app.goo.gl/ootmFKiQBJGpeUka6" class="space-link map-link" target="_blank">📍 Map</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Attractions Section -->
+    <section id="attractions" class="attractions">
+        <div class="container">
+            <h2 class="section-title">Discovering Fujimi-machi</h2>
+            <div class="area-tabs">
+                <button class="area-tab active" onclick="showArea('fujimi')">Fujimi</button>
+                <button class="area-tab" onclick="showArea('suwa')">Suwa</button>
+                <button class="area-tab" onclick="showArea('kobuchizawa')">Kobuchizawa</button>
+                <button class="area-tab" onclick="showArea('shinanosakai')">Shinano-sakai</button>
+            </div>
+
+            <div class="area-content">
+                <div class="area-panel active" id="fujimi-panel">
+                    <div class="category-section">
+                        <h5 class="category-title">🏪 Lifestyle・Fujimi Shopping District</h5>
+                        <div class="area-spots">
+                            <div class="spot-card">
+                                <h6>Wine Bar Heptapod</h6>
+                                <p>Natural wine specialist. An intimate bar featuring carefully selected natural wines</p>
+                                <span class="spot-time">3 min walk</span>
+                                <a href="https://www.instagram.com/heptapod_fujimi/" target="_blank" class="insta-link">📷 Instagram</a>
+                            </div>
+                            <div class="spot-card">
+                                <h6>Onigiri Shop onri</h6>
+                                <p>Handmade rice balls with local rice. Perfect for takeout picnics</p>
+                                <span class="spot-time">3 min walk</span>
+                                <a href="https://www.instagram.com/onri_fujimi/" target="_blank" class="insta-link">📷 Instagram</a>
+                            </div>
+                            <div class="spot-card">
+                                <h6>Chinese Restaurant Chatora</h6>
+                                <p>Beloved local authentic Chinese restaurant with homey atmosphere</p>
+                                <span class="spot-time">3 min walk</span>
+                                <a href="https://www.instagram.com/chatorahanten/" target="_blank" class="insta-link">📷 Instagram</a>
+                            </div>
+                            <div class="spot-card">
+                                <h6>Record Shop Kirikabu</h6>
+                                <p>A music lover's paradise. Find rare records and hidden gems</p>
+                                <span class="spot-time">3 min walk</span>
+                                <a href="https://www.instagram.com/fujimikirikabu/" target="_blank" class="insta-link">📷 Instagram</a>
+                            </div>
+                            <div class="spot-card">
+                                <h6>Morning Cafe Chitto</h6>
+                                <p>Local cafe that treasures morning time. Comfortable space for leisurely mornings</p>
+                                <span class="spot-time">3 min walk</span>
+                                <a href="https://www.instagram.com/chitto_fujimi/" target="_blank" class="insta-link">📷 Instagram</a>
+                            </div>
+                            <div class="spot-card">
+                                <h6>Mamemura Coffee</h6>
+                                <p>Specialty coffee shop featuring carefully roasted beans</p>
+                                <span class="spot-time">3 min walk</span>
+                            </div>
+                            <div class="spot-card">
+                                <h6>Mountain Bookcase</h6>
+                                <p>A bookstore for words, thoughts, and creativity. Unique selection of mountain-themed books</p>
+                                <span class="spot-time">3 min walk</span>
+                                <a href="https://www.instagram.com/mountainbookcase/" target="_blank" class="insta-link">📷 Instagram</a>
+                            </div>
+                            <div class="spot-card">
+                                <h6>Okinawan Soba Thidamaaru</h6>
+                                <p>Authentic Okinawan soba in this rare find. Taste of Okinawa in Fujimi-machi</p>
+                                <span class="spot-time">3 min walk</span>
+                                <a href="https://www.instagram.com/thidamaaru/" target="_blank" class="insta-link">📷 Instagram</a>
+                            </div>
+                            <div class="spot-card">
+                                <h6>Yatsugatake Coffee Roastery Table land</h6>
+                                <p>Coffee bean specialist committed to home roasting. Aromatic coffee for home brewing</p>
+                                <span class="spot-time">3 min walk</span>
+                                <a href="https://www.instagram.com/tableland_coffee_yatsugatake/" target="_blank" class="insta-link">📷 Instagram</a>
+                            </div>
+                            <div class="spot-card">
+                                <h6>Cafe&DiningBar KIZASHI Station</h6>
+                                <p>Modern restaurant featuring creative cuisine with local ingredients</p>
+                                <span class="spot-time">3 min walk</span>
+                                <a href="https://www.instagram.com/kizashistationfujimi/" target="_blank" class="insta-link">📷 Instagram</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-section">
+                        <h5 class="category-title">🌲 Nature & Outdoors</h5>
+                        <div class="area-spots">
+                            <div class="spot-card">
+                                <h6>Panosama Observatory</h6>
+                                <p>360-degree panoramic views of the Japan Alps and Yatsugatake mountains</p>
+                                <span class="spot-time">15 min drive</span>
+                            </div>
+                            <div class="spot-card">
+                                <h6>Iriyama Wetlands</h6>
+                                <p>Beautiful wetland ecosystem with seasonal wildflowers and mountain views</p>
+                                <span class="spot-time">20 min drive</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-section">
+                        <h5 class="category-title">🎯 Experiences</h5>
+                        <div class="area-spots">
+                            <div class="spot-card">
+                                <h6>Children's Nature Experiences</h6>
+                                <p>Family-friendly outdoor activities and nature education programs</p>
+                                <span class="spot-time">Various locations</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="area-panel" id="suwa-panel">
+                    <div class="category-section">
+                        <h5 class="category-title">🏛️ Culture & History</h5>
+                        <div class="area-spots">
+                            <div class="spot-card">
+                                <h6>Suwa Taisha Grand Shrine</h6>
+                                <p>One of Japan's oldest shrines with rich history and cultural significance</p>
+                                <span class="spot-time">20 min drive</span>
+                            </div>
+                            <div class="spot-card">
+                                <h6>Lake Suwa</h6>
+                                <p>Beautiful highland lake with seasonal activities and scenic views</p>
+                                <span class="spot-time">25 min drive</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="area-panel" id="kobuchizawa-panel">
+                    <div class="category-section">
+                        <h5 class="category-title">🛍️ Shopping & Dining</h5>
+                        <div class="area-spots">
+                            <div class="spot-card">
+                                <h6>Outlet Mall Kobuchizawa</h6>
+                                <p>Premium outlet shopping with mountain views and local brands</p>
+                                <span class="spot-time">20 min drive</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="area-panel" id="shinanosakai-panel">
+                    <div class="category-section">
+                        <h5 class="category-title">🍽️ Gourmet</h5>
+                        <div class="area-spots">
+                            <div class="spot-card">
+                                <h6>Kaha Restaurant</h6>
+                                <p>Renowned restaurant featuring local Shinshu ingredients and refined cuisine</p>
+                                <span class="spot-time">15 min drive from Shinano-sakai Station</span>
+                                <a href="https://www.instagram.com/kaha_restaurant/" target="_blank" class="insta-link">📷 Instagram</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <h2 class="section-title">Book Your Stay</h2>
+            <p>Choose your preferred booking method</p>
+
+            <div class="booking-options">
+                <div class="booking-card">
+                    <h3>Direct Booking</h3>
+                    <p>Contact us directly for personalized service and flexible arrangements</p>
+                    <div class="property-list">
+                        <div class="property-item">
+                            <div class="property-info">
+                                <h4>8weeks Fujimi</h4>
+                                <p>Grand piano villa</p>
+                            </div>
+                            <a href="mailto:contact@8weeksfujimi.com?subject=Booking Inquiry - 8weeks Fujimi" class="property-btn">Contact</a>
+                        </div>
+                        <div class="property-item">
+                            <div class="property-info">
+                                <h4>8weeks Quriu</h4>
+                                <p>Mountain view floor</p>
+                            </div>
+                            <a href="mailto:contact@8weeksfujimi.com?subject=Booking Inquiry - 8weeks Quriu" class="property-btn">Contact</a>
+                        </div>
+                        <div class="property-item">
+                            <div class="property-info">
+                                <h4>8weeks Studio</h4>
+                                <p>Shopping district flat</p>
+                            </div>
+                            <a href="mailto:contact@8weeksfujimi.com?subject=Booking Inquiry - 8weeks Studio" class="property-btn">Contact</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-card">
+                    <h3>Airbnb Booking</h3>
+                    <p>Book instantly through Airbnb with verified reviews and secure payment</p>
+                    <div class="property-list">
+                        <div class="property-item">
+                            <div class="property-info">
+                                <h4>8weeks Fujimi</h4>
+                                <p>★4.98 rating</p>
+                            </div>
+                            <a href="https://airbnb.com/h/8weeksfujimi" target="_blank" class="property-btn">Airbnb</a>
+                        </div>
+                        <div class="property-item">
+                            <div class="property-info">
+                                <h4>8weeks Quriu</h4>
+                                <p>★5.0 rating</p>
+                            </div>
+                            <a href="https://airbnb.com/h/8weeks-quriu" target="_blank" class="property-btn">Airbnb</a>
+                        </div>
+                        <div class="property-item">
+                            <div class="property-info">
+                                <h4>8weeks Studio</h4>
+                                <p>★5.0 rating</p>
+                            </div>
+                            <a href="https://airbnb.com/h/8weeks-studio" target="_blank" class="property-btn">Airbnb</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.instagram.com/8weeksfujimi/" target="_blank">📷 Follow us on Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>8weeks Fujimi</h4>
+                    <p>Tranquil retreat spaces in the Yatsugatake mountains, Fujimi-machi, Nagano</p>
+                    <p>Experience the flow of time at 1000m elevation</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Properties</h4>
+                    <p><a href="https://airbnb.com/h/8weeksfujimi" target="_blank">8weeks Fujimi</a></p>
+                    <p><a href="https://airbnb.com/h/8weeks-quriu" target="_blank">8weeks Quriu</a></p>
+                    <p><a href="https://airbnb.com/h/8weeks-studio" target="_blank">8weeks Studio</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: contact@8weeksfujimi.com</p>
+                    <p>Instagram: @8weeksfujimi</p>
+                    <p>Location: Fujimi-machi, Nagano, Japan</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 8weeks Fujimi. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showArea(areaId) {
+            // Hide all panels
+            const panels = document.querySelectorAll('.area-panel');
+            panels.forEach(panel => panel.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.area-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected panel
+            document.getElementById(areaId + '-panel').classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

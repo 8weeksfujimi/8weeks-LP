@@ -95,6 +95,7 @@
         .nav-links {
             display: flex;
             gap: 32px;
+            align-items: center;
         }
 
         .nav-links a {
@@ -105,6 +106,31 @@
 
         .nav-links a:hover {
             color: var(--color-black);
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .language-switcher a {
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: var(--color-gray-medium);
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .language-switcher a.active {
+            background: var(--color-accent);
+            color: var(--color-white);
+        }
+
+        .language-switcher a:hover {
+            background: var(--color-gray-light);
         }
 
         /* Hero Section */
@@ -890,6 +916,10 @@
                 <a href="#location">Location</a>
                 <a href="#booking">Booking</a>
                 <a href="#contact">Contact</a>
+                <div class="language-switcher">
+                    <a href="index.html" class="active">日本語</a>
+                    <a href="index-en.html">English</a>
+                </div>
             </div>
         </nav>
     </header>
