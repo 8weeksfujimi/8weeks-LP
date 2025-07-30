@@ -315,6 +315,14 @@
             background: var(--color-white);
         }
 
+        .guide-title {
+            font-size: 24px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 32px;
+            color: var(--color-black);
+        }
+
         .area-tabs {
             display: flex;
             justify-content: center;
@@ -408,6 +416,47 @@
 
         .insta-link:hover {
             text-decoration: underline;
+        }
+
+        .surrounding-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .area-group {
+            background: var(--color-gray-light);
+            padding: 24px;
+            border-radius: 12px;
+        }
+
+        .area-group h5 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--color-black);
+        }
+
+        .area-group .distance {
+            font-size: 14px;
+            color: var(--color-accent);
+            font-weight: 400;
+        }
+
+        .area-group ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .area-group li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: var(--color-gray-dark);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .area-group li:last-child {
+            border-bottom: none;
         }
 
         /* Booking Section */
@@ -673,15 +722,38 @@
     <section id="attractions" class="attractions">
         <div class="container">
             <h2 class="section-title">Discovering Fujimi-machi</h2>
+            <h3 class="guide-title">Area Guide</h3>
             <div class="area-tabs">
-                <button class="area-tab active" onclick="showArea('fujimi')">Fujimi</button>
-                <button class="area-tab" onclick="showArea('suwa')">Suwa</button>
-                <button class="area-tab" onclick="showArea('kobuchizawa')">Kobuchizawa</button>
-                <button class="area-tab" onclick="showArea('shinanosakai')">Shinano-sakai</button>
+                <button class="area-tab active" onclick="showArea('fujimi')">Fujimi Station Area・Panorama Resort</button>
+                <button class="area-tab" onclick="showArea('shinanosakai')">Shinano-sakai Area</button>
+                <button class="area-tab" onclick="showArea('surrounding')">Surrounding Areas</button>
             </div>
 
             <div class="area-content">
                 <div class="area-panel active" id="fujimi-panel">
+                    <h4>Fujimi Station Area・Panorama Resort</h4>
+                    
+                    <div class="category-section">
+                        <h5 class="category-title">🎿 Activities</h5>
+                        <div class="area-spots">
+                            <div class="spot-card">
+                                <h6>Fujimi Panorama Resort</h6>
+                                <p>Exhilarating mountain biking in summer, family-friendly skiing in winter. Enjoy activities with spectacular views of the Yatsugatake mountains</p>
+                                <span class="spot-time">5-10 min drive</span>
+                            </div>
+                            <div class="spot-card">
+                                <h6>Kagome Vegetable Life Farm</h6>
+                                <p>Fresh vegetable harvesting and juice-making experiences. Family-friendly agricultural activities</p>
+                                <span class="spot-time">5-10 min drive</span>
+                            </div>
+                            <div class="spot-card">
+                                <h6>Alpaca Farm</h6>
+                                <p>Interactive experiences with adorable alpacas. A popular spot for relaxation and healing</p>
+                                <span class="spot-time">10 min drive</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="category-section">
                         <h5 class="category-title">🏪 Lifestyle・Fujimi Shopping District</h5>
                         <div class="area-spots">
@@ -747,75 +819,84 @@
                         </div>
                     </div>
 
-                    <div class="category-section">
-                        <h5 class="category-title">🌲 Nature & Outdoors</h5>
-                        <div class="area-spots">
-                            <div class="spot-card">
-                                <h6>Panosama Observatory</h6>
-                                <p>360-degree panoramic views of the Japan Alps and Yatsugatake mountains</p>
-                                <span class="spot-time">15 min drive</span>
-                            </div>
-                            <div class="spot-card">
-                                <h6>Iriyama Wetlands</h6>
-                                <p>Beautiful wetland ecosystem with seasonal wildflowers and mountain views</p>
-                                <span class="spot-time">20 min drive</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="category-section">
-                        <h5 class="category-title">🎯 Experiences</h5>
-                        <div class="area-spots">
-                            <div class="spot-card">
-                                <h6>Children's Nature Experiences</h6>
-                                <p>Family-friendly outdoor activities and nature education programs</p>
-                                <span class="spot-time">Various locations</span>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
-                <div class="area-panel" id="suwa-panel">
+
+                <div class="area-panel" id="shinanosakai-panel">
+                    <h4>Shinano-sakai Area</h4>
+                    
                     <div class="category-section">
-                        <h5 class="category-title">🏛️ Culture & History</h5>
+                        <h5 class="category-title">🏞️ Activities</h5>
                         <div class="area-spots">
                             <div class="spot-card">
-                                <h6>Suwa Taisha Grand Shrine</h6>
-                                <p>One of Japan's oldest shrines with rich history and cultural significance</p>
-                                <span class="spot-time">20 min drive</span>
+                                <h6>Idojiri Archaeological Museum</h6>
+                                <p>Archaeological museum showcasing Jomon period artifacts. A historical experience reflecting on ancient life</p>
+                                <span class="spot-time">18 min drive</span>
                             </div>
                             <div class="spot-card">
-                                <h6>Lake Suwa</h6>
-                                <p>Beautiful highland lake with seasonal activities and scenic views</p>
+                                <h6>Fujimi Kogen Resort</h6>
+                                <p>Resort facility at 1,000m elevation for year-round enjoyment</p>
                                 <span class="spot-time">25 min drive</span>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="area-panel" id="kobuchizawa-panel">
                     <div class="category-section">
-                        <h5 class="category-title">🛍️ Shopping & Dining</h5>
+                        <h5 class="category-title">🍓 Lifestyle</h5>
                         <div class="area-spots">
                             <div class="spot-card">
-                                <h6>Outlet Mall Kobuchizawa</h6>
-                                <p>Premium outlet shopping with mountain views and local brands</p>
+                                <h6>Highland Echoes Summer Strawberries</h6>
+                                <p>Highland blessing of delicious strawberries even in summer. Seasonal luxury taste experience</p>
                                 <span class="spot-time">20 min drive</span>
+                            </div>
+                            <div class="spot-card">
+                                <h6>Inari Shop Kaha (Shinano-sakai Station)</h6>
+                                <p>Beloved local inari sushi specialty shop in front of Shinano-sakai Station. Warm handmade flavors</p>
+                                <span class="spot-time">15 min drive</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="area-panel" id="shinanosakai-panel">
-                    <div class="category-section">
-                        <h5 class="category-title">🍽️ Gourmet</h5>
-                        <div class="area-spots">
-                            <div class="spot-card">
-                                <h6>Kaha Restaurant</h6>
-                                <p>Renowned restaurant featuring local Shinshu ingredients and refined cuisine</p>
-                                <span class="spot-time">15 min drive from Shinano-sakai Station</span>
-                                <a href="https://www.instagram.com/kaha_restaurant/" target="_blank" class="insta-link">📷 Instagram</a>
-                            </div>
+                <div class="area-panel" id="surrounding-panel">
+                    <h4>Day Trips to Surrounding Areas</h4>
+                    <div class="surrounding-areas">
+                        <div class="area-group">
+                            <h5>Hara Village・Tateshina <span class="distance">20-30 min drive</span></h5>
+                            <ul>
+                                <li>Tateshina Kogen Barakura English Garden - Tea time in authentic English garden</li>
+                                <li>Yatsugatake Alpaca Farm - Interactive experiences with adorable alpacas</li>
+                                <li>Hara Village Star Festival Venue - One of Japan's best stargazing spots</li>
+                                <li>Tateshina Teddy Bear Museum - World teddy bear collection</li>
+                                <li>Kurumayama Kogen - Nikko-kisuge flowers in summer, ski resort in winter</li>
+                            </ul>
+                        </div>
+                        <div class="area-group">
+                            <h5>Suwa <span class="distance">30 min drive</span></h5>
+                            <ul>
+                                <li>Suwa Taisha Upper & Lower Shrines - Prayers at one of Japan's oldest shrine complexes</li>
+                                <li>Lake Suwa - Lakeside walks and Kamisuwa hot spring town exploration</li>
+                                <li>Suwa Lake Geyser Center - Experience the power of nature</li>
+                                <li>Katakura-kan - Showa retro public bath for 1000 people</li>
+                            </ul>
+                        </div>
+                        <div class="area-group">
+                            <h5>Kobuchizawa <span class="distance">30 min drive</span></h5>
+                            <ul>
+                                <li>Kobuchizawa Highland Cafe Tour - Hidden gems in the southern foothills of Yatsugatake</li>
+                                <li>Risonare Kobuchizawa - Elegant moments at highland resort</li>
+                                <li>Craft shops around Kobuchizawa Station - Discover works by local artists</li>
+                            </ul>
+                        </div>
+                        <div class="area-group">
+                            <h5>Hakushu・Nirasaki <span class="distance">30-40 min drive</span></h5>
+                            <ul>
+                                <li>Suntory Hakushu Distillery - Whisky factory tour at the forest distillery</li>
+                                <li>Ojira River Valley - Crystal clear streams and mystical waterfalls</li>
+                                <li>Nirasaki Wineries - Kai region sake and wine tasting</li>
+                                <li>Chateraise Hakushu Factory - Ice cream factory tour and tasting</li>
+                                <li>Shosenkyo Gorge - One of Japan's premier gorges and crystal village</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
