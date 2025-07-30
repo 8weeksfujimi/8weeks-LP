@@ -15,7 +15,7 @@ https://www.instagram.com/chitto_fujimi/
 https://www.instagram.com/fujimikirikabu/
 Mountain Bookcase
 https://www.instagram.com/mountainbookcase/
-キャプション：ことばと思索と創造のための本屋
+キャプション：山、暮らしに関する本などが並ぶ個性的な書店
 
 ティダマール
 https://www.instagram.com/thidamaaru/
