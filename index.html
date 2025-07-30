@@ -135,51 +135,39 @@
 
         /* Hero Section */
         .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: linear-gradient(135deg, var(--color-warm) 0%, var(--color-white) 100%);
+            padding: 120px 0 80px;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23f5f5f5" width="1200" height="800"/><path fill="%23e0e0e0" d="M0 400L50 350L100 370L150 320L200 340L250 300L300 320L350 280L400 300L450 260L500 280L550 240L600 260L650 220L700 240L750 200L800 220L850 180L900 200L950 160L1000 180L1050 140L1100 160L1150 120L1200 140V800H0V400Z"/></svg>') center/cover;
-            position: relative;
         }
 
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .hero h1 {
-            font-size: clamp(40px, 8vw, 72px);
-            font-weight: 300;
-            letter-spacing: 0.02em;
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 600;
             margin-bottom: 16px;
-            color: var(--color-white);
+            color: var(--color-black);
         }
 
-        .hero-subtitle {
-            font-size: clamp(16px, 3vw, 24px);
-            font-weight: 300;
-            margin-bottom: 24px;
-            color: rgba(255,255,255,0.9);
+        .hero-content .subtitle {
+            font-size: 20px;
+            color: var(--color-gray-dark);
+            margin-bottom: 12px;
+            font-weight: 400;
         }
 
-        .hero-location {
-            font-size: 12px;
-            letter-spacing: 0.1em;
+        .hero-content .location {
+            font-size: 14px;
+            color: var(--color-accent);
             text-transform: uppercase;
-            color: rgba(255,255,255,0.7);
+            letter-spacing: 1px;
             margin-bottom: 48px;
         }
 
-        /* Logo */
         .logo-image {
-            width: 140px;
-            height: 140px;
-            margin: 0 auto 32px;
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin: 0 auto 48px;
             display: block;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
         }
 
         /* Section Styles */
@@ -910,7 +898,7 @@
     <!-- Header -->
     <header>
         <nav class="container">
-            <a href="#" class="logo">8weeks</a>
+            <a href="#" class="logo">8weeks Fujimi</a>
             <div class="nav-links">
                 <a href="#spaces">Spaces</a>
                 <a href="#location">Location</a>
@@ -926,11 +914,13 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <img src="ロゴ.png" alt="8weeks Fujimi" class="logo-image">
-            <h1>8weeks Fujimi</h1>
-            <p class="hero-subtitle">時間の流れを大切にする人のための、八ヶ岳山麓の静かな滞在空間</p>
-            <p class="hero-location">1000m Elevation, Yatsugatake Mountains</p>
+        <div class="container">
+            <div class="hero-content">
+                <img src="ロゴ.png" alt="8weeks Fujimi" class="logo-image">
+                <h1>8weeks Fujimi</h1>
+                <p class="subtitle">時間の流れを大切にする人のための、八ヶ岳山麓の静かな滞在空間</p>
+                <p class="location">1000m Elevation, Yatsugatake Mountains</p>
+            </div>
         </div>
     </section>
 

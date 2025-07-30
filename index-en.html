@@ -163,18 +163,12 @@
             margin-bottom: 48px;
         }
 
-        .logo-placeholder {
+        .logo-image {
             width: 120px;
             height: 120px;
-            background: var(--color-accent);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            object-fit: contain;
             margin: 0 auto 48px;
-            color: var(--color-white);
-            font-weight: 600;
-            font-size: 18px;
+            display: block;
         }
 
         @media (max-width: 768px) {
@@ -593,7 +587,7 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="logo-placeholder">Logo</div>
+                <img src="ロゴ.png" alt="8weeks Fujimi" class="logo-image">
                 <h1>8weeks Fujimi</h1>
                 <p class="subtitle">Tranquil retreat spaces for those who cherish the flow of time, nestled in the Yatsugatake mountains</p>
                 <p class="location">1000m Elevation, Yatsugatake Mountains</p>
