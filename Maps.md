@@ -25,3 +25,6 @@ https://www.instagram.com/tableland_coffee_yatsugatake/
 
 Cafe&DiningBar Kizashi Station
 https://www.instagram.com/kizashistationfujimi/
+
+Mamemura Coffee
+https://www.instagram.com/mame_mura_coffee/
