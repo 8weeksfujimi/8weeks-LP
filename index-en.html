@@ -466,6 +466,56 @@
             text-align: center;
         }
 
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: var(--color-gray-light);
+            border-radius: 8px;
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        .contact-method:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .contact-icon {
+            font-size: 24px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-white);
+            border-radius: 50%;
+        }
+
+        .contact-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .contact-text strong {
+            font-weight: 600;
+            color: var(--color-black);
+        }
+
+        .contact-text span {
+            font-size: 14px;
+            color: var(--color-gray-medium);
+        }
+
         /* Booking Section */
         .booking {
             padding: 80px 0;
@@ -910,30 +960,25 @@
 
             <div class="booking-options">
                 <div class="booking-card">
-                    <h3>Direct Booking</h3>
-                    <p>Contact us directly for personalized service and flexible arrangements</p>
-                    <div class="property-list">
-                        <div class="property-item">
-                            <div class="property-info">
-                                <h4>8weeks Fujimi</h4>
-                                <p>Grand piano villa</p>
+                    <h3>Contact via DM</h3>
+                    <p>For flexible arrangements, special requests, and long-term stays</p>
+                    
+                    <div class="contact-methods">
+                        <a href="https://www.instagram.com/8weeks.fujimi/" class="contact-method instagram" target="_blank">
+                            <div class="contact-icon">📷</div>
+                            <div class="contact-text">
+                                <strong>Instagram DM</strong>
+                                <span>@8weeks.fujimi</span>
                             </div>
-                            <a href="mailto:contact@8weeksfujimi.com?subject=Booking Inquiry - 8weeks Fujimi" class="property-btn">Contact</a>
-                        </div>
-                        <div class="property-item">
-                            <div class="property-info">
-                                <h4>8weeks Quriu</h4>
-                                <p>Mountain view floor</p>
+                        </a>
+                        
+                        <a href="mailto:8weeks.fujimi@gmail.com?subject=Booking Inquiry&body=%E3%80%90Inquiry Details%E3%80%91%0A%0AProperty:%0ACheckIn-CheckOut:%0AGuests:%0ASpecial Requests:" class="contact-method email">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text">
+                                <strong>Email</strong>
+                                <span>8weeks.fujimi@gmail.com</span>
                             </div>
-                            <a href="mailto:contact@8weeksfujimi.com?subject=Booking Inquiry - 8weeks Quriu" class="property-btn">Contact</a>
-                        </div>
-                        <div class="property-item">
-                            <div class="property-info">
-                                <h4>8weeks Studio</h4>
-                                <p>Shopping district flat</p>
-                            </div>
-                            <a href="mailto:contact@8weeksfujimi.com?subject=Booking Inquiry - 8weeks Studio" class="property-btn">Contact</a>
-                        </div>
+                        </a>
                     </div>
                 </div>
 
