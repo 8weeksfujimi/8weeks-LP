@@ -38,7 +38,7 @@
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
     <!-- Gallery Data -->
-    <script src="gallery-data.js"></script>
+    <script src="optimized-gallery-data.js"></script>
     <script src="airbnb-data.js"></script>
     <script src="performance-optimizer.js"></script>
     
@@ -1650,15 +1650,18 @@
         
         function initializeGallery() {
             try {
-                // Check if galleryData exists
-                if (typeof galleryData === 'undefined') {
-                    console.error('Gallery data not loaded');
+                // Check if optimizedGalleryData exists
+                if (typeof optimizedGalleryData === 'undefined') {
+                    console.error('Optimized gallery data not loaded');
                     return;
                 }
                 
+                // Initialize performance optimizer
+                const performanceOptimizer = new GalleryPerformanceOptimizer();
+                
                 // Initialize compact galleries for each property
                 ['quriu', 'studio'].forEach(property => {
-                    const photos = galleryData.properties[property].photos;
+                    const photos = optimizedGalleryData.properties[property].photos;
                     const grid = document.getElementById(`${property}-grid`);
                     
                     if (!grid) {
@@ -1749,7 +1752,7 @@
         function openLightbox(property, photoIndex) {
             currentProperty = property;
             currentPhotoIndex = photoIndex;
-            allPhotos = galleryData.properties[property].photos;
+            allPhotos = optimizedGalleryData.properties[property].photos;
             
             const lightbox = document.getElementById('gallery-lightbox');
             lightbox.classList.add('active');
