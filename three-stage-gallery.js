@@ -23,24 +23,26 @@ class ThreeStageGallery {
             .preview-gallery {
                 display: grid !important;
                 grid-template-columns: repeat(4, 1fr) !important;
-                gap: 16px !important;
+                gap: 24px !important;
                 margin: 32px 0 !important;
                 width: 100% !important;
                 min-height: 250px !important;
                 box-sizing: border-box !important;
+                padding: 0 8px !important;
             }
             
             .preview-gallery .preview-item {
                 aspect-ratio: 4/3 !important;
-                border-radius: 6px !important;
+                border-radius: 8px !important;
                 overflow: hidden !important;
                 cursor: pointer !important;
                 position: relative !important;
                 background: #f8f8f8 !important;
-                transition: opacity 0.15s ease !important;
-                min-height: 180px !important;
-                min-width: 220px !important;
+                transition: all 0.2s ease !important;
+                min-height: 160px !important;
+                min-width: 200px !important;
                 box-sizing: border-box !important;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
             }
             
             .preview-gallery .preview-item:not(.preview-more) {
@@ -48,7 +50,9 @@ class ThreeStageGallery {
             }
             
             .preview-gallery .preview-item:hover {
-                opacity: 0.85 !important;
+                transform: translateY(-3px) !important;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+                opacity: 0.95 !important;
             }
             
             .preview-gallery .preview-item img {
@@ -104,34 +108,36 @@ class ThreeStageGallery {
             
             .preview-more:hover {
                 background: linear-gradient(135deg, #E5484D, #DC2626) !important;
-                transform: translateY(-1px) !important;
-                box-shadow: 0 6px 16px rgba(255, 90, 95, 0.4) !important;
+                transform: translateY(-3px) !important;
+                box-shadow: 0 8px 20px rgba(255, 90, 95, 0.4) !important;
             }
             
             /* Responsive adjustments for preview */
             @media (max-width: 1024px) {
                 .preview-gallery {
                     grid-template-columns: repeat(2, 1fr) !important;
-                    gap: 16px !important;
+                    gap: 20px !important;
+                    padding: 0 4px !important;
                 }
                 
                 .preview-gallery .preview-item {
-                    min-height: 200px !important;
-                    min-width: 280px !important;
+                    min-height: 180px !important;
+                    min-width: 240px !important;
                 }
             }
             
             @media (max-width: 768px) {
                 .preview-gallery {
                     grid-template-columns: repeat(2, 1fr) !important;
-                    gap: 12px !important;
+                    gap: 16px !important;
                     margin: 24px 0 !important;
-                    min-height: 180px !important;
+                    min-height: 160px !important;
+                    padding: 0 4px !important;
                 }
                 
                 .preview-gallery .preview-item {
-                    min-height: 160px !important;
-                    min-width: 220px !important;
+                    min-height: 140px !important;
+                    min-width: 180px !important;
                 }
                 
                 .preview-more {
@@ -143,14 +149,15 @@ class ThreeStageGallery {
             @media (max-width: 480px) {
                 .preview-gallery {
                     grid-template-columns: repeat(2, 1fr) !important;
-                    gap: 8px !important;
+                    gap: 12px !important;
                     margin: 20px 0 !important;
-                    min-height: 140px !important;
+                    min-height: 120px !important;
+                    padding: 0 4px !important;
                 }
                 
                 .preview-gallery .preview-item {
-                    min-height: 120px !important;
-                    min-width: 160px !important;
+                    min-height: 100px !important;
+                    min-width: 140px !important;
                 }
                 
                 .preview-more {
