@@ -149,16 +149,15 @@
             .grid-2, .grid-3 { grid-template-columns: 1fr; }
             .container { padding: 0 16px; }
             
-            /* モバイルでロゴサイズを調整 */
-            .hero::before {
-                width: 500px;
-                height: 500px;
-                opacity: 0.1;
-            }
-            
             .hero {
                 min-height: 70vh;
                 padding: 60px 0 80px;
+            }
+            
+            .hero::before {
+                width: 500px;
+                height: 500px;
+                opacity: 0.05;
             }
             
             .hero-philosophy-content h2 {
@@ -256,16 +255,16 @@
             background: var(--color-gray-light);
         }
 
-        /* Hero + Philosophy 統合セクション */
+        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
             padding: 80px 0 100px;
             text-align: center;
             position: relative;
             min-height: 80vh;
+            overflow: hidden;
         }
         
-        /* 統合セクション全体の大きなロゴ背景 */
         .hero::before {
             content: '';
             position: absolute;
@@ -278,9 +277,8 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            opacity: 0.12;
+            opacity: 0.08;
             z-index: 0;
-            pointer-events: none;
         }
 
         .hero-content {
@@ -311,13 +309,6 @@
             font-weight: 400;
         }
 
-        .logo-image {
-            width: 120px;
-            height: 120px;
-            object-fit: contain;
-            margin: 0 auto 48px;
-            display: block;
-        }
 
         /* Section Styles */
         section {
@@ -358,7 +349,6 @@
             margin-bottom: 32px;
             letter-spacing: -0.02em;
         }
-        
         
 
         .philosophy-content {
@@ -1042,7 +1032,7 @@
         </nav>
     </header>
 
-    <!-- Hero + Philosophy 統合セクション -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -1663,6 +1653,7 @@
         //         document.getElementById(targetProperty + '-gallery').classList.add('active');
         //     });
         // });
+        
         
         // Initialize Lucide icons
         lucide.createIcons();

@@ -218,7 +218,7 @@
             color: var(--color-black);
         }
 
-        /* Hero + Philosophy 統合セクション */
+        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--color-warm) 0%, var(--color-white) 100%);
             padding: 120px 0 100px;
@@ -228,7 +228,6 @@
             overflow: hidden;
         }
         
-        /* 統合セクション全体の大きなロゴ背景 */
         .hero::before {
             content: '';
             position: absolute;
@@ -241,9 +240,8 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            opacity: 0.12;
+            opacity: 0.08;
             z-index: 0;
-            pointer-events: none;
         }
 
         .hero-content {
@@ -273,18 +271,16 @@
             margin-bottom: 48px;
         }
 
-        .logo-image {
-            width: 120px;
-            height: 120px;
-            object-fit: contain;
-            margin: 0 auto 48px;
-            display: block;
-        }
-
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 32px; }
             .hero-content .subtitle { font-size: 18px; }
             .nav-links { display: none; }
+            
+            .hero::before {
+                width: 500px;
+                height: 500px;
+                opacity: 0.05;
+            }
         }
 
         /* 統合コンテンツのスタイル */
@@ -864,7 +860,7 @@
         </nav>
     </header>
 
-    <!-- Hero + Philosophy 統合セクション -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">

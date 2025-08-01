@@ -19,30 +19,30 @@ class ThreeStageGallery {
     injectStyles() {
         const style = document.createElement('style');
         style.textContent = `
-            /* Stage 1: Preview Grid Styles - 4-column layout with photos + button */
+            /* Stage 1: Preview Grid Styles - Uniform CSS Grid */
             .preview-gallery {
                 display: grid !important;
-                grid-template-columns: repeat(4, 1fr) !important;
-                gap: 24px !important;
-                margin: 32px 0 !important;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+                gap: 12px !important;
+                margin: 32px 0 0 !important;
                 width: 100% !important;
-                min-height: 250px !important;
                 box-sizing: border-box !important;
-                padding: 0 8px !important;
+                padding: 0 !important;
             }
             
+            /* Uniform grid items */
+            
+            /* Basic grid item styles */
             .preview-gallery .preview-item {
                 aspect-ratio: 4/3 !important;
-                border-radius: 8px !important;
                 overflow: hidden !important;
                 cursor: pointer !important;
                 position: relative !important;
                 background: #f8f8f8 !important;
                 transition: all 0.2s ease !important;
-                min-height: 160px !important;
-                min-width: 200px !important;
                 box-sizing: border-box !important;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+                border-radius: 8px !important;
+                width: 100% !important;
             }
             
             .preview-gallery .preview-item:not(.preview-more) {
@@ -50,20 +50,24 @@ class ThreeStageGallery {
             }
             
             .preview-gallery .preview-item:hover {
-                transform: translateY(-3px) !important;
+                transform: translateY(-2px) !important;
                 box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
-                opacity: 0.95 !important;
             }
             
             .preview-gallery .preview-item img {
                 width: 100% !important;
                 height: 100% !important;
                 object-fit: cover !important;
-                transition: none !important;
+                transition: transform 0.2s ease !important;
                 image-rendering: auto !important;
                 image-rendering: -webkit-optimize-contrast !important;
                 will-change: auto !important;
                 display: block !important;
+                border-radius: 8px !important;
+            }
+            
+            .preview-gallery .preview-item:hover img {
+                transform: scale(1.02) !important;
             }
             
             .preview-item.loading {
@@ -89,80 +93,75 @@ class ThreeStageGallery {
             div.preview-item.preview-more,
             .preview-gallery div.preview-more,
             .preview-gallery div.preview-item.preview-more {
+                flex: 1 !important;
                 display: flex !important;
                 align-items: center !important;
                 justify-content: center !important;
-                background: linear-gradient(135deg, #FF5A5F, #E5484D) !important;
-                background-color: #FF5A5F !important;
-                color: #ffffff !important;
-                font-weight: 600 !important;
-                font-size: 1rem !important;
+                background: #ffffff !important;
+                border: 1px solid #FF5A5F !important;
+                color: #FF5A5F !important;
+                font-weight: 500 !important;
+                font-size: 0.9rem !important;
                 text-align: center !important;
-                padding: 16px !important;
-                flex-direction: column !important;
-                border: none !important;
-                box-shadow: 0 4px 12px rgba(255, 90, 95, 0.3) !important;
-                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+                padding: 12px 16px !important;
+                border-radius: 6px !important;
+                text-decoration: none !important;
+                transition: all 0.2s ease !important;
+                cursor: pointer !important;
                 opacity: 1 !important;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+                aspect-ratio: 4/3 !important;
             }
             
             .preview-more:hover {
-                background: linear-gradient(135deg, #E5484D, #DC2626) !important;
-                transform: translateY(-3px) !important;
-                box-shadow: 0 8px 20px rgba(255, 90, 95, 0.4) !important;
+                background: #FF5A5F !important;
+                color: #ffffff !important;
+                transform: translateY(-2px) !important;
+                box-shadow: 0 4px 12px rgba(255, 90, 95, 0.3) !important;
+            }
+            
+            /* More Photos Button Container */
+            .more-photos-container {
+                text-align: center;
+                margin-top: 24px;
+                width: 100%;
+            }
+            
+            /* More Photos Button Styles */
+            .more-photos-btn {
+                display: inline-block;
+                padding: 14px 28px;
+                background: #ffffff;
+                border: 1px solid #FF5A5F;
+                border-radius: 8px;
+                color: #FF5A5F;
+                font-weight: 500;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                font-family: inherit;
+                text-decoration: none;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            }
+            
+            .more-photos-btn:hover {
+                background: #FF5A5F;
+                color: #ffffff;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(255, 90, 95, 0.3);
             }
             
             /* Responsive adjustments for preview */
-            @media (max-width: 1024px) {
-                .preview-gallery {
-                    grid-template-columns: repeat(2, 1fr) !important;
-                    gap: 20px !important;
-                    padding: 0 4px !important;
-                }
-                
-                .preview-gallery .preview-item {
-                    min-height: 180px !important;
-                    min-width: 240px !important;
-                }
-            }
-            
             @media (max-width: 768px) {
                 .preview-gallery {
-                    grid-template-columns: repeat(2, 1fr) !important;
-                    gap: 16px !important;
-                    margin: 24px 0 !important;
-                    min-height: 160px !important;
-                    padding: 0 4px !important;
-                }
-                
-                .preview-gallery .preview-item {
-                    min-height: 140px !important;
-                    min-width: 180px !important;
-                }
-                
-                .preview-more {
-                    font-size: 0.9rem !important;
-                    padding: 14px !important;
+                    gap: 10px !important;
+                    margin: 24px 0 0 !important;
                 }
             }
             
             @media (max-width: 480px) {
                 .preview-gallery {
-                    grid-template-columns: repeat(2, 1fr) !important;
-                    gap: 12px !important;
-                    margin: 20px 0 !important;
-                    min-height: 120px !important;
-                    padding: 0 4px !important;
-                }
-                
-                .preview-gallery .preview-item {
-                    min-height: 100px !important;
-                    min-width: 140px !important;
-                }
-                
-                .preview-more {
-                    font-size: 0.8rem !important;
-                    padding: 12px !important;
+                    gap: 10px !important;
                 }
             }
             
@@ -435,7 +434,7 @@ class ThreeStageGallery {
         });
     }
     
-    // Stage 1: Create preview grid (3 photos + more button)
+    // Stage 1: Create preview grid with new layout
     createPreviewGallery(containerId, photos, propertyName) {
         const container = document.getElementById(containerId);
         if (!container) return;
@@ -445,26 +444,39 @@ class ThreeStageGallery {
         const previewGrid = document.createElement('div');
         previewGrid.className = 'preview-gallery';
         
-        // Show first 3 photos
-        const previewPhotos = photos.slice(0, 3);
+        // Show first 6 photos in grid
+        const previewPhotos = photos.slice(0, 6);
         previewPhotos.forEach((photo, index) => {
             const item = this.createPreviewItem(photo, index, propertyName);
             previewGrid.appendChild(item);
         });
         
-        // Add "more photos" button if there are more than 3
-        if (photos.length > 3) {
-            const moreItem = document.createElement('div');
-            moreItem.className = 'preview-item preview-more';
-            const moreText = document.documentElement.lang === 'en' ? 'more' : '枚';
-            moreItem.innerHTML = `+${photos.length - 3}<br>${moreText}`;
-            moreItem.addEventListener('click', () => {
-                this.openGridPopup(propertyName, photos);
-            });
-            previewGrid.appendChild(moreItem);
-        }
-        
         container.appendChild(previewGrid);
+        
+        // Add "More Photos" button below the gallery if there are more than 6 photos
+        if (photos.length > 6) {
+            this.createMorePhotosButton(container, propertyName, photos);
+        }
+    }
+    
+    createMorePhotosButton(container, propertyName, photos) {
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'more-photos-container';
+        
+        const moreButton = document.createElement('button');
+        moreButton.className = 'more-photos-btn';
+        
+        const moreText = document.documentElement.lang === 'en' ? 'More Photos' : 'すべての写真を見る';
+        const photoCount = photos.length - 6;
+        const countText = document.documentElement.lang === 'en' ? `(+${photoCount} more)` : `(他${photoCount}枚)`;
+        moreButton.innerHTML = `${moreText} ${countText}`;
+        
+        moreButton.addEventListener('click', () => {
+            this.openGridPopup(propertyName, photos);
+        });
+        
+        buttonContainer.appendChild(moreButton);
+        container.appendChild(buttonContainer);
     }
     
     createPreviewItem(photo, index, propertyName) {

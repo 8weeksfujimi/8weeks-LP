@@ -8,167 +8,200 @@ const optimizedGalleryData = {
           "src": "optimized/Quriu Photo/202403_Quriu11.jpeg",
           "caption": "洗面所",
           "description": "ゆったりとした洗面スペース",
+          "category": "living",
           "featured": true
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu1.jpeg",
           "caption": "メインリビング・ダイニング",
-          "description": "薪ストーブを囲む温かみのある空間"
+          "description": "薪ストーブを囲む温かみのある空間",
+          "category": "living"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu25.jpeg",
           "caption": "2階ベッドルーム",
-          "description": "静かな睡眠環境"
+          "description": "静かな睡眠環境",
+          "category": "bedroom"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu3.jpeg",
           "caption": "キッチン",
-          "description": "充実した調理設備"
-        },
-        {
-          "src": "optimized/Quriu Photo/202403_Quriu5.jpeg",
-          "caption": "ベッドルーム1",
-          "description": "快適な睡眠空間"
-        },
-        {
-          "src": "optimized/Quriu Photo/202403_Quriu6.jpeg",
-          "caption": "リビングルーム別角度",
-          "description": "くつろぎの空間"
-        },
-        {
-          "src": "optimized/Quriu Photo/202403_Quriu7.jpeg",
-          "caption": "ダイニングエリア",
-          "description": "家族や友人との食事を楽しむ"
+          "description": "充実した調理設備",
+          "category": "amenities"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu8.jpeg",
           "caption": "キッチン詳細",
-          "description": "調理器具完備"
-        },
-        {
-          "src": "optimized/Quriu Photo/202403_Quriu9.jpeg",
-          "caption": "収納スペース",
-          "description": "便利な収納"
-        },
-        {
-          "src": "optimized/Quriu Photo/202403_Quriu10.jpeg",
-          "caption": "バスルーム",
-          "description": "清潔で機能的な浴室"
+          "description": "調理器具完備",
+          "category": "view"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu12.jpeg",
           "caption": "トイレ",
-          "description": "独立した清潔なトイレ"
+          "description": "独立した清潔なトイレ",
+          "category": "view"
+        },
+        {
+          "src": "optimized/Quriu Photo/202403_Quriu10.jpeg",
+          "caption": "バスルーム",
+          "description": "清潔で機能的な浴室",
+          "category": "living"
+        },
+        {
+          "src": "optimized/Quriu Photo/202403_Quriu5.jpeg",
+          "caption": "ベッドルーム1",
+          "description": "快適な睡眠空間",
+          "category": "living"
+        },
+        {
+          "src": "optimized/Quriu Photo/202403_Quriu6.jpeg",
+          "caption": "リビングルーム別角度",
+          "description": "くつろぎの空間",
+          "category": "living"
+        },
+        {
+          "src": "optimized/Quriu Photo/202403_Quriu7.jpeg",
+          "caption": "ダイニングエリア",
+          "description": "家族や友人との食事を楽しむ",
+          "category": "living"
+        },
+        {
+          "src": "optimized/Quriu Photo/202403_Quriu9.jpeg",
+          "caption": "収納スペース",
+          "description": "便利な収納",
+          "category": "view"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu14.jpeg",
           "caption": "リビング全体",
-          "description": "広々としたくつろぎ空間"
+          "description": "広々としたくつろぎ空間",
+          "category": "exterior"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu16.jpeg",
           "caption": "暖炉周り",
-          "description": "冬の夜を暖かく過ごす"
+          "description": "冬の夜を暖かく過ごす",
+          "category": "living"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu17.jpeg",
           "caption": "窓際の景色",
-          "description": "自然光が差し込む"
+          "description": "自然光が差し込む",
+          "category": "living"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu18.jpeg",
           "caption": "ベッドルーム2",
-          "description": "もう一つの寝室"
+          "description": "もう一つの寝室",
+          "category": "living"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu20.jpeg",
           "caption": "窓からの景色",
-          "description": "八ヶ岳の美しい山並み"
+          "description": "八ヶ岳の美しい山並み",
+          "category": "amenities"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu21.jpeg",
           "caption": "エントランス",
-          "description": "温かみのある玄関"
+          "description": "温かみのある玄関",
+          "category": "amenities"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu22.jpeg",
           "caption": "廊下",
-          "description": "ゆったりとした動線"
+          "description": "ゆったりとした動線",
+          "category": "amenities"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu23.jpeg",
           "caption": "階段",
-          "description": "2階へのアクセス"
+          "description": "2階へのアクセス",
+          "category": "amenities"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu24.jpeg",
           "caption": "2階の廊下",
-          "description": "プライベート空間へ"
+          "description": "プライベート空間へ",
+          "category": "amenities"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu26.jpeg",
           "caption": "子供部屋",
-          "description": "家族連れに最適"
+          "description": "家族連れに最適",
+          "category": "bedroom"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu27.jpeg",
           "caption": "書斎スペース",
-          "description": "リモートワークも可能"
+          "description": "リモートワークも可能",
+          "category": "bedroom"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu28.jpeg",
           "caption": "収納部屋",
-          "description": "荷物の整理に便利"
+          "description": "荷物の整理に便利",
+          "category": "bathroom"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu29.jpeg",
           "caption": "バルコニー",
-          "description": "外の空気を楽しむ"
+          "description": "外の空気を楽しむ",
+          "category": "bathroom"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu30.jpeg",
           "caption": "景色",
-          "description": "四季折々の自然"
+          "description": "四季折々の自然",
+          "category": "bedroom"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu31.jpeg",
           "caption": "夕暮れ時",
-          "description": "美しい夕焼け"
+          "description": "美しい夕焼け",
+          "category": "bathroom"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu32.jpeg",
           "caption": "テラス",
-          "description": "アウトドアダイニング"
+          "description": "アウトドアダイニング",
+          "category": "bathroom"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu34.jpeg",
           "caption": "庭",
-          "description": "プライベートガーデン"
+          "description": "プライベートガーデン",
+          "category": "kitchen"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu35.jpeg",
           "caption": "駐車場",
-          "description": "車でのアクセスも安心"
+          "description": "車でのアクセスも安心",
+          "category": "kitchen"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu36.jpeg",
           "caption": "外観",
-          "description": "趣のある建物"
+          "description": "趣のある建物",
+          "category": "amenities"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu37.jpeg",
           "caption": "周辺環境",
-          "description": "静かな住宅街"
+          "description": "静かな住宅街",
+          "category": "exterior"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu38.jpeg",
           "caption": "アメニティ",
-          "description": "必要なものは全て揃っています"
+          "description": "必要なものは全て揃っています",
+          "category": "amenities"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu40.jpeg",
           "caption": "夜の外観",
-          "description": "幻想的な夜景"
+          "description": "幻想的な夜景",
+          "category": "amenities"
         }
       ]
     },
@@ -180,62 +213,74 @@ const optimizedGalleryData = {
           "src": "optimized/Studio Photos/DSCF9557.jpeg",
           "caption": "室内装飾",
           "description": "アートのある暮らし",
+          "category": "exterior",
           "featured": true
         },
         {
           "src": "optimized/Studio Photos/DSCF9615.jpeg",
           "caption": "アメニティ",
-          "description": "充実した備品"
+          "description": "充実した備品",
+          "category": "living"
         },
         {
           "src": "optimized/Studio Photos/DSCF9526.jpeg",
           "caption": "富士見駅方面",
-          "description": "駅まで徒歩圏内"
+          "description": "駅まで徒歩圏内",
+          "category": "bedroom"
         },
         {
           "src": "optimized/Studio Photos/DSCF9283.jpeg",
           "caption": "メインリビング",
-          "description": "モダンでスタイリッシュな空間"
+          "description": "モダンでスタイリッシュな空間",
+          "category": "amenities"
         },
         {
-          "src": "optimized/Studio Photos/DSCF9127.jpeg",
+          "src": "optimized/Studio Photos/Bath room.jpeg",
           "caption": "バスルーム",
-          "description": "美しいタイルワークの浴室"
+          "description": "美しいタイルワークの浴室",
+          "category": "bathroom"
         },
         {
-          "src": "optimized/Studio Photos/DSCF9131.jpeg",
-          "caption": "キッチン",
-          "description": "機能的な調理エリア"
+          "src": "optimized/Studio Photos/Bath room 2.jpeg",
+          "caption": "バスルーム詳細",
+          "description": "清潔で機能的な浴室",
+          "category": "amenities"
         },
         {
-          "src": "optimized/Studio Photos/DSCF9143.jpeg",
-          "caption": "ダイニングエリア",
-          "description": "食事を楽しむ空間"
+          "src": "optimized/Studio Photos/Toilet.jpeg",
+          "caption": "トイレ",
+          "description": "独立した清潔なトイレ",
+          "category": "bathroom"
         },
         {
           "src": "optimized/Studio Photos/DSCF9147.jpeg",
           "caption": "ベッドルーム",
-          "description": "落ち着いた睡眠空間"
+          "description": "落ち着いた睡眠空間",
+          "category": "amenities"
         },
         {
           "src": "optimized/Studio Photos/DSCF9154.jpeg",
           "caption": "リビング別角度",
-          "description": "異なる視点から"
+          "description": "異なる視点から",
+          "category": "bathroom"
         },
         {
           "src": "optimized/Studio Photos/DSCF9166.jpeg",
           "caption": "ワークスペース",
-          "description": "仕事にも最適"
+          "description": "仕事にも最適",
+          "category": "exterior"
         },
         {
           "src": "optimized/Studio Photos/DSCF9188.jpeg",
           "caption": "ダイニングテーブル",
-          "description": "温かみのある食卓"
+          "description": "温かみのある食卓",
+          "category": "exterior"
         },
         {
           "src": "optimized/Studio Photos/DSCF9193.jpeg",
           "caption": "収納スペース",
-          "description": "効率的な収納"
+          "description": "効率的な収納",
+          "category": "amenities"
         },
         {
           "src": "optimized/Studio Photos/DSCF9204.jpeg",
