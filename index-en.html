@@ -31,13 +31,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
+    <!-- Gallery Styles -->
+    <link rel="stylesheet" href="host-gallery-styles.css">
+    
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
-    <!-- Gallery and Airbnb Data -->
-    <script src="optimized-gallery-data.js"></script>
+    <!-- Gallery Data -->
+    <script src="clean-gallery-data.js"></script>
     <script src="airbnb-data.js"></script>
-    <script src="three-stage-gallery.js"></script>
+    <!-- <script src="three-stage-gallery.js"></script> -->
+    
+    <!-- Pinterest Gallery -->
+    <script src="pinterest-gallery.js"></script>
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -885,6 +891,139 @@
                         <div class="space-links">
                             <a href="https://airbnb.com/h/8weeks-studio" class="space-link" target="_blank"><i data-lucide="image" style="width: 14px; height: 14px; margin-right: 4px;"></i>View Photos</a>
                             <a href="https://maps.app.goo.gl/ootmFKiQBJGpeUka6" class="space-link map-link" target="_blank"><i data-lucide="map-pin" style="width: 14px; height: 14px; margin-right: 4px;"></i>Map</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section class="section-gallery">
+        <div class="container">
+            <h2 class="section-title">Property Gallery</h2>
+            <p class="section-subtitle">Special moments in the tranquil spaces of the Yatsugatake foothills</p>
+            
+            <!-- Gallery Filters -->
+            <div class="gallery-filters">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-property="all">
+                        <i data-lucide="grid-3x3" class="filter-icon"></i>
+                        All
+                    </button>
+                    <button class="filter-btn" data-property="quriu">
+                        <i data-lucide="maximize" class="filter-icon"></i>
+                        8weeks Quriu
+                    </button>
+                    <button class="filter-btn" data-property="studio">
+                        <i data-lucide="shopping-bag" class="filter-icon"></i>
+                        8weeks Studio
+                    </button>
+                    <button class="filter-btn" data-property="fujimi">
+                        <i data-lucide="music" class="filter-icon"></i>
+                        8weeks Fujimi
+                    </button>
+                </div>
+                
+                <!-- Category Dropdown -->
+                <div class="category-dropdown">
+                    <button class="category-dropdown-btn" id="category-dropdown-btn">
+                        <i data-lucide="image" class="filter-icon"></i>
+                        <span id="selected-category">All Categories</span>
+                        <i data-lucide="chevron-down" class="dropdown-arrow"></i>
+                    </button>
+                    <div class="category-dropdown-menu" id="category-dropdown-menu">
+                        <div class="category-option active" data-category="all">
+                            <i data-lucide="image" class="filter-icon"></i>
+                            All Categories
+                        </div>
+                        <div class="category-option" data-category="exterior">
+                            <i data-lucide="home" class="filter-icon"></i>
+                            Exterior
+                        </div>
+                        <div class="category-option" data-category="living">
+                            <i data-lucide="sofa" class="filter-icon"></i>
+                            Living Room
+                        </div>
+                        <div class="category-option" data-category="kitchen">
+                            <i data-lucide="chef-hat" class="filter-icon"></i>
+                            Kitchen
+                        </div>
+                        <div class="category-option" data-category="bedroom">
+                            <i data-lucide="bed" class="filter-icon"></i>
+                            Bedroom
+                        </div>
+                        <div class="category-option" data-category="bathroom">
+                            <i data-lucide="bath" class="filter-icon"></i>
+                            Bathroom
+                        </div>
+                        <div class="category-option" data-category="amenities">
+                            <i data-lucide="settings" class="filter-icon"></i>
+                            Amenities
+                        </div>
+                        <div class="category-option" data-category="view">
+                            <i data-lucide="mountain" class="filter-icon"></i>
+                            Views
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pinterest-style Masonry Gallery -->
+            <div class="masonry-gallery" id="property-masonry">
+                <!-- Dynamic content will be generated by JavaScript -->
+            </div>
+            
+            <!-- Loading State -->
+            <div class="gallery-loading" id="gallery-loading">
+                <div class="loading-spinner"></div>
+                <p>Loading gallery...</p>
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="gallery-load-more" id="gallery-load-more" style="display: none;">
+                <button class="load-more-btn">
+                    View More Photos
+                    <i data-lucide="chevron-down" class="btn-icon"></i>
+                </button>
+            </div>
+            
+            <!-- Enhanced Lightbox -->
+            <div class="enhanced-lightbox" id="enhanced-lightbox">
+                <div class="lightbox-backdrop"></div>
+                <div class="lightbox-container">
+                    <button class="lightbox-close" aria-label="Close">
+                        <i data-lucide="x"></i>
+                    </button>
+                    
+                    <div class="lightbox-content">
+                        <div class="lightbox-main">
+                            <img id="lightbox-main-image" src="" alt="">
+                            <div class="lightbox-navigation">
+                                <button class="nav-btn nav-prev" aria-label="Previous image">
+                                    <i data-lucide="chevron-left"></i>
+                                </button>
+                                <button class="nav-btn nav-next" aria-label="Next image">
+                                    <i data-lucide="chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="lightbox-sidebar">
+                            <div class="lightbox-info">
+                                <h3 id="lightbox-property-name">8weeks Quriu</h3>
+                                <div class="photo-meta">
+                                    <span class="photo-counter">
+                                        <span id="current-photo-num">1</span> / <span id="total-photos-num">0</span>
+                                    </span>
+                                    <span class="property-badge" id="lightbox-property-badge">Quriu</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Thumbnail List -->
+                            <div class="lightbox-thumbnails" id="lightbox-thumbnails">
+                                <!-- Thumbnails will be generated by JavaScript -->
+                            </div>
                         </div>
                     </div>
                 </div>
