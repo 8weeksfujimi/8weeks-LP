@@ -21,35 +21,41 @@ class ThreeStageGallery {
         style.textContent = `
             /* Stage 1: Preview Grid Styles - Large display like original */
             .preview-gallery {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 16px;
-                margin: 24px 0;
-                max-width: 100%;
+                display: grid !important;
+                grid-template-columns: repeat(3, 1fr) !important;
+                gap: 16px !important;
+                margin: 24px 0 !important;
+                width: 100% !important;
+                min-height: 200px !important;
+                box-sizing: border-box !important;
             }
             
-            .preview-item {
-                aspect-ratio: 4/3;
-                border-radius: 6px;
-                overflow: hidden;
-                cursor: pointer;
-                position: relative;
-                background: #f8f8f8;
-                transition: opacity 0.15s ease;
+            .preview-gallery .preview-item {
+                aspect-ratio: 4/3 !important;
+                border-radius: 6px !important;
+                overflow: hidden !important;
+                cursor: pointer !important;
+                position: relative !important;
+                background: #f8f8f8 !important;
+                transition: opacity 0.15s ease !important;
+                min-height: 150px !important;
+                min-width: 200px !important;
+                box-sizing: border-box !important;
             }
             
-            .preview-item:hover {
-                opacity: 0.85;
+            .preview-gallery .preview-item:hover {
+                opacity: 0.85 !important;
             }
             
-            .preview-item img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transition: none;
-                image-rendering: auto;
-                image-rendering: -webkit-optimize-contrast;
-                will-change: auto;
+            .preview-gallery .preview-item img {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+                transition: none !important;
+                image-rendering: auto !important;
+                image-rendering: -webkit-optimize-contrast !important;
+                will-change: auto !important;
+                display: block !important;
             }
             
             .preview-item.loading {
@@ -82,8 +88,14 @@ class ThreeStageGallery {
             /* Responsive adjustments for preview */
             @media (max-width: 768px) {
                 .preview-gallery {
-                    gap: 12px;
-                    margin: 20px 0;
+                    gap: 12px !important;
+                    margin: 20px 0 !important;
+                    min-height: 160px !important;
+                }
+                
+                .preview-gallery .preview-item {
+                    min-height: 120px !important;
+                    min-width: 160px !important;
                 }
                 
                 .preview-more {
@@ -94,8 +106,14 @@ class ThreeStageGallery {
             
             @media (max-width: 480px) {
                 .preview-gallery {
-                    gap: 8px;
-                    margin: 16px 0;
+                    gap: 8px !important;
+                    margin: 16px 0 !important;
+                    min-height: 120px !important;
+                }
+                
+                .preview-gallery .preview-item {
+                    min-height: 100px !important;
+                    min-width: 100px !important;
                 }
                 
                 .preview-more {
