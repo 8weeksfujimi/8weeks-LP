@@ -63,6 +63,11 @@ class ThreeStageGallery {
                 animation: pulse 1.5s ease-in-out infinite;
             }
             
+            .preview-item.preview-more.loading {
+                background: #000000 !important;
+                animation: none !important;
+            }
+            
             @keyframes pulse {
                 0%, 100% { opacity: 1; }
                 50% { opacity: 0.7; }

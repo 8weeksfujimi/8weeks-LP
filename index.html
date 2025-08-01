@@ -1174,20 +1174,12 @@
                                 <div class="compact-gallery-grid" id="quriu-grid">
                                     <!-- Will be populated by JavaScript -->
                                 </div>
-                                <button class="view-all-btn" data-property="quriu">
-                                    <i data-lucide="camera" style="width: 20px; height: 20px; margin-right: 8px;"></i>
-                                    All Photos (<span class="photo-count">33</span>)
-                                </button>
                             </div>
                             
                             <div class="property-gallery" id="studio-gallery">
                                 <div class="compact-gallery-grid" id="studio-grid">
                                     <!-- Will be populated by JavaScript -->
                                 </div>
-                                <button class="view-all-btn" data-property="studio">
-                                    <i data-lucide="camera" style="width: 20px; height: 20px; margin-right: 8px;"></i>
-                                    All Photos (<span class="photo-count">38</span>)
-                                </button>
                             </div>
                             
                             <div class="property-gallery" id="fujimi-gallery">
@@ -1680,14 +1672,7 @@
                 console.error('Gallery initialization error:', error);
             }
             
-            // View all button handlers for three-stage gallery
-            document.querySelectorAll('.view-all-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const property = this.getAttribute('data-property');
-                    const photos = optimizedGalleryData.properties[property].photos;
-                    threeStageGallery.openGridPopup(property, photos);
-                });
-            });
+            // All Photos buttons removed - users can click preview items to view gallery
             
             // Re-initialize Lucide icons for dynamically added content
             setTimeout(() => {
