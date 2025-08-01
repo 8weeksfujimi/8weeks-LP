@@ -64,7 +64,7 @@ class ThreeStageGallery {
             }
             
             .preview-item.preview-more.loading {
-                background: #000000 !important;
+                background: linear-gradient(135deg, #FF5A5F, #E5484D) !important;
                 animation: none !important;
             }
             
@@ -77,17 +77,22 @@ class ThreeStageGallery {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: #000000 !important;
+                background: linear-gradient(135deg, #FF5A5F, #E5484D) !important;
                 color: #ffffff !important;
                 font-weight: 600 !important;
                 font-size: 1.1rem !important;
                 text-align: center !important;
                 padding: 20px !important;
                 flex-direction: column !important;
+                border: none !important;
+                box-shadow: 0 4px 12px rgba(255, 90, 95, 0.3) !important;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
             }
             
             .preview-more:hover {
-                background: #111111 !important;
+                background: linear-gradient(135deg, #E5484D, #DC2626) !important;
+                transform: translateY(-1px) !important;
+                box-shadow: 0 6px 16px rgba(255, 90, 95, 0.4) !important;
             }
             
             /* Responsive adjustments for preview */

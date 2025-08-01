@@ -5,10 +5,20 @@ const optimizedGalleryData = {
       "description": "100m²超のフロア貸切・薪ストーブのある温かみのある空間",
       "photos": [
         {
+          "src": "optimized/Quriu Photo/202403_Quriu11.jpeg",
+          "caption": "洗面所",
+          "description": "ゆったりとした洗面スペース",
+          "featured": true
+        },
+        {
           "src": "optimized/Quriu Photo/202403_Quriu1.jpeg",
           "caption": "メインリビング・ダイニング",
-          "description": "薪ストーブを囲む温かみのある空間",
-          "featured": true
+          "description": "薪ストーブを囲む温かみのある空間"
+        },
+        {
+          "src": "optimized/Quriu Photo/202403_Quriu25.jpeg",
+          "caption": "2階ベッドルーム",
+          "description": "静かな睡眠環境"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu3.jpeg",
@@ -44,11 +54,6 @@ const optimizedGalleryData = {
           "src": "optimized/Quriu Photo/202403_Quriu10.jpeg",
           "caption": "バスルーム",
           "description": "清潔で機能的な浴室"
-        },
-        {
-          "src": "optimized/Quriu Photo/202403_Quriu11.jpeg",
-          "caption": "洗面所",
-          "description": "ゆったりとした洗面スペース"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu12.jpeg",
@@ -99,11 +104,6 @@ const optimizedGalleryData = {
           "src": "optimized/Quriu Photo/202403_Quriu24.jpeg",
           "caption": "2階の廊下",
           "description": "プライベート空間へ"
-        },
-        {
-          "src": "optimized/Quriu Photo/202403_Quriu25.jpeg",
-          "caption": "2階ベッドルーム",
-          "description": "静かな睡眠環境"
         },
         {
           "src": "optimized/Quriu Photo/202403_Quriu26.jpeg",
