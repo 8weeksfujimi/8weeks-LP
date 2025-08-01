@@ -43,6 +43,10 @@ class ThreeStageGallery {
                 box-sizing: border-box !important;
             }
             
+            .preview-gallery .preview-item:not(.preview-more) {
+                background: #f8f8f8 !important;
+            }
+            
             .preview-gallery .preview-item:hover {
                 opacity: 0.85 !important;
             }
@@ -63,9 +67,13 @@ class ThreeStageGallery {
                 animation: pulse 1.5s ease-in-out infinite;
             }
             
-            .preview-item.preview-more.loading {
+            .preview-item.preview-more.loading,
+            .preview-gallery .preview-item.preview-more,
+            .preview-gallery .preview-more {
                 background: linear-gradient(135deg, #FF5A5F, #E5484D) !important;
+                color: #ffffff !important;
                 animation: none !important;
+                opacity: 1 !important;
             }
             
             @keyframes pulse {
@@ -73,11 +81,15 @@ class ThreeStageGallery {
                 50% { opacity: 0.7; }
             }
             
-            .preview-more {
-                display: flex;
-                align-items: center;
-                justify-content: center;
+            div.preview-more,
+            div.preview-item.preview-more,
+            .preview-gallery div.preview-more,
+            .preview-gallery div.preview-item.preview-more {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
                 background: linear-gradient(135deg, #FF5A5F, #E5484D) !important;
+                background-color: #FF5A5F !important;
                 color: #ffffff !important;
                 font-weight: 600 !important;
                 font-size: 1.1rem !important;
@@ -87,6 +99,7 @@ class ThreeStageGallery {
                 border: none !important;
                 box-shadow: 0 4px 12px rgba(255, 90, 95, 0.3) !important;
                 text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+                opacity: 1 !important;
             }
             
             .preview-more:hover {
