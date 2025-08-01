@@ -40,7 +40,7 @@
     <!-- Gallery Data -->
     <script src="optimized-gallery-data.js"></script>
     <script src="airbnb-data.js"></script>
-    <script src="performance-optimizer.js"></script>
+    <script src="ultra-performance-gallery.js"></script>
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -1656,10 +1656,7 @@
                     return;
                 }
                 
-                // Initialize performance optimizer
-                const performanceOptimizer = new GalleryPerformanceOptimizer();
-                
-                // Initialize compact galleries for each property
+                // Initialize ultra performance galleries for each property
                 ['quriu', 'studio'].forEach(property => {
                     const photos = optimizedGalleryData.properties[property].photos;
                     const grid = document.getElementById(`${property}-grid`);
@@ -1676,36 +1673,20 @@
                         photoCount.textContent = photos.length;
                     }
                     
-                    // Display first 3 photos and a "more" button
-                    const displayPhotos = photos.slice(0, 3);
-                    displayPhotos.forEach((photo, index) => {
-                        const item = createCompactGalleryItem(photo, property, index);
-                        grid.appendChild(item);
-                    });
-                    
-                    // Add "more photos" item if there are more than 3 photos
-                    if (photos.length > 3) {
-                        const moreItem = document.createElement('div');
-                        moreItem.className = 'compact-gallery-item more-photos';
-                        moreItem.innerHTML = `+${photos.length - 3}<br>枚`;
-                        moreItem.addEventListener('click', () => openLightbox(property, 3));
-                        grid.appendChild(moreItem);
-                    }
+                    // Create ultra performance gallery with 3-column grid view
+                    ultraGallery.createGalleryGrid(`${property}-grid`, photos, property);
                 });
             } catch (error) {
                 console.error('Gallery initialization error:', error);
             }
             
-            // View all button handlers
+            // View all button handlers for new ultra gallery
             document.querySelectorAll('.view-all-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const property = this.getAttribute('data-property');
-                    openLightbox(property, 0);
+                    ultraGallery.openLightbox(property, 0);
                 });
             });
-            
-            // Lightbox event handlers
-            setupLightboxHandlers();
             
             // Re-initialize Lucide icons for dynamically added content
             setTimeout(() => {
@@ -1713,220 +1694,10 @@
             }, 100);
         }
         
-        function createCompactGalleryItem(photo, property, index) {
-            const item = document.createElement('div');
-            item.className = 'compact-gallery-item';
-            
-            // Create placeholder div first
-            const placeholder = document.createElement('div');
-            placeholder.className = 'image-placeholder';
-            placeholder.style.cssText = 'background: #f0f0f0; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; color: #ccc; font-size: 12px;';
-            placeholder.textContent = 'Loading...';
-            
-            item.appendChild(placeholder);
-            item.addEventListener('click', () => openLightbox(property, index));
-            
-            // Lazy load image on intersection
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = new Image();
-                        img.loading = 'lazy';
-                        img.onload = () => {
-                            placeholder.replaceWith(img);
-                        };
-                        img.onerror = () => {
-                            placeholder.textContent = 'Failed to load';
-                        };
-                        img.src = photo.src;
-                        img.alt = '';
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { rootMargin: '50px' });
-            
-            observer.observe(item);
-            return item;
-        }
+        // Old gallery functions removed - now using ultra-performance-gallery.js
         
-        function openLightbox(property, photoIndex) {
-            currentProperty = property;
-            currentPhotoIndex = photoIndex;
-            allPhotos = optimizedGalleryData.properties[property].photos;
-            
-            const lightbox = document.getElementById('gallery-lightbox');
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            
-            updateLightboxContent();
-            createThumbnails();
-        }
-        
-        function updateLightboxContent() {
-            const photo = allPhotos[currentPhotoIndex];
-            const image = document.getElementById('lightbox-image');
-            
-            // Show loading state
-            image.style.opacity = '0.5';
-            
-            // Preload new image
-            const newImg = new Image();
-            newImg.onload = () => {
-                image.src = newImg.src;
-                image.alt = '';
-                image.style.opacity = '1';
-                
-                // Preload next and previous images for smoother navigation
-                preloadAdjacentImages();
-            };
-            newImg.onerror = () => {
-                image.style.opacity = '1';
-                image.alt = 'Failed to load image';
-            };
-            newImg.src = photo.src;
-            
-            updateThumbnailActive();
-            
-            // Update navigation buttons
-            document.querySelector('.lightbox-prev').style.display = 
-                currentPhotoIndex > 0 ? 'flex' : 'none';
-            document.querySelector('.lightbox-next').style.display = 
-                currentPhotoIndex < allPhotos.length - 1 ? 'flex' : 'none';
-        }
-        
-        function preloadAdjacentImages() {
-            // Preload next and previous images
-            const preloadIndexes = [
-                currentPhotoIndex - 1,
-                currentPhotoIndex + 1
-            ].filter(index => index >= 0 && index < allPhotos.length);
-            
-            preloadIndexes.forEach(index => {
-                const img = new Image();
-                img.src = allPhotos[index].src;
-            });
-        }
-        
-        function createThumbnails() {
-            const container = document.getElementById('lightbox-thumbnails');
-            container.innerHTML = '';
-            
-            // Create thumbnails with lazy loading
-            allPhotos.forEach((photo, index) => {
-                const thumb = document.createElement('div');
-                thumb.className = 'lightbox-thumbnail';
-                if (index === currentPhotoIndex) thumb.classList.add('active');
-                
-                // Create placeholder for thumbnail
-                const placeholder = document.createElement('div');
-                placeholder.style.cssText = 'width: 100%; height: 100%; background: #f0f0f0; display: flex; align-items: center; justify-content: center;';
-                thumb.appendChild(placeholder);
-                
-                thumb.addEventListener('click', () => {
-                    currentPhotoIndex = index;
-                    updateLightboxContent();
-                    updateThumbnailActive();
-                });
-                container.appendChild(thumb);
-                
-                // Load thumbnail images lazily (only visible ones initially)
-                if (Math.abs(index - currentPhotoIndex) <= 3) {
-                    loadThumbnailImage(thumb, photo.src, placeholder);
-                }
-            });
-            
-            // Scroll to active thumbnail
-            const activeThumb = container.querySelector('.active');
-            if (activeThumb) {
-                activeThumb.scrollIntoView({ behavior: 'smooth', inline: 'center' });
-            }
-        }
-        
-        function loadThumbnailImage(thumb, src, placeholder) {
-            const img = new Image();
-            img.onload = () => {
-                img.style.cssText = 'width: 100%; height: 100%; object-fit: cover;';
-                placeholder.replaceWith(img);
-            };
-            img.onerror = () => {
-                placeholder.style.background = '#ddd';
-                placeholder.textContent = '✕';
-            };
-            img.src = src;
-        }
-        
-        function updateThumbnailActive() {
-            const thumbnails = document.querySelectorAll('.lightbox-thumbnail');
-            thumbnails.forEach((thumb, index) => {
-                thumb.classList.toggle('active', index === currentPhotoIndex);
-                
-                // Load nearby thumbnails on demand
-                if (Math.abs(index - currentPhotoIndex) <= 3) {
-                    const placeholder = thumb.querySelector('div');
-                    if (placeholder && !thumb.querySelector('img')) {
-                        loadThumbnailImage(thumb, allPhotos[index].src, placeholder);
-                    }
-                }
-            });
-        }
-        
-        function setupLightboxHandlers() {
-            const lightbox = document.getElementById('gallery-lightbox');
-            
-            // Close button
-            document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
-            
-            // Previous/Next buttons
-            document.querySelector('.lightbox-prev').addEventListener('click', () => {
-                if (currentPhotoIndex > 0) {
-                    currentPhotoIndex--;
-                    updateLightboxContent();
-                }
-            });
-            
-            document.querySelector('.lightbox-next').addEventListener('click', () => {
-                if (currentPhotoIndex < allPhotos.length - 1) {
-                    currentPhotoIndex++;
-                    updateLightboxContent();
-                }
-            });
-            
-            // Close on background click
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) {
-                    closeLightbox();
-                }
-            });
-            
-            // Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                if (!lightbox.classList.contains('active')) return;
-                
-                switch(e.key) {
-                    case 'Escape':
-                        closeLightbox();
-                        break;
-                    case 'ArrowLeft':
-                        if (currentPhotoIndex > 0) {
-                            currentPhotoIndex--;
-                            updateLightboxContent();
-                        }
-                        break;
-                    case 'ArrowRight':
-                        if (currentPhotoIndex < allPhotos.length - 1) {
-                            currentPhotoIndex++;
-                            updateLightboxContent();
-                        }
-                        break;
-                }
-            });
-        }
-        
-        function closeLightbox() {
-            const lightbox = document.getElementById('gallery-lightbox');
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        }
+        // Legacy lightbox functions removed - using ultra-performance-gallery.js
+        // All gallery functionality now handled by ultra-performance-gallery.js
         
     </script>
 </body>
