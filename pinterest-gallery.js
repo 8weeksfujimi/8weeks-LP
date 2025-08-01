@@ -42,9 +42,10 @@ class PinterestGallery {
             const property = cleanGalleryData.properties[propertyKey];
             
             property.photos.forEach((photo, index) => {
-                // Pinterest風にランダムな高さを設定
+                // Pinterest風にランダムな高さを設定（より自然な分布）
                 const heights = ['small', 'medium', 'tall'];
-                const randomHeight = heights[Math.floor(Math.random() * heights.length)];
+                const weights = [40, 40, 20]; // medium多め、tall少なめ
+                const randomHeight = this.getWeightedRandomHeight(heights, weights);
                 
                 this.allPhotos.push({
                     src: photo.src,
@@ -84,6 +85,21 @@ class PinterestGallery {
         }
         return shuffled;
     }
+
+    // 重み付きランダム高さ選択
+    getWeightedRandomHeight(heights, weights) {
+        const totalWeight = weights.reduce((sum, weight) => sum + weight, 0);
+        let random = Math.random() * totalWeight;
+        
+        for (let i = 0; i < heights.length; i++) {
+            random -= weights[i];
+            if (random <= 0) {
+                return heights[i];
+            }
+        }
+        return heights[0]; // フォールバック
+    }
+
 
     // ギャラリーを表示
     showGallery() {
@@ -176,14 +192,31 @@ class PinterestGallery {
         this.applyFilters();
     }
     
-    // フィルターを適用
+    // 二重フィルターを適用
     applyFilters() {
-        // フィルター済み写真を更新
-        this.filteredPhotos = this.allPhotos.filter(photo => {
-            const propertyMatch = this.currentPropertyFilter === 'all' || photo.property === this.currentPropertyFilter;
-            const categoryMatch = this.currentCategoryFilter === 'all' || photo.category === this.currentCategoryFilter;
-            return propertyMatch && categoryMatch;
-        });
+        let filteredPhotos = [...this.allPhotos];
+        
+        // プロパティフィルター
+        if (this.currentPropertyFilter !== 'all') {
+            filteredPhotos = filteredPhotos.filter(photo => photo.property === this.currentPropertyFilter);
+        }
+        
+        // カテゴリーフィルター
+        if (this.currentCategoryFilter !== 'all') {
+            filteredPhotos = filteredPhotos.filter(photo => photo.category === this.currentCategoryFilter);
+        }
+        
+        // ソート処理
+        if (this.currentPropertyFilter === 'all' && this.currentCategoryFilter === 'all') {
+            // 全て表示の場合はランダム
+            this.filteredPhotos = this.shuffleArray(filteredPhotos);
+        } else if (this.currentPropertyFilter !== 'all' && this.currentCategoryFilter === 'all') {
+            // 個別物件のみ選択時はカテゴリー順
+            this.filteredPhotos = this.sortByCategory(filteredPhotos);
+        } else {
+            // その他の場合はそのまま
+            this.filteredPhotos = filteredPhotos;
+        }
         
         // ギャラリーをリセット
         const galleryContainer = document.getElementById('property-masonry');
@@ -198,6 +231,22 @@ class PinterestGallery {
         setTimeout(() => {
             this.animateItems();
         }, 100);
+    }
+    
+    // カテゴリー順にソート
+    sortByCategory(photos) {
+        const categoryOrder = ['exterior', 'living', 'kitchen', 'bedroom', 'bathroom', 'amenities', 'view'];
+        
+        return photos.sort((a, b) => {
+            const aIndex = categoryOrder.indexOf(a.category);
+            const bIndex = categoryOrder.indexOf(b.category);
+            
+            // カテゴリーが見つからない場合は最後に配置
+            const aOrder = aIndex === -1 ? categoryOrder.length : aIndex;
+            const bOrder = bIndex === -1 ? categoryOrder.length : bIndex;
+            
+            return aOrder - bOrder;
+        });
     }
 
     // ライトボックスを開く
@@ -340,7 +389,7 @@ class PinterestGallery {
 
     // イベントリスナーを設定
     setupEventListeners() {
-        // フィルターボタン
+        // プロパティフィルターボタン
         document.addEventListener('click', (event) => {
             if (event.target.classList.contains('filter-btn') || event.target.closest('.filter-btn')) {
                 const btn = event.target.classList.contains('filter-btn') ? event.target : event.target.closest('.filter-btn');
@@ -349,43 +398,47 @@ class PinterestGallery {
                 if (btn.hasAttribute('data-property')) {
                     const property = btn.getAttribute('data-property');
                     
-                    // アクティブ状態を更新（プロパティフィルターのみ）
-                    document.querySelectorAll('.filter-btn[data-property]').forEach(b => b.classList.remove('active'));
+                    // アクティブ状態を更新
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
                     
                     // フィルターを適用
                     this.applyPropertyFilter(property);
                 }
+            }
+        });
+        
+        // カテゴリーオプション
+        document.addEventListener('click', (event) => {
+            console.log('Click event:', event.target, event.target.classList);
+            if (event.target.classList.contains('category-option') || event.target.closest('.category-option')) {
+                const option = event.target.classList.contains('category-option') ? event.target : event.target.closest('.category-option');
+                const category = option.getAttribute('data-category');
+                console.log('Category selected:', category);
                 
-                // カテゴリーオプション
-                if (event.target.classList.contains('category-option')) {
-                    const option = event.target;
-                    const category = option.getAttribute('data-category');
-                    
-                    // アクティブ状態を更新
-                    document.querySelectorAll('.category-option').forEach(opt => opt.classList.remove('active'));
-                    option.classList.add('active');
-                    
-                    // 選択されたカテゴリーを表示
-                    const selectedCategory = document.getElementById('selected-category');
-                    const selectedIcon = option.querySelector('.filter-icon').cloneNode(true);
-                    const selectedText = option.textContent.trim();
-                    
-                    if (selectedCategory) {
-                        selectedCategory.innerHTML = '';
-                        selectedCategory.appendChild(selectedIcon);
-                        selectedCategory.appendChild(document.createTextNode(selectedText));
-                    }
-                    
-                    // ドロップダウンを閉じる
-                    const dropdown = document.querySelector('.category-dropdown');
-                    if (dropdown) {
-                        dropdown.classList.remove('open');
-                    }
-                    
-                    // フィルターを適用
-                    this.applyCategoryFilter(category);
+                // アクティブ状態を更新
+                document.querySelectorAll('.category-option').forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                
+                // 選択されたカテゴリーを表示
+                const selectedCategory = document.getElementById('selected-category');
+                const selectedIcon = option.querySelector('.filter-icon').cloneNode(true);
+                const selectedText = option.textContent.trim();
+                
+                if (selectedCategory) {
+                    selectedCategory.innerHTML = '';
+                    selectedCategory.appendChild(selectedIcon);
+                    selectedCategory.appendChild(document.createTextNode(' ' + selectedText));
                 }
+                
+                // ドロップダウンを閉じる
+                const dropdown = document.querySelector('.category-dropdown');
+                if (dropdown) {
+                    dropdown.classList.remove('open');
+                }
+                
+                // フィルターを適用
+                this.applyCategoryFilter(category);
             }
         });
         
@@ -457,8 +510,19 @@ let pinterestGallery;
 
 // DOM読み込み完了後に初期化
 document.addEventListener('DOMContentLoaded', () => {
+    // データの読み込みを確認
+    if (typeof cleanGalleryData === 'undefined') {
+        console.error('cleanGalleryData is not loaded');
+        return;
+    }
+    
     // 少し遅延させて既存のギャラリーシステムとの競合を避ける
     setTimeout(() => {
-        pinterestGallery = new PinterestGallery();
-    }, 1000);
+        try {
+            pinterestGallery = new PinterestGallery();
+            console.log('PinterestGallery initialized successfully');
+        } catch (error) {
+            console.error('Failed to initialize PinterestGallery:', error);
+        }
+    }, 500);
 });

@@ -149,6 +149,22 @@
             .grid-2, .grid-3 { grid-template-columns: 1fr; }
             .container { padding: 0 16px; }
             
+            /* モバイルでロゴサイズを調整 */
+            .hero::before {
+                width: 500px;
+                height: 500px;
+                opacity: 0.1;
+            }
+            
+            .hero {
+                min-height: 70vh;
+                padding: 60px 0 80px;
+            }
+            
+            .hero-philosophy-content h2 {
+                font-size: 1.8rem;
+            }
+            
             .space-image {
                 height: 240px;
             }
@@ -240,13 +256,38 @@
             background: var(--color-gray-light);
         }
 
-        /* Hero Section */
+        /* Hero + Philosophy 統合セクション */
         .hero {
-            background: #f8f8f8;
-            padding: 80px 0 60px;
+            background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+            padding: 80px 0 100px;
             text-align: center;
+            position: relative;
+            min-height: 80vh;
+        }
+        
+        /* 統合セクション全体の大きなロゴ背景 */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background-image: url('ロゴ.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.12;
+            z-index: 0;
+            pointer-events: none;
         }
 
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
         .hero-content h1 {
             font-size: clamp(32px, 6vw, 48px);
             font-weight: 600;
@@ -301,17 +342,31 @@
             line-height: 1.6;
         }
 
-        /* Philosophy Section */
-        .philosophy {
-            background: #f8f8f8;
-            border-top: 1px solid var(--color-gray-light);
-            border-bottom: 1px solid var(--color-gray-light);
+        /* 統合コンテンツのスタイル */
+        .hero-philosophy-content {
+            max-width: 800px;
+            margin: 60px auto 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
         }
+        
+        .hero-philosophy-content h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #222222;
+            margin-bottom: 32px;
+            letter-spacing: -0.02em;
+        }
+        
+        
 
         .philosophy-content {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         .philosophy p {
@@ -987,23 +1042,17 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero + Philosophy 統合セクション -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <img src="ロゴ.png" alt="8weeks Fujimi - 八ヶ岳山麓の貸別荘ロゴ" class="logo-image">
                 <h1>8weeks Fujimi</h1>
                 <p class="subtitle">時間の流れを大切にする人のための、八ヶ岳山麓の静かな滞在空間</p>
                 <p class="location">1000m Elevation, Yatsugatake Mountains</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Philosophy Section -->
-    <section class="philosophy">
-        <div class="container">
-            <h2 class="section-title">この場所で暮らすまでの8週間</h2>
-            <div class="philosophy-content">
+            
+            <div class="hero-philosophy-content">
+                <h2>この場所で暮らすまでの8週間</h2>
                 <p>2020年に都市部から当時1歳の娘と移住した私たちは、<br>
                 富士見町に魅了され、8週間で移住を決断しました。</p>
                 <p>豊かな自然の中で贅沢な時間を過ごし、<br>
@@ -1461,10 +1510,6 @@
                             <div class="property-details">
                                 <h4>8weeks Fujimi</h4>
                                 <p>2寝室・2ベッド・1バス・定員6名</p>
-                                <div class="property-rating">
-                                    <span class="stars">★★★★★</span>
-                                    <span>4.98</span>
-                                </div>
                             </div>
                             <div class="property-buttons">
                                 <a href="https://airbnb.com/h/8weeksfujimi" target="_blank" class="property-btn">Airbnb</a>
@@ -1476,10 +1521,6 @@
                             <div class="property-details">
                                 <h4>8weeks Quriu</h4>
                                 <p>2寝室・5ベッド・2バス・定員6名</p>
-                                <div class="property-rating">
-                                    <span class="stars">★★★★★</span>
-                                    <span>5.0</span>
-                                </div>
                             </div>
                             <div class="property-buttons">
                                 <a href="https://airbnb.com/h/8weeks-quriu" target="_blank" class="property-btn">Airbnb</a>
@@ -1491,10 +1532,6 @@
                             <div class="property-details">
                                 <h4>8weeks Studio</h4>
                                 <p>2寝室・4ベッド・1バス・定員4名</p>
-                                <div class="property-rating">
-                                    <span class="stars">★★★★★</span>
-                                    <span>5.0</span>
-                                </div>
                             </div>
                             <div class="property-buttons">
                                 <a href="https://airbnb.com/h/8weeks-studio" target="_blank" class="property-btn">Airbnb</a>

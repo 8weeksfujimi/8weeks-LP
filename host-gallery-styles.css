@@ -1160,8 +1160,6 @@
 }
 
 .card-image img {
-    width: 100%;
-    height: auto;
     display: block;
     transition: transform 0.3s ease;
     background: transparent;
@@ -1171,9 +1169,24 @@
     transform: scale(1.05);
 }
 
-/* カードサイズバリエーション - 画像の自然なサイズに従う */
-.masonry-item .card-image {
-    /* aspect-ratioを削除し、画像の自然なサイズを保持 */
+/* カードサイズバリエーション - Pinterest風ランダムサイズ */
+.masonry-item.small .card-image {
+    height: 200px;
+}
+
+.masonry-item.medium .card-image {
+    height: 280px;
+}
+
+.masonry-item.tall .card-image {
+    height: 400px;
+}
+
+.masonry-item .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 /* プロパティバッジ */
@@ -1446,6 +1459,19 @@
 
     .masonry-item {
         margin-bottom: 12px;
+    }
+    
+    /* モバイル用のサイズ調整 */
+    .masonry-item.small .card-image {
+        height: 160px;
+    }
+    
+    .masonry-item.medium .card-image {
+        height: 220px;
+    }
+    
+    .masonry-item.tall .card-image {
+        height: 320px;
     }
     
     /* モバイルでも画像の自然なサイズを維持 */

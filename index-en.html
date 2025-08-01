@@ -218,13 +218,39 @@
             color: var(--color-black);
         }
 
-        /* Hero Section */
+        /* Hero + Philosophy 統合セクション */
         .hero {
             background: linear-gradient(135deg, var(--color-warm) 0%, var(--color-white) 100%);
-            padding: 120px 0 80px;
+            padding: 120px 0 100px;
             text-align: center;
+            position: relative;
+            min-height: 80vh;
+            overflow: hidden;
+        }
+        
+        /* 統合セクション全体の大きなロゴ背景 */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background-image: url('ロゴ.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.12;
+            z-index: 0;
+            pointer-events: none;
         }
 
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
         .hero-content h1 {
             font-size: 48px;
             font-weight: 600;
@@ -261,11 +287,30 @@
             .nav-links { display: none; }
         }
 
-        /* Philosophy Section */
-        .philosophy {
-            padding: 80px 0;
-            background: var(--color-white);
+        /* 統合コンテンツのスタイル */
+        .hero-philosophy-content {
+            max-width: 800px;
+            margin: 60px auto 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
         }
+        
+        .hero-philosophy-content h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #222222;
+            margin-bottom: 32px;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero-philosophy-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--color-gray-dark);
+            margin-bottom: 24px;
+        }
+        
 
         .section-title {
             font-size: 32px;
@@ -279,6 +324,8 @@
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         .philosophy-content p {
@@ -791,6 +838,22 @@
             .booking-options { flex-direction: column; }
             .area-tabs { justify-content: center; }
             .area-tab { font-size: 14px; padding: 8px 16px; }
+            
+            /* モバイルでロゴサイズを調整 */
+            .hero::before {
+                width: 500px;
+                height: 500px;
+                opacity: 0.1;
+            }
+            
+            .hero {
+                min-height: 70vh;
+                padding: 60px 0 80px;
+            }
+            
+            .hero-philosophy-content h2 {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
@@ -811,23 +874,17 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero + Philosophy 統合セクション -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <img src="ロゴ.png" alt="8weeks Fujimi - Vacation Rental Lodge in Yatsugatake Mountains Logo" class="logo-image">
                 <h1>8weeks Fujimi</h1>
                 <p class="subtitle">Tranquil retreat spaces for those who cherish the flow of time, nestled in the Yatsugatake mountains</p>
                 <p class="location">1000m Elevation, Yatsugatake Mountains</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Philosophy Section -->
-    <section class="philosophy">
-        <div class="container">
-            <h2 class="section-title">Our 8-Week Journey to This Place</h2>
-            <div class="philosophy-content">
+            
+            <div class="hero-philosophy-content">
+                <h2>Our 8-Week Journey to This Place</h2>
                 <p>In 2020, we moved from the city with our one-year-old daughter<br>
                 and fell in love with Fujimi-machi, making the decision to relocate within 8 weeks.</p>
                 <p>Spending luxurious time surrounded by rich nature,<br>
@@ -968,7 +1025,7 @@
                         </div>
                         <div class="category-option" data-category="view">
                             <i data-lucide="mountain" class="filter-icon"></i>
-                            Views
+                            View
                         </div>
                     </div>
                 </div>
@@ -1227,21 +1284,18 @@
                         <div class="property-item">
                             <div class="property-info">
                                 <h4>8weeks Fujimi</h4>
-                                <p>★4.98 rating</p>
                             </div>
                             <a href="https://airbnb.com/h/8weeksfujimi" target="_blank" class="property-btn">Airbnb</a>
                         </div>
                         <div class="property-item">
                             <div class="property-info">
                                 <h4>8weeks Quriu</h4>
-                                <p>★5.0 rating</p>
                             </div>
                             <a href="https://airbnb.com/h/8weeks-quriu" target="_blank" class="property-btn">Airbnb</a>
                         </div>
                         <div class="property-item">
                             <div class="property-info">
                                 <h4>8weeks Studio</h4>
-                                <p>★5.0 rating</p>
                             </div>
                             <a href="https://airbnb.com/h/8weeks-studio" target="_blank" class="property-btn">Airbnb</a>
                         </div>
