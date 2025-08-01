@@ -31,6 +31,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
     
+    <!-- Host Gallery Styles -->
+    <link rel="stylesheet" href="host-gallery-styles.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Gallery Data -->
+    <script src="gallery-data.js"></script>
+    <script src="airbnb-data.js"></script>
+    
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -83,17 +93,19 @@
     
     <style>
         :root {
-            --color-black: #2c3e34;
-            --color-gray-dark: #4a5c52;
-            --color-gray-medium: #6b7b71;
-            --color-gray-light: #f8f6f3;
+            --color-black: #222222;
+            --color-gray-dark: #484848;
+            --color-gray-medium: #717171;
+            --color-gray-light: #f7f7f7;
             --color-white: #ffffff;
-            --color-accent: #d4a574;
-            --color-warm: #f4e8d8;
-            --font-primary: 'Inter', 'Noto Sans JP', sans-serif;
-            --border-thin: 1px solid #e8e3dc;
-            --shadow-subtle: 0 2px 8px rgba(44,62,52,0.08);
-            --transition: all 0.3s ease;
+            --color-accent: #FF5A5F;
+            --color-warm: #FFF8F6;
+            --font-primary: 'Circular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            --border-thin: 1px solid #DDDDDD;
+            --shadow-subtle: 0 2px 16px rgba(0,0,0,0.12);
+            --shadow-card: 0 6px 16px rgba(0,0,0,0.12);
+            --transition: all 0.2s ease;
+            --border-radius: 12px;
         }
 
         * {
@@ -198,16 +210,17 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--color-warm) 0%, var(--color-white) 100%);
+            background: var(--color-white);
             padding: 120px 0 80px;
             text-align: center;
         }
 
         .hero-content h1 {
-            font-size: 48px;
+            font-size: clamp(32px, 6vw, 48px);
             font-weight: 600;
             margin-bottom: 16px;
             color: var(--color-black);
+            letter-spacing: -0.02em;
         }
 
         .hero-content .subtitle {
@@ -218,12 +231,11 @@
         }
 
         .hero-content .location {
-            font-size: 14px;
-            color: var(--color-accent);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 16px;
+            color: var(--color-gray-dark);
             margin-bottom: 48px;
             background: transparent;
+            font-weight: 400;
         }
 
         .logo-image {
@@ -236,29 +248,32 @@
 
         /* Section Styles */
         section {
-            padding: 120px 0;
+            padding: 80px 0;
         }
 
         .section-title {
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 300;
+            font-size: clamp(28px, 5vw, 40px);
+            font-weight: 600;
             text-align: center;
-            margin-bottom: 64px;
-            letter-spacing: 0.02em;
+            margin-bottom: 48px;
+            letter-spacing: -0.02em;
+            color: var(--color-black);
         }
 
         .section-subtitle {
-            font-size: 18px;
-            color: var(--color-gray-medium);
+            font-size: 16px;
+            color: var(--color-gray-dark);
             text-align: center;
             max-width: 600px;
-            margin: 0 auto 64px;
-            line-height: 1.8;
+            margin: 0 auto 48px;
+            line-height: 1.6;
         }
 
         /* Philosophy Section */
         .philosophy {
-            background: var(--color-gray-light);
+            background: var(--color-white);
+            border-top: 1px solid var(--color-gray-light);
+            border-bottom: 1px solid var(--color-gray-light);
         }
 
         .philosophy-content {
@@ -268,9 +283,9 @@
         }
 
         .philosophy p {
-            font-size: 18px;
-            line-height: 1.8;
-            margin-bottom: 24px;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
             color: var(--color-gray-dark);
         }
 
@@ -278,40 +293,25 @@
         .space-card {
             background: var(--color-white);
             border: var(--border-thin);
-            padding: 40px;
+            border-radius: var(--border-radius);
+            padding: 0;
             transition: var(--transition);
-            text-align: center;
+            text-align: left;
             position: relative;
             overflow: hidden;
-        }
-
-        .space-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--color-accent);
-            transform: scaleX(0);
-            transition: var(--transition);
+            box-shadow: var(--shadow-card);
         }
 
         .space-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-subtle);
-            background: var(--color-warm);
-        }
-
-        .space-card:hover::before {
-            transform: scaleX(1);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0,0,0,0.16);
         }
 
         .space-image {
             width: 100%;
-            height: 240px;
-            margin-bottom: 24px;
-            border-radius: 8px;
+            height: 200px;
+            margin-bottom: 0;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
             overflow: hidden;
             position: relative;
             background: var(--color-gray-light);
@@ -323,24 +323,29 @@
         .space-image img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             transition: var(--transition);
         }
 
         .space-card:hover .space-image img {
-            transform: scale(1.05);
+            transform: scale(1.03);
+        }
+
+        .space-content {
+            padding: 20px;
         }
 
         .space-name {
-            font-size: 24px;
-            font-weight: 500;
+            font-size: 18px;
+            font-weight: 600;
             margin-bottom: 8px;
+            color: var(--color-black);
         }
 
         .space-tagline {
             font-size: 14px;
-            color: var(--color-accent);
-            font-weight: 500;
+            color: var(--color-gray-medium);
+            font-weight: 400;
             margin-bottom: 12px;
             line-height: 1.4;
             font-style: italic;
@@ -449,9 +454,9 @@
         .area-tab {
             padding: 12px 24px;
             background: var(--color-white);
-            border: 2px solid var(--color-accent);
-            border-radius: 25px;
-            color: var(--color-accent);
+            border: 1px solid var(--color-gray-medium);
+            border-radius: 50px;
+            color: var(--color-gray-dark);
             font-weight: 500;
             cursor: pointer;
             transition: var(--transition);
@@ -460,8 +465,9 @@
 
         .area-tab:hover,
         .area-tab.active {
-            background: var(--color-accent);
+            background: var(--color-black);
             color: var(--color-white);
+            border-color: var(--color-black);
         }
 
         .area-content {
@@ -741,22 +747,30 @@
         /* Space Links */
         .space-links {
             display: flex;
-            gap: 8px;
+            gap: 12px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #EEEEEE;
         }
 
         .space-link {
             flex: 1;
-            padding: 8px 16px;
+            padding: 12px 16px;
             text-align: center;
             text-decoration: none;
-            font-size: 12px;
-            letter-spacing: 0.05em;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 8px;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .space-link:first-child {
             border: 1px solid var(--color-accent);
             color: var(--color-accent);
+            background: white;
         }
 
         .space-link:first-child:hover {
@@ -767,6 +781,7 @@
         .space-link.map-link {
             border: 1px solid var(--color-gray-medium);
             color: var(--color-gray-medium);
+            background: white;
         }
 
         .space-link.map-link:hover {
@@ -1014,54 +1029,60 @@
             <p class="section-subtitle">それぞれ異なる個性を持つ3つの空間をご用意しています</p>
             
             <div class="grid grid-3">
-                <div class="space-card">
+                <div class="space-card" data-property="fujimi">
                     <div class="space-image">
                         <img src="fujimi.png" alt="8weeks Fujimi - 八ヶ岳山麓のメイン棟・最大6名収容・マウンテンビュー・2寝室" loading="lazy">
                     </div>
-                    <h3 class="space-name">8weeks Fujimi</h3>
-                    <p class="space-tagline">グランドピアノのある森の中の一棟貸切別荘</p>
-                    <p class="space-details">2寝室・2ベッド・1バス・定員6名</p>
-                    <div class="space-rating">
-                        <span class="stars">★★★★★</span>
-                        <span>4.98</span>
+                    <div class="space-content">
+                        <h3 class="space-name">8weeks Fujimi</h3>
+                        <p class="space-tagline">グランドピアノのある森の中の一棟貸切別荘</p>
+                        <p class="space-details">2寝室・2ベッド・1バス・定員6名</p>
+                        <div class="space-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-number">4.98</span> (<span class="review-count">45</span>)
+                        </div>
                     </div>
                     <div class="space-links">
-                        <a href="https://airbnb.com/h/8weeksfujimi" class="space-link" target="_blank">詳細を見る</a>
-                        <a href="https://maps.app.goo.gl/7EvAJLE3DuLRwecr7" class="space-link map-link" target="_blank">📍 地図を見る</a>
+                        <a href="https://airbnb.com/h/8weeksfujimi" class="space-link" target="_blank"><i data-lucide="image" style="width: 14px; height: 14px; margin-right: 4px;"></i>写真を見る</a>
+                        <a href="https://maps.app.goo.gl/7EvAJLE3DuLRwecr7" class="space-link map-link" target="_blank"><i data-lucide="map-pin" style="width: 14px; height: 14px; margin-right: 4px;"></i>地図を見る</a>
                     </div>
                 </div>
 
-                <div class="space-card">
+                <div class="space-card" data-property="quriu">
                     <div class="space-image">
                         <img src="quriu.png" alt="8weeks Quriu - 複数世帯樂しめる100m²超のフロア貸切・マウンテンビュー" loading="lazy">
                     </div>
-                    <h3 class="space-name">8weeks Quriu</h3>
-                    <p class="space-tagline">複数世帯楽しめる100m²超のフロア貸切、<br>マウンテンビュー</p>
-                    <p class="space-details">2寝室・5ベッド・2バス・定員6名</p>
-                    <div class="space-rating">
-                        <span class="stars">★★★★★</span>
-                        <span>5.0</span>
+                    <div class="space-content">
+                        <h3 class="space-name">8weeks Quriu</h3>
+                        <p class="space-tagline">複数世帯楽しめる100m²超のフロア貸切、<br>マウンテンビュー</p>
+                        <p class="space-details">2寝室・5ベッド・2バス・定員6名</p>
+                        <div class="space-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-number">5.0</span> (<span class="review-count">28</span>)
+                        </div>
                     </div>
                     <div class="space-links">
-                        <a href="https://airbnb.com/h/8weeks-quriu" class="space-link" target="_blank">詳細を見る</a>
-                        <a href="https://maps.app.goo.gl/36fJ73qrijhShca76" class="space-link map-link" target="_blank">📍 地図を見る</a>
+                        <a href="https://airbnb.com/h/8weeks-quriu" class="space-link" target="_blank"><i data-lucide="image" style="width: 14px; height: 14px; margin-right: 4px;"></i>写真を見る</a>
+                        <a href="https://maps.app.goo.gl/36fJ73qrijhShca76" class="space-link map-link" target="_blank"><i data-lucide="map-pin" style="width: 14px; height: 14px; margin-right: 4px;"></i>地図を見る</a>
                     </div>
                 </div>
 
-                <div class="space-card">
+                <div class="space-card" data-property="studio">
                     <div class="space-image">
                         <img src="studio.png" alt="8weeks Studio - 富士見商店街のリノベーションフラット・車がなくても楽しめる" loading="lazy">
                     </div>
-                    <h3 class="space-name">8weeks Studio</h3>
-                    <p class="space-tagline">富士見商店街のリノベーションされたフラット、<br>車がなくても楽しめる</p>
-                    <p class="space-details">2寝室・4ベッド・1バス・定員4名</p>
-                    <div class="space-rating">
-                        <span class="stars">★★★★★</span>
-                        <span>5.0</span>
+                    <div class="space-content">
+                        <h3 class="space-name">8weeks Studio</h3>
+                        <p class="space-tagline">富士見商店街のリノベーションされたフラット、<br>車がなくても楽しめる</p>
+                        <p class="space-details">2寝室・4ベッド・1バス・定員4名</p>
+                        <div class="space-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-number">5.0</span> (<span class="review-count">32</span>)
+                        </div>
                     </div>
                     <div class="space-links">
-                        <a href="https://airbnb.com/h/8weeks-studio" class="space-link" target="_blank">詳細を見る</a>
-                        <a href="https://maps.app.goo.gl/ootmFKiQBJGpeUka6" class="space-link map-link" target="_blank">📍 地図を見る</a>
+                        <a href="https://airbnb.com/h/8weeks-studio" class="space-link" target="_blank"><i data-lucide="image" style="width: 14px; height: 14px; margin-right: 4px;"></i>写真を見る</a>
+                        <a href="https://maps.app.goo.gl/ootmFKiQBJGpeUka6" class="space-link map-link" target="_blank"><i data-lucide="map-pin" style="width: 14px; height: 14px; margin-right: 4px;"></i>地図を見る</a>
                     </div>
                 </div>
             </div>
@@ -1071,38 +1092,171 @@
     <!-- Location Section -->
     <section id="location" class="location">
         <div class="container">
+            <!-- Host Introduction Section -->
+            <section class="section-host">
+                <div class="container">
+                    <h2 class="section-title">Your Host</h2>
+                    <div class="host-profile">
+                        <div class="host-image">
+                            <img src="Host Photo/PXL_20250620_134618900.jpg" alt="Shunji - Your Host" class="host-photo">
+                            <div class="host-badge">
+                                <i data-lucide="star" style="width: 14px; height: 14px; margin-right: 4px;"></i>Superhost
+                            </div>
+                        </div>
+                        
+                        <div class="host-info">
+                            <h3>Rei</h3>
+                            <div class="host-stats">
+                                <div class="stat-item">
+                                    <i data-lucide="message-square" style="width: 16px; height: 16px;"></i>
+                                    <span class="stat-number">100+</span>
+                                    <span>レビュー</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i data-lucide="star" style="width: 16px; height: 16px;"></i>
+                                    <span class="stat-number">4.98</span>
+                                    <span>平均評価</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i data-lucide="home" style="width: 16px; height: 16px;"></i>
+                                    <span class="stat-number">5年</span>
+                                    <span>ホスト歴</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i data-lucide="map-pin" style="width: 16px; height: 16px;"></i>
+                                    <span class="stat-number">富士見町</span>
+                                    <span>在住</span>
+                                </div>
+                            </div>
+                            
+                            <div class="host-story">
+                                <p class="host-intro-text">
+                                    2020年に都市部から当時1歳の娘と移住し、富士見町の魅力に魅了されました。
+                                </p>
+                                <p class="host-detail">
+                                    八ヶ岳山麓の標高1000mで、3つの宿泊施設を運営しています。地域の文化やコミュニティ、
+                                    自然を守り続けながら、訪れる皆様に特別な時間を過ごしていただけるよう心がけています。
+                                </p>
+                                <p class="host-detail">
+                                    富士見町の隠れた名所やローカルな魅力をご紹介するのが得意です。
+                                    滞在中はいつでもお気軽にお声がけください。
+                                </p>
+                                
+                                <div class="superhost-info">
+                                    <i data-lucide="star" style="width: 16px; height: 16px;"></i>
+                                    <span>Airbnb Superhostとして、一貫して優れたホスピタリティを提供しています。</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Photo Gallery Section -->
+            <section class="section-gallery">
+                <div class="container">
+                    <h2 class="section-title">Property Gallery</h2>
+                    <p class="section-subtitle">三つの宿泊施設の魅力を写真と動画でご紹介</p>
+                    
+                    <!-- Photo Gallery Grid -->
+                    <div class="photo-gallery">
+                        <!-- Property Gallery Tabs -->
+                        <div class="property-tabs">
+                            <button class="property-tab active" data-property="quriu">8weeks Quriu</button>
+                            <button class="property-tab" data-property="studio">8weeks Studio</button>
+                            <button class="property-tab" data-property="fujimi">8weeks Fujimi（準備中）</button>
+                        </div>
+                        
+                        <!-- Compact Gallery Container -->
+                        <div class="gallery-container">
+                            <div class="property-gallery active" id="quriu-gallery">
+                                <div class="compact-gallery-grid" id="quriu-grid">
+                                    <!-- Will be populated by JavaScript -->
+                                </div>
+                                <button class="view-all-btn" data-property="quriu">
+                                    <i data-lucide="camera" style="width: 20px; height: 20px; margin-right: 8px;"></i>
+                                    All Photos (<span class="photo-count">33</span>)
+                                </button>
+                            </div>
+                            
+                            <div class="property-gallery" id="studio-gallery">
+                                <div class="compact-gallery-grid" id="studio-grid">
+                                    <!-- Will be populated by JavaScript -->
+                                </div>
+                                <button class="view-all-btn" data-property="studio">
+                                    <i data-lucide="camera" style="width: 20px; height: 20px; margin-right: 8px;"></i>
+                                    All Photos (<span class="photo-count">38</span>)
+                                </button>
+                            </div>
+                            
+                            <div class="property-gallery" id="fujimi-gallery">
+                                <div class="gallery-placeholder-message">
+                                    <i data-lucide="mountain" style="width: 64px; height: 64px; color: var(--color-accent); margin-bottom: 16px;"></i>
+                                    <h4>8weeks Fujimi</h4>
+                                    <p>グランドピアノのある森の中の一棟貸切別荘</p>
+                                    <p style="color: var(--color-gray-medium); font-size: 14px; margin-top: 8px;">写真準備中</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Lightbox -->
+                    <div class="lightbox" id="gallery-lightbox">
+                        <div class="lightbox-content">
+                            <button class="lightbox-close" aria-label="閉じる">
+                                <i data-lucide="x"></i>
+                            </button>
+                            <button class="lightbox-prev" aria-label="前の写真">
+                                <i data-lucide="chevron-left"></i>
+                            </button>
+                            <button class="lightbox-next" aria-label="次の写真">
+                                <i data-lucide="chevron-right"></i>
+                            </button>
+                            
+                            <div class="lightbox-image-container">
+                                <img src="" alt="" id="lightbox-image">
+                            </div>
+                            
+                            <div class="lightbox-thumbnails" id="lightbox-thumbnails">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <h2 class="section-title">富士見町で過ごす日常</h2>
             <p class="section-subtitle">標高1000mの清澄な空気の中で、何気ない時間が特別な思い出に変わる場所</p>
             
             <!-- Daily Life Charm -->
             <div class="daily-charm">
                 <div class="charm-item">
-                    <div class="charm-icon">☕</div>
+                    <div class="charm-icon"><i data-lucide="coffee" style="width: 32px; height: 32px;"></i></div>
                     <h4>朝のコーヒーと山の景色</h4>
                     <p>八ヶ岳の稜線が朝日に染まる瞬間を、温かいコーヒーとともに</p>
                 </div>
                 <div class="charm-item">
-                    <div class="charm-icon">🌸</div>
+                    <div class="charm-icon"><i data-lucide="flower-2" style="width: 32px; height: 32px;"></i></div>
                     <h4>四季折々の変化</h4>
                     <p>桜、新緑、紅葉、雪景色。毎日違う表情を見せる自然のカレンダー</p>
                 </div>
                 <div class="charm-item">
-                    <div class="charm-icon">🥬</div>
+                    <div class="charm-icon"><i data-lucide="salad" style="width: 32px; height: 32px;"></i></div>
                     <h4>地元の食材との出会い</h4>
                     <p>高原野菜、地酒、蕎麦。土地の恵みを味わう贅沢な食事時間</p>
                 </div>
                 <div class="charm-item">
-                    <div class="charm-icon">🌌</div>
+                    <div class="charm-icon"><i data-lucide="moon" style="width: 32px; height: 32px;"></i></div>
                     <h4>満天の星空</h4>
                     <p>都市では見えない星座たちが、夜空いっぱいに広がる奇跡</p>
                 </div>
                 <div class="charm-item">
-                    <div class="charm-icon">🚲</div>
+                    <div class="charm-icon"><i data-lucide="bike" style="width: 32px; height: 32px;"></i></div>
                     <h4>高原サイクリング</h4>
                     <p>爽やかな風を感じながら、八ヶ岳南麓の田園風景を自転車で駈ける</p>
                 </div>
                 <div class="charm-item">
-                    <div class="charm-icon">🌳</div>
+                    <div class="charm-icon"><i data-lucide="tree-pine" style="width: 32px; height: 32px;"></i></div>
                     <h4>子供の自然体験</h4>
                     <p>森での昆虫採集、川遊び、野鳥観察など、子供たちの冒険心を育む自然との触れ合い</p>
                 </div>
@@ -1123,7 +1277,7 @@
                         <h4>富士見駅周辺・パノラマリゾートエリア</h4>
                         
                         <div class="category-section">
-                            <h5 class="category-title">🎿 アクティビティ</h5>
+                            <h5 class="category-title"><i data-lucide="ski" style="width: 20px; height: 20px; margin-right: 8px;"></i>アクティビティ</h5>
                             <div class="area-spots">
                                 <div class="spot-card">
                                     <h6>富士見パノラマリゾート</h6>
@@ -1144,57 +1298,57 @@
                         </div>
 
                         <div class="category-section">
-                            <h5 class="category-title">🏪 ライフスタイル・富士見商店街</h5>
+                            <h5 class="category-title"><i data-lucide="store" style="width: 20px; height: 20px; margin-right: 8px;"></i>ライフスタイル・富士見商店街</h5>
                             <div class="area-spots">
                                 <div class="spot-card">
                                     <h6>ワインバー Heptapod</h6>
                                     <p>ナチュールワイン専門店。自然派ワインを中心とした選りすぐりのワインが楽しめるアットホームなバー</p>
-                                    <a href="https://www.instagram.com/heptapod_fujimi/" target="_blank" class="insta-link">📷 Instagram</a>
+                                    <a href="https://www.instagram.com/heptapod_fujimi/" target="_blank" class="insta-link"><i data-lucide="instagram" style="width: 14px; height: 14px; margin-right: 4px;"></i>Instagram</a>
                                 </div>
                                 <div class="spot-card">
                                     <h6>おにぎり屋さん onri</h6>
                                     <p>地元の美味しいお米で作る手作りおにぎり。テイクアウトでピクニックにも最適</p>
-                                    <a href="https://www.instagram.com/onri_fujimi/" target="_blank" class="insta-link">📷 Instagram</a>
+                                    <a href="https://www.instagram.com/onri_fujimi/" target="_blank" class="insta-link"><i data-lucide="instagram" style="width: 14px; height: 14px; margin-right: 4px;"></i>Instagram</a>
                                 </div>
                                 <div class="spot-card">
                                     <h6>中華料理 茶虎飯店</h6>
                                     <p>地元で愛される本格中華料理店。家庭的な雰囲気で美味しい中華を堪能</p>
-                                    <a href="https://www.instagram.com/chatorahanten/" target="_blank" class="insta-link">📷 Instagram</a>
+                                    <a href="https://www.instagram.com/chatorahanten/" target="_blank" class="insta-link"><i data-lucide="instagram" style="width: 14px; height: 14px; margin-right: 4px;"></i>Instagram</a>
                                 </div>
                                 <div class="spot-card">
                                     <h6>レコードショップ 切り株</h6>
                                     <p>音楽好きには堪らないレコードショップ。掘り出し物のレコードに出会えるかも</p>
-                                    <a href="https://www.instagram.com/fujimikirikabu/" target="_blank" class="insta-link">📷 Instagram</a>
+                                    <a href="https://www.instagram.com/fujimikirikabu/" target="_blank" class="insta-link"><i data-lucide="instagram" style="width: 14px; height: 14px; margin-right: 4px;"></i>Instagram</a>
                                 </div>
                                 <div class="spot-card">
                                     <h6>朝喫茶 ちっと</h6>
                                     <p>朝の時間を大切にする地元の喫茶店。心地よい空間でゆったりとした朝を</p>
-                                    <a href="https://www.instagram.com/chitto_fujimi/" target="_blank" class="insta-link">📷 Instagram</a>
+                                    <a href="https://www.instagram.com/chitto_fujimi/" target="_blank" class="insta-link"><i data-lucide="instagram" style="width: 14px; height: 14px; margin-right: 4px;"></i>Instagram</a>
                                 </div>
                                 <div class="spot-card">
                                     <h6>Mamemura Coffee</h6>
                                     <p>こだわりの自家焙煎コーヒーが楽しめるスペシャルティコーヒーショップ</p>
-                                    <a href="https://www.instagram.com/mame_mura_coffee/" target="_blank" class="insta-link">📷 Instagram</a>
+                                    <a href="https://www.instagram.com/mame_mura_coffee/" target="_blank" class="insta-link"><i data-lucide="instagram" style="width: 14px; height: 14px; margin-right: 4px;"></i>Instagram</a>
                                 </div>
                                 <div class="spot-card">
                                     <h6>Mountain Bookcase</h6>
                                     <p>ことばと思索と創造のための本屋。山、暮らしに関する本などが並ぶ個性的な書店</p>
-                                    <a href="https://www.instagram.com/mountainbookcase/" target="_blank" class="insta-link">📷 Instagram</a>
+                                    <a href="https://www.instagram.com/mountainbookcase/" target="_blank" class="insta-link"><i data-lucide="instagram" style="width: 14px; height: 14px; margin-right: 4px;"></i>Instagram</a>
                                 </div>
                                 <div class="spot-card">
                                     <h6>沖縄そば てぃだまーる</h6>
                                     <p>本格的な沖縄そばが味わえる貴重なお店。沖縄の味を富士見町で</p>
-                                    <a href="https://www.instagram.com/thidamaaru/" target="_blank" class="insta-link">📷 Instagram</a>
+                                    <a href="https://www.instagram.com/thidamaaru/" target="_blank" class="insta-link"><i data-lucide="instagram" style="width: 14px; height: 14px; margin-right: 4px;"></i>Instagram</a>
                                 </div>
                                 <div class="spot-card">
                                     <h6>八ヶ岳珈琲工房 Table land</h6>
                                     <p>自家焙煎にこだわったコーヒー豆の専門店。香り高いコーヒーを自宅でも</p>
-                                    <a href="https://www.instagram.com/tableland_coffee_yatsugatake/" target="_blank" class="insta-link">📷 Instagram</a>
+                                    <a href="https://www.instagram.com/tableland_coffee_yatsugatake/" target="_blank" class="insta-link"><i data-lucide="instagram" style="width: 14px; height: 14px; margin-right: 4px;"></i>Instagram</a>
                                 </div>
                                 <div class="spot-card">
                                     <h6>Cafe&DiningBar KIZASHI Station</h6>
                                     <p>地元食材を活かした創作料理が楽しめるモダンなレストラン</p>
-                                    <a href="https://www.instagram.com/kizashistationfujimi/" target="_blank" class="insta-link">📷 Instagram</a>
+                                    <a href="https://www.instagram.com/kizashistationfujimi/" target="_blank" class="insta-link"><i data-lucide="instagram" style="width: 14px; height: 14px; margin-right: 4px;"></i>Instagram</a>
                                 </div>
                             </div>
                         </div>
@@ -1204,7 +1358,7 @@
                         <h4>信濃境エリア</h4>
                         
                         <div class="category-section">
-                            <h5 class="category-title">🏔️ アクティビティ</h5>
+                            <h5 class="category-title"><i data-lucide="mountain" style="width: 20px; height: 20px; margin-right: 8px;"></i>アクティビティ</h5>
                             <div class="area-spots">
                                 <div class="spot-card">
                                     <h6>井戸尻考古館</h6>
@@ -1220,7 +1374,7 @@
                         </div>
 
                         <div class="category-section">
-                            <h5 class="category-title">🍓 ライフスタイル</h5>
+                            <h5 class="category-title"><i data-lucide="cherry" style="width: 20px; height: 20px; margin-right: 8px;"></i>ライフスタイル</h5>
                             <div class="area-spots">
                                 <div class="spot-card">
                                     <h6>高原のエコーズ 夏いちご</h6>
@@ -1307,7 +1461,7 @@
                             </div>
                             <div class="property-buttons">
                                 <a href="https://airbnb.com/h/8weeksfujimi" target="_blank" class="property-btn">Airbnb</a>
-                                <a href="https://maps.app.goo.gl/7EvAJLE3DuLRwecr7" target="_blank" class="property-btn map-btn">📍 地図</a>
+                                <a href="https://maps.app.goo.gl/7EvAJLE3DuLRwecr7" target="_blank" class="property-btn map-btn"><i data-lucide="map-pin" style="width: 14px; height: 14px; margin-right: 4px;"></i>地図</a>
                             </div>
                         </div>
                         
@@ -1322,7 +1476,7 @@
                             </div>
                             <div class="property-buttons">
                                 <a href="https://airbnb.com/h/8weeks-quriu" target="_blank" class="property-btn">Airbnb</a>
-                                <a href="https://maps.app.goo.gl/36fJ73qrijhShca76" target="_blank" class="property-btn map-btn">📍 地図</a>
+                                <a href="https://maps.app.goo.gl/36fJ73qrijhShca76" target="_blank" class="property-btn map-btn"><i data-lucide="map-pin" style="width: 14px; height: 14px; margin-right: 4px;"></i>地図</a>
                             </div>
                         </div>
                         
@@ -1337,7 +1491,7 @@
                             </div>
                             <div class="property-buttons">
                                 <a href="https://airbnb.com/h/8weeks-studio" target="_blank" class="property-btn">Airbnb</a>
-                                <a href="https://maps.app.goo.gl/ootmFKiQBJGpeUka6" target="_blank" class="property-btn map-btn">📍 地図</a>
+                                <a href="https://maps.app.goo.gl/ootmFKiQBJGpeUka6" target="_blank" class="property-btn map-btn"><i data-lucide="map-pin" style="width: 14px; height: 14px; margin-right: 4px;"></i>地図</a>
                             </div>
                         </div>
                     </div>
@@ -1350,7 +1504,7 @@
                     
                     <div class="contact-methods">
                         <a href="https://www.instagram.com/8weeks.fujimi/" class="contact-method instagram" target="_blank">
-                            <div class="contact-icon">📷</div>
+                            <div class="contact-icon"><i data-lucide="instagram" style="width: 24px; height: 24px;"></i></div>
                             <div class="contact-text">
                                 <strong>Instagram DM</strong>
                                 <span>@8weeks.fujimi</span>
@@ -1358,7 +1512,7 @@
                         </a>
                         
                         <a href="mailto:8weeks.fujimi@gmail.com?subject=予約相談&body=【ご相談内容】%0A%0A物件名：%0A日程：%0A人数：%0A特別なご要望：" class="contact-method email">
-                            <div class="contact-icon">✉️</div>
+                            <div class="contact-icon"><i data-lucide="mail" style="width: 24px; height: 24px;"></i></div>
                             <div class="contact-text">
                                 <strong>Email</strong>
                                 <span>8weeks.fujimi@gmail.com</span>
@@ -1449,6 +1603,230 @@
                 document.getElementById(targetArea + '-panel').classList.add('active');
             });
         });
+        
+        // Property Gallery Tab Functionality
+        document.querySelectorAll('.property-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs and galleries
+                document.querySelectorAll('.property-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.property-gallery').forEach(g => g.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Show corresponding gallery
+                const targetProperty = this.getAttribute('data-property');
+                document.getElementById(targetProperty + '-gallery').classList.add('active');
+            });
+        });
+        
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Re-initialize Lucide icons after dynamic content is loaded
+        setTimeout(() => {
+            lucide.createIcons();
+            // Refresh Airbnb data on page load
+            if (typeof refreshPropertyData === 'function') {
+                refreshPropertyData();
+            }
+        }, 100);
+        
+        // Gallery System
+        let currentProperty = 'quriu';
+        let currentPhotoIndex = 0;
+        let allPhotos = [];
+        
+        // Initialize gallery when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeGallery);
+        } else {
+            initializeGallery();
+        }
+        
+        function initializeGallery() {
+            try {
+                // Check if galleryData exists
+                if (typeof galleryData === 'undefined') {
+                    console.error('Gallery data not loaded');
+                    return;
+                }
+                
+                // Initialize compact galleries for each property
+                ['quriu', 'studio'].forEach(property => {
+                    const photos = galleryData.properties[property].photos;
+                    const grid = document.getElementById(`${property}-grid`);
+                    
+                    if (!grid) {
+                        console.error(`Grid element not found for ${property}`);
+                        return;
+                    }
+                    
+                    const galleryElement = grid.closest('.property-gallery');
+                    const photoCount = galleryElement ? galleryElement.querySelector('.photo-count') : null;
+                    
+                    if (photoCount) {
+                        photoCount.textContent = photos.length;
+                    }
+                    
+                    // Display first 3 photos and a "more" button
+                    const displayPhotos = photos.slice(0, 3);
+                    displayPhotos.forEach((photo, index) => {
+                        const item = createCompactGalleryItem(photo, property, index);
+                        grid.appendChild(item);
+                    });
+                    
+                    // Add "more photos" item if there are more than 3 photos
+                    if (photos.length > 3) {
+                        const moreItem = document.createElement('div');
+                        moreItem.className = 'compact-gallery-item more-photos';
+                        moreItem.innerHTML = `+${photos.length - 3}<br>枚`;
+                        moreItem.addEventListener('click', () => openLightbox(property, 3));
+                        grid.appendChild(moreItem);
+                    }
+                });
+            } catch (error) {
+                console.error('Gallery initialization error:', error);
+            }
+            
+            // View all button handlers
+            document.querySelectorAll('.view-all-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const property = this.getAttribute('data-property');
+                    openLightbox(property, 0);
+                });
+            });
+            
+            // Lightbox event handlers
+            setupLightboxHandlers();
+            
+            // Re-initialize Lucide icons for dynamically added content
+            setTimeout(() => {
+                lucide.createIcons();
+            }, 100);
+        }
+        
+        function createCompactGalleryItem(photo, property, index) {
+            const item = document.createElement('div');
+            item.className = 'compact-gallery-item';
+            item.innerHTML = `<img src="${photo.src}" alt="" loading="lazy">`;
+            item.addEventListener('click', () => openLightbox(property, index));
+            return item;
+        }
+        
+        function openLightbox(property, photoIndex) {
+            currentProperty = property;
+            currentPhotoIndex = photoIndex;
+            allPhotos = galleryData.properties[property].photos;
+            
+            const lightbox = document.getElementById('gallery-lightbox');
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            updateLightboxContent();
+            createThumbnails();
+        }
+        
+        function updateLightboxContent() {
+            const photo = allPhotos[currentPhotoIndex];
+            const image = document.getElementById('lightbox-image');
+            
+            image.src = photo.src;
+            image.alt = '';
+            
+            // Update thumbnails active state
+            document.querySelectorAll('.lightbox-thumbnail').forEach((thumb, index) => {
+                thumb.classList.toggle('active', index === currentPhotoIndex);
+            });
+            
+            // Update navigation buttons
+            document.querySelector('.lightbox-prev').style.display = 
+                currentPhotoIndex > 0 ? 'flex' : 'none';
+            document.querySelector('.lightbox-next').style.display = 
+                currentPhotoIndex < allPhotos.length - 1 ? 'flex' : 'none';
+        }
+        
+        function createThumbnails() {
+            const container = document.getElementById('lightbox-thumbnails');
+            container.innerHTML = '';
+            
+            allPhotos.forEach((photo, index) => {
+                const thumb = document.createElement('div');
+                thumb.className = 'lightbox-thumbnail';
+                if (index === currentPhotoIndex) thumb.classList.add('active');
+                thumb.innerHTML = `<img src="${photo.src}" alt="">`;
+                thumb.addEventListener('click', () => {
+                    currentPhotoIndex = index;
+                    updateLightboxContent();
+                });
+                container.appendChild(thumb);
+            });
+            
+            // Scroll to active thumbnail
+            const activeThumb = container.querySelector('.active');
+            if (activeThumb) {
+                activeThumb.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+            }
+        }
+        
+        function setupLightboxHandlers() {
+            const lightbox = document.getElementById('gallery-lightbox');
+            
+            // Close button
+            document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+            
+            // Previous/Next buttons
+            document.querySelector('.lightbox-prev').addEventListener('click', () => {
+                if (currentPhotoIndex > 0) {
+                    currentPhotoIndex--;
+                    updateLightboxContent();
+                }
+            });
+            
+            document.querySelector('.lightbox-next').addEventListener('click', () => {
+                if (currentPhotoIndex < allPhotos.length - 1) {
+                    currentPhotoIndex++;
+                    updateLightboxContent();
+                }
+            });
+            
+            // Close on background click
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+            
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox.classList.contains('active')) return;
+                
+                switch(e.key) {
+                    case 'Escape':
+                        closeLightbox();
+                        break;
+                    case 'ArrowLeft':
+                        if (currentPhotoIndex > 0) {
+                            currentPhotoIndex--;
+                            updateLightboxContent();
+                        }
+                        break;
+                    case 'ArrowRight':
+                        if (currentPhotoIndex < allPhotos.length - 1) {
+                            currentPhotoIndex++;
+                            updateLightboxContent();
+                        }
+                        break;
+                }
+            });
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('gallery-lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
     </script>
 </body>
 </html>

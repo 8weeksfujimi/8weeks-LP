@@ -31,6 +31,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Gallery and Airbnb Data -->
+    <script src="gallery-data.js"></script>
+    <script src="airbnb-data.js"></script>
+    
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -83,17 +90,19 @@
     
     <style>
         :root {
-            --color-black: #2c3e34;
-            --color-gray-dark: #4a5c52;
-            --color-gray-medium: #6b7b71;
-            --color-gray-light: #f8f6f3;
+            --color-black: #222222;
+            --color-gray-dark: #484848;
+            --color-gray-medium: #717171;
+            --color-gray-light: #f7f7f7;
             --color-white: #ffffff;
-            --color-accent: #d4a574;
-            --color-warm: #f4e8d8;
-            --font-primary: 'Inter', sans-serif;
-            --border-thin: 1px solid #e8e3dc;
-            --shadow-subtle: 0 2px 8px rgba(44,62,52,0.08);
-            --transition: all 0.3s ease;
+            --color-accent: #FF5A5F;
+            --color-warm: #FFF8F6;
+            --font-primary: 'Circular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            --border-thin: 1px solid #DDDDDD;
+            --shadow-subtle: 0 2px 16px rgba(0,0,0,0.12);
+            --shadow-card: 0 6px 16px rgba(0,0,0,0.12);
+            --transition: all 0.2s ease;
+            --border-radius: 12px;
         }
 
         * {
@@ -282,60 +291,75 @@
 
         .space-card {
             background: var(--color-white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow-subtle);
+            border: var(--border-thin);
+            border-radius: var(--border-radius);
+            padding: 0;
             transition: var(--transition);
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
         }
 
         .space-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 32px rgba(44,62,52,0.12);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0,0,0,0.16);
         }
 
         .space-image {
             width: 100%;
-            height: 240px;
+            height: 200px;
+            margin-bottom: 0;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            overflow: hidden;
+            position: relative;
             background: var(--color-gray-light);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--color-gray-medium);
         }
 
         .space-image img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .space-card:hover .space-image img {
+            transform: scale(1.03);
+        }
+
+        .space-content {
+            padding: 20px;
         }
 
         .space-card h3 {
-            font-size: 24px;
+            font-size: 18px;
             font-weight: 600;
-            margin: 24px 24px 8px;
+            margin-bottom: 8px;
             color: var(--color-black);
         }
 
         .space-tagline {
             font-size: 14px;
-            color: var(--color-accent);
-            font-weight: 500;
-            margin: 0 24px 12px;
+            color: var(--color-gray-medium);
+            font-weight: 400;
+            margin-bottom: 12px;
             line-height: 1.4;
-            font-style: italic;
         }
 
         .space-details {
-            font-size: 16px;
+            font-size: 14px;
             color: var(--color-gray-medium);
-            margin: 0 24px 16px;
+            margin-bottom: 16px;
         }
 
         .space-rating {
             display: flex;
             align-items: center;
             gap: 8px;
-            margin: 0 24px 24px;
+            margin-bottom: 16px;
         }
 
         .stars {
@@ -345,31 +369,45 @@
         .space-links {
             display: flex;
             gap: 12px;
-            margin: 0 24px 24px;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid #EEEEEE;
         }
 
         .space-link {
             flex: 1;
             padding: 12px 16px;
-            background: var(--color-black);
-            color: var(--color-white);
-            text-decoration: none;
-            border-radius: 6px;
             text-align: center;
+            text-decoration: none;
+            font-size: 14px;
             font-weight: 500;
+            border-radius: 8px;
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .space-link:hover {
-            background: var(--color-gray-dark);
+        .space-link:first-child {
+            border: 1px solid var(--color-accent);
+            color: var(--color-accent);
+            background: white;
+        }
+
+        .space-link:first-child:hover {
+            background: var(--color-accent);
+            color: var(--color-white);
         }
 
         .space-link.map-link {
-            background: var(--color-accent);
+            border: 1px solid var(--color-gray-medium);
+            color: var(--color-gray-medium);
+            background: white;
         }
 
         .space-link.map-link:hover {
-            background: #c49866;
+            background: var(--color-gray-medium);
+            color: var(--color-white);
         }
 
         /* Attractions Section */
@@ -784,54 +822,60 @@
         <div class="container">
             <h2 class="section-title">Three Spaces</h2>
             <div class="spaces-grid">
-                <div class="space-card">
+                <div class="space-card" data-property="fujimi">
                     <div class="space-image">
                         <img src="fujimi.png" alt="8weeks Fujimi - Main Lodge, Up to 6 guests, Mountain Views, 2 Bedrooms" loading="lazy">
                     </div>
-                    <h3 class="space-name">8weeks Fujimi</h3>
-                    <p class="space-tagline">Private forest villa with grand piano</p>
-                    <p class="space-details">2 bedrooms・2 beds・1 bath・6 guests</p>
-                    <div class="space-rating">
-                        <span class="stars">★★★★★</span>
-                        <span>4.98</span>
-                    </div>
-                    <div class="space-links">
-                        <a href="https://airbnb.com/h/8weeksfujimi" class="space-link" target="_blank">View Details</a>
-                        <a href="https://maps.app.goo.gl/7EvAJLE3DuLRwecr7" class="space-link map-link" target="_blank">📍 Map</a>
+                    <div class="space-content">
+                        <h3 class="space-name">8weeks Fujimi</h3>
+                        <p class="space-tagline">Private forest villa with grand piano</p>
+                        <p class="space-details">2 bedrooms・2 beds・1 bath・6 guests</p>
+                        <div class="space-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-number">4.98</span> (<span class="review-count">45</span>)
+                        </div>
+                        <div class="space-links">
+                            <a href="https://airbnb.com/h/8weeksfujimi" class="space-link" target="_blank"><i data-lucide="image" style="width: 14px; height: 14px; margin-right: 4px;"></i>View Photos</a>
+                            <a href="https://maps.app.goo.gl/7EvAJLE3DuLRwecr7" class="space-link map-link" target="_blank"><i data-lucide="map-pin" style="width: 14px; height: 14px; margin-right: 4px;"></i>Map</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="space-card">
+                <div class="space-card" data-property="quriu">
                     <div class="space-image">
                         <img src="quriu.png" alt="8weeks Quriu - Over 100m² Floor Rental for Multiple Families, Mountain Views" loading="lazy">
                     </div>
-                    <h3 class="space-name">8weeks Quriu</h3>
-                    <p class="space-tagline">100m² private floor for multiple families,<br>mountain views</p>
-                    <p class="space-details">2 bedrooms・5 beds・2 baths・6 guests</p>
-                    <div class="space-rating">
-                        <span class="stars">★★★★★</span>
-                        <span>5.0</span>
-                    </div>
-                    <div class="space-links">
-                        <a href="https://airbnb.com/h/8weeks-quriu" class="space-link" target="_blank">View Details</a>
-                        <a href="https://maps.app.goo.gl/36fJ73qrijhShca76" class="space-link map-link" target="_blank">📍 Map</a>
+                    <div class="space-content">
+                        <h3 class="space-name">8weeks Quriu</h3>
+                        <p class="space-tagline">100m² private floor for multiple families,<br>mountain views</p>
+                        <p class="space-details">2 bedrooms・5 beds・2 baths・6 guests</p>
+                        <div class="space-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-number">5.0</span> (<span class="review-count">28</span>)
+                        </div>
+                        <div class="space-links">
+                            <a href="https://airbnb.com/h/8weeks-quriu" class="space-link" target="_blank"><i data-lucide="image" style="width: 14px; height: 14px; margin-right: 4px;"></i>View Photos</a>
+                            <a href="https://maps.app.goo.gl/36fJ73qrijhShca76" class="space-link map-link" target="_blank"><i data-lucide="map-pin" style="width: 14px; height: 14px; margin-right: 4px;"></i>Map</a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="space-card">
+                <div class="space-card" data-property="studio">
                     <div class="space-image">
                         <img src="studio.png" alt="8weeks Studio - Renovated Flat in Fujimi Shopping District, Walkable Location" loading="lazy">
                     </div>
-                    <h3 class="space-name">8weeks Studio</h3>
-                    <p class="space-tagline">Renovated flat in Fujimi shopping district,<br>accessible without a car</p>
-                    <p class="space-details">2 bedrooms・4 beds・1 bath・4 guests</p>
-                    <div class="space-rating">
-                        <span class="stars">★★★★★</span>
-                        <span>5.0</span>
-                    </div>
-                    <div class="space-links">
-                        <a href="https://airbnb.com/h/8weeks-studio" class="space-link" target="_blank">View Details</a>
-                        <a href="https://maps.app.goo.gl/ootmFKiQBJGpeUka6" class="space-link map-link" target="_blank">📍 Map</a>
+                    <div class="space-content">
+                        <h3 class="space-name">8weeks Studio</h3>
+                        <p class="space-tagline">Renovated flat in Fujimi shopping district,<br>accessible without a car</p>
+                        <p class="space-details">2 bedrooms・4 beds・1 bath・4 guests</p>
+                        <div class="space-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-number">5.0</span> (<span class="review-count">32</span>)
+                        </div>
+                        <div class="space-links">
+                            <a href="https://airbnb.com/h/8weeks-studio" class="space-link" target="_blank"><i data-lucide="image" style="width: 14px; height: 14px; margin-right: 4px;"></i>View Photos</a>
+                            <a href="https://maps.app.goo.gl/ootmFKiQBJGpeUka6" class="space-link map-link" target="_blank"><i data-lucide="map-pin" style="width: 14px; height: 14px; margin-right: 4px;"></i>Map</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1106,21 +1150,33 @@
     </footer>
 
     <script>
-        function showArea(areaId) {
-            // Hide all panels
-            const panels = document.querySelectorAll('.area-panel');
-            panels.forEach(panel => panel.classList.remove('active'));
-            
-            // Remove active class from all tabs
-            const tabs = document.querySelectorAll('.area-tab');
-            tabs.forEach(tab => tab.classList.remove('active'));
-            
-            // Show selected panel
-            document.getElementById(areaId + '-panel').classList.add('active');
-            
-            // Add active class to clicked tab
-            event.target.classList.add('active');
-        }
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Initialize Airbnb data refresh
+        setTimeout(() => {
+            lucide.createIcons();
+            // Refresh Airbnb data on page load
+            if (typeof refreshPropertyData === 'function') {
+                refreshPropertyData();
+            }
+        }, 100);
+        
+        // Area guide functionality
+        document.querySelectorAll('.area-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs and panels
+                document.querySelectorAll('.area-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.area-panel').forEach(p => p.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding panel
+                this.classList.add('active');
+                const targetPanel = document.getElementById(this.dataset.target);
+                if (targetPanel) {
+                    targetPanel.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>

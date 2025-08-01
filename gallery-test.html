@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ギャラリーテスト</title>
+</head>
+<body>
+    <h1>8weeks LP ギャラリーシステム確認</h1>
+    
+    <h2>実装内容</h2>
+    <ul>
+        <li>✅ gallery-data.json - 写真データ管理ファイル（Quriu: 33枚、Studio: 38枚）</li>
+        <li>✅ コンパクトギャラリー - 各物件3枚表示 + 残り枚数表示</li>
+        <li>✅ ライトボックス機能 - 全画面表示、キーボード操作対応</li>
+        <li>✅ レスポンシブデザイン - モバイル対応</li>
+        <li>✅ 写真管理ガイド.md - 管理方法の詳細説明</li>
+    </ul>
+    
+    <h2>写真フォルダ構成</h2>
+    <pre>
+8weeks LP/
+├── Quriu Photo/      # 33枚の写真
+│   ├── 202403_Quriu1.jpeg  - メインリビング・ダイニング
+│   ├── 202403_Quriu3.jpeg  - キッチン
+│   ├── 202403_Quriu5.jpeg  - ベッドルーム1
+│   └── ... 他30枚
+│
+├── Studio Photos/    # 38枚の写真
+│   ├── DSCF9283.jpeg - メインリビング
+│   ├── DSCF9127.jpeg - バスルーム
+│   ├── DSCF9131.jpeg - キッチン
+│   └── ... 他35枚
+│
+└── gallery-data.json # 写真データ管理
+    </pre>
+    
+    <h2>使用方法</h2>
+    <ol>
+        <li>index.htmlを開く</li>
+        <li>「Property Gallery」セクションで各物件の写真を確認</li>
+        <li>写真をクリックまたは「すべての写真を見る」ボタンでライトボックス表示</li>
+        <li>矢印キーで前後の写真に移動、Escで閉じる</li>
+    </ol>
+    
+    <h2>写真の順番・キャプション変更</h2>
+    <p>gallery-data.jsonを編集して、写真の順番やキャプションを変更できます。</p>
+    
+    <hr>
+    <p><a href="index.html">メインページに戻る</a></p>
+</body>
+</html>
