@@ -273,13 +273,24 @@
 
         @media (max-width: 768px) {
             .hero-content h1 { font-size: 32px; }
-            .hero-content .subtitle { font-size: 18px; }
+            .hero-content .subtitle { font-size: 14px; line-height: 1.5; }
+            .hero-content .location { font-size: 12px; margin-bottom: 32px; }
             .nav-links { display: none; }
             
+            .hero {
+                min-height: 50vh;
+                padding: 40px 0 40px;
+            }
+            
             .hero::before {
-                width: 500px;
-                height: 500px;
+                width: 400px;
+                height: 400px;
                 opacity: 0.05;
+            }
+            
+            /* Hide philosophy content on mobile */
+            .hero-philosophy-content {
+                display: none;
             }
         }
 
@@ -290,6 +301,20 @@
             text-align: center;
             position: relative;
             z-index: 1;
+        }
+        
+        /* Philosophy section for mobile */
+        .philosophy-mobile {
+            display: none;
+            background: #f8f8f8;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .philosophy-mobile {
+                display: block;
+            }
         }
         
         .hero-philosophy-content h2 {
@@ -865,7 +890,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1>8weeks Fujimi</h1>
-                <p class="subtitle">Tranquil retreat spaces for those who cherish the flow of time, nestled in the Yatsugatake mountains</p>
+                <p class="subtitle">Tranquil retreat spaces in the Yatsugatake mountains</p>
                 <p class="location">1000m Elevation, Yatsugatake Mountains</p>
             </div>
             
@@ -930,6 +955,18 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Mobile Section -->
+    <section class="philosophy-mobile">
+        <div class="container">
+            <h2 class="section-title">Our 8-Week Journey to This Place</h2>
+            <div class="philosophy-content">
+                <p>In 2020, we moved from the city with our one-year-old daughter and fell in love with Fujimi-machi, making the decision to relocate within 8 weeks.</p>
+                <p>Spending luxurious time surrounded by rich nature, by the end of 8 weeks, we found ourselves thinking "we want to continue living in this town."</p>
+                <p>We named it "8weeks" with the hope that our guests would also experience that feeling of "wanting to stay here."</p>
             </div>
         </div>
     </section>

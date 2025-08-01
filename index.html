@@ -150,18 +150,35 @@
             .container { padding: 0 16px; }
             
             .hero {
-                min-height: 70vh;
-                padding: 60px 0 80px;
+                min-height: 50vh;
+                padding: 40px 0 40px;
             }
             
             .hero::before {
-                width: 500px;
-                height: 500px;
+                width: 400px;
+                height: 400px;
                 opacity: 0.05;
             }
             
-            .hero-philosophy-content h2 {
-                font-size: 1.8rem;
+            .hero-content h1 {
+                font-size: 2rem;
+                margin-bottom: 12px;
+            }
+            
+            .hero-content .subtitle {
+                font-size: 14px;
+                line-height: 1.5;
+                margin-bottom: 8px;
+            }
+            
+            .hero-content .location {
+                font-size: 12px;
+                margin-bottom: 32px;
+            }
+            
+            /* Philosophyコンテンツをモバイルでは省略 */
+            .hero-philosophy-content {
+                display: none;
             }
             
             .space-image {
@@ -340,6 +357,20 @@
             text-align: center;
             position: relative;
             z-index: 1;
+        }
+        
+        /* Philosophyセクション（モバイルでは代わりに表示） */
+        .philosophy-mobile {
+            display: none;
+            background: #f8f8f8;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .philosophy-mobile {
+                display: block;
+            }
         }
         
         .hero-philosophy-content h2 {
@@ -1037,7 +1068,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1>8weeks Fujimi</h1>
-                <p class="subtitle">時間の流れを大切にする人のための、八ヶ岳山麓の静かな滞在空間</p>
+                <p class="subtitle">八ヶ岳山麓の静かな滞在空間</p>
                 <p class="location">1000m Elevation, Yatsugatake Mountains</p>
             </div>
             
@@ -1104,6 +1135,18 @@
                         <a href="https://maps.app.goo.gl/ootmFKiQBJGpeUka6" class="space-link map-link" target="_blank"><i data-lucide="map-pin" style="width: 14px; height: 14px; margin-right: 4px;"></i>地図を見る</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Mobile Section -->
+    <section class="philosophy-mobile">
+        <div class="container">
+            <h2 class="section-title">この場所で暮らすまでの8週間</h2>
+            <div class="philosophy-content">
+                <p>2020年に都市部から当時1歳の娘と移住した私たちは、富士見町に魅了され、8週間で移住を決断しました。</p>
+                <p>豊かな自然の中で贅沢な時間を過ごし、8週間が経つ頃には「この町に住み続けよう」と思うようになっていたのです。</p>
+                <p>お客様にも「ここにいたい」と思えるような時間を過ごして頂きたいという願いから"8weeks"と名付けました。</p>
             </div>
         </div>
     </section>
