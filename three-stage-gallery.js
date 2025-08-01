@@ -19,61 +19,89 @@ class ThreeStageGallery {
     injectStyles() {
         const style = document.createElement('style');
         style.textContent = `
-            /* Stage 1: Preview Grid Styles */
+            /* Stage 1: Preview Grid Styles - Large display like original */
             .preview-gallery {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
-                gap: 12px;
-                margin: 20px 0;
+                gap: 16px;
+                margin: 24px 0;
+                max-width: 100%;
             }
             
             .preview-item {
                 aspect-ratio: 4/3;
-                border-radius: 8px;
+                border-radius: 6px;
                 overflow: hidden;
                 cursor: pointer;
                 position: relative;
-                background: #f5f5f5;
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                background: #f8f8f8;
+                transition: opacity 0.15s ease;
             }
             
             .preview-item:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+                opacity: 0.85;
             }
             
             .preview-item img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
-                transition: transform 0.3s ease;
-            }
-            
-            .preview-item:hover img {
-                transform: scale(1.05);
+                transition: none;
+                image-rendering: auto;
+                image-rendering: -webkit-optimize-contrast;
+                will-change: auto;
             }
             
             .preview-item.loading {
-                background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-                background-size: 200% 100%;
-                animation: shimmer 1.5s infinite;
+                background: #f8f8f8;
+                animation: pulse 1.5s ease-in-out infinite;
+            }
+            
+            @keyframes pulse {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0.7; }
             }
             
             .preview-more {
                 display: flex;
-                flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                background: rgba(255, 95, 95, 0.9);
-                color: white;
+                background: #222222;
+                color: #ffffff;
                 font-weight: 600;
-                font-size: 14px;
+                font-size: 1.1rem;
                 text-align: center;
-                line-height: 1.2;
+                padding: 20px;
+                flex-direction: column;
             }
             
             .preview-more:hover {
-                background: rgba(255, 95, 95, 1);
+                background: #333333;
+            }
+            
+            /* Responsive adjustments for preview */
+            @media (max-width: 768px) {
+                .preview-gallery {
+                    gap: 12px;
+                    margin: 20px 0;
+                }
+                
+                .preview-more {
+                    font-size: 1rem;
+                    padding: 16px;
+                }
+            }
+            
+            @media (max-width: 480px) {
+                .preview-gallery {
+                    gap: 8px;
+                    margin: 16px 0;
+                }
+                
+                .preview-more {
+                    font-size: 0.9rem;
+                    padding: 12px;
+                }
             }
             
             /* Stage 2: Grid Popup Styles */
@@ -191,9 +219,8 @@ class ThreeStageGallery {
             }
             
             .grid-item.loading {
-                background: linear-gradient(90deg, #444 25%, #555 50%, #444 75%);
-                background-size: 200% 100%;
-                animation: shimmer 1.5s infinite;
+                background: #444;
+                animation: pulse 1.5s ease-in-out infinite;
             }
             
             /* Stage 3: Lightbox Styles */
@@ -307,10 +334,6 @@ class ThreeStageGallery {
                 border-radius: 20px;
             }
             
-            @keyframes shimmer {
-                0% { background-position: 200% 0; }
-                100% { background-position: -200% 0; }
-            }
             
             /* Mobile optimizations */
             @media (max-width: 768px) {
@@ -371,11 +394,8 @@ class ThreeStageGallery {
         if (photos.length > 3) {
             const moreItem = document.createElement('div');
             moreItem.className = 'preview-item preview-more';
-            const moreText = document.documentElement.lang === 'en' ? 'View More' : 'もっと見る';
-            moreItem.innerHTML = `
-                <div>+${photos.length - 3}</div>
-                <div>${moreText}</div>
-            `;
+            const moreText = document.documentElement.lang === 'en' ? 'more' : '枚';
+            moreItem.innerHTML = `+${photos.length - 3}<br>${moreText}`;
             moreItem.addEventListener('click', () => {
                 this.openGridPopup(propertyName, photos);
             });
