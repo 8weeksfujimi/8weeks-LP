@@ -357,16 +357,63 @@ class PinterestGallery {
                     this.applyPropertyFilter(property);
                 }
                 
-                // カテゴリーフィルター
-                if (btn.hasAttribute('data-category')) {
-                    const category = btn.getAttribute('data-category');
+                // カテゴリーオプション
+                if (event.target.classList.contains('category-option')) {
+                    const option = event.target;
+                    const category = option.getAttribute('data-category');
                     
-                    // アクティブ状態を更新（カテゴリーフィルターのみ）
-                    document.querySelectorAll('.filter-btn[data-category]').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
+                    // アクティブ状態を更新
+                    document.querySelectorAll('.category-option').forEach(opt => opt.classList.remove('active'));
+                    option.classList.add('active');
+                    
+                    // 選択されたカテゴリーを表示
+                    const selectedCategory = document.getElementById('selected-category');
+                    const selectedIcon = option.querySelector('.filter-icon').cloneNode(true);
+                    const selectedText = option.textContent.trim();
+                    
+                    if (selectedCategory) {
+                        selectedCategory.innerHTML = '';
+                        selectedCategory.appendChild(selectedIcon);
+                        selectedCategory.appendChild(document.createTextNode(selectedText));
+                    }
+                    
+                    // ドロップダウンを閉じる
+                    const dropdown = document.querySelector('.category-dropdown');
+                    if (dropdown) {
+                        dropdown.classList.remove('open');
+                    }
                     
                     // フィルターを適用
                     this.applyCategoryFilter(category);
+                }
+            }
+        });
+        
+        // ドロップダウン開閉
+        document.addEventListener('click', (event) => {
+            // ドロップダウンボタンクリック
+            if (event.target.closest('#category-dropdown-btn')) {
+                event.preventDefault();
+                const dropdown = document.querySelector('.category-dropdown');
+                if (dropdown) {
+                    dropdown.classList.toggle('open');
+                }
+            }
+            // ドロップダウン外をクリックで閉じる
+            else if (!event.target.closest('.category-dropdown')) {
+                const dropdown = document.querySelector('.category-dropdown');
+                if (dropdown) {
+                    dropdown.classList.remove('open');
+                }
+            }
+        });
+        
+        // キーボードナビゲーション（Escapeでドロップダウンを閉じる）
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                const dropdown = document.querySelector('.category-dropdown');
+                if (dropdown && dropdown.classList.contains('open')) {
+                    dropdown.classList.remove('open');
                 }
             }
         });

@@ -1115,39 +1115,46 @@
                         <!-- Category Filters -->
                         <div class="filter-group">
                             <h3 class="filter-group-title">カテゴリー</h3>
-                            <div class="filter-buttons">
-                                <button class="filter-btn category-filter active" data-category="all">
+                            <div class="category-dropdown">
+                                <button class="category-dropdown-btn" id="category-dropdown-btn">
                                     <i data-lucide="image" class="filter-icon"></i>
-                                    すべて
+                                    <span id="selected-category">すべて</span>
+                                    <i data-lucide="chevron-down" class="dropdown-arrow"></i>
                                 </button>
-                                <button class="filter-btn category-filter" data-category="exterior">
-                                    <i data-lucide="home" class="filter-icon"></i>
-                                    外観
-                                </button>
-                                <button class="filter-btn category-filter" data-category="living">
-                                    <i data-lucide="sofa" class="filter-icon"></i>
-                                    リビング
-                                </button>
-                                <button class="filter-btn category-filter" data-category="kitchen">
-                                    <i data-lucide="chef-hat" class="filter-icon"></i>
-                                    キッチン
-                                </button>
-                                <button class="filter-btn category-filter" data-category="bedroom">
-                                    <i data-lucide="bed" class="filter-icon"></i>
-                                    ベッドルーム
-                                </button>
-                                <button class="filter-btn category-filter" data-category="bathroom">
-                                    <i data-lucide="bath" class="filter-icon"></i>
-                                    バスルーム
-                                </button>
-                                <button class="filter-btn category-filter" data-category="amenities">
-                                    <i data-lucide="settings" class="filter-icon"></i>
-                                    アメニティ
-                                </button>
-                                <button class="filter-btn category-filter" data-category="view">
-                                    <i data-lucide="mountain" class="filter-icon"></i>
-                                    景色
-                                </button>
+                                <div class="category-dropdown-menu" id="category-dropdown-menu">
+                                    <div class="category-option active" data-category="all">
+                                        <i data-lucide="image" class="filter-icon"></i>
+                                        すべて
+                                    </div>
+                                    <div class="category-option" data-category="exterior">
+                                        <i data-lucide="home" class="filter-icon"></i>
+                                        外観
+                                    </div>
+                                    <div class="category-option" data-category="living">
+                                        <i data-lucide="sofa" class="filter-icon"></i>
+                                        リビング
+                                    </div>
+                                    <div class="category-option" data-category="kitchen">
+                                        <i data-lucide="chef-hat" class="filter-icon"></i>
+                                        キッチン
+                                    </div>
+                                    <div class="category-option" data-category="bedroom">
+                                        <i data-lucide="bed" class="filter-icon"></i>
+                                        ベッドルーム
+                                    </div>
+                                    <div class="category-option" data-category="bathroom">
+                                        <i data-lucide="bath" class="filter-icon"></i>
+                                        バスルーム
+                                    </div>
+                                    <div class="category-option" data-category="amenities">
+                                        <i data-lucide="settings" class="filter-icon"></i>
+                                        アメニティ
+                                    </div>
+                                    <div class="category-option" data-category="view">
+                                        <i data-lucide="mountain" class="filter-icon"></i>
+                                        景色
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -1005,6 +1005,101 @@
     height: 16px;
 }
 
+/* カテゴリードロップダウン */
+.category-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.category-dropdown-btn {
+    background: white;
+    border: 2px solid #e0e0e0;
+    color: #333;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    min-width: 140px;
+    justify-content: space-between;
+}
+
+.category-dropdown-btn:hover {
+    border-color: #2c3e34;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(44, 62, 52, 0.15);
+}
+
+.dropdown-arrow {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s ease;
+}
+
+.category-dropdown.open .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.category-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    margin-top: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.category-dropdown.open .category-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.category-option {
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.category-option:hover {
+    background: #f5f5f5;
+    color: #2c3e34;
+}
+
+.category-option.active {
+    background: #2c3e34;
+    color: white;
+}
+
+.category-option:first-child {
+    border-radius: 10px 10px 0 0;
+}
+
+.category-option:last-child {
+    border-radius: 0 0 10px 10px;
+}
+
 /* Masonryグリッド */
 .masonry-gallery {
     column-count: 3;
@@ -1380,6 +1475,16 @@
     .lightbox-thumbnails {
         grid-template-columns: repeat(4, 1fr);
         gap: 6px;
+    }
+    
+    .filter-buttons {
+        gap: 8px;
+    }
+    
+    .category-dropdown-btn {
+        min-width: 120px;
+        font-size: 0.8rem;
+        padding: 10px 16px;
     }
 }
 
