@@ -23,10 +23,10 @@ class ThreeStageGallery {
             .preview-gallery {
                 display: grid !important;
                 grid-template-columns: repeat(3, 1fr) !important;
-                gap: 16px !important;
-                margin: 24px 0 !important;
+                gap: 20px !important;
+                margin: 32px 0 !important;
                 width: 100% !important;
-                min-height: 200px !important;
+                min-height: 250px !important;
                 box-sizing: border-box !important;
             }
             
@@ -38,8 +38,8 @@ class ThreeStageGallery {
                 position: relative !important;
                 background: #f8f8f8 !important;
                 transition: opacity 0.15s ease !important;
-                min-height: 150px !important;
-                min-width: 200px !important;
+                min-height: 220px !important;
+                min-width: 300px !important;
                 box-sizing: border-box !important;
             }
             
@@ -72,21 +72,39 @@ class ThreeStageGallery {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                background: #222222;
-                color: #ffffff;
-                font-weight: 600;
-                font-size: 1.1rem;
-                text-align: center;
-                padding: 20px;
-                flex-direction: column;
+                background: #000000 !important;
+                color: #ffffff !important;
+                font-weight: 600 !important;
+                font-size: 1.1rem !important;
+                text-align: center !important;
+                padding: 20px !important;
+                flex-direction: column !important;
             }
             
             .preview-more:hover {
-                background: #333333;
+                background: #111111 !important;
             }
             
             /* Responsive adjustments for preview */
             @media (max-width: 768px) {
+                .preview-gallery {
+                    gap: 16px !important;
+                    margin: 24px 0 !important;
+                    min-height: 200px !important;
+                }
+                
+                .preview-gallery .preview-item {
+                    min-height: 180px !important;
+                    min-width: 240px !important;
+                }
+                
+                .preview-more {
+                    font-size: 1rem !important;
+                    padding: 16px !important;
+                }
+            }
+            
+            @media (max-width: 480px) {
                 .preview-gallery {
                     gap: 12px !important;
                     margin: 20px 0 !important;
@@ -94,31 +112,13 @@ class ThreeStageGallery {
                 }
                 
                 .preview-gallery .preview-item {
-                    min-height: 120px !important;
-                    min-width: 160px !important;
+                    min-height: 140px !important;
+                    min-width: 180px !important;
                 }
                 
                 .preview-more {
-                    font-size: 1rem;
-                    padding: 16px;
-                }
-            }
-            
-            @media (max-width: 480px) {
-                .preview-gallery {
-                    gap: 8px !important;
-                    margin: 16px 0 !important;
-                    min-height: 120px !important;
-                }
-                
-                .preview-gallery .preview-item {
-                    min-height: 100px !important;
-                    min-width: 100px !important;
-                }
-                
-                .preview-more {
-                    font-size: 0.9rem;
-                    padding: 12px;
+                    font-size: 0.9rem !important;
+                    padding: 12px !important;
                 }
             }
             
