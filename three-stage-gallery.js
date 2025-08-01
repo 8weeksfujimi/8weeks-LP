@@ -19,11 +19,11 @@ class ThreeStageGallery {
     injectStyles() {
         const style = document.createElement('style');
         style.textContent = `
-            /* Stage 1: Preview Grid Styles - Large display like original */
+            /* Stage 1: Preview Grid Styles - 4-column layout with photos + button */
             .preview-gallery {
                 display: grid !important;
-                grid-template-columns: repeat(3, 1fr) !important;
-                gap: 20px !important;
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 16px !important;
                 margin: 32px 0 !important;
                 width: 100% !important;
                 min-height: 250px !important;
@@ -38,8 +38,8 @@ class ThreeStageGallery {
                 position: relative !important;
                 background: #f8f8f8 !important;
                 transition: opacity 0.15s ease !important;
-                min-height: 220px !important;
-                min-width: 300px !important;
+                min-height: 180px !important;
+                min-width: 220px !important;
                 box-sizing: border-box !important;
             }
             
@@ -92,9 +92,9 @@ class ThreeStageGallery {
                 background-color: #FF5A5F !important;
                 color: #ffffff !important;
                 font-weight: 600 !important;
-                font-size: 1.1rem !important;
+                font-size: 1rem !important;
                 text-align: center !important;
-                padding: 20px !important;
+                padding: 16px !important;
                 flex-direction: column !important;
                 border: none !important;
                 box-shadow: 0 4px 12px rgba(255, 90, 95, 0.3) !important;
@@ -109,38 +109,52 @@ class ThreeStageGallery {
             }
             
             /* Responsive adjustments for preview */
-            @media (max-width: 768px) {
+            @media (max-width: 1024px) {
                 .preview-gallery {
+                    grid-template-columns: repeat(2, 1fr) !important;
                     gap: 16px !important;
-                    margin: 24px 0 !important;
-                    min-height: 200px !important;
                 }
                 
                 .preview-gallery .preview-item {
+                    min-height: 200px !important;
+                    min-width: 280px !important;
+                }
+            }
+            
+            @media (max-width: 768px) {
+                .preview-gallery {
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 12px !important;
+                    margin: 24px 0 !important;
                     min-height: 180px !important;
-                    min-width: 240px !important;
+                }
+                
+                .preview-gallery .preview-item {
+                    min-height: 160px !important;
+                    min-width: 220px !important;
                 }
                 
                 .preview-more {
-                    font-size: 1rem !important;
-                    padding: 16px !important;
+                    font-size: 0.9rem !important;
+                    padding: 14px !important;
                 }
             }
             
             @media (max-width: 480px) {
                 .preview-gallery {
-                    gap: 12px !important;
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    gap: 8px !important;
                     margin: 20px 0 !important;
-                    min-height: 160px !important;
+                    min-height: 140px !important;
                 }
                 
                 .preview-gallery .preview-item {
-                    min-height: 140px !important;
-                    min-width: 180px !important;
+                    min-height: 120px !important;
+                    min-width: 160px !important;
                 }
                 
                 .preview-more {
-                    font-size: 0.9rem !important;
+                    font-size: 0.8rem !important;
                     padding: 12px !important;
                 }
             }
