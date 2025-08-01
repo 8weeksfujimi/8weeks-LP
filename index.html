@@ -40,7 +40,7 @@
     <!-- Gallery Data -->
     <script src="optimized-gallery-data.js"></script>
     <script src="airbnb-data.js"></script>
-    <script src="ultra-performance-gallery.js"></script>
+    <script src="three-stage-gallery.js"></script>
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -1656,7 +1656,7 @@
                     return;
                 }
                 
-                // Initialize ultra performance galleries for each property
+                // Initialize three-stage galleries for each property
                 ['quriu', 'studio'].forEach(property => {
                     const photos = optimizedGalleryData.properties[property].photos;
                     const grid = document.getElementById(`${property}-grid`);
@@ -1673,18 +1673,19 @@
                         photoCount.textContent = photos.length;
                     }
                     
-                    // Create ultra performance gallery with 3-column grid view
-                    ultraGallery.createGalleryGrid(`${property}-grid`, photos, property);
+                    // Create three-stage gallery: Preview (3) → Grid popup (all) → Individual lightbox
+                    threeStageGallery.createPreviewGallery(`${property}-grid`, photos, property);
                 });
             } catch (error) {
                 console.error('Gallery initialization error:', error);
             }
             
-            // View all button handlers for new ultra gallery
+            // View all button handlers for three-stage gallery
             document.querySelectorAll('.view-all-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const property = this.getAttribute('data-property');
-                    ultraGallery.openLightbox(property, 0);
+                    const photos = optimizedGalleryData.properties[property].photos;
+                    threeStageGallery.openGridPopup(property, photos);
                 });
             });
             
