@@ -177,10 +177,25 @@ const optimizedGalleryData = {
       "description": "富士見商店街のリノベーションフラット・モダンなデザイン",
       "photos": [
         {
+          "src": "optimized/Studio Photos/DSCF9557.jpeg",
+          "caption": "室内装飾",
+          "description": "アートのある暮らし",
+          "featured": true
+        },
+        {
+          "src": "optimized/Studio Photos/DSCF9615.jpeg",
+          "caption": "アメニティ",
+          "description": "充実した備品"
+        },
+        {
+          "src": "optimized/Studio Photos/DSCF9526.jpeg",
+          "caption": "富士見駅方面",
+          "description": "駅まで徒歩圏内"
+        },
+        {
           "src": "optimized/Studio Photos/DSCF9283.jpeg",
           "caption": "メインリビング",
-          "description": "モダンでスタイリッシュな空間",
-          "featured": true
+          "description": "モダンでスタイリッシュな空間"
         },
         {
           "src": "optimized/Studio Photos/DSCF9127.jpeg",
@@ -316,21 +331,6 @@ const optimizedGalleryData = {
           "src": "optimized/Studio Photos/DSCF9515.jpeg",
           "caption": "商店街の雰囲気",
           "description": "地域の温かさ"
-        },
-        {
-          "src": "optimized/Studio Photos/DSCF9526.jpeg",
-          "caption": "富士見駅方面",
-          "description": "駅まで徒歩圏内"
-        },
-        {
-          "src": "optimized/Studio Photos/DSCF9557.jpeg",
-          "caption": "室内装飾",
-          "description": "アートのある暮らし"
-        },
-        {
-          "src": "optimized/Studio Photos/DSCF9615.jpeg",
-          "caption": "アメニティ",
-          "description": "充実した備品"
         },
         {
           "src": "optimized/Studio Photos/DSCF9621.jpeg",
