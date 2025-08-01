@@ -38,9 +38,12 @@
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     
     <!-- Gallery Data -->
-    <script src="optimized-gallery-data.js"></script>
+    <script src="clean-gallery-data.js"></script>
     <script src="airbnb-data.js"></script>
     <script src="three-stage-gallery.js"></script>
+    
+    <!-- Pinterest Gallery -->
+    <script src="pinterest-gallery.js"></script>
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -119,7 +122,7 @@
             font-family: var(--font-primary);
             line-height: 1.6;
             color: var(--color-black);
-            background: var(--color-white);
+            background: #f8f8f8;
         }
 
         /* Grid System */
@@ -211,8 +214,8 @@
 
         /* Hero Section */
         .hero {
-            background: var(--color-white);
-            padding: 120px 0 80px;
+            background: #f8f8f8;
+            padding: 80px 0 60px;
             text-align: center;
         }
 
@@ -249,7 +252,7 @@
 
         /* Section Styles */
         section {
-            padding: 80px 0;
+            padding: 60px 0;
         }
 
         .section-title {
@@ -272,7 +275,7 @@
 
         /* Philosophy Section */
         .philosophy {
-            background: var(--color-white);
+            background: #f8f8f8;
             border-top: 1px solid var(--color-gray-light);
             border-bottom: 1px solid var(--color-gray-light);
         }
@@ -310,7 +313,7 @@
 
         .space-image {
             width: 100%;
-            height: 200px;
+            height: 320px;
             margin-bottom: 0;
             border-radius: var(--border-radius) var(--border-radius) 0 0;
             overflow: hidden;
@@ -334,6 +337,10 @@
 
         .space-content {
             padding: 20px;
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .space-name {
@@ -357,13 +364,6 @@
             margin-bottom: 16px;
         }
 
-        .space-rating {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-bottom: 24px;
-        }
 
         .stars {
             color: #ffd700;
@@ -630,7 +630,7 @@
         /* Booking Section */
         .booking {
             text-align: center;
-            background: var(--color-white);
+            background: #f8f8f8;
         }
 
         .booking-options {
@@ -944,7 +944,7 @@
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            section { padding: 80px 0; }
+            section { padding: 50px 0; }
             .booking-options { 
                 grid-template-columns: 1fr;
                 gap: 32px;
@@ -1038,13 +1038,9 @@
                         <h3 class="space-name">8weeks Fujimi</h3>
                         <p class="space-tagline">グランドピアノのある森の中の一棟貸切別荘</p>
                         <p class="space-details">2寝室・2ベッド・1バス・定員6名</p>
-                        <div class="space-rating">
-                            <span class="stars">★★★★★</span>
-                            <span class="rating-number">4.98</span> (<span class="review-count">45</span>)
-                        </div>
                     </div>
                     <div class="space-links">
-                        <a href="https://airbnb.com/h/8weeksfujimi" class="space-link" target="_blank"><i data-lucide="image" style="width: 14px; height: 14px; margin-right: 4px;"></i>写真を見る</a>
+                        <a href="https://airbnb.com/h/8weeksfujimi" class="space-link" target="_blank"><i data-lucide="image" style="width: 14px; height: 14px; margin-right: 4px;"></i>詳細（Airbnb）</a>
                         <a href="https://maps.app.goo.gl/7EvAJLE3DuLRwecr7" class="space-link map-link" target="_blank"><i data-lucide="map-pin" style="width: 14px; height: 14px; margin-right: 4px;"></i>地図を見る</a>
                     </div>
                 </div>
@@ -1057,13 +1053,9 @@
                         <h3 class="space-name">8weeks Quriu</h3>
                         <p class="space-tagline">複数世帯楽しめる100m²超のフロア貸切、<br>マウンテンビュー</p>
                         <p class="space-details">2寝室・5ベッド・2バス・定員6名</p>
-                        <div class="space-rating">
-                            <span class="stars">★★★★★</span>
-                            <span class="rating-number">5.0</span> (<span class="review-count">28</span>)
-                        </div>
                     </div>
                     <div class="space-links">
-                        <a href="https://airbnb.com/h/8weeks-quriu" class="space-link" target="_blank"><i data-lucide="image" style="width: 14px; height: 14px; margin-right: 4px;"></i>写真を見る</a>
+                        <a href="https://airbnb.com/h/8weeks-quriu" class="space-link" target="_blank"><i data-lucide="image" style="width: 14px; height: 14px; margin-right: 4px;"></i>詳細（Airbnb）</a>
                         <a href="https://maps.app.goo.gl/36fJ73qrijhShca76" class="space-link map-link" target="_blank"><i data-lucide="map-pin" style="width: 14px; height: 14px; margin-right: 4px;"></i>地図を見る</a>
                     </div>
                 </div>
@@ -1076,13 +1068,9 @@
                         <h3 class="space-name">8weeks Studio</h3>
                         <p class="space-tagline">富士見商店街のリノベーションされたフラット、<br>車がなくても楽しめる</p>
                         <p class="space-details">2寝室・4ベッド・1バス・定員4名</p>
-                        <div class="space-rating">
-                            <span class="stars">★★★★★</span>
-                            <span class="rating-number">5.0</span> (<span class="review-count">32</span>)
-                        </div>
                     </div>
                     <div class="space-links">
-                        <a href="https://airbnb.com/h/8weeks-studio" class="space-link" target="_blank"><i data-lucide="image" style="width: 14px; height: 14px; margin-right: 4px;"></i>写真を見る</a>
+                        <a href="https://airbnb.com/h/8weeks-studio" class="space-link" target="_blank"><i data-lucide="image" style="width: 14px; height: 14px; margin-right: 4px;"></i>詳細（Airbnb）</a>
                         <a href="https://maps.app.goo.gl/ootmFKiQBJGpeUka6" class="space-link map-link" target="_blank"><i data-lucide="map-pin" style="width: 14px; height: 14px; margin-right: 4px;"></i>地図を見る</a>
                     </div>
                 </div>
@@ -1093,6 +1081,142 @@
     <!-- Location Section -->
     <section id="location" class="location">
         <div class="container">
+            <!-- Photo Gallery Section -->
+            <section class="section-gallery">
+                <div class="container">
+                    <h2 class="section-title">Property Gallery</h2>
+                    <p class="section-subtitle">八ヶ岳山麓の静寂な空間で過ごす特別な時間</p>
+                    
+                    <!-- Gallery Filters -->
+                    <div class="gallery-filters">
+                        <!-- Property Filters -->
+                        <div class="filter-group">
+                            <h3 class="filter-group-title">物件</h3>
+                            <div class="filter-buttons">
+                                <button class="filter-btn active" data-property="all">
+                                    <i data-lucide="grid-3x3" class="filter-icon"></i>
+                                    すべて
+                                </button>
+                                <button class="filter-btn" data-property="quriu">
+                                    <i data-lucide="maximize" class="filter-icon"></i>
+                                    8weeks Quriu
+                                </button>
+                                <button class="filter-btn" data-property="studio">
+                                    <i data-lucide="shopping-bag" class="filter-icon"></i>
+                                    8weeks Studio
+                                </button>
+                                <button class="filter-btn" data-property="fujimi">
+                                    <i data-lucide="music" class="filter-icon"></i>
+                                    8weeks Fujimi
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Category Filters -->
+                        <div class="filter-group">
+                            <h3 class="filter-group-title">カテゴリー</h3>
+                            <div class="filter-buttons">
+                                <button class="filter-btn category-filter active" data-category="all">
+                                    <i data-lucide="image" class="filter-icon"></i>
+                                    すべて
+                                </button>
+                                <button class="filter-btn category-filter" data-category="exterior">
+                                    <i data-lucide="home" class="filter-icon"></i>
+                                    外観
+                                </button>
+                                <button class="filter-btn category-filter" data-category="living">
+                                    <i data-lucide="sofa" class="filter-icon"></i>
+                                    リビング
+                                </button>
+                                <button class="filter-btn category-filter" data-category="kitchen">
+                                    <i data-lucide="chef-hat" class="filter-icon"></i>
+                                    キッチン
+                                </button>
+                                <button class="filter-btn category-filter" data-category="bedroom">
+                                    <i data-lucide="bed" class="filter-icon"></i>
+                                    ベッドルーム
+                                </button>
+                                <button class="filter-btn category-filter" data-category="bathroom">
+                                    <i data-lucide="bath" class="filter-icon"></i>
+                                    バスルーム
+                                </button>
+                                <button class="filter-btn category-filter" data-category="amenities">
+                                    <i data-lucide="settings" class="filter-icon"></i>
+                                    アメニティ
+                                </button>
+                                <button class="filter-btn category-filter" data-category="view">
+                                    <i data-lucide="mountain" class="filter-icon"></i>
+                                    景色
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pinterest風Masonryギャラリー -->
+                    <div class="masonry-gallery" id="property-masonry">
+                        <!-- ダイナミックコンテンツがJavaScriptで生成されます -->
+                    </div>
+                    
+                    <!-- ロード状態 -->
+                    <div class="gallery-loading" id="gallery-loading">
+                        <div class="loading-spinner"></div>
+                        <p>ギャラリーを読み込み中...</p>
+                    </div>
+                    
+                    <!-- もっと見るボタン -->
+                    <div class="gallery-load-more" id="gallery-load-more" style="display: none;">
+                        <button class="load-more-btn">
+                            さらに写真を見る
+                            <i data-lucide="chevron-down" class="btn-icon"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Enhanced Lightbox -->
+                    <div class="enhanced-lightbox" id="enhanced-lightbox">
+                        <div class="lightbox-backdrop"></div>
+                        <div class="lightbox-container">
+                            <button class="lightbox-close" aria-label="閉じる">
+                                <i data-lucide="x"></i>
+                            </button>
+                            
+                            <div class="lightbox-content">
+                                <div class="lightbox-main">
+                                    <img id="lightbox-main-image" src="" alt="">
+                                    <div class="lightbox-navigation">
+                                        <button class="nav-btn nav-prev" aria-label="前の画像">
+                                            <i data-lucide="chevron-left"></i>
+                                        </button>
+                                        <button class="nav-btn nav-next" aria-label="次の画像">
+                                            <i data-lucide="chevron-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="lightbox-sidebar">
+                                    <div class="lightbox-info">
+                                        <h3 id="lightbox-property-name">8weeks Quriu</h3>
+                                        <div class="photo-meta">
+                                            <span class="photo-counter">
+                                                <span id="current-photo-num">1</span> / <span id="total-photos-num">0</span>
+                                            </span>
+                                            <span class="property-badge" id="lightbox-property-badge">Quriu</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- サムネイル一覧 -->
+                                    <div class="lightbox-thumbnails" id="lightbox-thumbnails">
+                                        <!-- サムネイルがJavaScriptで生成されます -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Divider -->
+            <div style="height: 20px; background: #f8f8f8;"></div>
+
             <!-- Host Introduction Section -->
             <section class="section-host">
                 <div class="container">
@@ -1147,71 +1271,6 @@
                                     <i data-lucide="star" style="width: 16px; height: 16px;"></i>
                                     <span>Airbnb Superhostとして、一貫して優れたホスピタリティを提供しています。</span>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Photo Gallery Section -->
-            <section class="section-gallery">
-                <div class="container">
-                    <h2 class="section-title">Property Gallery</h2>
-                    <p class="section-subtitle">三つの宿泊施設の魅力を写真と動画でご紹介</p>
-                    
-                    <!-- Photo Gallery Grid -->
-                    <div class="photo-gallery">
-                        <!-- Property Gallery Tabs -->
-                        <div class="property-tabs">
-                            <button class="property-tab active" data-property="quriu">8weeks Quriu</button>
-                            <button class="property-tab" data-property="studio">8weeks Studio</button>
-                            <button class="property-tab" data-property="fujimi">8weeks Fujimi（準備中）</button>
-                        </div>
-                        
-                        <!-- Compact Gallery Container -->
-                        <div class="gallery-container">
-                            <div class="property-gallery active" id="quriu-gallery">
-                                <div class="compact-gallery-grid" id="quriu-grid">
-                                    <!-- Will be populated by JavaScript -->
-                                </div>
-                            </div>
-                            
-                            <div class="property-gallery" id="studio-gallery">
-                                <div class="compact-gallery-grid" id="studio-grid">
-                                    <!-- Will be populated by JavaScript -->
-                                </div>
-                            </div>
-                            
-                            <div class="property-gallery" id="fujimi-gallery">
-                                <div class="gallery-placeholder-message">
-                                    <i data-lucide="mountain" style="width: 64px; height: 64px; color: var(--color-accent); margin-bottom: 16px;"></i>
-                                    <h4>8weeks Fujimi</h4>
-                                    <p>グランドピアノのある森の中の一棟貸切別荘</p>
-                                    <p style="color: var(--color-gray-medium); font-size: 14px; margin-top: 8px;">写真準備中</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Lightbox -->
-                    <div class="lightbox" id="gallery-lightbox">
-                        <div class="lightbox-content">
-                            <button class="lightbox-close" aria-label="閉じる">
-                                <i data-lucide="x"></i>
-                            </button>
-                            <button class="lightbox-prev" aria-label="前の写真">
-                                <i data-lucide="chevron-left"></i>
-                            </button>
-                            <button class="lightbox-next" aria-label="次の写真">
-                                <i data-lucide="chevron-right"></i>
-                            </button>
-                            
-                            <div class="lightbox-image-container">
-                                <img src="" alt="" id="lightbox-image">
-                            </div>
-                            
-                            <div class="lightbox-thumbnails" id="lightbox-thumbnails">
-                                <!-- Will be populated by JavaScript -->
                             </div>
                         </div>
                     </div>
@@ -1597,21 +1656,21 @@
             });
         });
         
-        // Property Gallery Tab Functionality
-        document.querySelectorAll('.property-tab').forEach(tab => {
-            tab.addEventListener('click', function() {
-                // Remove active class from all tabs and galleries
-                document.querySelectorAll('.property-tab').forEach(t => t.classList.remove('active'));
-                document.querySelectorAll('.property-gallery').forEach(g => g.classList.remove('active'));
+        // Property Gallery Tab Functionality - DISABLED for Pinterest Gallery
+        // document.querySelectorAll('.property-tab').forEach(tab => {
+        //     tab.addEventListener('click', function() {
+        //         // Remove active class from all tabs and galleries
+        //         document.querySelectorAll('.property-tab').forEach(t => t.classList.remove('active'));
+        //         document.querySelectorAll('.property-gallery').forEach(g => g.classList.remove('active'));
                 
-                // Add active class to clicked tab
-                this.classList.add('active');
+        //         // Add active class to clicked tab
+        //         this.classList.add('active');
                 
-                // Show corresponding gallery
-                const targetProperty = this.getAttribute('data-property');
-                document.getElementById(targetProperty + '-gallery').classList.add('active');
-            });
-        });
+        //         // Show corresponding gallery
+        //         const targetProperty = this.getAttribute('data-property');
+        //         document.getElementById(targetProperty + '-gallery').classList.add('active');
+        //     });
+        // });
         
         // Initialize Lucide icons
         lucide.createIcons();
@@ -1625,65 +1684,23 @@
             }
         }, 100);
         
-        // Gallery System
-        let currentProperty = 'quriu';
-        let currentPhotoIndex = 0;
-        let allPhotos = [];
+        // Gallery System - DISABLED for Pinterest Gallery
+        // let currentProperty = 'quriu';
+        // let currentPhotoIndex = 0;
+        // let allPhotos = [];
         
-        // Initialize gallery when DOM is ready with delay
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => {
-                // Delay gallery initialization to prioritize main content
-                setTimeout(initializeGallery, 500);
-            });
-        } else {
-            setTimeout(initializeGallery, 100);
-        }
+        // Initialize gallery when DOM is ready with delay - DISABLED
+        // if (document.readyState === 'loading') {
+        //     document.addEventListener('DOMContentLoaded', () => {
+        //         // Delay gallery initialization to prioritize main content
+        //         setTimeout(initializeGallery, 500);
+        //     });
+        // } else {
+        //     setTimeout(initializeGallery, 100);
+        // }
         
-        function initializeGallery() {
-            try {
-                // Check if optimizedGalleryData exists
-                if (typeof optimizedGalleryData === 'undefined') {
-                    console.error('Optimized gallery data not loaded');
-                    return;
-                }
-                
-                // Initialize three-stage galleries for each property
-                ['quriu', 'studio'].forEach(property => {
-                    const photos = optimizedGalleryData.properties[property].photos;
-                    const grid = document.getElementById(`${property}-grid`);
-                    
-                    if (!grid) {
-                        console.error(`Grid element not found for ${property}`);
-                        return;
-                    }
-                    
-                    const galleryElement = grid.closest('.property-gallery');
-                    const photoCount = galleryElement ? galleryElement.querySelector('.photo-count') : null;
-                    
-                    if (photoCount) {
-                        photoCount.textContent = photos.length;
-                    }
-                    
-                    // Create three-stage gallery: Preview (3) → Grid popup (all) → Individual lightbox
-                    threeStageGallery.createPreviewGallery(`${property}-grid`, photos, property);
-                });
-            } catch (error) {
-                console.error('Gallery initialization error:', error);
-            }
-            
-            // All Photos buttons removed - users can click preview items to view gallery
-            
-            // Re-initialize Lucide icons for dynamically added content
-            setTimeout(() => {
-                lucide.createIcons();
-            }, 100);
-        }
-        
-        // Old gallery functions removed - now using ultra-performance-gallery.js
-        
-        // Legacy lightbox functions removed - using ultra-performance-gallery.js
-        // All gallery functionality now handled by ultra-performance-gallery.js
+        // OLD GALLERY SYSTEM DISABLED - Using Pinterest-style gallery instead
+        // All gallery functionality now handled by pinterest-gallery.js
         
     </script>
 </body>

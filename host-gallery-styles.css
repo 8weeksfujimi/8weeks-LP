@@ -2,8 +2,8 @@
 
 /* Host Introduction Section */
 .section-host {
-    background: #ffffff;
-    padding: 80px 0;
+    background: #f8f8f8;
+    padding: 60px 0;
 }
 
 .host-profile {
@@ -13,6 +13,11 @@
     align-items: center;
     max-width: 1000px;
     margin: 0 auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e0e0;
 }
 
 .host-image {
@@ -119,8 +124,10 @@
 
 /* Gallery Section */
 .section-gallery {
-    background: #ffffff;
-    padding: 80px 0;
+    background: #f8f8f8;
+    padding: 60px 0;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
 }
 
 .main-video {
@@ -159,6 +166,15 @@
 
 .photo-gallery {
     margin-top: var(--space-lg);
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e0e0;
+    padding: 25px;
+    max-width: 1200px;
+    margin: 20px auto 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .gallery-grid {
@@ -252,7 +268,7 @@
     display: flex;
     justify-content: center;
     gap: 12px;
-    margin-bottom: 48px;
+    margin-bottom: 32px;
     flex-wrap: wrap;
     position: relative;
     z-index: 1;
@@ -286,46 +302,265 @@
     display: block;
 }
 
+/* Pinterest-style Tile Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-auto-rows: 10px;
+    gap: 12px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+.gallery img:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Specific grid positioning for natural tile layout */
+.gallery img:nth-child(1) {
+    grid-row: span 25;  /* Large featured image */
+}
+
+.gallery img:nth-child(2) {
+    grid-row: span 15;  /* Medium image */
+}
+
+.gallery img:nth-child(3) {
+    grid-row: span 20;  /* Medium-large image */
+}
+
+.gallery img:nth-child(4) {
+    grid-row: span 12;  /* Small image */
+}
+
+.gallery img:nth-child(5) {
+    grid-row: span 18;  /* Medium image */
+}
+
+.gallery img:nth-child(6) {
+    grid-row: span 14;  /* Small-medium image */
+}
+
+/* Additional images with varied heights */
+.gallery img:nth-child(7) {
+    grid-row: span 22;
+}
+
+.gallery img:nth-child(8) {
+    grid-row: span 16;
+}
+
+.gallery img:nth-child(9) {
+    grid-row: span 13;
+}
+
+.gallery img:nth-child(10) {
+    grid-row: span 19;
+}
+
+.gallery img:nth-child(11) {
+    grid-row: span 15;
+}
+
+.gallery img:nth-child(12) {
+    grid-row: span 17;
+}
+
+/* Ensure minimum 2 columns on desktop */
+@media (min-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        min-height: 100vh;
+    }
+}
+
+@media (min-width: 1200px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+}
+
+/* Tablet responsive */
+@media (max-width: 768px) and (min-width: 481px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 16px;
+        gap: 10px;
+    }
+    
+    /* Adjust span values for tablet */
+    .gallery img:nth-child(1) { grid-row: span 20; }
+    .gallery img:nth-child(2) { grid-row: span 12; }
+    .gallery img:nth-child(3) { grid-row: span 16; }
+    .gallery img:nth-child(4) { grid-row: span 10; }
+    .gallery img:nth-child(5) { grid-row: span 14; }
+    .gallery img:nth-child(6) { grid-row: span 11; }
+}
+
+/* Mobile responsive - single column */
+@media (max-width: 480px) {
+    .gallery {
+        grid-template-columns: 1fr;
+        padding: 12px;
+        gap: 8px;
+        grid-auto-rows: auto;
+    }
+    
+    .gallery img {
+        grid-row: auto !important;
+        aspect-ratio: 4/3;
+        height: auto;
+    }
+}
+
+/* Alternative masonry-style approach using columns (fallback) */
+.gallery-masonry {
+    column-count: 3;
+    column-gap: 12px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.gallery-masonry img {
+    width: 100%;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    break-inside: avoid;
+    display: block;
+}
+
+.gallery-masonry img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .gallery-masonry {
+        column-count: 2;
+        padding: 16px;
+        column-gap: 10px;
+    }
+    
+    .gallery-masonry img {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-masonry {
+        column-count: 1;
+        padding: 12px;
+    }
+    
+    .gallery-masonry img {
+        margin-bottom: 8px;
+        aspect-ratio: 4/3;
+    }
+}
+
 /* Compact Gallery */
 .gallery-container {
-    margin-top: 32px;
+    max-width: 1200px;
+    margin: 32px auto 0;
+    padding: 24px;
+    width: 100%;
+    box-sizing: border-box;
     position: relative;
     z-index: 1;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e0e0;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.photo-grid img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.photo-grid img:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .compact-gallery-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-bottom: 24px;
-    padding: 20px;
-    background: #ffffff;
-    border-radius: 8px;
-    border: 1px solid #e0e0e0;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+    margin-bottom: 0;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    border: none;
+    align-items: stretch;
+    width: 100%;
 }
 
 .compact-gallery-item {
     position: relative;
-    border-radius: 6px;
+    border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
     aspect-ratio: 4/3;
     background: #f8f8f8;
-    transition: opacity 0.15s ease;
+    transition: all 0.2s ease;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .compact-gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: none;
+    transition: transform 0.2s ease;
     image-rendering: auto;
     image-rendering: -webkit-optimize-contrast;
     will-change: auto;
+    display: block;
+    border-radius: 8px;
 }
 
 .compact-gallery-item:hover {
-    opacity: 0.85;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.compact-gallery-item:hover img {
+    transform: scale(1.02);
 }
 
 .image-placeholder {
@@ -347,29 +582,65 @@
     font-size: 1.1rem;
     text-align: center;
     padding: 20px;
+    aspect-ratio: 4/3;
+}
+
+.view-all-button {
+    text-align: center;
+    width: 100%;
+}
+
+.view-all-button button {
+    padding: 12px 24px;
+    font-size: 16px;
+    color: #f44;
+    border: 1px solid #f44;
+    background-color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 24px auto 0;
+    display: block;
+}
+
+.view-all-button button:hover {
+    background: #f44;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 68, 68, 0.3);
+}
+
+.gallery-button-container {
+    text-align: center;
+    margin-top: 24px;
+    width: 100%;
 }
 
 .view-all-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 16px 24px;
+    display: inline-block;
+    padding: 14px 28px;
     background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    color: #2c3e34;
+    border: 1px solid #FF5A5F;
+    border-radius: 8px;
+    color: #FF5A5F;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
     font-size: 1rem;
     font-family: inherit;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .view-all-btn:hover {
     background: #FF5A5F;
     color: #ffffff;
     border-color: #FF5A5F;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 90, 95, 0.3);
 }
 
 .gallery-placeholder-message {
@@ -504,9 +775,21 @@
 }
 
 /* Responsive Design */
+@media (max-width: 900px) {
+    .gallery-container {
+        padding: 20px;
+        margin: 20px auto 0;
+    }
+}
+
 @media (max-width: 768px) {
+    .gallery-container {
+        padding: 16px;
+        margin: 16px auto 0;
+    }
+    
     .section-host {
-        padding: 60px 0;
+        padding: 40px 0;
     }
     
     .host-profile {
@@ -514,6 +797,7 @@
         text-align: center;
         gap: 40px;
         max-width: 95%;
+        padding: 30px 20px;
     }
     
     .host-photo-placeholder {
@@ -537,17 +821,22 @@
     }
     
     .section-gallery {
-        padding: 60px 0;
+        padding: 40px 0;
     }
     
     .compact-gallery-grid {
-        padding: 20px;
-        gap: 12px;
+        gap: 10px;
     }
     
-    .property-tabs {
-        gap: 8px;
-        margin-bottom: 32px;
+    .gallery-container {
+        padding: 12px;
+    }
+    
+    
+    .photo-gallery {
+        padding: 20px;
+        margin: 15px auto 0;
+        max-width: calc(100% - 32px);
     }
     
     .property-tab {
@@ -558,12 +847,13 @@
 
 @media (max-width: 480px) {
     .section-host {
-        padding: 50px 0;
+        padding: 30px 0;
     }
     
     .host-profile {
         max-width: 100%;
         gap: 32px;
+        padding: 25px 15px;
     }
     
     .host-photo-placeholder {
@@ -580,7 +870,7 @@
     }
     
     .section-gallery {
-        padding: 50px 0;
+        padding: 30px 0;
     }
     
     .property-tabs {
@@ -597,9 +887,18 @@
     }
     
     .compact-gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-        padding: 16px;
+        gap: 10px;
+    }
+    
+    .gallery-container {
+        padding: 12px;
+    }
+    
+    
+    .photo-gallery {
+        padding: 18px;
+        margin: 12px auto 0;
+        max-width: calc(100% - 24px);
     }
     
     .compact-gallery-item img {
@@ -622,5 +921,485 @@
     
     #lightbox-image {
         max-height: 60vh;
+    }
+}
+
+/* =======================================
+   Pinterest風Masonryギャラリー
+   ======================================= */
+
+.section-gallery {
+    background: #f9f9f9;
+    padding: 80px 0;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+/* ギャラリーフィルター */
+.gallery-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 50px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.filter-group {
+    text-align: center;
+}
+
+.filter-group-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e34;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: white;
+    border: 2px solid #e0e0e0;
+    color: #333;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.filter-btn:hover {
+    border-color: #2c3e34;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(44, 62, 52, 0.15);
+}
+
+.filter-btn.active {
+    background: #2c3e34;
+    color: white;
+    border-color: #2c3e34;
+}
+
+.filter-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Masonryグリッド */
+.masonry-gallery {
+    column-count: 3;
+    column-gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: 20px;
+    display: inline-block;
+    width: 100%;
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.masonry-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* マソンリーカード */
+.masonry-card {
+    background: transparent;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    display: block;
+    line-height: 0;
+}
+
+.masonry-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* カード画像 */
+.card-image {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    border-radius: 16px;
+    line-height: 0;
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.masonry-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+/* カードサイズバリエーション */
+.masonry-item.tall .card-image {
+    min-height: 350px;
+}
+
+.masonry-item.medium .card-image {
+    min-height: 280px;
+}
+
+.masonry-item.small .card-image {
+    min-height: 200px;
+}
+
+/* プロパティバッジ */
+.property-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(44, 62, 52, 0.9);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+.property-badge.quriu {
+    background: rgba(33, 150, 243, 0.9);
+}
+
+.property-badge.studio {
+    background: rgba(255, 152, 0, 0.9);
+}
+
+.property-badge.fujimi {
+    background: rgba(156, 39, 176, 0.9);
+}
+
+/* カードコンテンツは完全に削除済み - キャプション枠なし */
+
+/* ローディング状態 */
+.gallery-loading {
+    text-align: center;
+    padding: 60px 20px;
+    color: #666;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #2c3e34;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* もっと見るボタン */
+.gallery-load-more {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.load-more-btn {
+    background: white;
+    border: 2px solid #2c3e34;
+    color: #2c3e34;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.load-more-btn:hover {
+    background: #2c3e34;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(44, 62, 52, 0.2);
+}
+
+.btn-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Enhanced Lightbox */
+.enhanced-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: none;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.enhanced-lightbox.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox-container {
+    position: relative;
+    width: 95%;
+    height: 90%;
+    max-width: 1400px;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10001;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.lightbox-close:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+
+.lightbox-content {
+    display: flex;
+    height: 100%;
+}
+
+.lightbox-main {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+    overflow: hidden;
+}
+
+#lightbox-main-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 0;
+}
+
+.lightbox-navigation {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 30px;
+    pointer-events: none;
+}
+
+.nav-btn {
+    pointer-events: all;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.nav-btn:hover {
+    background: rgba(0, 0, 0, 0.9);
+    transform: scale(1.1);
+}
+
+.lightbox-sidebar {
+    width: 350px;
+    background: white;
+    padding: 30px;
+    overflow-y: auto;
+    border-left: 1px solid #e0e0e0;
+}
+
+.lightbox-info h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2c3e34;
+    margin-bottom: 20px;
+}
+
+.photo-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.photo-counter {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.lightbox-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.lightbox-thumbnail {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.lightbox-thumbnail:hover {
+    border-color: #2c3e34;
+}
+
+.lightbox-thumbnail.active {
+    border-color: #2c3e34;
+    opacity: 1;
+}
+
+.lightbox-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .masonry-gallery {
+        column-count: 2;
+        column-gap: 15px;
+        padding: 0 15px;
+    }
+
+    .masonry-item {
+        margin-bottom: 15px;
+    }
+
+    .gallery-filters {
+        gap: 8px;
+        padding: 0 15px;
+    }
+
+    .filter-btn {
+        padding: 10px 16px;
+        font-size: 0.8rem;
+    }
+
+    .lightbox-container {
+        width: 98%;
+        height: 95%;
+    }
+
+    .lightbox-content {
+        flex-direction: column;
+    }
+
+    .lightbox-sidebar {
+        width: 100%;
+        height: 200px;
+        padding: 20px;
+    }
+
+    .lightbox-thumbnails {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    .masonry-gallery {
+        column-count: 1;
+    }
+
+    .section-gallery {
+        padding: 60px 0;
+    }
+
+    .gallery-filters {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .filter-btn {
+        width: 200px;
+        justify-content: center;
     }
 }
