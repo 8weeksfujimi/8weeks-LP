@@ -37,6 +37,7 @@
     <!-- Gallery and Airbnb Data -->
     <script src="gallery-data.js"></script>
     <script src="airbnb-data.js"></script>
+    <script src="performance-optimizer.js"></script>
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -1153,14 +1154,14 @@
         // Initialize Lucide icons
         lucide.createIcons();
         
-        // Initialize Airbnb data refresh
+        // Initialize Airbnb data refresh with delay for better performance
         setTimeout(() => {
             lucide.createIcons();
             // Refresh Airbnb data on page load
             if (typeof refreshPropertyData === 'function') {
                 refreshPropertyData();
             }
-        }, 100);
+        }, 300);
         
         // Area guide functionality
         document.querySelectorAll('.area-tab').forEach(tab => {

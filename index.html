@@ -40,6 +40,7 @@
     <!-- Gallery Data -->
     <script src="gallery-data.js"></script>
     <script src="airbnb-data.js"></script>
+    <script src="performance-optimizer.js"></script>
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -1637,11 +1638,14 @@
         let currentPhotoIndex = 0;
         let allPhotos = [];
         
-        // Initialize gallery when DOM is ready
+        // Initialize gallery when DOM is ready with delay
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initializeGallery);
+            document.addEventListener('DOMContentLoaded', () => {
+                // Delay gallery initialization to prioritize main content
+                setTimeout(initializeGallery, 500);
+            });
         } else {
-            initializeGallery();
+            setTimeout(initializeGallery, 100);
         }
         
         function initializeGallery() {
@@ -1709,8 +1713,36 @@
         function createCompactGalleryItem(photo, property, index) {
             const item = document.createElement('div');
             item.className = 'compact-gallery-item';
-            item.innerHTML = `<img src="${photo.src}" alt="" loading="lazy">`;
+            
+            // Create placeholder div first
+            const placeholder = document.createElement('div');
+            placeholder.className = 'image-placeholder';
+            placeholder.style.cssText = 'background: #f0f0f0; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; color: #ccc; font-size: 12px;';
+            placeholder.textContent = 'Loading...';
+            
+            item.appendChild(placeholder);
             item.addEventListener('click', () => openLightbox(property, index));
+            
+            // Lazy load image on intersection
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = new Image();
+                        img.loading = 'lazy';
+                        img.onload = () => {
+                            placeholder.replaceWith(img);
+                        };
+                        img.onerror = () => {
+                            placeholder.textContent = 'Failed to load';
+                        };
+                        img.src = photo.src;
+                        img.alt = '';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '50px' });
+            
+            observer.observe(item);
             return item;
         }
         
@@ -1731,13 +1763,26 @@
             const photo = allPhotos[currentPhotoIndex];
             const image = document.getElementById('lightbox-image');
             
-            image.src = photo.src;
-            image.alt = '';
+            // Show loading state
+            image.style.opacity = '0.5';
             
-            // Update thumbnails active state
-            document.querySelectorAll('.lightbox-thumbnail').forEach((thumb, index) => {
-                thumb.classList.toggle('active', index === currentPhotoIndex);
-            });
+            // Preload new image
+            const newImg = new Image();
+            newImg.onload = () => {
+                image.src = newImg.src;
+                image.alt = '';
+                image.style.opacity = '1';
+                
+                // Preload next and previous images for smoother navigation
+                preloadAdjacentImages();
+            };
+            newImg.onerror = () => {
+                image.style.opacity = '1';
+                image.alt = 'Failed to load image';
+            };
+            newImg.src = photo.src;
+            
+            updateThumbnailActive();
             
             // Update navigation buttons
             document.querySelector('.lightbox-prev').style.display = 
@@ -1746,20 +1791,45 @@
                 currentPhotoIndex < allPhotos.length - 1 ? 'flex' : 'none';
         }
         
+        function preloadAdjacentImages() {
+            // Preload next and previous images
+            const preloadIndexes = [
+                currentPhotoIndex - 1,
+                currentPhotoIndex + 1
+            ].filter(index => index >= 0 && index < allPhotos.length);
+            
+            preloadIndexes.forEach(index => {
+                const img = new Image();
+                img.src = allPhotos[index].src;
+            });
+        }
+        
         function createThumbnails() {
             const container = document.getElementById('lightbox-thumbnails');
             container.innerHTML = '';
             
+            // Create thumbnails with lazy loading
             allPhotos.forEach((photo, index) => {
                 const thumb = document.createElement('div');
                 thumb.className = 'lightbox-thumbnail';
                 if (index === currentPhotoIndex) thumb.classList.add('active');
-                thumb.innerHTML = `<img src="${photo.src}" alt="">`;
+                
+                // Create placeholder for thumbnail
+                const placeholder = document.createElement('div');
+                placeholder.style.cssText = 'width: 100%; height: 100%; background: #f0f0f0; display: flex; align-items: center; justify-content: center;';
+                thumb.appendChild(placeholder);
+                
                 thumb.addEventListener('click', () => {
                     currentPhotoIndex = index;
                     updateLightboxContent();
+                    updateThumbnailActive();
                 });
                 container.appendChild(thumb);
+                
+                // Load thumbnail images lazily (only visible ones initially)
+                if (Math.abs(index - currentPhotoIndex) <= 3) {
+                    loadThumbnailImage(thumb, photo.src, placeholder);
+                }
             });
             
             // Scroll to active thumbnail
@@ -1767,6 +1837,34 @@
             if (activeThumb) {
                 activeThumb.scrollIntoView({ behavior: 'smooth', inline: 'center' });
             }
+        }
+        
+        function loadThumbnailImage(thumb, src, placeholder) {
+            const img = new Image();
+            img.onload = () => {
+                img.style.cssText = 'width: 100%; height: 100%; object-fit: cover;';
+                placeholder.replaceWith(img);
+            };
+            img.onerror = () => {
+                placeholder.style.background = '#ddd';
+                placeholder.textContent = '✕';
+            };
+            img.src = src;
+        }
+        
+        function updateThumbnailActive() {
+            const thumbnails = document.querySelectorAll('.lightbox-thumbnail');
+            thumbnails.forEach((thumb, index) => {
+                thumb.classList.toggle('active', index === currentPhotoIndex);
+                
+                // Load nearby thumbnails on demand
+                if (Math.abs(index - currentPhotoIndex) <= 3) {
+                    const placeholder = thumb.querySelector('div');
+                    if (placeholder && !thumb.querySelector('img')) {
+                        loadThumbnailImage(thumb, allPhotos[index].src, placeholder);
+                    }
+                }
+            });
         }
         
         function setupLightboxHandlers() {
