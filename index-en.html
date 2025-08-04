@@ -350,6 +350,79 @@
             }
         }
         
+        /* Fade-in animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Apply animations to elements */
+        .hero-content h1 {
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero-content .subtitle {
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        
+        .hero-content .location {
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        
+        .hero-philosophy-content {
+            animation: fadeIn 1.2s ease-out 0.6s both;
+        }
+        
+        .section-title {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .section-subtitle {
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+        
+        /* Scroll-triggered animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .space-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .space-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .space-card:nth-child(1) { transition-delay: 0s; }
+        .space-card:nth-child(2) { transition-delay: 0.1s; }
+        .space-card:nth-child(3) { transition-delay: 0.2s; }
+        
         .hero-philosophy-content h2 {
             font-size: 2.2rem;
             font-weight: 600;
@@ -1461,6 +1534,42 @@
                 refreshPropertyData();
             }
         }, 300);
+        
+        // Scroll-triggered animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all elements that should fade in
+        document.addEventListener('DOMContentLoaded', () => {
+            // Space cards
+            document.querySelectorAll('.space-card').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Section titles and content
+            document.querySelectorAll('.section-title, .section-subtitle, .host-profile, .area-guide, .booking-options').forEach(el => {
+                el.classList.add('fade-in');
+                observer.observe(el);
+            });
+            
+            // Gallery items (when they load)
+            setTimeout(() => {
+                document.querySelectorAll('.masonry-item').forEach(el => {
+                    el.classList.add('fade-in');
+                    observer.observe(el);
+                });
+            }, 500);
+        });
         
         // Area guide functionality
         document.querySelectorAll('.area-tab').forEach(tab => {
