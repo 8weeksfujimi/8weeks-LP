@@ -409,12 +409,15 @@
         }
         
         .space-card {
-            opacity: 0;
-            transform: translateY(30px);
             transition: all 0.8s ease-out;
         }
         
-        .space-card.visible {
+        .space-card.fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .space-card.fade-in.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -1537,14 +1540,16 @@
         
         // Scroll-triggered animations
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+            threshold: 0.05,
+            rootMargin: '0px 0px -100px 0px'
         };
         
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, 100);
                 }
             });
         }, observerOptions);
@@ -1552,23 +1557,37 @@
         // Observe all elements that should fade in
         document.addEventListener('DOMContentLoaded', () => {
             // Space cards
-            document.querySelectorAll('.space-card').forEach(el => {
+            document.querySelectorAll('.space-card').forEach((el, index) => {
+                el.classList.add('fade-in');
+                el.style.transitionDelay = `${index * 0.15}s`;
                 observer.observe(el);
             });
             
             // Section titles and content
-            document.querySelectorAll('.section-title, .section-subtitle, .host-profile, .area-guide, .booking-options').forEach(el => {
+            document.querySelectorAll('.section-title, .section-subtitle').forEach(el => {
+                el.classList.add('fade-in');
+                observer.observe(el);
+            });
+            
+            // Host profile, area guide, booking options
+            document.querySelectorAll('.host-profile, .area-guide, .booking-options, .philosophy-mobile').forEach(el => {
                 el.classList.add('fade-in');
                 observer.observe(el);
             });
             
             // Gallery items (when they load)
             setTimeout(() => {
-                document.querySelectorAll('.masonry-item').forEach(el => {
+                document.querySelectorAll('.masonry-item').forEach((el, index) => {
                     el.classList.add('fade-in');
+                    el.style.transitionDelay = `${(index % 12) * 0.05}s`;
                     observer.observe(el);
                 });
             }, 500);
+            
+            // Re-initialize Lucide icons for gallery
+            setTimeout(() => {
+                lucide.createIcons();
+            }, 1000);
         });
         
         // Area guide functionality
