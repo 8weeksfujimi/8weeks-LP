@@ -1548,3 +1548,39 @@
         justify-content: center;
     }
 }
+
+/* Host Hobbies Section */
+.host-hobbies {
+    margin-top: 24px;
+}
+
+.host-hobbies h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.hobby-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.hobby-tag {
+    display: inline-block;
+    background: #f0f7ff;
+    color: #1e40af;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid #e0f2fe;
+    transition: all 0.2s ease;
+}
+
+.hobby-tag:hover {
+    background: #dbeafe;
+    border-color: #bfdbfe;
+}
+
