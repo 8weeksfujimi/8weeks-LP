@@ -261,25 +261,18 @@
             overflow: hidden;
         }
         
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            background-image: url('assets/images/logos/ロゴ.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.08;
-            z-index: 0;
+        .hero-logo {
+            width: 300px;
+            height: auto;
+            margin: 0 auto 24px;
+            display: block;
+            position: relative;
+            z-index: 10;
         }
 
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 10;
         }
         
         .hero-content h1 {
@@ -315,10 +308,8 @@
                 padding: 40px 0 40px;
             }
             
-            .hero::before {
-                width: 400px;
-                height: 400px;
-                opacity: 0.05;
+            .hero-logo {
+                width: 200px;
             }
             
             /* Hide philosophy content on mobile */
@@ -954,10 +945,8 @@
             .area-tab { font-size: 14px; padding: 8px 16px; }
             
             /* モバイルでロゴサイズを調整 */
-            .hero::before {
-                width: 500px;
-                height: 500px;
-                opacity: 0.1;
+            .hero-logo {
+                width: 250px;
             }
             
             .hero {
@@ -997,6 +986,7 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
+                <img src="assets/images/logos/ロゴ.png" alt="8weeks Fujimi" class="hero-logo">
                 <h1>8weeks Fujimi</h1>
                 <p class="subtitle">Tranquil retreat spaces in the Yatsugatake mountains</p>
                 <p class="location">1000m Elevation, Yatsugatake Mountains</p>
