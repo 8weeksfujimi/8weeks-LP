@@ -508,10 +508,12 @@
             object-fit: cover;
             object-position: center;
             transition: var(--transition);
+            /* Scale image slightly to hide white gaps */
+            transform: scale(1.01);
         }
 
         .space-card:hover .space-image img {
-            transform: scale(1.03);
+            transform: scale(1.04);
         }
 
         .space-content {
