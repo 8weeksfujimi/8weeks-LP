@@ -372,7 +372,219 @@ const cleanGalleryData = {
     "fujimi": {
       "name": "8weeks Fujimi", 
       "description": "グランドピアノのある森の中の一棟貸切別荘",
-      "photos": []
+      "photos": [
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF3625_hosei.jpg",
+          "caption": "外観",
+          "category": "exterior",
+          "featured": true
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF2243.jpg",
+          "caption": "外観別角度",
+          "category": "exterior"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF2356.jpg",
+          "caption": "キッチン",
+          "category": "kitchen"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF2419.jpg",
+          "caption": "バスルーム",
+          "category": "bathroom"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF2450.jpg",
+          "caption": "エントランス",
+          "category": "exterior"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF2454.jpg",
+          "caption": "アメニティ",
+          "category": "amenities"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF2457.jpg",
+          "caption": "リビングルーム",
+          "category": "living"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF2464.jpg",
+          "caption": "設備詳細",
+          "category": "amenities"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF2471.jpg",
+          "caption": "室内装飾",
+          "category": "amenities"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF2488.jpg",
+          "caption": "収納スペース",
+          "category": "amenities"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF2496.jpg",
+          "caption": "備品詳細",
+          "category": "amenities"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF2505.jpg",
+          "caption": "インテリア",
+          "category": "amenities"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF2519.jpg",
+          "caption": "室内設備",
+          "category": "amenities"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF2526.jpg",
+          "caption": "共有スペース",
+          "category": "amenities"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF2549.jpg",
+          "caption": "くつろぎスペース",
+          "category": "amenities"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF2584.jpg",
+          "caption": "室内からの眺め",
+          "category": "amenities"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF2601.jpg",
+          "caption": "生活空間",
+          "category": "amenities"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF3602.jpg",
+          "caption": "ベッドルーム",
+          "category": "bedroom"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF3620.jpg",
+          "caption": "キッチン詳細",
+          "category": "kitchen"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF3643.jpg",
+          "caption": "調理器具",
+          "category": "amenities"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF3653.jpg",
+          "caption": "洗面所",
+          "category": "bathroom"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF3664.jpg",
+          "caption": "寝室",
+          "category": "bedroom"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF3715.jpg",
+          "caption": "ベッドルーム詳細",
+          "category": "bedroom"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF3735.jpg",
+          "caption": "リビング",
+          "category": "living"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF3744.jpg",
+          "caption": "ダイニング",
+          "category": "living"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF3800.jpg",
+          "caption": "リビング詳細",
+          "category": "living"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF3826.jpg",
+          "caption": "玄関",
+          "category": "exterior"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF3842.jpg",
+          "caption": "エントランス詳細",
+          "category": "exterior"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF3854.jpg",
+          "caption": "入口",
+          "category": "exterior"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF3863.jpg",
+          "caption": "リビングルーム別角度",
+          "category": "living"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF3886.jpg",
+          "caption": "建物外観",
+          "category": "exterior"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF4020.jpg",
+          "caption": "外観朝",
+          "category": "exterior"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF4031.jpg",
+          "caption": "外観昼",
+          "category": "exterior"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF4037.jpg",
+          "caption": "外観夕方",
+          "category": "exterior"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF4053.jpg",
+          "caption": "周辺環境",
+          "category": "exterior"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/DSCF4080.jpg",
+          "caption": "グランドピアノ",
+          "category": "living"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/LINE_ALBUM_20240202_250831_1.jpg",
+          "caption": "冬の室内風景",
+          "category": "living"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/LINE_ALBUM_20240202_250831_2.jpg",
+          "caption": "季節の装飾",
+          "category": "living"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/LINE_ALBUM_20240202_250831_3.jpg",
+          "caption": "リビングの一角",
+          "category": "living"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/LINE_ALBUM_20240202_250831_4.jpg",
+          "caption": "インテリア詳細",
+          "category": "amenities"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/LINE_ALBUM_20240202_250831_5.jpg",
+          "caption": "窓辺の風景",
+          "category": "view"
+        },
+        {
+          "src": "assets/images/gallery/optimized/Fujimi Photos/LINE_ALBUM_20240202_250831_6.jpg",
+          "caption": "夜のリビング",
+          "category": "living"
+        }
+      ]
     }
   }
 };
