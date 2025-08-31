@@ -374,15 +374,10 @@
       "description": "グランドピアノのある森の中の一棟貸切別荘",
       "photos": [
         {
-          "src": "optimized/Fujimi%20Photos/DSCF3625_hosei.jpg",
-          "caption": "外観",
-          "description": "森の中の一棟貸切別荘",
-          "featured": true
-        },
-        {
           "src": "optimized/Fujimi%20Photos/DSCF2243.jpg",
           "caption": "外観別角度",
-          "description": "自然に囲まれた建物"
+          "description": "自然に囲まれた建物",
+          "featured": true
         },
         {
           "src": "optimized/Fujimi%20Photos/DSCF2356.jpg",

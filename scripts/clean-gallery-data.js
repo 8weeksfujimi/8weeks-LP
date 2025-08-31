@@ -374,15 +374,10 @@ const cleanGalleryData = {
       "description": "グランドピアノのある森の中の一棟貸切別荘",
       "photos": [
         {
-          "src": "assets/images/gallery/optimized/Fujimi%20Photos/DSCF3625_hosei.jpg",
-          "caption": "グランドピアノ",
-          "category": "amenities",
-          "featured": true
-        },
-        {
           "src": "assets/images/gallery/optimized/Fujimi%20Photos/DSCF2243.jpg",
           "caption": "外観別角度",
-          "category": "exterior"
+          "category": "exterior",
+          "featured": true
         },
         {
           "src": "assets/images/gallery/optimized/Fujimi%20Photos/DSCF2356.jpg",
