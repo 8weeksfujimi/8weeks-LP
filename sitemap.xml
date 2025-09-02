@@ -4,7 +4,7 @@
     <!-- メインページ（日本語） -->
     <url>
         <loc>https://8weeksfujimi.github.io/8weeks-LP/</loc>
-        <lastmod>2025-09-02</lastmod>
+        <lastmod>2025-09-02T10:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <xhtml:link rel="alternate" hreflang="en" href="https://8weeksfujimi.github.io/8weeks-LP/index-en.html"/>
@@ -14,7 +14,7 @@
     <!-- 英語版ページ -->
     <url>
         <loc>https://8weeksfujimi.github.io/8weeks-LP/index-en.html</loc>
-        <lastmod>2025-09-02</lastmod>
+        <lastmod>2025-09-02T10:00:00+09:00</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
         <xhtml:link rel="alternate" hreflang="ja" href="https://8weeksfujimi.github.io/8weeks-LP/"/>
@@ -24,7 +24,7 @@
     <!-- 予約ページ -->
     <url>
         <loc>https://8weeksfujimi.github.io/8weeks-LP/booking.html</loc>
-        <lastmod>2025-09-02</lastmod>
+        <lastmod>2025-09-02T10:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
@@ -32,7 +32,7 @@
     <!-- ギャラリーテストページ -->
     <url>
         <loc>https://8weeksfujimi.github.io/8weeks-LP/gallery-test.html</loc>
-        <lastmod>2025-09-02</lastmod>
+        <lastmod>2025-09-02T10:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
@@ -40,8 +40,16 @@
     <!-- 写真準備版ページ -->
     <url>
         <loc>https://8weeksfujimi.github.io/8weeks-LP/index-photo-ready.html</loc>
-        <lastmod>2025-09-02</lastmod>
+        <lastmod>2025-09-02T10:00:00+09:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
+    </url>
+    
+    <!-- 富士見町ホテル専用ページ -->
+    <url>
+        <loc>https://8weeksfujimi.github.io/8weeks-LP/fujimimachi-hotel.html</loc>
+        <lastmod>2025-09-02T10:00:00+09:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
     </url>
 </urlset>
