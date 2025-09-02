@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 富士見町ホテル専用ランディングページ -->
+    <title>富士見町ホテル・宿泊施設 | 駅近・自然豊か・移住体験可能 - 8weeks Fujimi</title>
+    <meta name="description" content="富士見町でホテルをお探しの方へ。富士見駅から車で5-10分、八ヶ岳の麓で自然に囲まれた宿泊施設。ビジネス出張、観光、移住体験、ワーケーションに最適。キッチン付き貸別荘で長期滞在も可能。">
+    
+    <!-- ローカル検索に特化したキーワード -->
+    <meta name="keywords" content="富士見町 ホテル,富士見町 宿泊,富士見町 旅館,富士見町 民宿,富士見町 ペンション,富士見駅 ホテル,富士見駅 宿泊,富士見町 ビジネスホテル,富士見町 観光 ホテル,富士見町 安い ホテル,富士見町 おすすめ ホテル,富士見町 宿泊 予約,富士見町 泊まる,富士見町 宿,諏訪 富士見町 ホテル">
+    
+    <link rel="canonical" href="https://8weeksfujimi.github.io/8weeks-LP/fujimimachi-hotel.html">
+    
+    <!-- 構造化データ - ローカルビジネス特化 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Hotel",
+        "name": "8weeks Fujimi - 富士見町のホテル・宿泊施設",
+        "description": "富士見町の宿泊施設。富士見駅から車で5-10分。キッチン付き貸別荘タイプのホテル。",
+        "url": "https://8weeksfujimi.github.io/8weeks-LP/fujimimachi-hotel.html",
+        "telephone": "+81-XXX-XXX-XXXX",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "富士見町",
+            "addressLocality": "富士見町",
+            "addressRegion": "長野県",
+            "postalCode": "399-0200",
+            "addressCountry": "JP"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "35.9147",
+            "longitude": "138.2469"
+        },
+        "image": [
+            "https://8weeksfujimi.github.io/8weeks-LP/assets/images/logos/fujimi.png"
+        ],
+        "starRating": {
+            "@type": "Rating",
+            "ratingValue": "4.98",
+            "bestRating": "5"
+        },
+        "priceRange": "¥8,000-¥25,000",
+        "amenityFeature": [
+            {"@type": "LocationFeatureSpecification", "name": "無料Wi-Fi"},
+            {"@type": "LocationFeatureSpecification", "name": "無料駐車場"},
+            {"@type": "LocationFeatureSpecification", "name": "キッチン"},
+            {"@type": "LocationFeatureSpecification", "name": "エアコン"},
+            {"@type": "LocationFeatureSpecification", "name": "暖房"},
+            {"@type": "LocationFeatureSpecification", "name": "洗濯機"}
+        ],
+        "checkinTime": "15:00",
+        "checkoutTime": "10:00",
+        "availableLanguage": ["Japanese", "English"],
+        "paymentAccepted": "現金, クレジットカード",
+        "currenciesAccepted": "JPY",
+        "hasMap": "https://maps.app.goo.gl/7EvAJLE3DuLRwecr7"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/images/logos/fujimi.png') center/cover;
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #ff5252;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            text-align: center;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .feature {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .feature h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .access-info {
+            background: #e8f4f8;
+            padding: 40px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        .price-table {
+            overflow-x: auto;
+            margin: 30px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: #2c3e50;
+            color: white;
+        }
+        
+        .faq {
+            margin: 40px 0;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .local-info {
+            background: #fff9e6;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        .breadcrumb {
+            padding: 10px 20px;
+            background: #f8f9fa;
+            font-size: 0.9em;
+        }
+        
+        .breadcrumb a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- パンくずリスト -->
+    <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="/">ホーム</a> &gt; 
+        <a href="/index.html">8weeks Fujimi</a> &gt; 
+        <span>富士見町ホテル</span>
+    </nav>
+    
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div>
+            <h1>富士見町のホテル・宿泊施設をお探しですか？</h1>
+            <p>八ヶ岳の麓、自然豊かな富士見町で特別な滞在を</p>
+            <a href="#booking" class="cta-button">今すぐ予約する</a>
+        </div>
+    </section>
+    
+    <!-- メインコンテンツ -->
+    <div class="container">
+        <!-- 富士見町の宿泊施設について -->
+        <section>
+            <h2>富士見町で人気の宿泊施設 - 8weeks Fujimi</h2>
+            <p>
+                長野県富士見町でホテルや宿泊施設をお探しの方に、8weeks Fujimiは最適な選択です。
+                富士見駅から車でわずか5-10分、八ヶ岳の雄大な自然に囲まれた静かな環境で、
+                ビジネス出張、観光、移住体験、ワーケーションなど、様々な目的でご利用いただけます。
+            </p>
+        </section>
+        
+        <!-- 特徴 -->
+        <section class="features">
+            <div class="feature">
+                <h3>🏠 富士見町の貸別荘タイプ</h3>
+                <p>一般的なホテルと異なり、キッチン付きの貸別荘スタイル。富士見町での暮らしを体験できます。</p>
+            </div>
+            <div class="feature">
+                <h3>🚗 富士見駅からアクセス良好</h3>
+                <p>富士見駅から車で5-10分。東京から特急で2時間、車でも2時間の好立地。</p>
+            </div>
+            <div class="feature">
+                <h3>💰 リーズナブルな価格</h3>
+                <p>富士見町のホテルの中でも、長期滞在割引があり、コストパフォーマンスに優れています。</p>
+            </div>
+        </section>
+        
+        <!-- アクセス情報 -->
+        <section class="access-info">
+            <h2>富士見町へのアクセス・周辺情報</h2>
+            <h3>🚃 電車でお越しの方</h3>
+            <ul>
+                <li>新宿駅 → 富士見駅（JR中央本線・特急あずさで約2時間）</li>
+                <li>名古屋駅 → 富士見駅（約3時間）</li>
+                <li>富士見駅から施設まで：タクシーで5-10分（約2,000円）</li>
+            </ul>
+            
+            <h3>🚗 車でお越しの方</h3>
+            <ul>
+                <li>東京方面から：中央自動車道 諏訪南IC → 約10分</li>
+                <li>名古屋方面から：中央自動車道 小淵沢IC → 約15分</li>
+                <li>無料駐車場完備（各施設2-3台分）</li>
+            </ul>
+        </section>
+        
+        <!-- 料金表 -->
+        <section>
+            <h2>富士見町ホテル 料金表</h2>
+            <div class="price-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>施設名</th>
+                            <th>定員</th>
+                            <th>1泊料金（目安）</th>
+                            <th>週割引</th>
+                            <th>月割引</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>8weeks Fujimi</td>
+                            <td>〜6名</td>
+                            <td>¥15,000〜</td>
+                            <td>あり</td>
+                            <td>あり</td>
+                        </tr>
+                        <tr>
+                            <td>8weeks Quriu</td>
+                            <td>〜6名</td>
+                            <td>¥18,000〜</td>
+                            <td>あり</td>
+                            <td>あり</td>
+                        </tr>
+                        <tr>
+                            <td>8weeks Studio</td>
+                            <td>〜4名</td>
+                            <td>¥8,000〜</td>
+                            <td>あり</td>
+                            <td>あり</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>※料金は季節や曜日により変動します。詳細はお問い合わせください。</p>
+        </section>
+        
+        <!-- 地域情報 -->
+        <section class="local-info">
+            <h2>富士見町の観光・ビジネス情報</h2>
+            <h3>🏔️ 富士見町の観光スポット</h3>
+            <ul>
+                <li><strong>富士見パノラマリゾート</strong> - スキー、マウンテンバイク、ゴンドラ（車で10分）</li>
+                <li><strong>富士見高原リゾート</strong> - 花の里、天空カート（車で15分）</li>
+                <li><strong>八ヶ岳アルパカ牧場</strong> - 家族連れに人気（車で10分）</li>
+                <li><strong>道の駅信州蔦木宿</strong> - 地元特産品、温泉（車で10分）</li>
+            </ul>
+            
+            <h3>💼 ビジネス出張の方へ</h3>
+            <ul>
+                <li>諏訪市内の企業へ：車で20-30分</li>
+                <li>茅野市内の企業へ：車で20-25分</li>
+                <li>甲府市内へ：車で約1時間</li>
+                <li>Wi-Fi完備、デスクワークに適した環境</li>
+            </ul>
+        </section>
+        
+        <!-- FAQ -->
+        <section class="faq">
+            <h2>富士見町のホテルに関するよくある質問</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q: 富士見町に他にホテルはありますか？</div>
+                <div class="faq-answer">A: 富士見町には大型ホテルは少なく、主にペンションや民宿、貸別荘が中心です。8weeks Fujimiは貸別荘タイプで、ホテルのような快適さとプライベート空間を両立しています。</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q: 富士見町のホテルの相場はどのくらいですか？</div>
+                <div class="faq-answer">A: 富士見町の宿泊施設は1泊8,000円〜25,000円程度が相場です。8weeks Fujimiは長期滞在割引もあり、連泊でさらにお得になります。</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q: 富士見駅から歩いて行けますか？</div>
+                <div class="faq-answer">A: 富士見駅から徒歩では30-40分かかるため、タクシーまたはレンタカーのご利用をおすすめします。事前にご相談いただければ、送迎の手配も検討可能です。</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q: 富士見町でビジネスホテルを探しています</div>
+                <div class="faq-answer">A: 富士見町には一般的なビジネスホテルはありませんが、8weeks Studioは富士見駅に近く、ビジネス利用に適しています。Wi-Fi完備で、仕事に集中できる環境です。</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Q: 富士見町への移住を検討していますが、お試し滞在は可能ですか？</div>
+                <div class="faq-answer">A: はい、移住体験として1週間から数ヶ月の滞在を歓迎しています。実際の富士見町での生活を体験しながら、移住の検討ができます。</div>
+            </div>
+        </section>
+        
+        <!-- CTA -->
+        <section id="booking" style="text-align: center; padding: 60px 0; background: #f8f9fa; border-radius: 10px;">
+            <h2>富士見町のホテルをお探しなら8weeks Fujimi</h2>
+            <p style="font-size: 1.2em; margin: 20px 0;">自然豊かな富士見町で、特別な滞在体験を</p>
+            <a href="https://airbnb.com/h/8weeksfujimi" class="cta-button" style="margin: 10px;">8weeks Fujimi を予約</a>
+            <a href="https://airbnb.com/h/8weeks-quriu" class="cta-button" style="margin: 10px;">8weeks Quriu を予約</a>
+            <a href="https://airbnb.com/h/8weeks-studio" class="cta-button" style="margin: 10px;">8weeks Studio を予約</a>
+            <p style="margin-top: 30px;">メールでのお問い合わせ：<strong><a href="mailto:8weeks.fujimi@gmail.com" style="color: #ff6b6b; text-decoration: none;">8weeks.fujimi@gmail.com</a></strong></p>
+        </section>
+    </div>
+    
+    <!-- フッター -->
+    <footer style="background: #2c3e50; color: white; text-align: center; padding: 30px;">
+        <p>© 2025 8weeks Fujimi - 富士見町の宿泊施設</p>
+        <p>長野県富士見町 | <a href="/" style="color: #fff;">ホームに戻る</a></p>
+    </footer>
+</body>
+</html>

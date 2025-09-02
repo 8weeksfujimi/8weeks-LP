@@ -1,0 +1,39 @@
+# 8weeks Fujimi robots.txt
+# https://8weeksfujimi.github.io/8weeks-LP/
+
+User-agent: *
+Allow: /
+
+# サイトマップの場所
+Sitemap: https://8weeksfujimi.github.io/8weeks-LP/sitemap.xml
+
+# クローラーに対する制限
+Crawl-delay: 1
+
+# 特定のボットに対する設定
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /assets/images/
+Allow: /assets/images/gallery/
+Allow: /assets/images/logos/
+
+# ソーシャルメディアボット
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# 不要なクローリングを防ぐ
+User-agent: *
+Disallow: /scripts/
+Disallow: /*.js$
+Disallow: /*.py$
+Disallow: /docs/
+Disallow: *.md$
