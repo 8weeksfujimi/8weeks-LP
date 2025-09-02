@@ -128,9 +128,70 @@ git push origin main
 - 合計3物件すべてのギャラリーが統合完了
 - 削除対象写真（5枚）を除外し、最終的に41枚の写真を表示
 
+### 2025-09-02: SEO強化実装 - 富士見町キーワード最適化
+
+**実装概要**
+- Google検索で「富士見町ホテル」「富士見町宿泊」「富士見町移住体験」での上位表示を目指すSEO対策を実装
+
+**実装内容**
+
+1. **メタタグ・タイトル最適化**
+   - タイトル: 「富士見町のホテル・宿泊施設 | 8weeks Fujimi - 八ヶ岳山麓の貸別荘で移住体験」
+   - メタディスクリプション: 富士見町関連キーワードを自然に配置
+   - キーワードタグ: 地域特化キーワードを追加
+
+2. **構造化データ（JSON-LD）強化**
+   - LodgingBusinessスキーマに詳細情報追加
+   - FAQPageスキーマで検索結果を強化
+   - LocalBusinessスキーマで地域情報を充実
+   - BreadcrumbListでナビゲーション構造を明示
+
+3. **コンテンツキーワード最適化**
+   - H1タグ: 「8weeks Fujimi - 富士見町の宿泊施設」
+   - セクションタイトルに「富士見町」を自然に組み込み
+   - 移住体験ストーリーに地域キーワードを配置
+
+4. **新規ページ作成**
+   - `fujimimachi-hotel.html`: 富士見町ホテル専用ランディングページ
+   - 富士見町特化のFAQ、アクセス情報、料金表を含む完全なローカルSEOページ
+   - 問い合わせ先: 8weeks.fujimi@gmail.com
+
+5. **SEO技術ファイル追加**
+   - `sitemap.xml`: 全ページのサイトマップ（Google Search Console用）
+   - `robots.txt`: クローラー制御とサイトマップ指定
+   - `google6ef0a2cf1735ead9.html`: Google Search Console所有権確認ファイル
+
+6. **SEOガイド資料**
+   - `seo-improvement-guide.md`: 継続的なSEO改善のためのガイド
+   - `seo-optimization.html`: 最適化サンプルファイル
+
+**SEO効果期待値**
+- 短期（1-4週間）: Googleインデックス、ブランド名検索1位
+- 中期（1-3ヶ月）: 「富士見町ホテル」「富士見町宿泊」で10位以内
+- 長期（3-6ヶ月）: 「富士見町ホテル」で5位以内、月間検索流入500件
+
+**現在の状況**
+- Google Search Console登録完了
+- サイトマップ送信済み（処理待ち）
+- 全SEOファイルがGitHub Pagesで公開中
+- 追加施策：Googleマイビジネス登録、外部リンク獲得が必要
+
+**次回実施予定項目**
+1. Google Search Consoleでのサイトマップ認識確認
+2. Googleマイビジネス3施設登録
+3. 富士見町観光協会等への掲載依頼
+4. ページ速度最適化（Core Web Vitals改善）
+5. 月次SEO効果測定レポート開始
+
 ## ライセンス
 © 2025 8weeks Fujimi. All rights reserved.
 
 ## お問い合わせ
-- Email: info@8weeksfujimi.com
-- Website: https://8weeksfujimi.com
+- Email: 8weeks.fujimi@gmail.com
+- Website: https://8weeksfujimi.github.io/8weeks-LP/
+
+## SEOツール・リンク
+- Google Search Console: https://search.google.com/search-console
+- サイトマップURL: https://8weeksfujimi.github.io/8weeks-LP/sitemap.xml
+- 富士見町ホテル専用ページ: https://8weeksfujimi.github.io/8weeks-LP/fujimimachi-hotel.html
+- SEO改善ガイド: [seo-improvement-guide.md](./seo-improvement-guide.md)
