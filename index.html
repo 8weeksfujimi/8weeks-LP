@@ -1070,6 +1070,63 @@
             color: rgba(255,255,255,0.8);
         }
 
+        /* Media Feature */
+        .media-feature {
+            margin-top: 24px;
+            padding-top: 20px;
+            border-top: 1px solid #EEEEEE;
+        }
+
+        .media-feature h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-gray-medium);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .media-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--color-gray-light);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--color-black);
+            transition: var(--transition);
+        }
+
+        .media-link:hover {
+            background: var(--color-black);
+            color: var(--color-white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .media-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .media-source {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--color-accent);
+        }
+
+        .media-link:hover .media-source {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .media-title {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
         .btn {
             display: inline-block;
             padding: 16px 32px;
@@ -1494,6 +1551,18 @@
                                 <div class="superhost-info">
                                     <i data-lucide="star" style="width: 16px; height: 16px;"></i>
                                     <span>Airbnb Superhostとして、一貫して優れたホスピタリティを提供しています。</span>
+                                </div>
+
+                                <div class="media-feature">
+                                    <h4>Media</h4>
+                                    <a href="https://www.kyodo.co.jp/life/2025-11-04_3972207/" target="_blank" class="media-link">
+                                        <i data-lucide="newspaper" style="width: 20px; height: 20px;"></i>
+                                        <div class="media-text">
+                                            <span class="media-source">共同通信</span>
+                                            <span class="media-title">移住と子育て、ゲストハウス経営のストーリー</span>
+                                        </div>
+                                        <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
