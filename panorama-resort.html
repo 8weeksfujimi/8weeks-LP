@@ -282,11 +282,16 @@
         }
 
         .hero-content h1 {
-            font-size: clamp(32px, 6vw, 48px);
+            font-size: clamp(18px, 5vw, 48px);
             font-weight: 600;
             margin-bottom: 20px;
             color: var(--color-black);
             letter-spacing: -0.02em;
+        }
+
+        .hero-content h1 .line {
+            display: block;
+            white-space: nowrap;
         }
 
         .hero-brand {
@@ -440,54 +445,272 @@
             background: var(--color-white);
         }
 
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
-            margin-top: 48px;
+        /* Accordion Styles */
+        .accordion-container {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .benefit-card {
-            text-align: center;
-            padding: 32px 24px;
-            background: var(--color-gray-light);
+        .accordion-item {
+            background: var(--color-white);
+            border: 1px solid #eee;
             border-radius: var(--border-radius);
+            margin-bottom: 12px;
+            overflow: hidden;
             transition: var(--transition);
         }
 
-        .benefit-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-card);
+        .accordion-item:hover {
+            box-shadow: var(--shadow-subtle);
         }
 
-        .benefit-icon {
-            width: 60px;
-            height: 60px;
+        .accordion-header {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background: var(--color-gray-light);
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-primary);
+            text-align: left;
+            transition: var(--transition);
+        }
+
+        .accordion-header:hover {
+            background: #f0f0f0;
+        }
+
+        .accordion-icon-wrapper {
+            width: 48px;
+            height: 48px;
             background: var(--color-accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
+            flex-shrink: 0;
         }
 
-        .benefit-icon svg {
+        .accordion-icon-wrapper svg {
             color: white;
-            width: 30px;
-            height: 30px;
+            width: 24px;
+            height: 24px;
         }
 
-        .benefit-card h3 {
-            font-size: 20px;
+        .accordion-title {
+            flex: 1;
+            font-size: 17px;
             font-weight: 600;
-            margin-bottom: 12px;
             color: var(--color-black);
         }
 
-        .benefit-card p {
+        .accordion-title-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .accordion-subtitle {
+            font-size: 13px;
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+
+        .accordion-chevron {
+            width: 24px;
+            height: 24px;
+            color: var(--color-gray-medium);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .accordion-item.open .accordion-chevron {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .accordion-item.open .accordion-content {
+            max-height: 500px;
+            padding: 0 24px 24px;
+        }
+
+        .accordion-content p {
             font-size: 15px;
             color: var(--color-gray-dark);
+            line-height: 1.7;
+            padding-top: 16px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Access List in Accordion */
+        .access-list {
+            list-style: none;
+            padding: 16px 0 0;
+            margin: 0;
+            border-top: 1px solid #eee;
+        }
+
+        .access-list li {
+            padding: 8px 0;
+            color: var(--color-gray-dark);
+            font-size: 14px;
             line-height: 1.6;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .access-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: bold;
+        }
+
+        /* Map Accordion */
+        .map-accordion {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .map-accordion .accordion-header {
+            padding: 16px 20px;
+        }
+
+        .map-accordion .accordion-icon-wrapper {
+            width: 36px;
+            height: 36px;
+        }
+
+        .map-accordion .accordion-icon-wrapper svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .map-content {
+            padding: 0 !important;
+        }
+
+        .accordion-item.open .map-content {
+            padding: 0 !important;
+        }
+
+        .map-content .map-container {
+            height: 300px;
+            border-top: 1px solid #eee;
+        }
+
+        .map-content .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Desktop: Show all accordion content expanded */
+        @media (min-width: 769px) {
+            .accordion-container,
+            .access-accordion {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 24px;
+                max-width: none;
+            }
+
+            .accordion-item {
+                margin-bottom: 0;
+            }
+
+            .accordion-container .accordion-header,
+            .access-accordion .accordion-header {
+                flex-direction: column;
+                text-align: center;
+                padding: 32px 24px 24px;
+            }
+
+            .accordion-container .accordion-icon-wrapper,
+            .access-accordion .accordion-icon-wrapper {
+                margin-bottom: 16px;
+            }
+
+            .accordion-container .accordion-title-group,
+            .access-accordion .accordion-title-group {
+                align-items: center;
+            }
+
+            .accordion-chevron {
+                display: none;
+            }
+
+            .accordion-content {
+                max-height: none !important;
+                padding: 0 24px 24px !important;
+            }
+
+            .accordion-content p {
+                text-align: center;
+            }
+
+            .access-list {
+                text-align: left;
+            }
+
+            /* Map: Keep horizontal layout on desktop */
+            .map-accordion {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
+                max-width: none;
+            }
+
+            .map-accordion .accordion-header {
+                flex-direction: row;
+                padding: 16px 20px;
+            }
+
+            .map-accordion .accordion-icon-wrapper {
+                margin-bottom: 0;
+            }
+
+            .map-content .map-container {
+                height: 300px;
+            }
+        }
+
+        /* Mobile: Accordion behavior */
+        @media (max-width: 768px) {
+            .accordion-header {
+                padding: 16px 20px;
+            }
+
+            .accordion-icon-wrapper {
+                width: 40px;
+                height: 40px;
+            }
+
+            .accordion-icon-wrapper svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .accordion-title {
+                font-size: 15px;
+            }
+
+            .accordion-subtitle {
+                font-size: 12px;
+            }
+
+            .map-content .map-container {
+                height: 250px;
+            }
         }
 
         /* Property Cards */
@@ -611,104 +834,9 @@
             background: var(--color-white);
         }
 
-        .access-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 32px;
-            margin-top: 48px;
-        }
-
-        .access-card {
-            background: var(--color-gray-light);
-            padding: 32px;
-            border-radius: var(--border-radius);
-            border-left: 4px solid var(--color-accent);
-        }
-
-        .access-card h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--color-black);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .access-card h3 svg {
-            color: var(--color-accent);
-        }
-
-        .access-card ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .access-card li {
-            padding: 8px 0;
-            color: var(--color-gray-dark);
-            font-size: 15px;
-            line-height: 1.7;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .access-card li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--color-accent);
-            font-weight: bold;
-        }
-
         /* Map Section */
         .map-section {
-            background: var(--color-white);
-        }
-
-        .map-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
-            margin-top: 48px;
-        }
-
-        .map-card {
             background: var(--color-gray-light);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-card);
-        }
-
-        .map-card h3 {
-            font-size: 20px;
-            font-weight: 600;
-            padding: 20px 24px;
-            background: var(--color-white);
-            color: var(--color-black);
-            border-bottom: 2px solid var(--color-accent);
-        }
-
-        .map-container {
-            position: relative;
-            width: 100%;
-            height: 400px;
-        }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        @media (max-width: 768px) {
-            .map-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .map-container {
-                height: 300px;
-            }
         }
 
         /* Winter Amenities */
@@ -746,146 +874,6 @@
             font-size: 14px;
             color: var(--color-gray-medium);
             line-height: 1.5;
-        }
-
-        /* Features Tabs Section */
-        .features-tabs {
-            background: var(--color-white);
-            padding: 80px 0;
-        }
-
-        .tabs-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .tab-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .tab-button {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 16px 28px;
-            background: var(--color-gray-light);
-            border: 2px solid transparent;
-            border-radius: 50px;
-            cursor: pointer;
-            font-family: var(--font-primary);
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--color-gray-dark);
-            transition: var(--transition);
-        }
-
-        .tab-button:hover {
-            background: var(--color-warm);
-            border-color: var(--color-accent);
-        }
-
-        .tab-button.active {
-            background: var(--color-accent);
-            color: white;
-            border-color: var(--color-accent);
-        }
-
-        .tab-button svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .tab-button.active svg {
-            color: white;
-        }
-
-        .tab-contents {
-            position: relative;
-        }
-
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .tab-header {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .tab-header h3 {
-            font-size: 24px;
-            font-weight: 600;
-            color: var(--color-black);
-            margin-bottom: 12px;
-        }
-
-        .tab-header p {
-            font-size: 16px;
-            color: var(--color-gray-medium);
-        }
-
-        .tab-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .tab-card {
-            background: var(--color-gray-light);
-            padding: 28px;
-            border-radius: var(--border-radius);
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .tab-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-card);
-        }
-
-        .tab-card svg {
-            width: 36px;
-            height: 36px;
-            color: var(--color-accent);
-            margin-bottom: 16px;
-        }
-
-        .tab-card h4 {
-            font-size: 17px;
-            font-weight: 600;
-            color: var(--color-black);
-            margin-bottom: 10px;
-        }
-
-        .tab-card p {
-            font-size: 14px;
-            color: var(--color-gray-dark);
-            line-height: 1.6;
-        }
-
-        @media (max-width: 768px) {
-            .tab-buttons {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .tab-button {
-                justify-content: center;
-            }
         }
 
         /* CTA Section */
@@ -1085,7 +1073,7 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>日帰りじゃもったいない。<br>富士見町で暮らすように過ごす宿。</h1>
+                <h1><span class="line">日帰りじゃもったいない。</span><span class="line">富士見町で暮らすように過ごす宿。</span></h1>
                 <p class="subtitle">早朝のゲレンデに最短アクセス、一棟貸切のプライベート空間で快適なウィンタースポーツ滞在を。</p>
                 <div class="distance-highlight">
                     <i data-lucide="map-pin" style="display: inline; width: 28px; height: 28px; vertical-align: middle;"></i>
@@ -1181,197 +1169,145 @@
         </div>
     </section>
 
-    <!-- Why Choose Section -->
+    <!-- Why Choose Section - Accordion on Mobile -->
     <section class="why-choose">
         <div class="container">
             <h2 class="section-title reveal">8weeks Stayが選ばれる理由</h2>
             <p class="section-subtitle reveal reveal-delay-1">富士見パノラマリゾートでのウィンタースポーツ滞在を、より快適に、より自由に楽しめる</p>
 
-            <div class="benefits-grid reveal reveal-delay-2">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i data-lucide="gauge"></i>
+            <div class="accordion-container reveal reveal-delay-2">
+                <!-- 圧倒的な近さ -->
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <div class="accordion-icon-wrapper">
+                            <i data-lucide="gauge"></i>
+                        </div>
+                        <span class="accordion-title">圧倒的な近さ</span>
+                        <i data-lucide="chevron-down" class="accordion-chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>富士見パノラマリゾートから車で約3分、約1.5km。リゾート周辺で最も近い宿泊施設です。朝一番のリフトに間に合い、混雑前にゲレンデに到着できます。</p>
                     </div>
-                    <h3>圧倒的な近さ</h3>
-                    <p>富士見パノラマリゾートから車で約3分、約1.5km。リゾート周辺で最も近い宿泊施設です。朝一番のリフトに間に合い、混雑前にゲレンデに到着できます。</p>
                 </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i data-lucide="users"></i>
+                <!-- 一棟貸切 -->
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <div class="accordion-icon-wrapper">
+                            <i data-lucide="users"></i>
+                        </div>
+                        <span class="accordion-title">一棟貸切のプライベート空間</span>
+                        <i data-lucide="chevron-down" class="accordion-chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>ホテルとは違い、一棟貸切またはフロア貸切のプライベート空間。グループや家族での利用に最適で、時間を気にせず自分たちのペースで過ごせます。</p>
                     </div>
-                    <h3>一棟貸切のプライベート空間</h3>
-                    <p>ホテルとは違い、一棟貸切またはフロア貸切のプライベート空間。グループや家族での利用に最適で、時間を気にせず自分たちのペースで過ごせます。</p>
                 </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i data-lucide="baby"></i>
+                <!-- お子様連れ -->
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <div class="accordion-icon-wrapper">
+                            <i data-lucide="baby"></i>
+                        </div>
+                        <span class="accordion-title">お子様連れファミリーに優しい</span>
+                        <i data-lucide="chevron-down" class="accordion-chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>ホストは富士見町在住で6歳の娘がいます。小さなお子様連れのファミリーが安心して過ごせるよう、必要なアメニティや地域の子連れスポット情報もご案内します。</p>
                     </div>
-                    <h3>お子様連れファミリーに優しい</h3>
-                    <p>ホストは富士見町在住で6歳の娘がいます。小さなお子様連れのファミリーが安心して過ごせるよう、必要なアメニティや地域の子連れスポット情報もご案内します。</p>
                 </div>
 
+                <!-- 第二の家として -->
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <div class="accordion-icon-wrapper">
+                            <i data-lucide="home"></i>
+                        </div>
+                        <span class="accordion-title">富士見に、第二の家を</span>
+                        <i data-lucide="chevron-down" class="accordion-chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <p>冬はスキー、夏はMTB、秋は紅葉、春は新緑。四季を通じて楽しめる富士見町。馴染みのスーパーで買い物、お気に入りのカフェ、近くの温泉で疲れを癒す。リピーターには長期滞在割引や優先案内も。</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Map Section -->
+    <!-- Map Section - Accordion on Mobile -->
     <section class="map-section">
         <div class="container">
             <h2 class="section-title reveal">地図で見る近さ</h2>
-            <p class="section-subtitle reveal reveal-delay-1">富士見パノラマリゾートと各物件の位置関係を地図でご確認ください。驚くほどの近さです。</p>
+            <p class="section-subtitle reveal reveal-delay-1">富士見パノラマリゾートと各物件の位置関係</p>
 
-            <div class="map-grid reveal reveal-delay-2">
-                <div class="map-card">
-                    <h3>8weeks Fujimi<br><small style="font-size: 14px; font-weight: 400; color: var(--color-gray-medium);">パノラマリゾートから車で3分</small></h3>
-                    <div class="map-container">
-                        <iframe
-                            src="https://maps.google.com/maps?q=8weeks+Fujimi&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                </div>
-
-                <div class="map-card">
-                    <h3>8weeks Quriu<br><small style="font-size: 14px; font-weight: 400; color: var(--color-gray-medium);">パノラマリゾートから車で5分</small></h3>
-                    <div class="map-container">
-                        <iframe
-                            src="https://maps.google.com/maps?q=8weeks+Quriu&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                </div>
-
-                <div class="map-card">
-                    <h3>8weeks Studio<br><small style="font-size: 14px; font-weight: 400; color: var(--color-gray-medium);">富士見駅前・無料シャトルバスで便利</small></h3>
-                    <div class="map-container">
-                        <iframe
-                            src="https://maps.google.com/maps?q=8weeks+Studio+富士見町&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Tab Section -->
-    <section class="features-tabs">
-        <div class="container">
-            <h2 class="section-title reveal">8weeks Stayの魅力</h2>
-            <p class="section-subtitle reveal reveal-delay-1">気になる項目をクリックして詳細をご覧ください</p>
-
-            <div class="tabs-container reveal reveal-delay-2">
-                <div class="tab-buttons">
-                    <button class="tab-button active" data-tab="family">
-                        <i data-lucide="baby"></i>
-                        <span>お子様連れに優しい</span>
+            <!-- Desktop: Grid / Mobile: Accordion -->
+            <div class="map-accordion reveal reveal-delay-2">
+                <div class="accordion-item map-accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <div class="accordion-icon-wrapper">
+                            <i data-lucide="map-pin"></i>
+                        </div>
+                        <div class="accordion-title-group">
+                            <span class="accordion-title">8weeks Fujimi</span>
+                            <span class="accordion-subtitle">車で3分</span>
+                        </div>
+                        <i data-lucide="chevron-down" class="accordion-chevron"></i>
                     </button>
-                    <button class="tab-button" data-tab="secondhome">
-                        <i data-lucide="home"></i>
-                        <span>第二の家として</span>
-                    </button>
-                    <button class="tab-button" data-tab="winter">
-                        <i data-lucide="snowflake"></i>
-                        <span>ウィンター設備</span>
-                    </button>
+                    <div class="accordion-content map-content">
+                        <div class="map-container">
+                            <iframe
+                                data-src="https://maps.google.com/maps?q=8weeks+Fujimi&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="tab-contents">
-                    <!-- Family Tab -->
-                    <div class="tab-content active" id="tab-family">
-                        <div class="tab-header">
-                            <h3>お子様連れファミリーに優しい宿</h3>
-                            <p>富士見町在住、6歳の娘を持つホストだからこそ提供できる、安心のファミリーステイ。</p>
+                <div class="accordion-item map-accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <div class="accordion-icon-wrapper">
+                            <i data-lucide="map-pin"></i>
                         </div>
-                        <div class="tab-grid">
-                            <div class="tab-card">
-                                <i data-lucide="smile"></i>
-                                <h4>子育て経験豊富なホスト</h4>
-                                <p>6歳の娘を育てるホストが、お子様連れファミリーの気持ちに寄り添います。</p>
-                            </div>
-                            <div class="tab-card">
-                                <i data-lucide="map"></i>
-                                <h4>地域の子連れスポット情報</h4>
-                                <p>地元在住だからこそ知る、子連れで楽しめるスポットやレストラン情報をご案内。</p>
-                            </div>
-                            <div class="tab-card">
-                                <i data-lucide="shield-check"></i>
-                                <h4>安心の一棟貸切</h4>
-                                <p>お子様が泣いたり走り回っても大丈夫。家族だけの時間をのびのびと。</p>
-                            </div>
+                        <div class="accordion-title-group">
+                            <span class="accordion-title">8weeks Quriu</span>
+                            <span class="accordion-subtitle">車で5分</span>
+                        </div>
+                        <i data-lucide="chevron-down" class="accordion-chevron"></i>
+                    </button>
+                    <div class="accordion-content map-content">
+                        <div class="map-container">
+                            <iframe
+                                data-src="https://maps.google.com/maps?q=8weeks+Quriu&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Second Home Tab -->
-                    <div class="tab-content" id="tab-secondhome">
-                        <div class="tab-header">
-                            <h3>富士見に、第二の家を</h3>
-                            <p>富士見での「暮らし」を楽しむ、あなたの拠点として。四季折々の滞在をお楽しみください。</p>
+                <div class="accordion-item map-accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <div class="accordion-icon-wrapper">
+                            <i data-lucide="train"></i>
                         </div>
-                        <div class="tab-grid">
-                            <div class="tab-card">
-                                <i data-lucide="calendar"></i>
-                                <h4>シーズンごとの楽しみ</h4>
-                                <p>冬はスキー、夏はMTB、秋は紅葉、春は新緑。四季を通じて楽しめます。</p>
-                            </div>
-                            <div class="tab-card">
-                                <i data-lucide="heart"></i>
-                                <h4>地元のように過ごす</h4>
-                                <p>馴染みのスーパーで買い物、お気に入りのカフェ、近くの温泉で疲れを癒す。</p>
-                            </div>
-                            <div class="tab-card">
-                                <i data-lucide="repeat"></i>
-                                <h4>リピーター特典</h4>
-                                <p>長期滞在割引、優先案内、荷物預かりなど、リピーターならではの特典も。</p>
-                            </div>
+                        <div class="accordion-title-group">
+                            <span class="accordion-title">8weeks Studio</span>
+                            <span class="accordion-subtitle">富士見駅前</span>
                         </div>
-                    </div>
-
-                    <!-- Winter Tab -->
-                    <div class="tab-content" id="tab-winter">
-                        <div class="tab-header">
-                            <h3>ウィンタースポーツ設備</h3>
-                            <p>スキー・スノーボードを快適に楽しむための設備が充実しています。</p>
-                        </div>
-                        <div class="tab-grid">
-                            <div class="tab-card">
-                                <i data-lucide="package"></i>
-                                <h4>用具収納スペース</h4>
-                                <p>スキー板やブーツをしっかり保管できる専用スペース完備。</p>
-                            </div>
-                            <div class="tab-card">
-                                <i data-lucide="wind"></i>
-                                <h4>ウェア乾燥</h4>
-                                <p>濡れたウェアやブーツを翌朝までにしっかり乾かせます。</p>
-                            </div>
-                            <div class="tab-card">
-                                <i data-lucide="flame"></i>
-                                <h4>薪ストーブ</h4>
-                                <p>Qiriuには薪ストーブ完備。アフタースキーを温かく過ごせます。</p>
-                            </div>
-                            <div class="tab-card">
-                                <i data-lucide="utensils"></i>
-                                <h4>キッチン完備</h4>
-                                <p>自炊可能なフルキッチンで、食事も自由に楽しめます。</p>
-                            </div>
-                            <div class="tab-card">
-                                <i data-lucide="wifi"></i>
-                                <h4>高速Wi-Fi</h4>
-                                <p>リモートワークにも対応できる快適なインターネット環境。</p>
-                            </div>
-                            <div class="tab-card">
-                                <i data-lucide="coffee"></i>
-                                <h4>くつろぎ空間</h4>
-                                <p>広いリビングでゆったりとアフタースキーを満喫。</p>
-                            </div>
+                        <i data-lucide="chevron-down" class="accordion-chevron"></i>
+                    </button>
+                    <div class="accordion-content map-content">
+                        <div class="map-container">
+                            <iframe
+                                data-src="https://maps.google.com/maps?q=8weeks+Studio+富士見町&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
                         </div>
                     </div>
                 </div>
@@ -1379,53 +1315,71 @@
         </div>
     </section>
 
-    <!-- Access Section -->
+    <!-- Access Section - Accordion on Mobile -->
     <section class="access">
         <div class="container">
             <h2 class="section-title reveal">アクセス情報</h2>
-            <p class="section-subtitle reveal reveal-delay-1">富士見パノラマリゾートから8weeks Stayへのアクセス方法。車でもシャトルバスでも便利にご利用いただけます。</p>
+            <p class="section-subtitle reveal reveal-delay-1">車でもシャトルバスでも便利にアクセス</p>
 
-            <div class="access-grid reveal reveal-delay-2">
-                <div class="access-card">
-                    <h3>
-                        <i data-lucide="car"></i>
-                        8weeks Fujimi
-                    </h3>
-                    <ul>
-                        <li>富士見パノラマリゾートから車で約3分（約1.5km）</li>
-                        <li>早朝のリフト営業開始に余裕で間に合います</li>
-                        <li>昼食を宿で取ることも可能な近さ</li>
-                        <li>疲れたらすぐに戻れる安心感</li>
-                        <li>駐車場完備（無料）</li>
-                    </ul>
+            <div class="accordion-container access-accordion reveal reveal-delay-2">
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <div class="accordion-icon-wrapper">
+                            <i data-lucide="car"></i>
+                        </div>
+                        <div class="accordion-title-group">
+                            <span class="accordion-title">8weeks Fujimi</span>
+                            <span class="accordion-subtitle">パノラマから車で3分</span>
+                        </div>
+                        <i data-lucide="chevron-down" class="accordion-chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="access-list">
+                            <li>早朝のリフト営業開始に余裕で間に合う</li>
+                            <li>昼食を宿で取ることも可能な近さ</li>
+                            <li>駐車場完備（無料）</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="access-card">
-                    <h3>
-                        <i data-lucide="car"></i>
-                        8weeks Quriu
-                    </h3>
-                    <ul>
-                        <li>富士見パノラマリゾートから車で約5分（約2.5km）</li>
-                        <li>リゾート周辺の好立地</li>
-                        <li>広々とした100m²超の空間</li>
-                        <li>薪ストーブで温かく快適</li>
-                        <li>駐車場完備（無料）</li>
-                    </ul>
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <div class="accordion-icon-wrapper">
+                            <i data-lucide="car"></i>
+                        </div>
+                        <div class="accordion-title-group">
+                            <span class="accordion-title">8weeks Quriu</span>
+                            <span class="accordion-subtitle">パノラマから車で5分</span>
+                        </div>
+                        <i data-lucide="chevron-down" class="accordion-chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="access-list">
+                            <li>広々100m²超・薪ストーブで温かく快適</li>
+                            <li>リゾート周辺の好立地</li>
+                            <li>駐車場完備（無料）</li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="access-card">
-                    <h3>
-                        <i data-lucide="train"></i>
-                        8weeks Studio
-                    </h3>
-                    <ul>
-                        <li>富士見駅から徒歩4分の駅前立地</li>
-                        <li>パノラマリゾートの無料シャトルバス乗り場が近い</li>
-                        <li>電車でのアクセスに最適</li>
-                        <li>車がなくても快適に滞在可能</li>
-                        <li>駅前のコンビニ・スーパーが徒歩圏内</li>
-                    </ul>
+                <div class="accordion-item">
+                    <button class="accordion-header" aria-expanded="false">
+                        <div class="accordion-icon-wrapper">
+                            <i data-lucide="train"></i>
+                        </div>
+                        <div class="accordion-title-group">
+                            <span class="accordion-title">8weeks Studio</span>
+                            <span class="accordion-subtitle">富士見駅から徒歩4分</span>
+                        </div>
+                        <i data-lucide="chevron-down" class="accordion-chevron"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <ul class="access-list">
+                            <li>無料シャトルバス乗り場が近い</li>
+                            <li>電車アクセスに最適・車なしOK</li>
+                            <li>駅前コンビニ・スーパー徒歩圏内</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1487,37 +1441,69 @@
             });
         });
 
-        // Tab functionality
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const tabContents = document.querySelectorAll('.tab-content');
+        // Accordion functionality (mobile only)
+        function initAccordions() {
+            const isMobile = window.innerWidth <= 768;
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
 
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const tabId = button.dataset.tab;
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    if (!isMobile && !header.closest('.map-accordion')) return; // Desktop: only maps are clickable
 
-                // Remove active class from all buttons and contents
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabContents.forEach(content => content.classList.remove('active'));
+                    const item = header.closest('.accordion-item');
+                    const isOpen = item.classList.contains('open');
 
-                // Add active class to clicked button and corresponding content
-                button.classList.add('active');
-                document.getElementById(`tab-${tabId}`).classList.add('active');
+                    // Close all other accordions in the same container (optional: remove for multi-open)
+                    const container = item.closest('.accordion-container, .map-accordion, .access-accordion');
+                    if (container) {
+                        container.querySelectorAll('.accordion-item').forEach(otherItem => {
+                            otherItem.classList.remove('open');
+                            otherItem.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+                        });
+                    }
 
-                // Re-initialize icons for the newly visible content
-                lucide.createIcons();
+                    // Toggle current accordion
+                    if (!isOpen) {
+                        item.classList.add('open');
+                        header.setAttribute('aria-expanded', 'true');
+
+                        // Lazy load map iframe
+                        const iframe = item.querySelector('iframe[data-src]');
+                        if (iframe && !iframe.src) {
+                            iframe.src = iframe.dataset.src;
+                        }
+                    }
+
+                    lucide.createIcons();
+                });
             });
 
-            // Optional: hover effect for preview
-            button.addEventListener('mouseenter', () => {
-                if (!button.classList.contains('active')) {
-                    button.style.transform = 'scale(1.02)';
-                }
-            });
+            // On desktop, load all map iframes
+            if (!isMobile) {
+                document.querySelectorAll('iframe[data-src]').forEach(iframe => {
+                    if (!iframe.src) {
+                        iframe.src = iframe.dataset.src;
+                    }
+                });
+            }
+        }
 
-            button.addEventListener('mouseleave', () => {
-                button.style.transform = 'scale(1)';
-            });
+        // Re-init on resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                // Reload page layout on significant resize (mobile <-> desktop)
+                const isMobile = window.innerWidth <= 768;
+                document.querySelectorAll('iframe[data-src]').forEach(iframe => {
+                    if (!iframe.src && !isMobile) {
+                        iframe.src = iframe.dataset.src;
+                    }
+                });
+            }, 250);
         });
+
+        initAccordions();
 
         // Scroll Reveal Animation
         const revealElements = document.querySelectorAll('.reveal');
