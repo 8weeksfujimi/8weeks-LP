@@ -282,7 +282,7 @@
         }
 
         .hero-content h1 {
-            font-size: clamp(18px, 5vw, 48px);
+            font-size: clamp(16px, 4.5vw, 48px);
             font-weight: 600;
             margin-bottom: 20px;
             color: var(--color-black);
@@ -292,6 +292,12 @@
         .hero-content h1 .line {
             display: block;
             white-space: nowrap;
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: clamp(14px, 5vw, 24px);
+            }
         }
 
         .hero-brand {
@@ -1072,8 +1078,7 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1><span class="line">日帰りじゃもったいない。</span><span class="line">雪も出会いも味わう旅に。</span></h1>
-                <p class="subtitle">早朝のゲレンデに最短アクセス、一棟貸切のプライベート空間で快適なウィンタースポーツ滞在を。</p>
+                <h1><span class="line">日帰りじゃもったいない。</span><span class="line">富士見町で暮らすように過ごす宿。</span></h1>
                 <div class="distance-highlight">
                     <i data-lucide="map-pin" style="display: inline; width: 28px; height: 28px; vertical-align: middle;"></i>
                     富士見パノラマから車で3分
