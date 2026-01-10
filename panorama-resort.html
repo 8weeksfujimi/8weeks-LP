@@ -26,7 +26,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -158,9 +158,8 @@
             --color-gray-light: #f7f7f7;
             --color-white: #ffffff;
             --color-accent: #FF5A5F;
-            --color-blue: #0078D4;
             --color-warm: #FFF8F6;
-            --font-primary: 'Circular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            --font-primary: 'Plus Jakarta Sans', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             --border-thin: 1px solid #DDDDDD;
             --shadow-subtle: 0 2px 16px rgba(0,0,0,0.12);
             --shadow-card: 0 6px 16px rgba(0,0,0,0.12);
@@ -245,7 +244,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #e8f4f8 0%, #ffffff 100%);
+            background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
             padding: 100px 0 80px;
             text-align: center;
             position: relative;
@@ -271,18 +270,6 @@
         .hero-content {
             position: relative;
             z-index: 1;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: var(--color-blue);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 24px;
-            letter-spacing: 0.05em;
         }
 
         .hero-content h1 {
@@ -325,7 +312,7 @@
         }
 
         .hero-feature svg {
-            color: var(--color-blue);
+            color: var(--color-accent);
         }
 
         /* Section Styles */
@@ -379,7 +366,7 @@
         .benefit-icon {
             width: 60px;
             height: 60px;
-            background: var(--color-blue);
+            background: var(--color-accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -538,7 +525,7 @@
             background: var(--color-gray-light);
             padding: 32px;
             border-radius: var(--border-radius);
-            border-left: 4px solid var(--color-blue);
+            border-left: 4px solid var(--color-accent);
         }
 
         .access-card h3 {
@@ -552,7 +539,7 @@
         }
 
         .access-card h3 svg {
-            color: var(--color-blue);
+            color: var(--color-accent);
         }
 
         .access-card ul {
@@ -573,7 +560,7 @@
             content: "→";
             position: absolute;
             left: 0;
-            color: var(--color-blue);
+            color: var(--color-accent);
             font-weight: bold;
         }
 
@@ -597,7 +584,7 @@
         }
 
         .amenity-item svg {
-            color: var(--color-blue);
+            color: var(--color-accent);
             margin-bottom: 16px;
         }
 
@@ -616,7 +603,7 @@
 
         /* CTA Section */
         .cta {
-            background: linear-gradient(135deg, var(--color-blue) 0%, #0051a8 100%);
+            background: linear-gradient(135deg, var(--color-accent) 0%, #d14449 100%);
             color: white;
             padding: 80px 0;
             text-align: center;
@@ -638,7 +625,7 @@
             display: inline-block;
             padding: 16px 48px;
             background: white;
-            color: var(--color-blue);
+            color: var(--color-accent);
             text-decoration: none;
             border-radius: 50px;
             font-size: 18px;
@@ -724,7 +711,6 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <span class="hero-badge">富士見パノラマリゾート公式掲載宿</span>
                 <h1>ゲレンデまで最短アクセス<br>車で3分の貸別荘</h1>
                 <p class="subtitle">富士見パノラマリゾートから最も近い宿泊施設。<br>早朝から滑れる近さ、一棟貸切のプライベート空間で<br>快適なウィンタースポーツ滞在を。</p>
                 <div class="distance-highlight">
