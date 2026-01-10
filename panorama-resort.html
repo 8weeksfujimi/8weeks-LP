@@ -224,6 +224,15 @@
             font-weight: 600;
             color: var(--color-black);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
         }
 
         .nav-links {
@@ -280,6 +289,27 @@
             letter-spacing: -0.02em;
         }
 
+        .hero-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .hero-brand-icon {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+        }
+
+        .hero-brand-name {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--color-black);
+            letter-spacing: 0.02em;
+        }
+
         .hero-content .subtitle {
             font-size: 20px;
             color: var(--color-gray-dark);
@@ -314,6 +344,73 @@
         .hero-feature svg {
             color: var(--color-accent);
         }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            margin-top: 48px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .scroll-indicator:hover {
+            opacity: 1;
+        }
+
+        .scroll-indicator span {
+            font-size: 13px;
+            color: var(--color-gray-medium);
+            letter-spacing: 0.5px;
+        }
+
+        .scroll-arrow {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--color-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-arrow svg {
+            width: 24px;
+            height: 24px;
+            color: var(--color-accent);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-8px);
+            }
+            60% {
+                transform: translateY(-4px);
+            }
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
 
         /* Section Styles */
         section {
@@ -495,7 +592,7 @@
             display: inline-block;
             width: 100%;
             padding: 12px 24px;
-            background: var(--color-black);
+            background: var(--color-accent);
             color: var(--color-white);
             text-decoration: none;
             text-align: center;
@@ -506,7 +603,7 @@
         }
 
         .space-link:hover {
-            background: var(--color-gray-dark);
+            background: #d14449;
         }
 
         /* Access Section */
@@ -651,6 +748,146 @@
             line-height: 1.5;
         }
 
+        /* Features Tabs Section */
+        .features-tabs {
+            background: var(--color-white);
+            padding: 80px 0;
+        }
+
+        .tabs-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 28px;
+            background: var(--color-gray-light);
+            border: 2px solid transparent;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: var(--font-primary);
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--color-gray-dark);
+            transition: var(--transition);
+        }
+
+        .tab-button:hover {
+            background: var(--color-warm);
+            border-color: var(--color-accent);
+        }
+
+        .tab-button.active {
+            background: var(--color-accent);
+            color: white;
+            border-color: var(--color-accent);
+        }
+
+        .tab-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .tab-button.active svg {
+            color: white;
+        }
+
+        .tab-contents {
+            position: relative;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .tab-header h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--color-black);
+            margin-bottom: 12px;
+        }
+
+        .tab-header p {
+            font-size: 16px;
+            color: var(--color-gray-medium);
+        }
+
+        .tab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .tab-card {
+            background: var(--color-gray-light);
+            padding: 28px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .tab-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .tab-card svg {
+            width: 36px;
+            height: 36px;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+        }
+
+        .tab-card h4 {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--color-black);
+            margin-bottom: 10px;
+        }
+
+        .tab-card p {
+            font-size: 14px;
+            color: var(--color-gray-dark);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .tab-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .tab-button {
+                justify-content: center;
+            }
+        }
+
         /* CTA Section */
         .cta {
             background: linear-gradient(135deg, var(--color-accent) 0%, #d14449 100%);
@@ -686,6 +923,93 @@
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+
+        /* More Info Section */
+        .more-info {
+            background: var(--color-gray-light);
+            padding: 48px 0;
+        }
+
+        .more-info-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            background: var(--color-white);
+            padding: 32px 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .more-info-content > svg {
+            width: 48px;
+            height: 48px;
+            color: var(--color-accent);
+            flex-shrink: 0;
+        }
+
+        .more-info-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .more-info-text {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .more-info-text h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-black);
+            margin-bottom: 8px;
+        }
+
+        .more-info-text p {
+            font-size: 15px;
+            color: var(--color-gray-medium);
+            line-height: 1.6;
+        }
+
+        .more-info-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            background: var(--color-black);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .more-info-button:hover {
+            background: var(--color-gray-dark);
+            transform: translateX(4px);
+        }
+
+        .more-info-button svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .more-info-content {
+                flex-direction: column;
+                text-align: center;
+                padding: 24px;
+            }
+
+            .more-info-text {
+                min-width: auto;
+            }
         }
 
         /* Footer */
@@ -748,7 +1072,7 @@
     <header>
         <div class="container">
             <nav>
-                <a href="index.html" class="logo">8weeks Stay</a>
+                <a href="index.html" class="logo"><img src="assets/images/logos/Logo_moon.png" alt="" class="logo-icon"> 8weeks Stay</a>
                 <div class="nav-links">
                     <a href="index.html">ホーム</a>
                     <a href="index.html#spaces">物件一覧</a>
@@ -761,11 +1085,11 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>ゲレンデまで最短アクセス<br>車で3分の貸別荘</h1>
-                <p class="subtitle">富士見パノラマリゾートから最も近い宿泊施設。<br>早朝から滑れる近さ、一棟貸切のプライベート空間で快適なウィンタースポーツ滞在を。<br><span style="color: var(--color-accent); font-weight: 500;">日帰りじゃもったいない。富士見町で暮らすように過ごす宿。</span></p>
+                <h1>日帰りじゃもったいない。<br>富士見町で暮らすように過ごす宿。</h1>
+                <p class="subtitle">早朝のゲレンデに最短アクセス、一棟貸切のプライベート空間で快適なウィンタースポーツ滞在を。</p>
                 <div class="distance-highlight">
                     <i data-lucide="map-pin" style="display: inline; width: 28px; height: 28px; vertical-align: middle;"></i>
-                    リゾートから車で3分
+                    富士見パノラマから車で3分
                 </div>
                 <div class="hero-features">
                     <div class="hero-feature">
@@ -781,6 +1105,113 @@
                         <span>スキー・スノボ用具収納完備</span>
                     </div>
                 </div>
+
+                <!-- Scroll Indicator -->
+                <div class="scroll-indicator" onclick="document.querySelector('.why-choose').scrollIntoView({behavior: 'smooth'})">
+                    <span>詳しく見る</span>
+                    <div class="scroll-arrow">
+                        <i data-lucide="chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title reveal">8weeks Stayが選ばれる理由</h2>
+            <p class="section-subtitle reveal reveal-delay-1">富士見パノラマリゾートでのウィンタースポーツ滞在を、より快適に、より自由に楽しめる</p>
+
+            <div class="benefits-grid reveal reveal-delay-2">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i data-lucide="gauge"></i>
+                    </div>
+                    <h3>圧倒的な近さ</h3>
+                    <p>富士見パノラマリゾートから車で約3分、約1.5km。リゾート周辺で最も近い宿泊施設です。朝一番のリフトに間に合い、混雑前にゲレンデに到着できます。</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <h3>一棟貸切のプライベート空間</h3>
+                    <p>ホテルとは違い、一棟貸切またはフロア貸切のプライベート空間。グループや家族での利用に最適で、時間を気にせず自分たちのペースで過ごせます。</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i data-lucide="baby"></i>
+                    </div>
+                    <h3>お子様連れファミリーに優しい</h3>
+                    <p>ホストは富士見町在住で6歳の娘がいます。小さなお子様連れのファミリーが安心して過ごせるよう、必要なアメニティや地域の子連れスポット情報もご案内します。</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section class="properties">
+        <div class="container">
+            <h2 class="section-title reveal">選べる3軒の個性的な宿</h2>
+            <p class="section-subtitle reveal reveal-delay-1">富士見パノラマリゾートでのスキー・スノーボード滞在に最適な3つの貸別荘。それぞれ異なる魅力を持つ物件から、あなたのスタイルに合った宿をお選びください。</p>
+
+            <div class="grid grid-3 reveal reveal-delay-2">
+                <!-- 8weeks Fujimi -->
+                <div class="space-card">
+                    <div class="space-image">
+                        <img src="assets/images/logos/fujimi.png" alt="8weeks Fujimi">
+                        <span class="distance-badge">車で3分</span>
+                    </div>
+                    <div class="space-content">
+                        <h3 class="space-name">8weeks Fujimi</h3>
+                        <p class="space-tagline">グランドピアノのある森の中の一棟貸切別荘</p>
+                        <div class="space-details">
+                            <p>🏠 一棟貸切 | 👥 最大6名<br>
+                            ⭐ 4.98 (66件のレビュー)<br>
+                            🎹 グランドピアノ完備</p>
+                        </div>
+                        <a href="https://airbnb.com/h/8weeksfujimi" class="space-link" target="_blank">詳細を見る</a>
+                    </div>
+                </div>
+
+                <!-- 8weeks Quriu -->
+                <div class="space-card">
+                    <div class="space-image">
+                        <img src="assets/images/logos/quriu.png" alt="8weeks Quriu">
+                        <span class="distance-badge">車で5分</span>
+                    </div>
+                    <div class="space-content">
+                        <h3 class="space-name">8weeks Quriu</h3>
+                        <p class="space-tagline">100m²超のフロア貸切・薪ストーブ</p>
+                        <div class="space-details">
+                            <p>🏢 フロア貸切 | 👥 最大6名<br>
+                            ⭐ 4.98 (55件のレビュー)<br>
+                            🔥 薪ストーブで温かい</p>
+                        </div>
+                        <a href="https://airbnb.com/h/8weeks-quriu" class="space-link" target="_blank">詳細を見る</a>
+                    </div>
+                </div>
+
+                <!-- 8weeks Studio -->
+                <div class="space-card">
+                    <div class="space-image">
+                        <img src="assets/images/logos/studio.png" alt="8weeks Studio">
+                        <span class="distance-badge">駅前</span>
+                    </div>
+                    <div class="space-content">
+                        <h3 class="space-name">8weeks Studio</h3>
+                        <p class="space-tagline">2-4名向け・駅前でシャトルバスに便利</p>
+                        <div class="space-details">
+                            <p>🏢 フロア貸切 | 👥 最大4名<br>
+                            ⭐ 5.0 (16件のレビュー)<br>
+                            🚉 富士見駅前で電車アクセス◎</p>
+                        </div>
+                        <a href="https://airbnb.com/h/8weeks-studio" class="space-link" target="_blank">詳細を見る</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -788,10 +1219,10 @@
     <!-- Map Section -->
     <section class="map-section">
         <div class="container">
-            <h2 class="section-title">地図で見る近さ</h2>
-            <p class="section-subtitle">富士見パノラマリゾートと各物件の位置関係を地図でご確認ください。驚くほどの近さです。</p>
+            <h2 class="section-title reveal">地図で見る近さ</h2>
+            <p class="section-subtitle reveal reveal-delay-1">富士見パノラマリゾートと各物件の位置関係を地図でご確認ください。驚くほどの近さです。</p>
 
-            <div class="map-grid">
+            <div class="map-grid reveal reveal-delay-2">
                 <div class="map-card">
                     <h3>8weeks Fujimi<br><small style="font-size: 14px; font-weight: 400; color: var(--color-gray-medium);">パノラマリゾートから車で3分</small></h3>
                     <div class="map-container">
@@ -831,136 +1262,13 @@
         </div>
     </section>
 
-    <!-- Why Choose Section -->
-    <section class="why-choose">
-        <div class="container">
-            <h2 class="section-title">8weeks Stayが選ばれる理由</h2>
-            <p class="section-subtitle">富士見パノラマリゾートでのウィンタースポーツ滞在を、より快適に、より自由に楽しめる</p>
-
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i data-lucide="gauge"></i>
-                    </div>
-                    <h3>圧倒的な近さ</h3>
-                    <p>富士見パノラマリゾートから車で約3分、約1.5km。リゾート周辺で最も近い宿泊施設です。朝一番のリフトに間に合い、混雑前にゲレンデに到着できます。</p>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i data-lucide="users"></i>
-                    </div>
-                    <h3>一棟貸切のプライベート空間</h3>
-                    <p>ホテルとは違い、一棟貸切またはフロア貸切のプライベート空間。グループや家族での利用に最適で、時間を気にせず自分たちのペースで過ごせます。</p>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i data-lucide="baby"></i>
-                    </div>
-                    <h3>お子様連れファミリーに優しい</h3>
-                    <p>ホストは富士見町在住で6歳の娘がいます。小さなお子様連れのファミリーが安心して過ごせるよう、必要なアメニティや地域の子連れスポット情報もご案内します。</p>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i data-lucide="list"></i>
-                    </div>
-                    <h3>3つの物件から選べる</h3>
-                    <p>車で3分のFujimi、車で5分のQuriu、そして駅前でシャトルバス利用に便利なStudio。人数やスタイルに合わせて最適な物件をお選びいただけます。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Properties Section -->
-    <section class="properties">
-        <div class="container">
-            <h2 class="section-title">物件紹介</h2>
-            <p class="section-subtitle">富士見パノラマリゾートでのスキー・スノーボード滞在に最適な3つの貸別荘。それぞれ異なる魅力を持つ物件から、あなたのスタイルに合った宿をお選びください。</p>
-
-            <div class="grid grid-3">
-                <!-- 8weeks Fujimi -->
-                <div class="space-card">
-                    <div class="space-image">
-                        <img src="assets/images/logos/fujimi.png" alt="8weeks Fujimi">
-                        <span class="distance-badge">車で3分</span>
-                    </div>
-                    <div class="space-content">
-                        <h3 class="space-name">8weeks Fujimi</h3>
-                        <p class="space-tagline">グランドピアノのある森の中の一棟貸切別荘</p>
-                        <div class="space-details">
-                            <p>🏠 一棟貸切 | 👥 最大6名<br>
-                            ⭐ 4.98 (66件のレビュー)<br>
-                            🎹 グランドピアノ完備</p>
-                        </div>
-                        <div class="space-amenities">
-                            <span class="amenity-tag">スキー用具収納</span>
-                            <span class="amenity-tag">キッチン</span>
-                            <span class="amenity-tag">駐車場</span>
-                        </div>
-                        <a href="https://airbnb.com/h/8weeksfujimi" class="space-link" target="_blank">予約する</a>
-                    </div>
-                </div>
-
-                <!-- 8weeks Quriu -->
-                <div class="space-card">
-                    <div class="space-image">
-                        <img src="assets/images/logos/quriu.png" alt="8weeks Quriu">
-                        <span class="distance-badge">車で5分</span>
-                    </div>
-                    <div class="space-content">
-                        <h3 class="space-name">8weeks Quriu</h3>
-                        <p class="space-tagline">100m²超のフロア貸切・薪ストーブ</p>
-                        <div class="space-details">
-                            <p>🏢 フロア貸切 | 👥 最大6名<br>
-                            ⭐ 4.98 (55件のレビュー)<br>
-                            🔥 薪ストーブで温かい</p>
-                        </div>
-                        <div class="space-amenities">
-                            <span class="amenity-tag">スキー用具収納</span>
-                            <span class="amenity-tag">薪ストーブ</span>
-                            <span class="amenity-tag">広々空間</span>
-                            <span class="amenity-tag">駐車場</span>
-                        </div>
-                        <a href="https://airbnb.com/h/8weeks-quriu" class="space-link" target="_blank">予約する</a>
-                    </div>
-                </div>
-
-                <!-- 8weeks Studio -->
-                <div class="space-card">
-                    <div class="space-image">
-                        <img src="assets/images/logos/studio.png" alt="8weeks Studio">
-                        <span class="distance-badge">駅前</span>
-                    </div>
-                    <div class="space-content">
-                        <h3 class="space-name">8weeks Studio</h3>
-                        <p class="space-tagline">2-4名向け・駅前でシャトルバスに便利</p>
-                        <div class="space-details">
-                            <p>🏢 フロア貸切 | 👥 最大4名<br>
-                            ⭐ 5.0 (47件のレビュー)<br>
-                            🚉 富士見駅前で電車アクセス◎</p>
-                        </div>
-                        <div class="space-amenities">
-                            <span class="amenity-tag">スキー用具収納</span>
-                            <span class="amenity-tag">駅前立地</span>
-                            <span class="amenity-tag">シャトルバス便利</span>
-                            <span class="amenity-tag">コンパクト</span>
-                        </div>
-                        <a href="https://airbnb.com/h/8weeks-studio" class="space-link" target="_blank">予約する</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Access Section -->
     <section class="access">
         <div class="container">
-            <h2 class="section-title">アクセス情報</h2>
-            <p class="section-subtitle">富士見パノラマリゾートから8weeks Stayへのアクセス方法。車でもシャトルバスでも便利にご利用いただけます。</p>
+            <h2 class="section-title reveal">アクセス情報</h2>
+            <p class="section-subtitle reveal reveal-delay-1">富士見パノラマリゾートから8weeks Stayへのアクセス方法。車でもシャトルバスでも便利にご利用いただけます。</p>
 
-            <div class="access-grid">
+            <div class="access-grid reveal reveal-delay-2">
                 <div class="access-card">
                     <h3>
                         <i data-lucide="car"></i>
@@ -968,7 +1276,7 @@
                     </h3>
                     <ul>
                         <li>富士見パノラマリゾートから車で約3分（約1.5km）</li>
-                        <li>早朝6時台のリフト営業開始に余裕で間に合います</li>
+                        <li>早朝のリフト営業開始に余裕で間に合います</li>
                         <li>昼食を宿で取ることも可能な近さ</li>
                         <li>疲れたらすぐに戻れる安心感</li>
                         <li>駐車場完備（無料）</li>
@@ -1006,155 +1314,118 @@
         </div>
     </section>
 
-    <!-- Family Friendly Section -->
-    <section class="why-choose">
+    <!-- Features Tab Section -->
+    <section class="features-tabs">
         <div class="container">
-            <h2 class="section-title">お子様連れファミリーに優しい宿</h2>
-            <p class="section-subtitle">富士見町在住、6歳の娘を持つホストだからこそ提供できる、安心のファミリーステイ。</p>
+            <h2 class="section-title reveal">8weeks Stayの魅力</h2>
+            <p class="section-subtitle reveal reveal-delay-1">気になる項目をクリックして詳細をご覧ください</p>
 
-            <div style="max-width: 900px; margin: 0 auto 48px; text-align: center;">
-                <div style="background: var(--color-warm); padding: 32px; border-radius: var(--border-radius); border-left: 4px solid var(--color-accent);">
-                    <p style="font-size: 16px; line-height: 1.8; color: var(--color-gray-dark); margin: 0;">
-                        ホストは富士見町に住み、6歳の娘と一緒に地域で暮らしています。<br>
-                        小さなお子様連れのファミリーが安心して滞在できるよう、子育て経験を活かしたサポートと、<br>
-                        地域の子連れスポット情報を丁寧にご案内します。
-                    </p>
+            <div class="tabs-container reveal reveal-delay-2">
+                <div class="tab-buttons">
+                    <button class="tab-button active" data-tab="family">
+                        <i data-lucide="baby"></i>
+                        <span>お子様連れに優しい</span>
+                    </button>
+                    <button class="tab-button" data-tab="secondhome">
+                        <i data-lucide="home"></i>
+                        <span>第二の家として</span>
+                    </button>
+                    <button class="tab-button" data-tab="winter">
+                        <i data-lucide="snowflake"></i>
+                        <span>ウィンター設備</span>
+                    </button>
                 </div>
-            </div>
 
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i data-lucide="smile"></i>
+                <div class="tab-contents">
+                    <!-- Family Tab -->
+                    <div class="tab-content active" id="tab-family">
+                        <div class="tab-header">
+                            <h3>お子様連れファミリーに優しい宿</h3>
+                            <p>富士見町在住、6歳の娘を持つホストだからこそ提供できる、安心のファミリーステイ。</p>
+                        </div>
+                        <div class="tab-grid">
+                            <div class="tab-card">
+                                <i data-lucide="smile"></i>
+                                <h4>子育て経験豊富なホスト</h4>
+                                <p>6歳の娘を育てるホストが、お子様連れファミリーの気持ちに寄り添います。</p>
+                            </div>
+                            <div class="tab-card">
+                                <i data-lucide="map"></i>
+                                <h4>地域の子連れスポット情報</h4>
+                                <p>地元在住だからこそ知る、子連れで楽しめるスポットやレストラン情報をご案内。</p>
+                            </div>
+                            <div class="tab-card">
+                                <i data-lucide="shield-check"></i>
+                                <h4>安心の一棟貸切</h4>
+                                <p>お子様が泣いたり走り回っても大丈夫。家族だけの時間をのびのびと。</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3>子育て経験豊富なホスト</h3>
-                    <p>6歳の娘を育てるホストが、小さなお子様連れのファミリーの気持ちに寄り添います。お子様との旅行で不安なことがあれば、お気軽にご相談ください。</p>
-                </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i data-lucide="map"></i>
+                    <!-- Second Home Tab -->
+                    <div class="tab-content" id="tab-secondhome">
+                        <div class="tab-header">
+                            <h3>富士見に、第二の家を</h3>
+                            <p>富士見での「暮らし」を楽しむ、あなたの拠点として。四季折々の滞在をお楽しみください。</p>
+                        </div>
+                        <div class="tab-grid">
+                            <div class="tab-card">
+                                <i data-lucide="calendar"></i>
+                                <h4>シーズンごとの楽しみ</h4>
+                                <p>冬はスキー、夏はMTB、秋は紅葉、春は新緑。四季を通じて楽しめます。</p>
+                            </div>
+                            <div class="tab-card">
+                                <i data-lucide="heart"></i>
+                                <h4>地元のように過ごす</h4>
+                                <p>馴染みのスーパーで買い物、お気に入りのカフェ、近くの温泉で疲れを癒す。</p>
+                            </div>
+                            <div class="tab-card">
+                                <i data-lucide="repeat"></i>
+                                <h4>リピーター特典</h4>
+                                <p>長期滞在割引、優先案内、荷物預かりなど、リピーターならではの特典も。</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3>地域の子連れスポット情報</h3>
-                    <p>富士見町在住だからこそ知っている、お子様と一緒に楽しめるスポットや、子連れでも安心なレストラン情報などをご案内します。</p>
-                </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i data-lucide="shield-check"></i>
+                    <!-- Winter Tab -->
+                    <div class="tab-content" id="tab-winter">
+                        <div class="tab-header">
+                            <h3>ウィンタースポーツ設備</h3>
+                            <p>スキー・スノーボードを快適に楽しむための設備が充実しています。</p>
+                        </div>
+                        <div class="tab-grid">
+                            <div class="tab-card">
+                                <i data-lucide="package"></i>
+                                <h4>用具収納スペース</h4>
+                                <p>スキー板やブーツをしっかり保管できる専用スペース完備。</p>
+                            </div>
+                            <div class="tab-card">
+                                <i data-lucide="wind"></i>
+                                <h4>ウェア乾燥</h4>
+                                <p>濡れたウェアやブーツを翌朝までにしっかり乾かせます。</p>
+                            </div>
+                            <div class="tab-card">
+                                <i data-lucide="flame"></i>
+                                <h4>薪ストーブ</h4>
+                                <p>Qiriuには薪ストーブ完備。アフタースキーを温かく過ごせます。</p>
+                            </div>
+                            <div class="tab-card">
+                                <i data-lucide="utensils"></i>
+                                <h4>キッチン完備</h4>
+                                <p>自炊可能なフルキッチンで、食事も自由に楽しめます。</p>
+                            </div>
+                            <div class="tab-card">
+                                <i data-lucide="wifi"></i>
+                                <h4>高速Wi-Fi</h4>
+                                <p>リモートワークにも対応できる快適なインターネット環境。</p>
+                            </div>
+                            <div class="tab-card">
+                                <i data-lucide="coffee"></i>
+                                <h4>くつろぎ空間</h4>
+                                <p>広いリビングでゆったりとアフタースキーを満喫。</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3>安心の一棟貸切</h3>
-                    <p>一棟貸切なので、お子様が泣いたり走り回ったりしても周りを気にする必要がありません。家族だけの時間を、のびのびとお過ごしいただけます。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Second Home Section -->
-    <section class="access">
-        <div class="container">
-            <h2 class="section-title">富士見に、第二の家を</h2>
-            <p class="section-subtitle">富士見パノラマリゾートに何度も通うリピーターの皆様へ。<br>8weeks Stayは、ただの宿泊施設ではありません。富士見での「暮らし」を楽しむ、あなたの第二の家です。</p>
-
-            <div style="max-width: 900px; margin: 0 auto 48px; text-align: center;">
-                <div style="background: var(--color-white); padding: 40px; border-radius: var(--border-radius); box-shadow: var(--shadow-card);">
-                    <p style="font-size: 16px; line-height: 1.9; color: var(--color-gray-dark); margin-bottom: 24px;">
-                        <strong style="color: var(--color-accent); font-size: 18px;">「また帰ってきました」</strong><br><br>
-                        多くのゲストが、シーズンごとに、時には月に一度、8weeks Stayに戻ってきます。<br>
-                        冬はスキー、夏はマウンテンバイク、秋は紅葉、春は新緑。<br>
-                        四季折々の富士見パノラマリゾートを楽しむための、あなたの拠点として。
-                    </p>
-                    <p style="font-size: 15px; line-height: 1.8; color: var(--color-gray-medium);">
-                        地元スーパーでの買い物、お気に入りのカフェ、馴染みの温泉。<br>
-                        まるで富士見町に家があるように、自然体で過ごせる場所です。
-                    </p>
-                </div>
-            </div>
-
-            <div class="access-grid">
-                <div class="access-card">
-                    <h3>
-                        <i data-lucide="calendar"></i>
-                        シーズンごとの楽しみ
-                    </h3>
-                    <ul>
-                        <li><strong>冬：</strong>スキー・スノーボードでパウダースノーを満喫</li>
-                        <li><strong>春：</strong>新緑の八ヶ岳でハイキングやサイクリング</li>
-                        <li><strong>夏：</strong>マウンテンバイクや避暑を楽しむ</li>
-                        <li><strong>秋：</strong>紅葉の絶景と秋の味覚を堪能</li>
-                    </ul>
-                </div>
-
-                <div class="access-card">
-                    <h3>
-                        <i data-lucide="heart"></i>
-                        地元のように過ごす
-                    </h3>
-                    <ul>
-                        <li>馴染みのスーパーで食材を調達して自炊</li>
-                        <li>お気に入りのカフェやレストランを見つける</li>
-                        <li>近隣の温泉施設で疲れを癒す</li>
-                        <li>富士見町の人々との交流を楽しむ</li>
-                    </ul>
-                </div>
-
-                <div class="access-card">
-                    <h3>
-                        <i data-lucide="repeat"></i>
-                        リピーター特典
-                    </h3>
-                    <ul>
-                        <li>長期滞在や連泊での割引相談可能</li>
-                        <li>お気に入りの物件を優先的にご案内</li>
-                        <li>季節のおすすめスポット情報を随時シェア</li>
-                        <li>荷物の一時預かりサービス（要相談）</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Winter Amenities -->
-    <section class="winter-amenities">
-        <div class="container">
-            <h2 class="section-title">ウィンタースポーツ設備</h2>
-            <p class="section-subtitle">スキー・スノーボードを快適に楽しむための設備が充実。</p>
-
-            <div class="amenities-grid">
-                <div class="amenity-item">
-                    <i data-lucide="package" width="40" height="40"></i>
-                    <h4>スキー・スノボ用具収納</h4>
-                    <p>板やブーツをしっかり保管できる収納スペース完備</p>
-                </div>
-
-                <div class="amenity-item">
-                    <i data-lucide="wind" width="40" height="40"></i>
-                    <h4>ウェア乾燥スペース</h4>
-                    <p>濡れたウェアやブーツを乾かせるスペース</p>
-                </div>
-
-                <div class="amenity-item">
-                    <i data-lucide="flame" width="40" height="40"></i>
-                    <h4>暖房設備</h4>
-                    <p>薪ストーブ（Quriu）で温かく快適に</p>
-                </div>
-
-                <div class="amenity-item">
-                    <i data-lucide="utensils" width="40" height="40"></i>
-                    <h4>キッチン完備</h4>
-                    <p>自炊可能なフルキッチンで食事も自由</p>
-                </div>
-
-                <div class="amenity-item">
-                    <i data-lucide="wifi" width="40" height="40"></i>
-                    <h4>高速Wi-Fi</h4>
-                    <p>快適なインターネット環境</p>
-                </div>
-
-                <div class="amenity-item">
-                    <i data-lucide="coffee" width="40" height="40"></i>
-                    <h4>アフタースキー</h4>
-                    <p>広いリビングでゆったり寛げる</p>
                 </div>
             </div>
         </div>
@@ -1163,17 +1434,34 @@
     <!-- CTA Section -->
     <section class="cta">
         <div class="container">
-            <h2>富士見パノラマリゾートでの<br>最高のウィンタースポーツ体験を</h2>
+            <h2 class="reveal">富士見パノラマリゾートでの<br>最高のウィンタースポーツ体験を</h2>
             <p>ゲレンデまで最短アクセス。今すぐ予約して、快適なスキー・スノーボード滞在を。<br>
-            <span style="opacity: 0.9; font-size: 16px;">また帰ってきたくなる、あなたの富士見での暮らしが始まります。</span></p>
+            <span style="opacity: 0.9; font-size: 16px;">日帰りスキーの帰り道、渋滞で疲れ果てる休日明けから、ゆとりを持って過ごすスッキリとした休日明けへ。</span></p>
             <a href="#properties" class="cta-button" onclick="document.querySelector('.properties').scrollIntoView({behavior: 'smooth'}); return false;">物件を見る</a>
+        </div>
+    </section>
+
+    <!-- More Info Section -->
+    <section class="more-info">
+        <div class="container">
+            <div class="more-info-content reveal">
+                <img src="assets/images/logos/Logo_moon.png" alt="8weeks Stay" class="more-info-logo">
+                <div class="more-info-text">
+                    <h3>8weeks Stayについてもっと知る</h3>
+                    <p>ホストの紹介、各物件の詳細な写真、周辺エリアの魅力など、さらに詳しい情報はメインサイトでご覧いただけます。</p>
+                </div>
+                <a href="index.html" class="more-info-button">
+                    メインサイトへ
+                    <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 8weeks Stay. All rights reserved.</p>
+            <p>&copy; 2026 8weeks Stay. All rights reserved.</p>
             <p>
                 <a href="mailto:8weeks.fujimi@gmail.com">お問い合わせ</a>
                 <a href="index.html">メインサイト</a>
@@ -1197,6 +1485,66 @@
                     });
                 }
             });
+        });
+
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.dataset.tab;
+
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(`tab-${tabId}`).classList.add('active');
+
+                // Re-initialize icons for the newly visible content
+                lucide.createIcons();
+            });
+
+            // Optional: hover effect for preview
+            button.addEventListener('mouseenter', () => {
+                if (!button.classList.contains('active')) {
+                    button.style.transform = 'scale(1.02)';
+                }
+            });
+
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'scale(1)';
+            });
+        });
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Hide scroll indicator on scroll
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+        let scrolled = false;
+
+        window.addEventListener('scroll', () => {
+            if (!scrolled && window.scrollY > 100) {
+                scrolled = true;
+                scrollIndicator.style.opacity = '0';
+                scrollIndicator.style.pointerEvents = 'none';
+            }
         });
     </script>
 </body>
