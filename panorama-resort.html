@@ -564,6 +564,56 @@
             font-weight: bold;
         }
 
+        /* Map Section */
+        .map-section {
+            background: var(--color-white);
+        }
+
+        .map-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .map-card {
+            background: var(--color-gray-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+        }
+
+        .map-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            padding: 20px 24px;
+            background: var(--color-white);
+            color: var(--color-black);
+            border-bottom: 2px solid var(--color-accent);
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        @media (max-width: 768px) {
+            .map-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container {
+                height: 300px;
+            }
+        }
+
         /* Winter Amenities */
         .winter-amenities {
             background: var(--color-gray-light);
@@ -895,6 +945,40 @@
                         <li>運行時間や詳細は富士見パノラマリゾート公式サイトをご確認ください</li>
                         <li>8weeks Studioは駅前立地のため、シャトルバス利用に最適</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title">地図で見る近さ</h2>
+            <p class="section-subtitle">富士見パノラマリゾートと8weeks Stayの位置関係を地図でご確認ください。驚くほどの近さです。</p>
+
+            <div class="map-grid">
+                <div class="map-card">
+                    <h3>富士見パノラマリゾート周辺<br>（8weeks Fujimi & Quriu）</h3>
+                    <div class="map-container">
+                        <iframe
+                            src="https://maps.google.com/maps?q=富士見パノラマリゾート&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="map-card">
+                    <h3>富士見駅前<br>（8weeks Studio）</h3>
+                    <div class="map-container">
+                        <iframe
+                            src="https://maps.google.com/maps?q=富士見駅,長野県&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
                 </div>
             </div>
         </div>
