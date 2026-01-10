@@ -1,63 +1,68 @@
-# セッション再開用プロンプト
+# セッション再開プロンプト
 
-## 前回のセッションまでの完了事項
+## 再開時に使用するプロンプト
 
-### ✅ ブランド名変更完了（2026-01-10）
-- **ブランド名**: 8weeks Fujimi → **8weeks Stay** に変更完了
-- **個別物件名**: 8weeks Fujimi, 8weeks Quriu, 8weeks Studio（そのまま）
-- 91ファイル更新、GitHubへデプロイ済み
-- 公開URL: https://8weeksfujimi.github.io/8weeks-LP/
-
----
-
-## 🎯 次回タスク
-
-### 富士見パノラマリゾート向けランディングページ作成
-
-**目的:**
-富士見パノラマリゾートのホームページに掲載してもらうための、パノラマリゾート客向けのランディングページを新規作成する。
-
-**ターゲット:**
-- 富士見パノラマリゾート訪問客（スキー・スノーボード・アウトドア）
-- 宿泊先を探している観光客
-
-**作成予定ファイル:**
-`panorama-resort.html`
-
-**次回セッション開始時の推奨アクション:**
-1. 富士見パノラマリゾートの情報確認
-2. ページ要件のヒアリング（ユーザーに確認）
-3. コンテンツ・デザイン案の提示
-4. ページ作成開始
-
----
-
-## プロジェクト基本情報
-
-**ディレクトリ:** `/Users/shunji/Library/Mobile Documents/iCloud~md~obsidian/Documents/Shunji Memo/8weeks LP`
-
-**ブランド体系:**
-- ブランド名: 8weeks Stay
-- 物件: 8weeks Fujimi, 8weeks Quriu, 8weeks Studio
-
-**技術スタック:** HTML5/CSS3, Vanilla JS
-
-**重要ファイル:**
-- `index.html` - メインLP
-- `index-en.html` - 英語版
-- `fujimimachi-hotel.html` - SEO特化ページ
-- `SESSION_NOTES.md` - 詳細なセッション記録
-
----
-
-## 再開用コマンド
-
-セッション再開時に実行:
-```bash
-cd "/Users/shunji/Library/Mobile Documents/iCloud~md~obsidian/Documents/Shunji Memo/8weeks LP"
-cat SESSION_NOTES.md  # 詳細確認
-git status  # 現在の状態確認
+```
+富士見パノラマリゾート向けのランディングページ（panorama-resort.html）の作業を継続します。SESSION_NOTES.mdを確認して、これまでの作業内容と現在の状態を把握してください。
 ```
 
-セッション再開時に伝えるべきこと:
-「富士見パノラマリゾート向けのランディングページを作成します。SESSION_NOTES.mdを確認しました。」
+---
+
+## 現在の状況サマリー（2026-01-10）
+
+### ✅ 完了済み
+- **panorama-resort.html** の作成・公開完了
+- 公開URL: https://8weeksfujimi.github.io/8weeks-LP/panorama-resort.html
+- 最終コミット: 9f22d03
+
+### 主要な実装内容
+1. **デザイン**: メインLPと統一（Plus Jakarta Sans、アクセントカラー #FF5A5F）
+2. **Google Maps**: 3物件の正確な座標でピン配置
+3. **差別化ポイント**:
+   - お子様連れファミリー向け（ホストは富士見町在住、6歳の娘）
+   - リピーター向け「第二の家」コンセプト
+   - 日帰りじゃもったいない訴求
+4. **SEO対策**: LodgingBusiness構造化データ、メタタグ最適化
+
+### 物件情報
+- **Fujimi**: 車で3分、最大6名、評価4.98 (66件)
+- **Quriu**: 車で5分、最大6名、評価4.98 (55件)
+- **Studio**: 駅前、最大4名、評価5.0 (47件)
+
+### 🔄 検討中の項目
+- ヒーローセクションのサブタイトルのキャッチコピー調整
+  - 現在: 「早朝から滑れる近さ、一棟貸切のプライベート空間で快適なウィンタースポーツ滞在を。」
+  - 候補: 「ゲレンデまで3分の、あなたのセカンドハウス」など
+
+---
+
+## 次回作業時の確認事項
+
+1. SESSION_NOTES.mdの「次回タスク候補」セクションを確認
+2. 未完了のタスクや改善点があればそれを優先
+3. 新しい要件があれば柔軟に対応
+
+---
+
+## プロジェクト構造
+```
+8weeks LP/
+├── index.html (メインLP)
+├── index-en.html (英語版)
+├── fujimimachi-hotel.html (富士見町ホテルSEO特化)
+└── panorama-resort.html ✅ 完成
+```
+
+---
+
+## 重要なファイル
+- `SESSION_NOTES.md` - 詳細な作業履歴
+- `CLAUDE.md` - プロジェクト全体のコンテキスト
+- `panorama-resort.html` - パノラマリゾート向けLP
+
+---
+
+## GitHubリポジトリ
+- URL: https://github.com/8weeksfujimi/8weeks-LP
+- ブランチ: main
+- 最新コミット: 9f22d03
