@@ -1,7 +1,7 @@
 # 8weeks LP - ランディングページ
 
 ## 概要
-8weeks Fujimiの宿泊施設を紹介するランディングページです。富士見町にある3つの施設（Fujimi、Quriu、Studio）の情報を提供し、Airbnbでの予約へ誘導します。
+8weeks Stayの宿泊施設を紹介するランディングページです。富士見町にある3つの施設（Fujimi、Quriu、Studio）の情報を提供し、Airbnbでの予約へ誘導します。
 
 ## 施設情報
 
@@ -88,7 +88,7 @@ git push origin main
 ### 2025-08-31: 8weeks Fujimi 写真ギャラリー実装
 
 **実装概要**
-- Fujimi物件（グランドピアノのある森の中の一棟貸切別荘）の写真を追加し、ウェブサイトのギャラリーシステムに統合
+- 8weeks Fujimi物件（グランドピアノのある森の中の一棟貸切別荘）の写真を追加し、ウェブサイトのギャラリーシステムに統合
 
 **対応内容**
 
@@ -98,7 +98,7 @@ git push origin main
    - 圧縮スクリプト作成：`compress-fujimi.py`, `compress-line-album.py`
 
 2. **写真分類表による管理**
-   - `docs/写真分類表.md`にFujimi物件の写真46枚を追加
+   - `docs/写真分類表.md`に8weeks Fujimi物件の写真46枚を追加
    - 7つのカテゴリーに分類：exterior, living, kitchen, bedroom, bathroom, amenities, view
    - 削除対象5枚を「delete」マークで管理
 
@@ -123,7 +123,7 @@ git push origin main
 - 更新：`docs/写真分類表.md`
 
 **現在の状況**
-- Fujimi物件の写真がウェブサイト上で正常に表示
+- 8weeks Fujimi物件の写真がウェブサイト上で正常に表示
 - 他物件（Quriu、Studio）と同様のフィルタリング・ライトボックス機能が利用可能
 - 合計3物件すべてのギャラリーが統合完了
 - 削除対象写真（5枚）を除外し、最終的に41枚の写真を表示
@@ -136,7 +136,7 @@ git push origin main
 **実装内容**
 
 1. **メタタグ・タイトル最適化**
-   - タイトル: 「富士見町のホテル・宿泊施設 | 8weeks Fujimi - 八ヶ岳山麓の貸別荘で移住体験」
+   - タイトル: 「富士見町のホテル・宿泊施設 | 8weeks Stay - 八ヶ岳山麓の貸別荘で移住体験」
    - メタディスクリプション: 富士見町関連キーワードを自然に配置
    - キーワードタグ: 地域特化キーワードを追加
 
@@ -147,7 +147,7 @@ git push origin main
    - BreadcrumbListでナビゲーション構造を明示
 
 3. **コンテンツキーワード最適化**
-   - H1タグ: 「8weeks Fujimi - 富士見町の宿泊施設」
+   - H1タグ: 「8weeks Stay - 富士見町の宿泊施設」
    - セクションタイトルに「富士見町」を自然に組み込み
    - 移住体験ストーリーに地域キーワードを配置
 
@@ -184,7 +184,7 @@ git push origin main
 5. 月次SEO効果測定レポート開始
 
 ## ライセンス
-© 2025 8weeks Fujimi. All rights reserved.
+© 2025 8weeks Stay. All rights reserved.
 
 ## お問い合わせ
 - Email: 8weeks.fujimi@gmail.com

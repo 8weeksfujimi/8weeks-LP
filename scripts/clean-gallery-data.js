@@ -370,7 +370,7 @@ const cleanGalleryData = {
       ]
     },
     "fujimi": {
-      "name": "8weeks Fujimi", 
+      "name": "8weeks Fujimi",
       "description": "グランドピアノのある森の中の一棟貸切別荘",
       "photos": [
         {

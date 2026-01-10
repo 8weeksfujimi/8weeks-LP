@@ -1,8 +1,8 @@
 # 8weeks LP プロジェクトコンテクスト
 
 ## プロジェクト概要
-8weeks Fujimiの宿泊施設を紹介するランディングページプロジェクト。
-富士見町にある3つの施設（Fujimi、Quriu、Studio）の情報とAirbnbリスティングへの誘導を行う。
+8weeks Stayの宿泊施設を紹介するランディングページプロジェクト。
+富士見町にある3つの施設（8weeks Fujimi、8weeks Quriu、8weeks Studio）の情報とAirbnbリスティングへの誘導を行う。
 
 ## フォルダ構成
 
@@ -101,6 +101,8 @@
 ## デプロイ情報
 - GitHubリポジトリ: https://github.com/8weeksfujimi/8weeks-LP
 - メインブランチ: main
+- ブランド名: 8weeks Stay
+- 個別物件: 8weeks Fujimi, 8weeks Quriu, 8weeks Studio
 
 ## 更新時の注意事項
 

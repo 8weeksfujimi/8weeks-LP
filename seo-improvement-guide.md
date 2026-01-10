@@ -1,4 +1,4 @@
-# SEO改善ガイド - 8weeks Fujimi
+# SEO改善ガイド - 8weeks Stay
 
 ## 🚀 すぐに実施すべきアクション（今週中）
 
@@ -25,7 +25,7 @@
 
 ### 短期（1-4週間）
 - Googleにインデックスされる
-- 「8weeks Fujimi」で検索1位
+- 「8weeks Stay」「8weeks Fujimi」で検索1位
 - 「富士見町 貸別荘」で上位表示開始
 
 ### 中期（1-3ヶ月）
