@@ -1,80 +1,145 @@
-# セッション再開用メモ
+# 8weeks LP セッションノート
 
-## 最終更新: 2025-08-19
+## 最終更新: 2026-01-10
 
-## 完了した作業
+---
 
-### 1. ロゴファイルの更新 ✅
-- 新しいロゴファイル（favicon.png、ロゴ.png、ロゴ2.png）に差し替え
-- 旧ロゴファイルをバックアップ（Xfavicon.png、Xロゴ.png、Xロゴ2.png）として保存
-- GitHubにプッシュ済み
+## ✅ 完了タスク: ブランド名変更 (2026-01-10)
 
-### 2. フォルダ構成の整理 ✅
+### 実施内容
+ブランド名を「8weeks Fujimi」から「8weeks Stay」に変更完了。
+
+### ブランド体系
+- **ブランド名**: 8weeks Stay
+- **個別物件名**:
+  - 8weeks Fujimi（グランドピアノのある森の中の一棟貸切別荘）
+  - 8weeks Quriu（100m²超のフロア貸切・薪ストーブ）
+  - 8weeks Studio（2-4名向け・スキー・スノボー・MTB客向け）
+
+### 更新ファイル（91ファイル）
+**HTMLファイル:**
+- index.html
+- index-en.html
+- fujimimachi-hotel.html
+- booking.html
+- index-photo-ready.html
+- seo-optimization.html
+
+**JavaScriptファイル:**
+- scripts/clean-gallery-data.js
+- scripts/pinterest-gallery.js
+- scripts/gallery-data.js
+- その他ギャラリー関連
+
+**ドキュメント:**
+- README.md
+- CLAUDE.md
+- seo-improvement-guide.md
+- google-business-profile-optimization.md
+
+### 保持した情報
+- AirbnbリンクURL: `8weeksfujimi`
+- Emailアドレス: `8weeks.fujimi@gmail.com`
+- GitHubリポジトリURL: `8weeksfujimi.github.io`
+
+### デプロイ状況
+✅ GitHubへプッシュ完了（コミットID: 87bf25b）
+🌐 公開URL: https://8weeksfujimi.github.io/8weeks-LP/
+
+### 表記ルール決定
+「Stay」は小文字で統一（8weeks Stay）
+- 理由: 親しみやすさ、既存物件名との統一感、ライフスタイル型宿泊のコンセプトに合致
+
+---
+
+## 🎯 次回タスク: 富士見パノラマリゾート向けランディングページ作成
+
+### タスク概要
+富士見パノラマリゾートのホームページに掲載してもらうための、パノラマリゾート客向けのランディングページを作成する。
+
+### 目的
+- 富士見パノラマリゾートの訪問客に8weeks Stayの宿泊施設を紹介
+- パノラマリゾートのホームページからのリンク掲載を想定
+- スキー・アウトドア客をターゲットにしたコンテンツ
+
+### 想定される要件
+- パノラマリゾートからのアクセス情報
+- スキー・スノーボード客向けの訴求
+- 夏季のアクティビティ情報
+- 施設の特徴（3物件）
+- 予約導線（Airbnb）
+
+### 検討事項
+1. ページ名・URL
+2. ターゲット客層の明確化
+3. パノラマリゾートとの連携内容
+4. デザイン・トーン（既存LPとの統一性）
+5. コンバージョンポイント
+
+### プロジェクト構造
 ```
 8weeks LP/
-├── assets/
-│   ├── images/
-│   │   ├── logos/        # 現在使用中のロゴ
-│   │   ├── gallery/      # ギャラリー画像
-│   │   └── archived/     # 古いロゴのバックアップ
-│   └── styles/           # CSSファイル
-├── scripts/              # JavaScriptとPythonスクリプト
-├── docs/                 # ドキュメント類
-├── index.html            # 日本語版メインページ
-├── index-en.html         # 英語版メインページ
-├── CLAUDE.md            # プロジェクトコンテクスト
-└── README.md            # プロジェクト説明
+├── index.html (メインLP)
+├── index-en.html (英語版)
+├── fujimimachi-hotel.html (富士見町ホテルSEO特化)
+└── panorama-resort.html (新規作成予定) ← 次回タスク
 ```
 
-### 3. HTMLファイルのパス更新 ✅
-- index.html と index-en.html の全てのリソースパスを新しいフォルダ構成に合わせて更新
-- ロゴ、スクリプト、スタイルシートのパスを修正済み
+---
 
-## 次回の作業候補
+## プロジェクト基本情報
 
-### 優先度：高
-1. **動作確認**
-   - ローカルでHTMLファイルを開いて表示確認
-   - 画像とスクリプトが正しく読み込まれているか確認
-   - GitHubページでの表示確認
+### 技術スタック
+- HTML5/CSS3
+- Vanilla JavaScript
+- Python（画像処理）
+- Node.js（プロキシサーバー）
 
-2. **残りのHTMLファイル更新**
-   - booking.html
-   - gallery-test.html
-   - index-photo-ready.html
-   のパスも新しいフォルダ構成に合わせて更新が必要
+### ディレクトリ構造
+- `/assets/` - 画像、CSS、その他アセット
+- `/scripts/` - JavaScript、Python スクリプト
+- `/docs/` - ドキュメント
 
-### 優先度：中
-3. **スクリプトファイルの整理**
-   - 重複や未使用のスクリプトを確認
-   - gallery関連スクリプトの統合検討
-
-4. **画像の最適化**
-   - optimizedフォルダの画像を実際に使用するよう設定
-   - 画像の遅延読み込み実装
-
-### 優先度：低
-5. **SEO対策**
-   - メタタグの最適化
-   - 構造化データの追加
-
-6. **パフォーマンス改善**
-   - CSSとJSの圧縮
-   - CDNの活用検討
-
-## Git状態
+### 重要URL
+- 本番URL: https://8weeksfujimi.github.io/8weeks-LP/
 - リポジトリ: https://github.com/8weeksfujimi/8weeks-LP
-- ブランチ: main
-- 最新コミット: フォルダ構成の整理完了
-- すべての変更はプッシュ済み
+- Email: 8weeks.fujimi@gmail.com
 
-## 再開時のコマンド
-```bash
-cd "/Users/shunji/Library/Mobile Documents/iCloud~md~obsidian/Documents/Shunji Memo/8weeks LP"
-git pull  # 最新の状態を取得
-git status  # 現在の状態確認
-```
+### Airbnbリスティング
+- 8weeks Fujimi: https://airbnb.com/h/8weeksfujimi
+- 8weeks Quriu: https://airbnb.com/h/8weeks-quriu
+- 8weeks Studio: https://airbnb.com/h/8weeks-studio
 
-## 注意事項
-- HTMLファイルのパス変更により、一部のページで画像やスクリプトが読み込まれない可能性があるため、動作確認が必要
-- booking.html等の他のHTMLファイルもパス更新が必要
+---
+
+## セッション再開時の確認事項
+
+### 次回開始時にすべきこと
+1. 富士見パノラマリゾートの情報収集
+   - 公式サイトの確認
+   - ターゲット客層の分析
+   - 提携条件の確認（掲載依頼内容）
+
+2. ランディングページの要件定義
+   - ページの目的明確化
+   - コンテンツ構成
+   - デザインコンセプト
+
+3. 既存LPとの統一性確認
+   - デザインシステムの継承
+   - ナビゲーション構造
+   - フッター・ヘッダー
+
+### 質問事項（ユーザーに確認）
+- パノラマリゾートとの提携状況は？
+- 掲載条件や制約はあるか？
+- 特に訴求したい施設は？（3物件のうち）
+- ターゲット: スキー客メイン？オールシーズン？
+- 予算や期限はあるか？
+
+---
+
+## 備考
+- ブランド名変更作業は完全に完了
+- デプロイ済み、本番環境に反映済み
+- 次のタスクに進む準備完了
