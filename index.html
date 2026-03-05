@@ -6,7 +6,7 @@
     <title>富士見町のホテル・宿泊施設 | 8weeks Stay - 八ヶ岳山麓の貸別荘で移住体験</title>
     <meta name="description" content="富士見町でホテル・宿泊をお探しなら8weeks Stay。長野県富士見町の標高1000mに位置する3つの貸別荘で、移住体験や長期滞在が可能。八ヶ岳の自然に囲まれた富士見町での宿泊は、都心から2時間でアクセス可能。富士見町移住体験にも最適な宿泊施設です。">
     <meta name="keywords" content="富士見町ホテル,富士見町宿泊,富士見町移住体験,富士見町 宿,富士見町 ホテル,富士見町 宿泊施設,富士見町 貸別荘,長野県富士見町,八ヶ岳宿泊,富士見町滞在,富士見町長期滞在,富士見町ワーケーション,富士見町移住,8weeks Stay,直接予約">
-    
+
     <!-- Open Graph -->
     <meta property="og:title" content="富士見町のホテル・宿泊施設 | 8weeks Stay - 移住体験可能な貸別荘">
     <meta property="og:description" content="富士見町でホテル・宿泊をお探しなら8weeks Stay。八ヶ岳山麓の3つの貸別荘で富士見町移住体験を。標高1000mの清浄な空気と豊かな自然の中での特別な滞在。">
@@ -17,60 +17,43 @@
     <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="8weeks Stay">
     <meta property="og:locale" content="ja_JP">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://8weeksfujimi.github.io/8weeks-LP/">
-    
+
     <!-- Alternate language versions -->
     <link rel="alternate" hreflang="ja" href="https://8weeksfujimi.github.io/8weeks-LP/">
     <link rel="alternate" hreflang="en" href="https://8weeksfujimi.github.io/8weeks-LP/index-en.html">
     <link rel="alternate" hreflang="x-default" href="https://8weeksfujimi.github.io/8weeks-LP/">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/logos/favicon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logos/favicon.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/logos/favicon.png">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Host Gallery Styles -->
+
+    <!-- Styles (Phase 1C: externalized) -->
+    <link rel="stylesheet" href="assets/styles/main.css">
     <link rel="stylesheet" href="assets/styles/host-gallery-styles.css">
-    
-    <!-- Google Analytics 4 (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID', {
-            page_title: '富士見町のホテル・宿泊施設 | 8weeks Stay',
-            custom_map: {
-                'custom_parameter_1': 'fujimi_property'
-            }
-        });
-    </script>
-    
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    
+
+    <!-- Lucide Icons (Phase 1E: version pinned + defer) -->
+    <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.js" defer></script>
+
     <!-- Gallery Data -->
-    <script src="scripts/clean-gallery-data.js"></script>
-    <script src="scripts/airbnb-data.js"></script>
-    <!-- <script src="scripts/three-stage-gallery.js"></script> -->
-    
-    <!-- Pinterest Gallery -->
-    <script src="scripts/pinterest-gallery.js"></script>
-    
+    <script src="scripts/clean-gallery-data.js" defer></script>
+    <script src="scripts/airbnb-data.js" defer></script>
+    <script src="scripts/pinterest-gallery.js" defer></script>
+
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "LodgingBusiness",
         "name": "8weeks Stay",
-        "description": "富士見町のホテル・宿泊施設。長野県富士見町、標高1000mの八ヶ岳山麓で運営する3件の貸別荘。富士見町移住体験やワーケーション、長期滞在に最適。直接予約でお得に富士見町に宿泊。",
+        "description": "富士見町のホテル・宿泊施設。長野県富士見町、標高1000mの八ヶ岳山麓で運営する3件の貸別荘。富士見町移住体験やワーケーション、長期滞在に最適。",
         "url": "https://8weeksfujimi.github.io/8weeks-LP/",
         "image": "https://8weeksfujimi.github.io/8weeks-LP/fujimi.png",
         "address": {
@@ -84,1186 +67,30 @@
             "latitude": "35.9",
             "longitude": "138.2"
         },
-        "telephone": "",
         "priceRange": "¥¥",
-        "amenityFeature": [
-            {
-                "@type": "LocationFeatureSpecification",
-                "name": "Wi-Fi",
-                "value": true
-            },
-            {
-                "@type": "LocationFeatureSpecification", 
-                "name": "Kitchen",
-                "value": true
-            },
-            {
-                "@type": "LocationFeatureSpecification",
-                "name": "Mountain View",
-                "value": true
-            }
-        ],
         "checkinTime": "15:00",
         "checkoutTime": "10:00",
         "numberOfRooms": 3,
-        "starRating": {
-            "@type": "Rating",
-            "ratingValue": "4.98",
-            "bestRating": "5"
-        },
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "4.98",
             "reviewCount": "127",
             "bestRating": "5",
             "worstRating": "1"
-        },
-        "review": [
-            {
-                "@type": "Review",
-                "author": {
-                    "@type": "Person",
-                    "name": "ゲスト様"
-                },
-                "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5"
-                },
-                "description": "富士見町での滞在が素晴らしかった。自然豊かで静かな環境で、移住体験として最適でした。"
-            }
-        ]
+        }
     }
     </script>
-    
-    <style>
-        :root {
-            --color-black: #222222;
-            --color-gray-dark: #484848;
-            --color-gray-medium: #717171;
-            --color-gray-light: #f7f7f7;
-            --color-white: #ffffff;
-            --color-accent: #FF5A5F;
-            --color-warm: #FFF8F6;
-            --font-primary: 'Circular', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            --border-thin: 1px solid #DDDDDD;
-            --shadow-subtle: 0 2px 16px rgba(0,0,0,0.12);
-            --shadow-card: 0 6px 16px rgba(0,0,0,0.12);
-            --transition: all 0.2s ease;
-            --border-radius: 12px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-primary);
-            line-height: 1.6;
-            color: var(--color-black);
-            background: #f8f8f8;
-        }
-
-        /* Grid System */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        .grid {
-            display: grid;
-            gap: 24px;
-        }
-
-        .grid-2 { grid-template-columns: repeat(2, 1fr); }
-        .grid-3 { grid-template-columns: repeat(3, 1fr); }
-
-        @media (max-width: 768px) {
-            .grid-2, .grid-3 { grid-template-columns: 1fr; }
-            .container { padding: 0 16px; }
-            
-            .hero {
-                min-height: 50vh;
-                padding: 40px 0 40px;
-            }
-            
-            .hero::before {
-                width: 400px;
-                height: 400px;
-                opacity: 0.05;
-            }
-            
-            .hero-content h1 {
-                font-size: 2rem;
-                margin-bottom: 12px;
-            }
-            
-            .hero-content .subtitle {
-                font-size: 14px;
-                line-height: 1.5;
-                margin-bottom: 8px;
-            }
-            
-            .hero-content .location {
-                font-size: 12px;
-                margin-bottom: 32px;
-            }
-            
-            /* Philosophyコンテンツをモバイルでは省略 */
-            .hero-philosophy-content {
-                display: none;
-            }
-            
-            .space-image {
-                height: 240px;
-            }
-            
-            .space-content {
-                padding: 16px 18px 18px 18px;
-                min-height: 160px;
-            }
-            
-            .space-content > *:last-child {
-                margin-bottom: 10px;
-            }
-            
-            .space-details {
-                margin-bottom: 6px;
-            }
-            
-            .space-link {
-                padding: 8px 16px;
-                font-size: 12px;
-                margin: 0 6px 0 6px;
-            }
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: var(--border-thin);
-            z-index: 1000;
-            transition: var(--transition);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 0;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 600;
-            color: var(--color-black);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .logo-icon {
-            width: 28px;
-            height: 28px;
-            object-fit: contain;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--color-gray-medium);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--color-black);
-        }
-
-        /* Language Switcher */
-        .language-switcher {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-
-        .language-switcher a {
-            padding: 4px 8px;
-            border-radius: 4px;
-            text-decoration: none;
-            color: var(--color-gray-medium);
-            font-size: 14px;
-            transition: var(--transition);
-        }
-
-        .language-switcher a.active {
-            background: var(--color-accent);
-            color: var(--color-white);
-        }
-
-        .language-switcher a:hover {
-            background: var(--color-gray-light);
-        }
-        
-        /* Mobile Language Switcher */
-        .language-switcher-mobile {
-            display: none;
-            gap: 4px;
-            align-items: center;
-        }
-        
-        .language-switcher-mobile a {
-            padding: 4px 8px;
-            border-radius: 4px;
-            text-decoration: none;
-            color: var(--color-gray-medium);
-            font-size: 12px;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-        
-        .language-switcher-mobile a.active {
-            background: var(--color-accent);
-            color: var(--color-white);
-        }
-        
-        .language-switcher-mobile a:hover {
-            background: var(--color-gray-light);
-            color: var(--color-black);
-        }
-        
-        @media (max-width: 768px) {
-            .language-switcher-mobile {
-                display: flex;
-            }
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
-            padding: 80px 0 100px;
-            text-align: center;
-            position: relative;
-            min-height: 80vh;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            background-image: url('assets/images/logos/ロゴ.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.08;
-            z-index: 0;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero-content h1 {
-            font-size: clamp(32px, 6vw, 48px);
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--color-black);
-            letter-spacing: -0.02em;
-        }
-
-        .hero-content .subtitle {
-            font-size: 20px;
-            color: var(--color-gray-dark);
-            margin-bottom: 12px;
-            font-weight: 400;
-        }
-
-        .hero-content .location {
-            font-size: 16px;
-            color: var(--color-gray-dark);
-            margin-bottom: 48px;
-            background: transparent;
-            font-weight: 400;
-        }
-
-
-        /* Section Styles */
-        section {
-            padding: 60px 0;
-        }
-
-        .section-title {
-            font-size: clamp(28px, 5vw, 40px);
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 48px;
-            letter-spacing: -0.02em;
-            color: var(--color-black);
-        }
-
-        .section-subtitle {
-            font-size: 16px;
-            color: var(--color-gray-dark);
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 48px;
-            line-height: 1.6;
-        }
-
-        /* 統合コンテンツのスタイル */
-        .hero-philosophy-content {
-            max-width: 800px;
-            margin: 60px auto 0;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Philosophyセクション（モバイルでは代わりに表示） */
-        .philosophy-mobile {
-            display: none;
-            background: #f8f8f8;
-            padding: 40px 0;
-            text-align: center;
-        }
-        
-        @media (max-width: 768px) {
-            .philosophy-mobile {
-                display: block;
-            }
-        }
-        
-        /* Fade-in animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-        
-        /* Apply animations to elements */
-        .hero-content h1 {
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        .hero-content .subtitle {
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-        
-        .hero-content .location {
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-        
-        .hero-philosophy-content {
-            animation: fadeIn 1.2s ease-out 0.6s both;
-        }
-        
-        .section-title {
-            animation: fadeInUp 0.8s ease-out;
-        }
-        
-        .section-subtitle {
-            animation: fadeInUp 0.8s ease-out 0.1s both;
-        }
-        
-        /* Scroll-triggered animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s ease-out;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .space-card {
-            transition: all 0.8s ease-out;
-        }
-        
-        .space-card.fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        
-        .space-card.fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .space-card:nth-child(1) { transition-delay: 0s; }
-        .space-card:nth-child(2) { transition-delay: 0.1s; }
-        .space-card:nth-child(3) { transition-delay: 0.2s; }
-        
-        .hero-philosophy-content h2 {
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: #222222;
-            margin-bottom: 32px;
-            letter-spacing: -0.02em;
-        }
-        
-
-        .philosophy-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .philosophy p {
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            color: var(--color-gray-dark);
-        }
-
-        /* Spaces Section */
-        .space-card {
-            background: var(--color-white);
-            border: var(--border-thin);
-            border-radius: var(--border-radius);
-            padding: 0;
-            transition: var(--transition);
-            text-align: left;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow-card);
-        }
-
-        .space-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 28px rgba(0,0,0,0.16);
-        }
-
-        .space-image {
-            width: 100%;
-            height: 280px;
-            margin-bottom: 0;
-            border-radius: var(--border-radius) var(--border-radius) 0 0;
-            overflow: hidden;
-            position: relative;
-            background: var(--color-gray-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .space-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            transition: var(--transition);
-            /* 画像を拡大して白い隙間を隠す */
-            transform: scale(1.05);
-        }
-
-        .space-card:hover .space-image img {
-            transform: scale(1.08);
-        }
-
-        .space-content {
-            padding: 18px 20px 20px 20px;
-            min-height: 180px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        
-        .space-content > *:last-child {
-            margin-bottom: 12px;
-        }
-
-        .space-name {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--color-black);
-        }
-
-        .space-tagline {
-            font-size: 14px;
-            color: var(--color-gray-medium);
-            font-weight: 400;
-            margin-bottom: 10px;
-            line-height: 1.4;
-            font-style: italic;
-        }
-
-        .space-details {
-            color: var(--color-gray-medium);
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
-
-
-        .stars {
-            color: #ffd700;
-        }
-
-        .space-link {
-            display: inline-block;
-            padding: 10px 20px;
-            border: 1px solid var(--color-black);
-            color: var(--color-black);
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: 13px;
-            letter-spacing: 0.05em;
-            margin: 0 8px 0 8px;
-        }
-
-        .space-link:hover {
-            background: var(--color-black);
-            color: var(--color-white);
-        }
-
-        /* Location Section */
-        .location {
-            background: var(--color-gray-light);
-        }
-
-
-        /* Area Guide */
-        .area-guide {
-            margin-top: 64px;
-        }
-
-        .guide-title {
-            font-size: 28px;
-            font-weight: 500;
-            text-align: center;
-            margin-bottom: 32px;
-            color: var(--color-black);
-        }
-
-        .area-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
-        }
-
-        .area-tab {
-            padding: 12px 24px;
-            background: var(--color-white);
-            border: 1px solid var(--color-gray-medium);
-            border-radius: 50px;
-            color: var(--color-gray-dark);
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 14px;
-        }
-
-        .area-tab:hover,
-        .area-tab.active {
-            background: var(--color-black);
-            color: var(--color-white);
-            border-color: var(--color-black);
-        }
-
-        .area-content {
-            background: var(--color-white);
-            border-radius: 12px;
-            padding: 32px;
-            min-height: 400px;
-        }
-
-        .area-panel {
-            display: none;
-        }
-
-        .area-panel.active {
-            display: block;
-        }
-
-        .area-panel h4 {
-            font-size: 24px;
-            font-weight: 500;
-            margin-bottom: 24px;
-            color: var(--color-black);
-            border-bottom: 2px solid var(--color-accent);
-            padding-bottom: 8px;
-        }
-
-        /* Spot Cards */
-        .area-spots {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .spot-card {
-            background: var(--color-gray-light);
-            padding: 20px;
-            border-radius: 8px;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .spot-card:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-subtle);
-        }
-
-        .spot-card h5 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--color-black);
-        }
-
-        .spot-card p {
-            font-size: 14px;
-            color: var(--color-gray-medium);
-            margin-bottom: 12px;
-            line-height: 1.5;
-        }
-
-        .spot-time {
-            display: inline-block;
-            background: var(--color-accent);
-            color: var(--color-white);
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        /* Surrounding Areas */
-        .surrounding-areas {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-
-        .area-group {
-            background: var(--color-gray-light);
-            padding: 24px;
-            border-radius: 8px;
-        }
-
-        .area-group h5 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--color-black);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .distance {
-            font-size: 12px;
-            background: var(--color-accent);
-            color: var(--color-white);
-            padding: 4px 8px;
-            border-radius: 8px;
-            font-weight: 500;
-        }
-
-        .area-group ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .area-group li {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(212,165,116,0.2);
-            font-size: 14px;
-            color: var(--color-gray-dark);
-        }
-
-        .area-group li:last-child {
-            border-bottom: none;
-        }
-
-        /* Category Sections */
-        .category-section {
-            margin-bottom: 32px;
-        }
-
-        .category-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 16px;
-            color: var(--color-black);
-            border-left: 4px solid var(--color-accent);
-            padding-left: 12px;
-        }
-
-        .spot-card h6 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--color-black);
-        }
-
-        .insta-link {
-            display: inline-block;
-            margin-top: 8px;
-            padding: 4px 8px;
-            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
-            color: var(--color-white);
-            text-decoration: none;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .insta-link:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        /* Booking Section */
-        .booking {
-            text-align: center;
-            background: #f8f8f8;
-        }
-
-        .booking-options {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 48px;
-            margin: 64px 0;
-        }
-
-        .booking-option {
-            background: var(--color-white);
-            border: var(--border-thin);
-            border-radius: 8px;
-            padding: 40px 32px;
-            text-align: left;
-            transition: var(--transition);
-        }
-
-        .booking-option:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-subtle);
-        }
-
-        .booking-option h3 {
-            font-size: 24px;
-            font-weight: 500;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-
-        .option-description {
-            color: var(--color-gray-medium);
-            margin-bottom: 32px;
-            line-height: 1.6;
-            text-align: center;
-        }
-
-        /* Airbnb Properties */
-        .airbnb-properties {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .property-item {
-            padding: 20px;
-            background: var(--color-gray-light);
-            border-radius: 8px;
-            transition: var(--transition);
-        }
-
-        .property-item:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-subtle);
-        }
-
-        .property-details h4 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 8px;
-            color: var(--color-black);
-        }
-
-        .property-details p {
-            font-size: 14px;
-            color: var(--color-gray-medium);
-            margin-bottom: 8px;
-        }
-
-        .property-rating {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 16px;
-        }
-
-        .stars {
-            color: #ffd700;
-        }
-
-        .property-buttons {
-            display: flex;
-            gap: 8px;
-        }
-
-        .property-btn {
-            flex: 1;
-            padding: 8px 16px;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 14px;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .property-btn:first-child {
-            background: #ff5a5f;
-            color: var(--color-white);
-        }
-
-        .property-btn:first-child:hover {
-            background: #e74c3c;
-        }
-
-        .property-btn.map-btn {
-            background: var(--color-black);
-            color: var(--color-white);
-        }
-
-        .property-btn.map-btn:hover {
-            background: var(--color-gray-dark);
-        }
-
-        /* Space Links */
-        .space-links {
-            display: flex;
-            gap: 12px;
-            margin-top: 16px;
-            padding-top: 16px;
-            border-top: 1px solid #EEEEEE;
-        }
-
-        .space-link {
-            flex: 1;
-            padding: 10px 14px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            border-radius: 8px;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .space-link:first-child {
-            border: 1px solid var(--color-accent);
-            color: var(--color-accent);
-            background: white;
-        }
-
-        .space-link:first-child:hover {
-            background: var(--color-accent);
-            color: var(--color-white);
-        }
-
-        .space-link.map-link {
-            border: 1px solid var(--color-gray-medium);
-            color: var(--color-gray-medium);
-            background: white;
-        }
-
-        .space-link.map-link:hover {
-            background: var(--color-gray-medium);
-            color: var(--color-white);
-        }
-
-        /* Contact Methods */
-        .contact-methods {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 20px;
-            background: var(--color-gray-light);
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--color-black);
-            transition: var(--transition);
-        }
-
-        .contact-method:hover {
-            background: var(--color-black);
-            color: var(--color-white);
-            transform: translateY(-2px);
-        }
-
-        .contact-method.instagram:hover {
-            background: #E4405F;
-        }
-
-        .contact-icon {
-            font-size: 24px;
-            min-width: 40px;
-            text-align: center;
-        }
-
-        .contact-text {
-            text-align: left;
-        }
-
-        .contact-text strong {
-            display: block;
-            font-size: 16px;
-            margin-bottom: 4px;
-        }
-
-        .contact-text span {
-            font-size: 14px;
-            color: var(--color-gray-medium);
-        }
-
-        .contact-method:hover .contact-text span {
-            color: rgba(255,255,255,0.8);
-        }
-
-        /* Media Feature */
-        .media-feature {
-            margin-top: 24px;
-            padding-top: 20px;
-            border-top: 1px solid #EEEEEE;
-        }
-
-        .media-feature h4 {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--color-gray-medium);
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .media-link {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 16px;
-            background: var(--color-gray-light);
-            border-radius: 8px;
-            text-decoration: none;
-            color: var(--color-black);
-            transition: var(--transition);
-        }
-
-        .media-link:hover {
-            background: var(--color-black);
-            color: var(--color-white);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-subtle);
-        }
-
-        .media-text {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .media-source {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--color-accent);
-        }
-
-        .media-link:hover .media-source {
-            color: rgba(255,255,255,0.8);
-        }
-
-        .media-title {
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 16px 32px;
-            background: var(--color-black);
-            color: var(--color-white);
-            text-decoration: none;
-            transition: var(--transition);
-            font-weight: 500;
-            letter-spacing: 0.05em;
-        }
-
-        .btn:hover {
-            background: var(--color-gray-dark);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--color-black);
-            border: 1px solid var(--color-black);
-        }
-
-        .btn-outline:hover {
-            background: var(--color-black);
-            color: var(--color-white);
-        }
-
-        /* Social Links */
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin-top: 48px;
-        }
-
-        .social-link {
-            color: var(--color-gray-medium);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .social-link:hover {
-            color: var(--color-black);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--color-black);
-            color: var(--color-white);
-            padding: 64px 0 32px;
-            text-align: center;
-        }
-
-        .footer-content {
-            margin-bottom: 32px;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-            margin-bottom: 32px;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--color-white);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #333;
-            padding-top: 24px;
-            color: rgba(255,255,255,0.5);
-            font-size: 14px;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            section { padding: 50px 0; }
-            .booking-options { 
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-            .booking-option {
-                padding: 32px 24px;
-            }
-            .area-tabs {
-                flex-direction: column;
-                align-items: center;
-            }
-            .area-tab {
-                width: 100%;
-                max-width: 300px;
-                text-align: center;
-            }
-            .area-content {
-                padding: 24px 16px;
-            }
-            .area-spots {
-                grid-template-columns: 1fr;
-            }
-            .surrounding-areas {
-                grid-template-columns: 1fr;
-            }
-            .footer-links { flex-direction: column; gap: 16px; }
-        }
-    </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header (Phase 4A: Hamburger menu) -->
     <header>
         <nav class="container">
-            <a href="#" class="logo"><img src="assets/images/logos/Logo_moon.png" alt="" class="logo-icon"> 8weeks Stay</a>
+            <a href="#" class="logo">
+                <img src="assets/images/logos/Logo_moon.png" alt="" class="logo-icon"> 8weeks Stay
+            </a>
             <div class="nav-links">
                 <a href="#spaces">Spaces</a>
+                <a href="#gallery">Gallery</a>
                 <a href="#location">Location</a>
                 <a href="#booking">Booking</a>
                 <div class="language-switcher">
@@ -1271,48 +98,107 @@
                     <a href="index-en.html">English</a>
                 </div>
             </div>
-            <!-- Mobile Language Switcher -->
             <div class="language-switcher-mobile">
                 <a href="index.html" class="active">日本語</a>
                 <a href="index-en.html">EN</a>
             </div>
+            <button class="hamburger" id="hamburger" aria-label="メニュー">
+                <span></span><span></span><span></span>
+            </button>
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#spaces" class="mobile-menu-link">Spaces</a>
+        <a href="#gallery" class="mobile-menu-link">Gallery</a>
+        <a href="#location" class="mobile-menu-link">Location</a>
+        <a href="#booking" class="mobile-menu-link">Booking</a>
+        <div class="language-switcher" style="margin-top: 24px;">
+            <a href="index.html" class="active">日本語</a>
+            <a href="index-en.html">English</a>
+        </div>
+    </div>
+
+    <!-- Hero Section — 3-property slideshow -->
     <section class="hero">
+        <div class="hero-bg">
+            <img src="assets/images/logos/fujimi.png" alt="8weeks Fujimi" class="hero-slide active" loading="eager">
+            <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu9.jpeg" alt="8weeks Quriu" class="hero-slide" loading="eager">
+            <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu30.jpeg" alt="8weeks Quriu" class="hero-slide" loading="eager">
+            <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9615.jpeg" alt="8weeks Studio" class="hero-slide" loading="eager">
+            <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9526.jpeg" alt="8weeks Studio" class="hero-slide" loading="eager">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>8weeks Stay</h1>
+            <p class="subtitle">八ヶ岳山麓の静かな滞在空間</p>
+            <p class="location">1000m Elevation · Yatsugatake Mountains</p>
+        </div>
+        <div class="hero-dots">
+            <button class="hero-dot active" data-slide="0" aria-label="Fujimi"></button>
+            <button class="hero-dot" data-slide="1" aria-label="Quriu"></button>
+            <button class="hero-dot" data-slide="2" aria-label="Quriu"></button>
+            <button class="hero-dot" data-slide="3" aria-label="Studio"></button>
+            <button class="hero-dot" data-slide="4" aria-label="Studio"></button>
+        </div>
+        <div class="scroll-indicator">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Trust Bar (Phase 5A) -->
+    <div class="trust-bar">
         <div class="container">
-            <div class="hero-content">
-                <h1>8weeks Stay</h1>
-                <p class="subtitle">八ヶ岳山麓の静かな滞在空間</p>
-                <p class="location">1000m Elevation, Yatsugatake Mountains</p>
+            <div class="trust-bar-inner">
+                <div class="trust-item">
+                    <span class="stars">★</span> 4.98 平均評価
+                </div>
+                <div class="trust-item">
+                    127+ レビュー
+                </div>
+                <div class="trust-item">
+                    <span class="stars">★</span> Superhost
+                </div>
             </div>
-            
-            <div class="hero-philosophy-content">
-                <h2>この場所で暮らすまでの8週間</h2>
-                <p>2020年に都市部から当時1歳の娘と移住した私たちは、<br>
-                富士見町に魅了され、8週間で移住を決断しました。</p>
-                <p>豊かな自然の中で贅沢な時間を過ごし、<br>
-                8週間が経つ頃には「この町に住み続けよう」と思うようになっていたのです。</p>
-                <p>お客様にも「ここにいたい」と思えるような時間を過ごして頂きたいという願いから<br>
-                "8weeks"と名付けました。</p>
+        </div>
+    </div>
+
+    <!-- Story Section (Phase 2B) -->
+    <section class="story-section">
+        <div class="container">
+            <h2>この場所で暮らすまでの8週間</h2>
+            <div class="story-content">
+                <p>2020年に都市部から当時1歳の娘と移住した私たちは、富士見町に魅了され、8週間で移住を決断しました。</p>
+                <p>豊かな自然の中で贅沢な時間を過ごし、8週間が経つ頃には「この町に住み続けよう」と思うようになっていたのです。</p>
+                <p>お客様にも「ここにいたい」と思えるような時間を過ごして頂きたいという願いから"8weeks"と名付けました。</p>
             </div>
         </div>
     </section>
 
-    <!-- Spaces Section -->
+    <!-- Spaces Section (Phase 5C: ratings on cards) -->
     <section id="spaces" class="spaces">
         <div class="container">
             <h2 class="section-title">Three Spaces</h2>
             <p class="section-subtitle">それぞれ異なる個性を持つ3つの空間をご用意しています</p>
-            
+
             <div class="grid grid-3">
                 <div class="space-card" data-property="fujimi">
                     <div class="space-image">
-                        <img src="assets/images/logos/fujimi.png" alt="8weeks Fujimi - 八ヶ岳山麓のメイン棟・最大6名収容・マウンテンビュー・2寝室" loading="lazy">
+                        <img src="assets/images/gallery/optimized/Fujimi%20Photos/LINE_ALBUM_20240202_250831_1.jpg" alt="8weeks Fujimi リビング" class="space-slide active" loading="lazy" decoding="async">
+                        <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2243.jpg" alt="8weeks Fujimi 外観" class="space-slide" loading="lazy" decoding="async">
+                        <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3664.jpg" alt="8weeks Fujimi 寝室" class="space-slide" loading="lazy" decoding="async">
+                        <div class="space-dots">
+                            <span class="space-dot active" data-slide="0"></span>
+                            <span class="space-dot" data-slide="1"></span>
+                            <span class="space-dot" data-slide="2"></span>
+                        </div>
                     </div>
                     <div class="space-content">
                         <h3 class="space-name">8weeks Fujimi</h3>
+                        <div class="space-rating"><span class="stars">★</span> 4.99 · 48件のレビュー</div>
                         <p class="space-tagline">グランドピアノのある森の中の一棟貸切別荘</p>
                         <p class="space-details">2寝室・2ベッド・1バス・定員6名</p>
                     </div>
@@ -1324,11 +210,19 @@
 
                 <div class="space-card" data-property="quriu">
                     <div class="space-image">
-                        <img src="assets/images/logos/quriu.png" alt="8weeks Quriu - 複数世帯樂しめる100m²超のフロア貸切・マウンテンビュー" loading="lazy">
+                        <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu1.jpeg" alt="8weeks Quriu リビング" class="space-slide active" loading="lazy" decoding="async">
+                        <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu36.jpeg" alt="8weeks Quriu 外観" class="space-slide" loading="lazy" decoding="async">
+                        <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu25.jpeg" alt="8weeks Quriu 寝室" class="space-slide" loading="lazy" decoding="async">
+                        <div class="space-dots">
+                            <span class="space-dot active" data-slide="0"></span>
+                            <span class="space-dot" data-slide="1"></span>
+                            <span class="space-dot" data-slide="2"></span>
+                        </div>
                     </div>
                     <div class="space-content">
                         <h3 class="space-name">8weeks Quriu</h3>
-                        <p class="space-tagline">複数世帯楽しめる100m²超のフロア貸切、<br>マウンテンビュー</p>
+                        <div class="space-rating"><span class="stars">★</span> 4.98 · 52件のレビュー</div>
+                        <p class="space-tagline">複数世帯楽しめる100m²超のフロア貸切、マウンテンビュー</p>
                         <p class="space-details">2寝室・5ベッド・2バス・定員6名</p>
                     </div>
                     <div class="space-links">
@@ -1339,11 +233,19 @@
 
                 <div class="space-card" data-property="studio">
                     <div class="space-image">
-                        <img src="assets/images/logos/studio.png" alt="8weeks Studio - 富士見商店街のリノベーションフラット・車がなくても楽しめる" loading="lazy">
+                        <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9615.jpeg" alt="8weeks Studio リビング" class="space-slide active" loading="lazy" decoding="async">
+                        <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9462.jpeg" alt="8weeks Studio 外観" class="space-slide" loading="lazy" decoding="async">
+                        <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9526.jpeg" alt="8weeks Studio 寝室" class="space-slide" loading="lazy" decoding="async">
+                        <div class="space-dots">
+                            <span class="space-dot active" data-slide="0"></span>
+                            <span class="space-dot" data-slide="1"></span>
+                            <span class="space-dot" data-slide="2"></span>
+                        </div>
                     </div>
                     <div class="space-content">
                         <h3 class="space-name">8weeks Studio</h3>
-                        <p class="space-tagline">富士見商店街のリノベーションされたフラット、<br>車がなくても楽しめる</p>
+                        <div class="space-rating"><span class="stars">★</span> 4.96 · 27件のレビュー</div>
+                        <p class="space-tagline">富士見商店街のリノベーションされたフラット、車がなくても楽しめる</p>
                         <p class="space-details">2寝室・4ベッド・1バス・定員4名</p>
                     </div>
                     <div class="space-links">
@@ -1355,226 +257,184 @@
         </div>
     </section>
 
-    <!-- Philosophy Mobile Section -->
-    <section class="philosophy-mobile">
+    <!-- Testimonials (Phase 5B) -->
+    <section class="testimonials">
         <div class="container">
-            <h2 class="section-title">この場所で暮らすまでの8週間</h2>
-            <div class="philosophy-content">
-                <p>2020年に都市部から当時1歳の娘と移住した私たちは、富士見町に魅了され、8週間で移住を決断しました。</p>
-                <p>豊かな自然の中で贅沢な時間を過ごし、8週間が経つ頃には「この町に住み続けよう」と思うようになっていたのです。</p>
-                <p>お客様にも「ここにいたい」と思えるような時間を過ごして頂きたいという願いから"8weeks"と名付けました。</p>
+            <h2 class="section-title">ゲストの声</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">「自然豊かで静かな環境。富士見町での滞在が素晴らしかった。移住体験として最適でした。」</p>
+                    <p class="testimonial-author">— Airbnb ゲスト · 8weeks Fujimi</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">「とても清潔で広々とした空間。八ヶ岳の景色が窓から見え、子どもたちも大喜びでした。」</p>
+                    <p class="testimonial-author">— Airbnb ゲスト · 8weeks Quriu</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">「ホストのReiさんの温かいおもてなしに感動。地元のおすすめスポットも教えて頂き、最高の旅になりました。」</p>
+                    <p class="testimonial-author">— Airbnb ゲスト · 8weeks Fujimi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section (Phase 3: simplified filters) -->
+    <section id="gallery" class="section-gallery">
+        <div class="container">
+            <h2 class="section-title">Property Gallery</h2>
+            <p class="section-subtitle" style="color: var(--color-gray-medium, #666);">八ヶ岳山麓の静寂な空間で過ごす特別な時間</p>
+
+            <!-- Gallery Filters — property only -->
+            <div class="gallery-filters">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-property="all">
+                        <i data-lucide="grid-3x3" class="filter-icon"></i>
+                        すべて
+                    </button>
+                    <button class="filter-btn" data-property="fujimi">
+                        <i data-lucide="music" class="filter-icon"></i>
+                        Fujimi
+                    </button>
+                    <button class="filter-btn" data-property="quriu">
+                        <i data-lucide="maximize" class="filter-icon"></i>
+                        Quriu
+                    </button>
+                    <button class="filter-btn" data-property="studio">
+                        <i data-lucide="shopping-bag" class="filter-icon"></i>
+                        Studio
+                    </button>
+                </div>
+            </div>
+
+            <!-- Masonry Gallery -->
+            <div class="masonry-gallery" id="property-masonry"></div>
+
+            <!-- Loading -->
+            <div class="gallery-loading" id="gallery-loading">
+                <div class="loading-spinner"></div>
+                <p>ギャラリーを読み込み中...</p>
+            </div>
+
+            <!-- Load More -->
+            <div class="gallery-load-more" id="gallery-load-more" style="display: none;">
+                <button class="load-more-btn">
+                    さらに写真を見る
+                    <i data-lucide="chevron-down" class="btn-icon"></i>
+                </button>
+            </div>
+
+            <!-- Enhanced Lightbox (Phase 3C: fullscreen minimal) -->
+            <div class="enhanced-lightbox" id="enhanced-lightbox">
+                <div class="lightbox-backdrop"></div>
+                <div class="lightbox-container">
+                    <button class="lightbox-close" aria-label="閉じる">
+                        <i data-lucide="x"></i>
+                    </button>
+
+                    <div class="lightbox-content">
+                        <div class="lightbox-main">
+                            <img id="lightbox-main-image" src="" alt="">
+                            <div class="lightbox-navigation">
+                                <button class="nav-btn nav-prev" aria-label="前の画像">
+                                    <i data-lucide="chevron-left"></i>
+                                </button>
+                                <button class="nav-btn nav-next" aria-label="次の画像">
+                                    <i data-lucide="chevron-right"></i>
+                                </button>
+                            </div>
+                            <div class="lightbox-info">
+                                <div class="photo-meta">
+                                    <span class="photo-counter">
+                                        <span id="current-photo-num">1</span> / <span id="total-photos-num">0</span>
+                                    </span>
+                                    <span class="property-badge" id="lightbox-property-badge">Quriu</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Thumbnails -->
+                    <div id="lightbox-thumbnails"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Host Introduction Section -->
+    <section class="section-host">
+        <div class="container">
+            <h2 class="section-title">Your Host</h2>
+            <div class="host-profile">
+                <div class="host-image">
+                    <img src="assets/images/gallery/Host Photo/Rei_lifestyle.jpg" alt="Rei — 花を活ける暮らしのひとコマ" class="host-photo" loading="lazy" decoding="async">
+                    <div class="host-badge">
+                        <i data-lucide="star" style="width: 12px; height: 12px;"></i>Superhost
+                    </div>
+                </div>
+                <div class="host-info">
+                    <div class="host-header">
+                        <div class="host-name-line">
+                            <h3>Rei</h3>
+                            <span class="host-location">
+                                <i data-lucide="map-pin" style="width: 14px; height: 14px;"></i>
+                                富士見町在住
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="host-story">
+                        <p class="host-intro-text">
+                            2020年8月、神奈川県から富士見町へ移住。信州の豊かな自然の中で娘を育てながら、8weeks Stayを運営しています。
+                        </p>
+                        <p class="host-detail">
+                            夫がロンドンに単身赴任中、娘と先に富士見へ。八ヶ岳エリアのおすすめスポットはもちろん、地方移住や子育てについても、気兼ねなくお尋ねください。
+                        </p>
+
+                        <div class="host-hobbies">
+                            <h4>Interests</h4>
+                            <div class="hobby-tags">
+                                <span class="hobby-tag">アウトドア</span>
+                                <span class="hobby-tag">アート</span>
+                                <span class="hobby-tag">ハイキング</span>
+                                <span class="hobby-tag">ライブミュージック</span>
+                                <span class="hobby-tag">旅行</span>
+                                <span class="hobby-tag">楽器演奏</span>
+                            </div>
+                        </div>
+
+                        <div class="superhost-info">
+                            <i data-lucide="award" style="width: 16px; height: 16px; flex-shrink: 0;"></i>
+                            <span>Airbnb Superhostとして、一貫して優れたホスピタリティを提供</span>
+                        </div>
+
+                        <div class="media-feature">
+                            <h4>Media</h4>
+                            <a href="https://www.kyodo.co.jp/life/2025-11-04_3972207/" target="_blank" class="media-link">
+                                <i data-lucide="newspaper" style="width: 20px; height: 20px;"></i>
+                                <div class="media-text">
+                                    <span class="media-source">共同通信</span>
+                                    <span class="media-title">移住と子育て、ゲストハウス経営のストーリー</span>
+                                </div>
+                                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Location Section -->
-    <section id="location" class="location">
+    <section id="location" class="location-section">
         <div class="container">
-            <!-- Photo Gallery Section -->
-            <section class="section-gallery">
-                <div class="container">
-                    <h2 class="section-title">Property Gallery</h2>
-                    <p class="section-subtitle">八ヶ岳山麓の静寂な空間で過ごす特別な時間</p>
-                    
-                    <!-- Gallery Filters -->
-                    <div class="gallery-filters">
-                        <div class="filter-buttons">
-                            <button class="filter-btn active" data-property="all">
-                                <i data-lucide="grid-3x3" class="filter-icon"></i>
-                                すべて
-                            </button>
-                            <button class="filter-btn" data-property="fujimi">
-                                <i data-lucide="music" class="filter-icon"></i>
-                                8weeks Fujimi
-                            </button>
-                            <button class="filter-btn" data-property="quriu">
-                                <i data-lucide="maximize" class="filter-icon"></i>
-                                8weeks Quriu
-                            </button>
-                            <button class="filter-btn" data-property="studio">
-                                <i data-lucide="shopping-bag" class="filter-icon"></i>
-                                8weeks Studio
-                            </button>
-                        </div>
-                        
-                        <!-- Category Dropdown -->
-                        <div class="category-dropdown">
-                            <button class="category-dropdown-btn" id="category-dropdown-btn">
-                                <i data-lucide="image" class="filter-icon"></i>
-                                <span id="selected-category">すべてのカテゴリー</span>
-                                <i data-lucide="chevron-down" class="dropdown-arrow"></i>
-                            </button>
-                            <div class="category-dropdown-menu" id="category-dropdown-menu">
-                                <div class="category-option active" data-category="all">
-                                    <i data-lucide="image" class="filter-icon"></i>
-                                    すべてのカテゴリー
-                                </div>
-                                <div class="category-option" data-category="exterior">
-                                    <i data-lucide="home" class="filter-icon"></i>
-                                    外観
-                                </div>
-                                <div class="category-option" data-category="living">
-                                    <i data-lucide="sofa" class="filter-icon"></i>
-                                    リビング
-                                </div>
-                                <div class="category-option" data-category="kitchen">
-                                    <i data-lucide="chef-hat" class="filter-icon"></i>
-                                    キッチン
-                                </div>
-                                <div class="category-option" data-category="bedroom">
-                                    <i data-lucide="bed" class="filter-icon"></i>
-                                    ベッドルーム
-                                </div>
-                                <div class="category-option" data-category="bathroom">
-                                    <i data-lucide="bath" class="filter-icon"></i>
-                                    バスルーム
-                                </div>
-                                <div class="category-option" data-category="amenities">
-                                    <i data-lucide="settings" class="filter-icon"></i>
-                                    アメニティ
-                                </div>
-                                <div class="category-option" data-category="view">
-                                    <i data-lucide="mountain" class="filter-icon"></i>
-                                    景色
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Pinterest風Masonryギャラリー -->
-                    <div class="masonry-gallery" id="property-masonry">
-                        <!-- ダイナミックコンテンツがJavaScriptで生成されます -->
-                    </div>
-                    
-                    <!-- ロード状態 -->
-                    <div class="gallery-loading" id="gallery-loading">
-                        <div class="loading-spinner"></div>
-                        <p>ギャラリーを読み込み中...</p>
-                    </div>
-                    
-                    <!-- もっと見るボタン -->
-                    <div class="gallery-load-more" id="gallery-load-more" style="display: none;">
-                        <button class="load-more-btn">
-                            さらに写真を見る
-                            <i data-lucide="chevron-down" class="btn-icon"></i>
-                        </button>
-                    </div>
-                    
-                    <!-- Enhanced Lightbox -->
-                    <div class="enhanced-lightbox" id="enhanced-lightbox">
-                        <div class="lightbox-backdrop"></div>
-                        <div class="lightbox-container">
-                            <button class="lightbox-close" aria-label="閉じる">
-                                <i data-lucide="x"></i>
-                            </button>
-                            
-                            <div class="lightbox-content">
-                                <div class="lightbox-main">
-                                    <img id="lightbox-main-image" src="" alt="">
-                                    <div class="lightbox-navigation">
-                                        <button class="nav-btn nav-prev" aria-label="前の画像">
-                                            <i data-lucide="chevron-left"></i>
-                                        </button>
-                                        <button class="nav-btn nav-next" aria-label="次の画像">
-                                            <i data-lucide="chevron-right"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                
-                                <div class="lightbox-sidebar">
-                                    <div class="lightbox-info">
-                                        <h3 id="lightbox-property-name">8weeks Quriu</h3>
-                                        <div class="photo-meta">
-                                            <span class="photo-counter">
-                                                <span id="current-photo-num">1</span> / <span id="total-photos-num">0</span>
-                                            </span>
-                                            <span class="property-badge" id="lightbox-property-badge">Quriu</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- サムネイル一覧 -->
-                                    <div class="lightbox-thumbnails" id="lightbox-thumbnails">
-                                        <!-- サムネイルがJavaScriptで生成されます -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section Divider -->
-            <div style="height: 20px; background: #f8f8f8;"></div>
-
-            <!-- Host Introduction Section -->
-            <section class="section-host">
-                <div class="container">
-                    <h2 class="section-title">Your Host</h2>
-                    <div class="host-profile">
-                        <div class="host-image">
-                            <img src="assets/images/gallery/Host Photo/Host.png" alt="Rei - Your Host" class="host-photo">
-                            <div class="host-badge">
-                                <i data-lucide="star" style="width: 14px; height: 14px; margin-right: 4px;"></i>Superhost
-                            </div>
-                        </div>
-                        
-                        <div class="host-info">
-                            <h3>Rei</h3>
-                            <div class="host-stats">
-                                <div class="stat-item">
-                                    <i data-lucide="map-pin" style="width: 16px; height: 16px;"></i>
-                                    <span class="stat-number">富士見町</span>
-                                    <span>在住</span>
-                                </div>
-                            </div>
-                            
-                            <div class="host-story">
-                                <p class="host-intro-text">
-                                    2020年8月に神奈川県から富士見町へ移住しました。信州の豊かな自然の中で、5歳の女の子を子育てしながら、8weeks Stayの運営をしています。
-                                </p>
-                                <p class="host-detail">
-                                    夫がロンドンに単身赴任中、娘と先に富士見へやってきたので、八ヶ岳エリアのおすすめスポットはもちろんのこと、地方移住や子育てなどについても、お役に立てることがあれば気兼ねなくお尋ね下さい。
-                                </p>
-                                <div class="host-hobbies">
-                                    <h4>趣味・好きなこと</h4>
-                                    <div class="hobby-tags">
-                                        <span class="hobby-tag">アウトドア</span>
-                                        <span class="hobby-tag">アート</span>
-                                        <span class="hobby-tag">ウォーキング</span>
-                                        <span class="hobby-tag">ハイキング</span>
-                                        <span class="hobby-tag">ライブミュージック</span>
-                                        <span class="hobby-tag">旅行</span>
-                                        <span class="hobby-tag">楽器演奏</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="superhost-info">
-                                    <i data-lucide="star" style="width: 16px; height: 16px;"></i>
-                                    <span>Airbnb Superhostとして、一貫して優れたホスピタリティを提供しています。</span>
-                                </div>
-
-                                <div class="media-feature">
-                                    <h4>Media</h4>
-                                    <a href="https://www.kyodo.co.jp/life/2025-11-04_3972207/" target="_blank" class="media-link">
-                                        <i data-lucide="newspaper" style="width: 20px; height: 20px;"></i>
-                                        <div class="media-text">
-                                            <span class="media-source">共同通信</span>
-                                            <span class="media-title">移住と子育て、ゲストハウス経営のストーリー</span>
-                                        </div>
-                                        <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-            <!-- Area Guide -->
+            <!-- Area Guide (Desktop: tabs / Mobile: accordion — Phase 4D) -->
             <div class="area-guide">
                 <h3 class="guide-title">エリア別過ごし方ガイド</h3>
-                
+
+                <!-- Desktop Tabs -->
                 <div class="area-tabs">
                     <button class="area-tab active" data-area="fujimi">富士見駅周辺・パノラマリゾート</button>
                     <button class="area-tab" data-area="shinanosakai">信濃境エリア</button>
@@ -1584,7 +444,7 @@
                 <div class="area-content">
                     <div class="area-panel active" id="fujimi-panel">
                         <h4>富士見駅周辺・パノラマリゾートエリア</h4>
-                        
+
                         <div class="category-section">
                             <h5 class="category-title"><i data-lucide="ski" style="width: 20px; height: 20px; margin-right: 8px;"></i>アクティビティ</h5>
                             <div class="area-spots">
@@ -1668,7 +528,7 @@
 
                     <div class="area-panel" id="shinanosakai-panel">
                         <h4>信濃境エリア</h4>
-                        
+
                         <div class="category-section">
                             <h5 class="category-title"><i data-lucide="mountain" style="width: 20px; height: 20px; margin-right: 8px;"></i>アクティビティ</h5>
                             <div class="area-spots">
@@ -1745,6 +605,89 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Mobile Accordion (Phase 4D) -->
+                <div class="area-accordion">
+                    <div class="accordion-item active">
+                        <button class="accordion-header">
+                            富士見駅周辺・パノラマリゾート
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-body-inner">
+                                <div class="area-spots">
+                                    <div class="spot-card">
+                                        <h6>富士見パノラマリゾート</h6>
+                                        <p>夏はMTB、冬はスキー。八ヶ岳の絶景とアクティビティ</p>
+                                        <span class="spot-time">車で5-10分</span>
+                                    </div>
+                                    <div class="spot-card">
+                                        <h6>カゴメ野菜生活ファーム</h6>
+                                        <p>家族で楽しめる農業体験施設</p>
+                                        <span class="spot-time">車で5-10分</span>
+                                    </div>
+                                    <div class="spot-card">
+                                        <h6>ワインバー Heptapod</h6>
+                                        <p>ナチュールワイン専門の隠れ家バー</p>
+                                    </div>
+                                    <div class="spot-card">
+                                        <h6>Mamemura Coffee</h6>
+                                        <p>スペシャルティコーヒーの自家焙煎</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            信濃境エリア
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-body-inner">
+                                <div class="area-spots">
+                                    <div class="spot-card">
+                                        <h6>井戸尻考古館</h6>
+                                        <p>縄文時代の遺跡を展示</p>
+                                        <span class="spot-time">車で18分</span>
+                                    </div>
+                                    <div class="spot-card">
+                                        <h6>富士見高原リゾート</h6>
+                                        <p>四季を通じて楽しめるリゾート</p>
+                                        <span class="spot-time">車で25分</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            周辺エリア
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <div class="accordion-body">
+                            <div class="accordion-body-inner">
+                                <div class="area-spots">
+                                    <div class="spot-card">
+                                        <h6>諏訪大社・諏訪湖</h6>
+                                        <p>日本最古級の神社群と湖畔散策</p>
+                                        <span class="spot-time">車で30分</span>
+                                    </div>
+                                    <div class="spot-card">
+                                        <h6>サントリー白州蒸溜所</h6>
+                                        <p>森の蒸溜所でウイスキー工場見学</p>
+                                        <span class="spot-time">車で30-40分</span>
+                                    </div>
+                                    <div class="spot-card">
+                                        <h6>リゾナーレ小淵沢</h6>
+                                        <p>高原リゾートでの優雅なひととき</p>
+                                        <span class="spot-time">車で30分</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1754,13 +697,12 @@
         <div class="container">
             <h2 class="section-title">Booking</h2>
             <p class="section-subtitle">2つの方法でご予約いただけます。お好みの方法をお選びください。</p>
-            
-            <!-- Booking Options -->
+
             <div class="booking-options">
                 <div class="booking-option">
                     <h3>Airbnbで予約</h3>
                     <p class="option-description">リアルタイムの空室状況と料金確認、即座に予約確定</p>
-                    
+
                     <div class="airbnb-properties">
                         <div class="property-item">
                             <div class="property-details">
@@ -1772,7 +714,7 @@
                                 <a href="https://maps.app.goo.gl/7EvAJLE3DuLRwecr7" target="_blank" class="property-btn map-btn"><i data-lucide="map-pin" style="width: 14px; height: 14px; margin-right: 4px;"></i>地図</a>
                             </div>
                         </div>
-                        
+
                         <div class="property-item">
                             <div class="property-details">
                                 <h4>8weeks Quriu</h4>
@@ -1783,7 +725,7 @@
                                 <a href="https://maps.app.goo.gl/36fJ73qrijhShca76" target="_blank" class="property-btn map-btn"><i data-lucide="map-pin" style="width: 14px; height: 14px; margin-right: 4px;"></i>地図</a>
                             </div>
                         </div>
-                        
+
                         <div class="property-item">
                             <div class="property-details">
                                 <h4>8weeks Studio</h4>
@@ -1801,7 +743,7 @@
                     <h3>DMで相談</h3>
                     <p class="option-description">柔軟な対応、特別なご要望、長期滞在のご相談など</p>
                     <p style="font-size: 14px; color: var(--color-gray-medium); margin-bottom: 24px; font-style: italic;">空室状況と料金はまずAirbnbでご確認ください</p>
-                    
+
                     <div class="contact-methods">
                         <a href="https://www.instagram.com/8weeks.fujimi/" class="contact-method instagram" target="_blank">
                             <div class="contact-icon"><i data-lucide="instagram" style="width: 24px; height: 24px;"></i></div>
@@ -1810,7 +752,7 @@
                                 <span>@8weeks.fujimi</span>
                             </div>
                         </a>
-                        
+
                         <a href="mailto:8weeks.fujimi@gmail.com?subject=予約相談&body=【ご相談内容】%0A%0A物件名：%0A日程：%0A人数：%0A特別なご要望：" class="contact-method email">
                             <div class="contact-icon"><i data-lucide="mail" style="width: 24px; height: 24px;"></i></div>
                             <div class="contact-text">
@@ -1831,108 +773,164 @@
                 <h3>8weeks Stay</h3>
                 <p>長野県富士見町 | この場所で暮らすまでの8週間</p>
             </div>
-            
+
             <div class="footer-links">
                 <a href="https://airbnb.com/h/8weeksfujimi" target="_blank">8weeks Fujimi</a>
                 <a href="https://airbnb.com/h/8weeks-quriu" target="_blank">8weeks Quriu</a>
                 <a href="https://airbnb.com/h/8weeks-studio" target="_blank">8weeks Studio</a>
                 <a href="https://www.instagram.com/8weeks.fujimi/" target="_blank">Instagram</a>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 8weeks Stay. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Sticky CTA (Phase 4B — mobile only) -->
+    <div class="sticky-cta" id="sticky-cta">
+        <a href="#booking" class="sticky-cta-btn">空室を確認する</a>
+    </div>
+
     <script>
-        // Smooth scrolling for navigation links
+        // Hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-menu-link').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // Header background on scroll
+        // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255,255,255,0.98)';
-            } else {
-                header.style.background = 'rgba(255,255,255,0.95)';
-            }
+            header.classList.toggle('scrolled', window.scrollY > 100);
         });
 
+        // Sticky CTA (Phase 4B)
+        const stickyCta = document.getElementById('sticky-cta');
+        const heroEl = document.querySelector('.hero');
+
+        if (stickyCta && heroEl && window.innerWidth <= 768) {
+            const heroObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    stickyCta.classList.toggle('visible', !entry.isIntersecting);
+                });
+            }, { threshold: 0 });
+            heroObserver.observe(heroEl);
+        }
 
         // Area Guide Tab Functionality
         document.querySelectorAll('.area-tab').forEach(tab => {
             tab.addEventListener('click', function() {
-                // Remove active class from all tabs and panels
                 document.querySelectorAll('.area-tab').forEach(t => t.classList.remove('active'));
                 document.querySelectorAll('.area-panel').forEach(p => p.classList.remove('active'));
-                
-                // Add active class to clicked tab
                 this.classList.add('active');
-                
-                // Show corresponding panel
                 const targetArea = this.getAttribute('data-area');
                 document.getElementById(targetArea + '-panel').classList.add('active');
             });
         });
-        
-        // Property Gallery Tab Functionality - DISABLED for Pinterest Gallery
-        // document.querySelectorAll('.property-tab').forEach(tab => {
-        //     tab.addEventListener('click', function() {
-        //         // Remove active class from all tabs and galleries
-        //         document.querySelectorAll('.property-tab').forEach(t => t.classList.remove('active'));
-        //         document.querySelectorAll('.property-gallery').forEach(g => g.classList.remove('active'));
-                
-        //         // Add active class to clicked tab
-        //         this.classList.add('active');
-                
-        //         // Show corresponding gallery
-        //         const targetProperty = this.getAttribute('data-property');
-        //         document.getElementById(targetProperty + '-gallery').classList.add('active');
-        //     });
-        // });
-        
-        
+
+        // Mobile accordion
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const item = this.parentElement;
+                const isActive = item.classList.contains('active');
+                // Close all
+                document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+                // Toggle current
+                if (!isActive) item.classList.add('active');
+            });
+        });
+
         // Initialize Lucide icons
-        lucide.createIcons();
-        
-        // Re-initialize Lucide icons after dynamic content is loaded
-        setTimeout(() => {
-            lucide.createIcons();
-            // Refresh Airbnb data on page load
-            if (typeof refreshPropertyData === 'function') {
-                refreshPropertyData();
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+                setTimeout(() => lucide.createIcons(), 1000);
             }
-        }, 100);
-        
-        // Scroll-triggered animations
+        });
+
+        // Hero slideshow — auto-rotate every 5s
+        (function() {
+            const slides = document.querySelectorAll('.hero-slide');
+            const dots = document.querySelectorAll('.hero-dot');
+            if (slides.length < 2) return;
+            let current = 0;
+            let timer;
+            function goTo(i) {
+                slides[current].classList.remove('active');
+                dots[current].classList.remove('active');
+                current = i;
+                slides[current].classList.add('active');
+                dots[current].classList.add('active');
+            }
+            function next() { goTo((current + 1) % slides.length); }
+            function startTimer() { timer = setInterval(next, 5000); }
+            function resetTimer() { clearInterval(timer); startTimer(); }
+            dots.forEach(d => d.addEventListener('click', () => { goTo(+d.dataset.slide); resetTimer(); }));
+            startTimer();
+        })();
+
+        // Space card slideshows (3 photos per card)
+        document.querySelectorAll('.space-card').forEach(card => {
+            const slides = card.querySelectorAll('.space-slide');
+            const dots = card.querySelectorAll('.space-dot');
+            if (slides.length < 2) return;
+            let cur = 0, timer;
+            function go(i) {
+                slides[cur].classList.remove('active');
+                dots[cur].classList.remove('active');
+                cur = i;
+                slides[cur].classList.add('active');
+                dots[cur].classList.add('active');
+            }
+            function next() { go((cur + 1) % slides.length); }
+            timer = setInterval(next, 4000);
+            dots.forEach(d => d.addEventListener('click', e => {
+                e.stopPropagation();
+                go(+d.dataset.slide);
+                clearInterval(timer);
+                timer = setInterval(next, 4000);
+            }));
+        });
+
+        // Scroll-triggered animations (Phase 3D: Intersection Observer)
         const observerOptions = {
             threshold: 0.05,
             rootMargin: '0px 0px -100px 0px'
         };
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, 100);
+                    setTimeout(() => entry.target.classList.add('visible'), 100);
                 }
             });
         }, observerOptions);
-        
-        // Observe all elements that should fade in
+
         document.addEventListener('DOMContentLoaded', () => {
             // Space cards
             document.querySelectorAll('.space-card').forEach((el, index) => {
@@ -1940,20 +938,20 @@
                 el.style.transitionDelay = `${index * 0.15}s`;
                 observer.observe(el);
             });
-            
-            // Section titles and content
-            document.querySelectorAll('.section-title, .section-subtitle').forEach(el => {
+
+            // Section titles & content
+            document.querySelectorAll('.section-title, .section-subtitle, .story-section, .testimonial-card').forEach(el => {
                 el.classList.add('fade-in');
                 observer.observe(el);
             });
-            
-            // Host profile, area guide, booking options
-            document.querySelectorAll('.host-profile, .area-guide, .booking-options, .philosophy-mobile').forEach(el => {
+
+            // Host, area guide, booking
+            document.querySelectorAll('.host-profile, .area-guide, .booking-options').forEach(el => {
                 el.classList.add('fade-in');
                 observer.observe(el);
             });
-            
-            // Gallery items (when they load)
+
+            // Gallery items
             setTimeout(() => {
                 document.querySelectorAll('.masonry-item').forEach((el, index) => {
                     el.classList.add('fade-in');
@@ -1961,31 +959,7 @@
                     observer.observe(el);
                 });
             }, 500);
-            
-            // Re-initialize Lucide icons for gallery
-            setTimeout(() => {
-                lucide.createIcons();
-            }, 1000);
         });
-        
-        // Gallery System - DISABLED for Pinterest Gallery
-        // let currentProperty = 'quriu';
-        // let currentPhotoIndex = 0;
-        // let allPhotos = [];
-        
-        // Initialize gallery when DOM is ready with delay - DISABLED
-        // if (document.readyState === 'loading') {
-        //     document.addEventListener('DOMContentLoaded', () => {
-        //         // Delay gallery initialization to prioritize main content
-        //         setTimeout(initializeGallery, 500);
-        //     });
-        // } else {
-        //     setTimeout(initializeGallery, 100);
-        // }
-        
-        // OLD GALLERY SYSTEM DISABLED - Using Pinterest-style gallery instead
-        // All gallery functionality now handled by pinterest-gallery.js
-        
     </script>
 </body>
 </html>
