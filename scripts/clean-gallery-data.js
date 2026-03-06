@@ -47,7 +47,7 @@ const cleanGalleryData = {
       "photos": [
         // --- Curated first 5 (design impact order) ---
         { "src": "assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu1.jpeg",  "caption": "薪ストーブのあるダイニング", "category": "living",   "featured": true },
-        { "src": "assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu16.jpeg", "caption": "夜のリビング",     "category": "living",   "featured": true },
+        { "src": "assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu14.jpeg", "caption": "リビング全体",     "category": "living",   "featured": true },
         { "src": "assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu25.jpeg", "caption": "ベッドルーム",     "category": "bedroom",  "featured": true },
         { "src": "assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu10.jpeg", "caption": "ピアノ",           "category": "living",   "featured": true },
         { "src": "assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu40.jpeg", "caption": "アメニティ",       "category": "bathroom", "featured": true },
@@ -55,7 +55,7 @@ const cleanGalleryData = {
         { "src": "assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu6.jpeg",  "caption": "リビング別角度",   "category": "living" },
         { "src": "assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu7.jpeg",  "caption": "ダイニングエリア", "category": "living" },
         { "src": "assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu17.jpeg", "caption": "窓際の景色",       "category": "living" },
-        { "src": "assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu14.jpeg", "caption": "リビング全体",     "category": "living" },
+        { "src": "assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu16.jpeg", "caption": "夜のリビング",     "category": "living" },
         { "src": "assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu5.jpeg",  "caption": "ベッドルーム1",   "category": "bedroom" },
         { "src": "assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu18.jpeg", "caption": "ベッドルーム2",   "category": "bedroom" },
         { "src": "assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu26.jpeg", "caption": "子供部屋",       "category": "bedroom" },
@@ -88,7 +88,7 @@ const cleanGalleryData = {
       "photos": [
         // --- Curated first 5 (design impact order) ---
         { "src": "assets/images/gallery/optimized/Studio%20Photos/DSCF9615.jpeg",           "caption": "リビング・ダイニング", "category": "living",   "featured": true },
-        { "src": "assets/images/gallery/optimized/Studio%20Photos/DSCF9462.jpeg",           "caption": "外観",               "category": "exterior", "featured": true },
+        { "src": "assets/images/gallery/optimized/Studio%20Photos/DSCF9557.jpeg",           "caption": "室内装飾",           "category": "living",   "featured": true },
         { "src": "assets/images/gallery/optimized/Studio%20Photos/DSCF9526.jpeg",           "caption": "富士見駅方面",       "category": "exterior", "featured": true },
         { "src": "assets/images/gallery/optimized/Studio%20Photos/Bath%20room.jpeg",        "caption": "バスルーム",         "category": "bathroom", "featured": true },
         { "src": "assets/images/gallery/optimized/Studio%20Photos/DSCF9379.jpeg",           "caption": "読書コーナー",       "category": "living",   "featured": true },
@@ -112,7 +112,7 @@ const cleanGalleryData = {
         { "src": "assets/images/gallery/optimized/Studio%20Photos/DSCF9526.jpeg",           "caption": "富士見駅方面",       "category": "exterior" },
         { "src": "assets/images/gallery/optimized/Studio%20Photos/DSCF9513.jpeg",           "caption": "近隣の商店",         "category": "exterior" },
         { "src": "assets/images/gallery/optimized/Studio%20Photos/DSCF9515.jpeg",           "caption": "商店街の雰囲気",     "category": "exterior" },
-        { "src": "assets/images/gallery/optimized/Studio%20Photos/DSCF9557.jpeg",           "caption": "室内装飾",           "category": "living" },
+        { "src": "assets/images/gallery/optimized/Studio%20Photos/DSCF9462.jpeg",           "caption": "外観",               "category": "exterior" },
         { "src": "assets/images/gallery/optimized/Studio%20Photos/DSCF9166.jpeg",           "caption": "ワークスペース",     "category": "bedroom" },
         { "src": "assets/images/gallery/optimized/Studio%20Photos/DSCF9265.jpeg",           "caption": "インテリア装飾",     "category": "living" },
         { "src": "assets/images/gallery/optimized/Studio%20Photos/DSCF9273.jpeg",           "caption": "照明",               "category": "living" },
