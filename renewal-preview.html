@@ -118,8 +118,9 @@
     .hero-slide {
       position: absolute; inset: 0; width: 100%; height: 100%;
       object-fit: cover; opacity: 0; transition: opacity 2.4s ease;
+      z-index: 0;
     }
-    .hero-slide.active { opacity: 1; }
+    .hero-slide.active { opacity: 1; z-index: 1; }
     .hero-veil {
       position: absolute; inset: 0;
       background: linear-gradient(180deg, rgba(1,38,83,0.5) 0%, rgba(1,38,83,0.24) 45%, rgba(1,38,83,0.58) 100%);
@@ -150,6 +151,16 @@
       text-transform: uppercase; color: rgba(255, 255, 255, 0.65);
       opacity: 0; animation: moonrise 1.4s ease 1.3s forwards;
     }
+    .hero-dots {
+      position: absolute; bottom: 96px; left: 50%; transform: translateX(-50%); z-index: 3;
+      display: flex; gap: 12px;
+    }
+    .hero-dot {
+      width: 9px; height: 9px; border-radius: 50%; cursor: pointer;
+      background: rgba(255, 255, 255, 0.45); border: none; padding: 0;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .hero-dot.active { background: var(--moon); transform: scale(1.25); }
     .hero-scroll {
       position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%); z-index: 2;
       color: rgba(255,255,255,0.75); font-size: 0.68rem; letter-spacing: 0.3em; text-align: center;
@@ -238,12 +249,32 @@
     .btn.primary { background: var(--navy); color: var(--white); }
     .btn.primary:hover { background: var(--navy-2); }
 
-    /* ---------- 声 ---------- */
+    /* ---------- 声（横スクロール・多言語） ---------- */
     .voices { background: var(--washi); }
-    .voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 60px; }
+    .voices .container { max-width: 1200px; }
+    .voice-scroller { position: relative; margin-top: 56px; }
+    .voice-track {
+      display: flex; gap: 22px; overflow-x: auto;
+      scroll-snap-type: x mandatory; padding: 4px 4px 22px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin; scrollbar-color: var(--navy-2) transparent;
+    }
+    .voice-track::-webkit-scrollbar { height: 5px; }
+    .voice-track::-webkit-scrollbar-thumb { background: var(--line); }
+    .voice-nav {
+      position: absolute; top: 50%; transform: translateY(-50%); z-index: 5;
+      width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
+      background: var(--navy); color: var(--white); border: none;
+      font-size: 1rem; line-height: 1; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(1, 38, 83, 0.25); transition: background 0.3s;
+    }
+    .voice-nav:hover { background: var(--navy-2); }
+    .voice-nav.prev { left: -14px; }
+    .voice-nav.next { right: -14px; }
     .voice {
       background: var(--white); border: 1px solid var(--line); padding: 36px 32px;
       display: flex; flex-direction: column;
+      flex: 0 0 min(84vw, 350px); scroll-snap-align: start;
     }
     .voice-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
     .voice-lang {
@@ -469,7 +500,8 @@
       .masonry-gallery { column-count: 2; column-gap: 10px; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .reveal, .hero-slide, .hero-title, .hero-sub, .hero-loc, .hero-moons svg { transition: none; animation: none; opacity: 1; transform: none; }
+      .reveal, .hero-title, .hero-sub, .hero-loc, .hero-moons svg { transition: none; animation: none; opacity: 1; transform: none; }
+      .hero-slide { transition: none; }
     }
   </style>
 </head>
@@ -512,6 +544,13 @@
       <h1 class="hero-title serif">8weeks Stay</h1>
       <p class="hero-sub">八ヶ岳山麓の静かな滞在空間</p>
       <p class="hero-loc">1000m Elevation · Yatsugatake Mountains</p>
+    </div>
+    <div class="hero-dots">
+      <button class="hero-dot active" data-slide="0" aria-label="Fujimi"></button>
+      <button class="hero-dot" data-slide="1" aria-label="Quriu"></button>
+      <button class="hero-dot" data-slide="2" aria-label="Quriu"></button>
+      <button class="hero-dot" data-slide="3" aria-label="Studio"></button>
+      <button class="hero-dot" data-slide="4" aria-label="Studio"></button>
     </div>
     <div class="hero-scroll">SCROLL</div>
   </section>
@@ -615,45 +654,71 @@
   <section class="section voices" id="voices">
     <div class="container">
       <h2 class="section-title serif reveal">ゲストの声</h2>
-      <div class="voice-grid">
-        <div class="voice reveal">
+      <p class="section-sub reveal">世界中のゲストが、この小さな町を訪れています。</p>
+      <div class="voice-scroller reveal">
+        <button class="voice-nav prev" aria-label="前のレビュー">‹</button>
+        <button class="voice-nav next" aria-label="次のレビュー">›</button>
+        <div class="voice-track">
+        <div class="voice">
+          <div class="voice-head"><span class="voice-lang">NORSK</span><span class="stars">★★★★★</span></div>
+          <p class="voice-original">«Vi har aldri opplevd bedre verter enn Rei og Shunji. Vi spiste soba sammen, snakket om film og musikk, livet i Japan og Norge, og alt mulig ellers.»</p>
+          <p class="voice-tr"><span class="tr-tag">JA</span>「これ以上のホストに出会ったことがありません。一緒に蕎麦を食べ、映画や音楽、日本とノルウェーの暮らしについて語り合いました。」</p>
+          <p class="voice-tr"><span class="tr-tag">EN</span>"We have never met better hosts than Rei and Shunji. We ate soba together and talked about film, music, and life in Japan and Norway."</p>
+          <cite>— Airbnb ゲスト · 8weeks Fujimi</cite>
+        </div>
+        <div class="voice">
           <div class="voice-head"><span class="voice-lang">FRANÇAIS</span><span class="stars">★★★★★</span></div>
           <p class="voice-original">« Un vrai paradis au milieu des Alpes japonaises ! Un havre de paix avec des propriétaires absolument adorables ! Nous étions comme à la maison. »</p>
           <p class="voice-tr"><span class="tr-tag">JA</span>「日本アルプスの真ん中の、まさに楽園。とても温かいホストご夫妻のもと、我が家のようにくつろげました。」</p>
           <p class="voice-tr"><span class="tr-tag">EN</span>"A true paradise in the middle of the Japanese Alps — a haven of peace with adorable hosts. We felt right at home."</p>
           <cite>— Airbnb ゲスト · 8weeks Quriu</cite>
         </div>
-        <div class="voice reveal">
+        <div class="voice">
           <div class="voice-head"><span class="voice-lang">中文</span><span class="stars">★★★★★</span></div>
           <p class="voice-original">「我们在这里度过了非常开心的四天，并一定会再次回到这里。房主用心布置的一切都很喜欢。」</p>
           <p class="voice-tr"><span class="tr-tag">JA</span>「とても楽しい4日間を過ごしました。必ずまた戻ってきます。ホストが心を込めて整えたすべてが好きでした。」</p>
           <p class="voice-tr"><span class="tr-tag">EN</span>"We spent four very happy days here and will definitely come back. We loved every thoughtful detail."</p>
           <cite>— Airbnb ゲスト · 8weeks Studio</cite>
         </div>
-        <div class="voice reveal">
+        <div class="voice">
           <div class="voice-head"><span class="voice-lang">한국어</span><span class="stars">★★★★★</span></div>
           <p class="voice-original">「가족들끼리 조용하게 BBQ하고 쉴 수 있어서 너무 좋았습니다. 집 안에 여러 악기가 있어서 애기와 함께 즐길 수 있었습니다.」</p>
           <p class="voice-tr"><span class="tr-tag">JA</span>「家族で静かにBBQをして休めて、とても良かったです。家の中の楽器で、子どもと一緒に楽しめました。」</p>
           <p class="voice-tr"><span class="tr-tag">EN</span>"It was wonderful to barbecue and rest quietly as a family. With the instruments in the house, we enjoyed playing with our little one."</p>
           <cite>— Airbnb ゲスト · 8weeks Fujimi</cite>
         </div>
-        <div class="voice reveal">
+        <div class="voice">
           <div class="voice-head"><span class="voice-lang">ENGLISH</span><span class="stars">★★★★★</span></div>
           <p class="voice-original">"The house is set in the midst of nature with a beautiful location, and it was a truly peaceful and memorable experience. The piano and guitar added such a lovely extra charm."</p>
           <p class="voice-tr"><span class="tr-tag">JA</span>「美しい自然の中に佇む家で、本当に穏やかで思い出深い体験でした。ピアノとギターが、この家に特別な魅力を添えていました。」</p>
           <cite>— Airbnb ゲスト · 8weeks Fujimi</cite>
         </div>
-        <div class="voice reveal">
+        <div class="voice">
           <div class="voice-head"><span class="voice-lang">日本語</span><span class="stars">★★★★★</span></div>
           <p class="voice-original">「自然豊かで静かな環境。富士見町での滞在が素晴らしかった。移住体験として最適でした。」</p>
           <p class="voice-tr"><span class="tr-tag">EN</span>"A quiet setting surrounded by rich nature. Our stay in Fujimi was wonderful — ideal as a trial of living here."</p>
           <cite>— Airbnb ゲスト · 8weeks Fujimi</cite>
         </div>
-        <div class="voice reveal">
+        <div class="voice">
           <div class="voice-head"><span class="voice-lang">日本語</span><span class="stars">★★★★★</span></div>
           <p class="voice-original">「ホストのReiさんの温かいおもてなしに感動。地元のおすすめスポットも教えて頂き、最高の旅になりました。」</p>
           <p class="voice-tr"><span class="tr-tag">EN</span>"We were touched by Rei's warm hospitality. She shared her favorite local spots, and it became the best trip."</p>
           <cite>— Airbnb ゲスト · 8weeks Fujimi</cite>
+        </div>
+        <div class="voice">
+          <div class="voice-head"><span class="voice-lang">DEUTSCH</span><span class="stars">★★★★★</span></div>
+          <p class="voice-original">„Beste Airbnb-Erfahrung in Japan. Wir haben uns sofort wie zuhause gefühlt. Vielen lieben Dank für die wertvollen Tipps und die tollen Gespräche!"</p>
+          <p class="voice-tr"><span class="tr-tag">JA</span>「日本でのベストAirbnb体験。すぐに我が家のようにくつろげました。貴重なアドバイスと楽しい会話をありがとう。」</p>
+          <p class="voice-tr"><span class="tr-tag">EN</span>"Our best Airbnb experience in Japan. We felt at home right away. Thank you for the valuable tips and wonderful conversations!"</p>
+          <cite>— Airbnb ゲスト · 8weeks Studio</cite>
+        </div>
+        <div class="voice">
+          <div class="voice-head"><span class="voice-lang">PORTUGUÊS</span><span class="stars">★★★★★</span></div>
+          <p class="voice-original">«No check-out a Rei veio se despedir de mim com o marido e a filha. Me senti muito bem acolhida. Super recomendo!»</p>
+          <p class="voice-tr"><span class="tr-tag">JA</span>「チェックアウトの日、Reiさんがご主人と娘さんと見送りに来てくれました。とても温かく迎えられていると感じました。」</p>
+          <p class="voice-tr"><span class="tr-tag">EN</span>"At check-out, Rei came to say goodbye with her husband and daughter. I felt so warmly welcomed. Highly recommend!"</p>
+          <cite>— Airbnb ゲスト · 8weeks Quriu</cite>
+        </div>
         </div>
       </div>
     </div>
@@ -1057,14 +1122,31 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    // ヒーロースライドショー
+    // ヒーロースライドショー（各物件の写真が順に切り替わる・ドット連動）
     const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hero-dot');
     let current = 0;
-    setInterval(() => {
+    const goToSlide = (i) => {
       slides[current].classList.remove('active');
-      current = (current + 1) % slides.length;
+      dots[current].classList.remove('active');
+      current = i % slides.length;
       slides[current].classList.add('active');
-    }, 6000);
+      dots[current].classList.add('active');
+    };
+    let heroTimer = setInterval(() => goToSlide(current + 1), 6000);
+    dots.forEach((dot, i) => dot.addEventListener('click', () => {
+      clearInterval(heroTimer);
+      goToSlide(i);
+      heroTimer = setInterval(() => goToSlide(current + 1), 6000);
+    }));
+
+    // ゲストの声：横スクロールナビ
+    const voiceTrack = document.querySelector('.voice-track');
+    if (voiceTrack) {
+      const step = () => (voiceTrack.querySelector('.voice')?.offsetWidth || 350) + 22;
+      document.querySelector('.voice-nav.prev').addEventListener('click', () => voiceTrack.scrollBy({ left: -step(), behavior: 'smooth' }));
+      document.querySelector('.voice-nav.next').addEventListener('click', () => voiceTrack.scrollBy({ left: step(), behavior: 'smooth' }));
+    }
 
     // エリアガイドのタブ切り替え
     document.querySelectorAll('.area-tab').forEach(tab => {
