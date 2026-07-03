@@ -203,7 +203,11 @@
       text-align: center; font-size: 0.88rem; color: var(--ink-soft);
       margin: -24px auto 48px; letter-spacing: 0.08em;
     }
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1s ease, transform 1s ease; }
+    .reveal {
+      opacity: 0; transform: translateY(38px);
+      transition: opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1), transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
     .reveal.in { opacity: 1; transform: none; }
 
     /* ---------- 物語（紺のセクション） ---------- */
@@ -664,6 +668,18 @@
           <p class="voice-tr"><span class="tr-tag">JA</span>「これ以上のホストに出会ったことがありません。一緒に蕎麦を食べ、映画や音楽、日本とノルウェーの暮らしについて語り合いました。」</p>
           <p class="voice-tr"><span class="tr-tag">EN</span>"We have never met better hosts than Rei and Shunji. We ate soba together and talked about film, music, and life in Japan and Norway."</p>
           <cite>— Airbnb ゲスト · 8weeks Fujimi</cite>
+        </div>
+        <div class="voice">
+          <div class="voice-head"><span class="voice-lang">ENGLISH · マレーシア</span><span class="stars">★★★★★</span></div>
+          <p class="voice-original">"Wished we stayed longer! Our favourite part are the musical instruments — a baby grand piano, 3 acoustic guitars, a drum pad and a djembe drum! Thank you for the memorable stay!"</p>
+          <p class="voice-tr"><span class="tr-tag">JA</span>「もっと長くいたかった！お気に入りは楽器たち — グランドピアノ、アコースティックギター3本、ドラムパッド、そしてジャンベまで。忘れられない滞在をありがとう。」</p>
+          <cite>— Airbnb ゲスト · 8weeks Fujimi（冬の滞在）</cite>
+        </div>
+        <div class="voice">
+          <div class="voice-head"><span class="voice-lang">ENGLISH · イスラエル</span><span class="stars">★★★★★</span></div>
+          <p class="voice-original">"This place is one of our best airbnb stays. The house is peaceful and beautiful. Quiet garden with swings and a bench to the view. The hosts were super friendly. We hope to come back one day!"</p>
+          <p class="voice-tr"><span class="tr-tag">JA</span>「これまでで最高のAirbnb滞在のひとつ。静かで美しい家、ブランコと景色を望むベンチのある庭。ホストはとてもフレンドリーで、いつかまた戻りたいです。」</p>
+          <cite>— Airbnb ゲスト · 8weeks Quriu</cite>
         </div>
         <div class="voice">
           <div class="voice-head"><span class="voice-lang">FRANÇAIS</span><span class="stars">★★★★★</span></div>
@@ -1181,10 +1197,16 @@
       });
     });
 
-    // ゆるやかなフェードイン
+    // ふわっと立ち上がるフェードイン（同時に入った要素は少しずつ時間差で）
+    document.querySelectorAll('.spot-card, .area-group, .property-item, .trust-item, .hobby-chip')
+      .forEach(el => el.classList.add('reveal'));
     const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-    }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+      entries.filter(e => e.isIntersecting).forEach((e, i) => {
+        e.target.style.transitionDelay = `${Math.min(i, 7) * 110}ms`;
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
     // lucideアイコン初期化（ギャラリーUI用）
