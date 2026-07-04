@@ -151,7 +151,7 @@
       opacity: 0; animation: moonrise 1.4s ease 1.3s forwards;
     }
     .hero-dots {
-      position: absolute; bottom: 96px; left: 50%; transform: translateX(-50%); z-index: 3;
+      position: absolute; bottom: 150px; left: 50%; transform: translateX(-50%); z-index: 3;
       display: flex; gap: 12px;
     }
     .hero-dot {
@@ -485,6 +485,8 @@
 
     /* ---------- レスポンシブ ---------- */
     @media (max-width: 860px) {
+      .hero-scroll { display: none; }
+      .hero-dots { bottom: 48px; }
       .header { padding: 12px 20px; }
       .header-brand img { height: 44px; }
       .header-nav a:not(.lang) { display: none; }
