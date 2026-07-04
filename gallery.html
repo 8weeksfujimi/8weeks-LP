@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ギャラリー｜8weeks Stay</title>
+  <meta name="description" content="8weeks Fujimi・8weeks Quriu・8weeks Studio、3つの一棟貸しの宿の写真ギャラリー。八ヶ岳山麓・富士見町で過ごす特別な時間をご覧いただけます。">
+  <link rel="icon" type="image/png" href="assets/images/logos/favicon-moon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/logos/apple-touch-moon.png">
+  <link rel="canonical" href="https://8weeksfujimi.github.io/8weeks-LP/gallery.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    html { scroll-behavior: smooth; }
+    .lp-nav-link { color: rgba(255,255,255,0.88); font-size: 0.82rem; letter-spacing: 0.14em; padding-bottom: 3px; border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s; }
+    .lp-nav-link:hover { color: var(--moon); border-bottom-color: var(--moon); }
+    .lp-nav-link.is-current { color: var(--moon); border-bottom-color: var(--moon); }
+    .lp-nav-lang-active { color: var(--moon); border-bottom-color: var(--moon); cursor: default; }
+    .lp-nav-sep { color: rgba(255,255,255,0.35); font-size: 0.78rem; }
+    .lp-footer-link { font-size: 0.78rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.7); border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s; }
+    .lp-footer-link:hover { color: var(--moon); border-color: var(--moon); }
+
+    /* ---- Section heading (static equivalent of the DS SectionHeading component) ---- */
+    .sh-title { font-family: var(--serif); font-weight: 500; font-size: clamp(1.5rem, 3.2vw, 2.15rem); letter-spacing: 0.12em; line-height: 1.8; margin: 0; }
+    .sh-sub { font-family: var(--sans); font-size: 0.88rem; letter-spacing: 0.08em; margin-top: 16px; }
+
+    /* ---- Tab (static equivalent of the DS Tab component) ---- */
+    .ds-tab { font-family: var(--sans); font-size: 0.84rem; letter-spacing: 0.08em; background: var(--white); color: var(--navy); border: 1px solid var(--line); padding: 12px 26px; cursor: pointer; border-radius: 0; transition: all 0.3s; }
+    .ds-tab:hover { border-color: var(--navy); }
+    .ds-tab.is-active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+    /* ---- Gallery grid + lightbox ---- */
+    .gl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .gl-item { position: relative; overflow: hidden; cursor: zoom-in; border-radius: 0; }
+    .gl-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s ease; display: block; }
+    .gl-item:hover img { transform: scale(1.04); }
+    .gl-item .cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 24px 14px 10px; background: linear-gradient(180deg, transparent, rgba(1,38,83,0.65)); color: rgba(255,255,255,0.9); font-size: 0.68rem; letter-spacing: 0.16em; opacity: 0; transition: opacity 0.4s; }
+    .gl-item:hover .cap { opacity: 1; }
+    .gl-item.is-hidden { display: none; }
+    @media (max-width: 860px) { .gl-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    #gl-lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(1,38,83,0.92); display: none; align-items: center; justify-content: center; padding: 32px; cursor: zoom-out; }
+    #gl-lightbox.is-open { display: flex; }
+    #gl-lightbox figure { margin: 0; max-width: 90vw; max-height: 86vh; text-align: center; }
+    #gl-lightbox img { max-width: 90vw; max-height: 78vh; object-fit: contain; box-shadow: 0 12px 60px rgba(0,0,0,0.4); }
+    #gl-lightbox figcaption { margin-top: 16px; color: rgba(255,255,255,0.85); font-size: 0.8rem; letter-spacing: 0.16em; }
+    .gl-lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); z-index: 5; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; background: rgba(255,255,255,0.12); color: var(--white); border: 1px solid rgba(255,255,255,0.35); font-size: 1.3rem; display: flex; align-items: center; justify-content: center; }
+    .gl-lightbox-nav:hover { background: rgba(255,255,255,0.22); }
+    #gl-lightbox-prev { left: 24px; }
+    #gl-lightbox-next { right: 24px; }
+    #gl-lightbox-close { position: absolute; top: 24px; right: 24px; z-index: 5; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; background: rgba(255,255,255,0.12); color: var(--white); border: 1px solid rgba(255,255,255,0.35); font-size: 1.1rem; display: flex; align-items: center; justify-content: center; }
+    #gl-lightbox-close:hover { background: rgba(255,255,255,0.22); }
+  </style>
+</head>
+<body>
+
+<!-- ============ Header ============ -->
+<header id="lp-header" style="position:sticky; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:14px 32px; background:var(--navy); box-shadow:0 1px 24px rgba(1,38,83,0.25);">
+  <a href="index.html" style="display:flex; align-items:center;">
+    <img src="assets/logos/logo_white.png" alt="8weeks" style="height:48px; width:auto;">
+  </a>
+  <nav style="display:flex; align-items:center; gap:28px; flex-wrap:wrap;">
+    <a href="index.html#spaces" class="lp-nav-link">Spaces</a>
+    <a href="gallery.html" class="lp-nav-link is-current" aria-current="page">Gallery</a>
+    <a href="index.html#voices" class="lp-nav-link">Voices</a>
+    <a href="https://www.airbnb.jp/s/guidebooks?refinement_paths[]=/guidebooks/4547042" class="lp-nav-link">Location</a>
+    <a href="archive.html" class="lp-nav-link">Archive</a>
+    <a href="index.html#booking" class="lp-nav-link">Booking</a>
+    <span class="lp-nav-sep">|</span>
+    <span class="lp-nav-link lp-nav-lang-active" aria-current="page">日本語</span>
+    <a href="index-en.html" class="lp-nav-link">English</a>
+  </nav>
+</header>
+
+<!-- ============ Gallery ============ -->
+<section style="background: var(--white); padding: 100px 24px; min-height: 70vh;" data-screen-label="Gallery Page">
+  <div style="max-width: 1080px; margin: 0 auto;">
+
+    <div style="text-align: center;">
+      <h2 class="sh-title" style="color: var(--navy);">Property Gallery</h2>
+      <p class="sh-sub" style="color: var(--ink-soft);">八ヶ岳山麓の静寂な空間で過ごす特別な時間</p>
+    </div>
+
+    <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin: 40px 0 12px;">
+      <button type="button" class="ds-tab is-active" data-filter="すべて">すべて</button>
+      <button type="button" class="ds-tab" data-filter="Fujimi">Fujimi</button>
+      <button type="button" class="ds-tab" data-filter="Quriu">Quriu</button>
+      <button type="button" class="ds-tab" data-filter="Studio">Studio</button>
+    </div>
+
+    <p id="gl-count" style="text-align: center; font-size: 0.72rem; letter-spacing: 0.14em; color: var(--ink-soft); margin: 0 0 40px;">109枚</p>
+
+    <div class="gl-grid" id="gl-grid">
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2243.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2243.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2356.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2356.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2419.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2419.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2450.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2450.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2454.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2454.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2457.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2457.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2464.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2464.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2471.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2471.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2488.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2488.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2496.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2496.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2505.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2505.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2519.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2519.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2526.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2526.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2549.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2549.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2584.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2584.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2601.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF2601.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3602.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3602.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3620.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3620.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3643.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3643.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3653.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3653.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3664.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3664.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3715.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3715.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3735.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3735.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3744.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3744.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3800.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3800.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3826.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3826.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3842.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3842.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3854.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3854.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3863.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3863.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3886.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF3886.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF4020.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF4020.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF4031.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF4031.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF4037.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF4037.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF4053.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF4053.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/DSCF4080.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/DSCF4080.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/LINE_ALBUM_20240202_250831_1.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/LINE_ALBUM_20240202_250831_1.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/LINE_ALBUM_20240202_250831_2.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/LINE_ALBUM_20240202_250831_2.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/LINE_ALBUM_20240202_250831_3.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/LINE_ALBUM_20240202_250831_3.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/LINE_ALBUM_20240202_250831_4.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/LINE_ALBUM_20240202_250831_4.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/LINE_ALBUM_20240202_250831_5.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/LINE_ALBUM_20240202_250831_5.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Fujimi" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Fujimi%20Photos/LINE_ALBUM_20240202_250831_6.jpg" alt="8weeks Fujimi" loading="lazy" data-house="Fujimi" data-full="assets/images/gallery/optimized/Fujimi%20Photos/LINE_ALBUM_20240202_250831_6.jpg" data-caption="8WEEKS FUJIMI">
+          <div class="cap">8WEEKS FUJIMI</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu1.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu1.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu3.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu3.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu5.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu5.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu6.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu6.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu7.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu7.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu8.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu8.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu9.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu9.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu10.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu10.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu11.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu11.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu12.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu12.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu14.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu14.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu16.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu16.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu17.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu17.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu18.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu18.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu20.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu20.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu21.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu21.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu22.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu22.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu23.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu23.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu24.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu24.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu25.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu25.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu26.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu26.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu27.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu27.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu28.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu28.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu29.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu29.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu30.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu30.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu31.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu31.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu32.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu32.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu34.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu34.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu35.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu35.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu36.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu36.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu37.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu37.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu38.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu38.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Quriu" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu40.jpeg" alt="8weeks Quriu" loading="lazy" data-house="Quriu" data-full="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu40.jpeg" data-caption="8WEEKS QURIU">
+          <div class="cap">8WEEKS QURIU</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9283.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9283.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9147.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9147.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9154.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9154.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9166.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9166.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9188.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9188.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9193.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9193.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9204.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9204.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9228.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9228.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9242.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9242.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9250.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9250.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9259.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9259.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9265.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9265.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9273.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9273.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9294.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9294.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9304.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9304.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9322.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9322.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9363.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9363.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9379.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9379.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9395.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9395.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9410.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9410.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9441.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9441.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9462.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9462.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9486.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9486.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9513.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9513.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9515.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9515.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9526.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9526.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9557.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9557.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9615.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9615.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9621.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9621.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9635.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9635.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9659.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9659.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9707.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9707.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9719.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9719.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9747.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9747.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+        <div class="gl-item" style="aspect-ratio: 4 / 3;" data-house="Studio" onclick="glOpenLightbox(this)">
+          <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9751.jpeg" alt="8weeks Studio" loading="lazy" data-house="Studio" data-full="assets/images/gallery/optimized/Studio%20Photos/DSCF9751.jpeg" data-caption="8WEEKS STUDIO">
+          <div class="cap">8WEEKS STUDIO</div>
+        </div>
+    </div>
+
+    <p style="margin-top: 48px; text-align: center; font-size: 0.8rem; letter-spacing: 0.12em; color: var(--ink-soft);">すべての写真はAirbnbの各リスティングでもご覧いただけます。</p>
+  </div>
+</section>
+
+<!-- ============ Footer ============ -->
+<footer style="background: var(--navy); color: rgba(255,255,255,0.6); border-top: 1px solid rgba(255,255,255,0.12); padding: 60px 24px 40px;">
+  <div style="max-width: 1080px; margin: 0 auto; text-align: center;">
+    <div style="display: flex; justify-content: center; margin-bottom: 18px;">
+      <img src="assets/logos/logo_white.png" alt="8weeks" style="height: 72px;">
+    </div>
+    <p style="font-size: 0.8rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.75); margin-bottom: 26px;">八ヶ岳山麓の静かな滞在空間</p>
+    <div style="display: flex; justify-content: center; gap: 26px; flex-wrap: wrap; margin-bottom: 30px;">
+      <a href="index.html#spaces" class="lp-footer-link">Spaces</a>
+      <a href="gallery.html" class="lp-footer-link">Gallery</a>
+      <a href="index.html#voices" class="lp-footer-link">Voices</a>
+      <a href="https://www.airbnb.jp/s/guidebooks?refinement_paths[]=/guidebooks/4547042" target="_blank" rel="noopener" class="lp-footer-link">Location</a>
+      <a href="archive.html" class="lp-footer-link">Archive</a>
+      <a href="index.html#booking" class="lp-footer-link">Booking</a>
+    </div>
+    <p style="font-size: 0.74rem; letter-spacing: 0.08em; line-height: 2.1;">長野県諏訪郡富士見町富士見9736番地1 · 8weeks合同会社</p>
+    <p style="margin-top: 20px; font-size: 0.68rem; color: rgba(255,255,255,0.4);">© 2026 8weeks Stay. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ============ Lightbox ============ -->
+<div id="gl-lightbox" role="dialog" aria-modal="true" aria-label="写真拡大表示">
+  <button type="button" id="gl-lightbox-close" class="gl-lightbox-nav" aria-label="閉じる">&times;</button>
+  <button type="button" id="gl-lightbox-prev" class="gl-lightbox-nav" aria-label="前の写真">&#8249;</button>
+  <button type="button" id="gl-lightbox-next" class="gl-lightbox-nav" aria-label="次の写真">&#8250;</button>
+  <figure>
+    <img id="gl-lightbox-img" src="" alt="">
+    <figcaption id="gl-lightbox-caption"></figcaption>
+  </figure>
+</div>
+
+<script>
+(function () {
+  var grid = document.getElementById('gl-grid');
+  var items = Array.prototype.slice.call(grid.querySelectorAll('.gl-item'));
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.ds-tab'));
+  var countEl = document.getElementById('gl-count');
+
+  /* ---- Tab filter ---- */
+  function applyFilter(filter) {
+    var shownCount = 0;
+    items.forEach(function (item) {
+      var match = filter === 'すべて' || item.getAttribute('data-house') === filter;
+      item.classList.toggle('is-hidden', !match);
+      if (match) shownCount++;
+    });
+    countEl.textContent = shownCount + '枚';
+  }
+
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) { t.classList.remove('is-active'); });
+      tab.classList.add('is-active');
+      applyFilter(tab.getAttribute('data-filter'));
+    });
+  });
+
+  /* ---- Lightbox ---- */
+  var lightbox = document.getElementById('gl-lightbox');
+  var lightboxImg = document.getElementById('gl-lightbox-img');
+  var lightboxCaption = document.getElementById('gl-lightbox-caption');
+  var closeBtn = document.getElementById('gl-lightbox-close');
+  var prevBtn = document.getElementById('gl-lightbox-prev');
+  var nextBtn = document.getElementById('gl-lightbox-next');
+  var currentIdx = -1;
+
+  function visibleItems() {
+    return items.filter(function (item) { return !item.classList.contains('is-hidden'); });
+  }
+
+  function openLightbox(item) {
+    var vis = visibleItems();
+    currentIdx = vis.indexOf(item);
+    if (currentIdx === -1) return;
+    showCurrent(vis);
+    lightbox.classList.add('is-open');
+  }
+
+  function showCurrent(vis) {
+    vis = vis || visibleItems();
+    var item = vis[currentIdx];
+    if (!item) return;
+    var img = item.querySelector('img');
+    lightboxImg.src = img.getAttribute('data-full');
+    lightboxImg.alt = img.getAttribute('alt');
+    lightboxCaption.textContent = img.getAttribute('data-caption');
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightboxImg.src = '';
+  }
+
+  function step(delta) {
+    var vis = visibleItems();
+    if (!vis.length) return;
+    currentIdx = (currentIdx + delta + vis.length) % vis.length;
+    showCurrent(vis);
+  }
+
+  window.glOpenLightbox = function (el) { openLightbox(el); };
+
+  lightbox.addEventListener('click', function (e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+  closeBtn.addEventListener('click', closeLightbox);
+  prevBtn.addEventListener('click', function (e) { e.stopPropagation(); step(-1); });
+  nextBtn.addEventListener('click', function (e) { e.stopPropagation(); step(1); });
+
+  window.addEventListener('keydown', function (e) {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    else if (e.key === 'ArrowLeft') step(-1);
+    else if (e.key === 'ArrowRight') step(1);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Archive — 8weeks Stay</title>
+  <meta name="description" content="長野県富士見町のローカルアーカイブ。この土地の自然・文化・人の記録を、旅人のまなざしとともに書き留めてゆく8weeks Stayの記録。">
+  <link rel="icon" type="image/png" href="assets/logos/favicon_moon.png">
+  <link rel="canonical" href="https://8weeksfujimi.github.io/8weeks-LP/archive.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Local Archive — 8weeks Stay">
+  <meta property="og:description" content="土地の美しさに最初に気づくのは、外から来た人。旅人のまなざしを書き留める、富士見町の記録。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://8weeksfujimi.github.io/8weeks-LP/archive.html">
+  <meta property="og:site_name" content="8weeks Stay">
+  <meta property="og:locale" content="ja_JP">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #012653;
+      --navy-2: #12335C;
+      --moon: #FFF100;
+      --washi: #F8F6F1;
+      --white: #FFFFFF;
+      --ink: #1C2B3A;
+      --ink-soft: #4A5A6A;
+      --line: rgba(1, 38, 83, 0.14);
+      --serif: 'Zen Old Mincho', 'Hiragino Mincho ProN', serif;
+      --sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      font-weight: 400;
+      color: var(--ink);
+      background: var(--washi);
+      line-height: 1.9;
+      letter-spacing: 0.04em;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    .serif { font-family: var(--serif); }
+
+    /* ---------- ヘッダー（index.htmlと共通） ---------- */
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 32px;
+      transition: background 0.5s ease, box-shadow 0.5s ease, padding 0.5s ease;
+    }
+    .header.scrolled {
+      background: rgba(1, 38, 83, 0.96);
+      box-shadow: 0 1px 24px rgba(1, 38, 83, 0.25);
+      padding: 10px 32px;
+    }
+    .header-brand { display: flex; align-items: center; }
+    .header-brand img { height: 52px; width: auto; }
+    .header-nav { display: flex; align-items: center; gap: 28px; }
+    .header-nav a {
+      color: rgba(255, 255, 255, 0.88); font-size: 0.82rem; letter-spacing: 0.14em;
+      padding-bottom: 3px; border-bottom: 1px solid transparent;
+      transition: color 0.3s, border-color 0.3s;
+    }
+    .header-nav a:hover { color: var(--moon); border-bottom-color: var(--moon); }
+    .header-nav a.current { color: var(--moon); border-bottom-color: var(--moon); }
+    .lang-switch { display: flex; gap: 2px; margin-left: 8px; }
+    .lang-switch a {
+      font-size: 0.75rem; padding: 4px 10px; border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+    .lang-switch a.active { background: var(--moon); color: var(--navy); border-color: var(--moon); font-weight: 500; }
+
+    /* ---------- ヒーロー ---------- */
+    .archive-hero {
+      position: relative; min-height: 78svh;
+      background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .archive-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 45% at 50% 0%, rgba(255, 241, 0, 0.06), transparent 70%),
+        linear-gradient(180deg, rgba(18, 51, 92, 0.4) 0%, var(--navy) 100%);
+    }
+    .archive-hero-copy { position: relative; z-index: 2; text-align: center; color: var(--white); padding: 100px 24px 80px; }
+    .hero-moons { display: flex; justify-content: center; gap: 14px; margin-bottom: 34px; }
+    .hero-moons svg { width: 22px; height: 22px; opacity: 0; animation: moonrise 1.2s ease forwards; }
+    .hero-moons svg:nth-child(1) { animation-delay: 0.3s; }
+    .hero-moons svg:nth-child(2) { animation-delay: 0.55s; }
+    .hero-moons svg:nth-child(3) { animation-delay: 0.8s; }
+    .hero-moons svg:nth-child(4) { animation-delay: 1.05s; }
+    .hero-moons svg:nth-child(5) { animation-delay: 1.3s; }
+    @keyframes moonrise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .archive-hero-title {
+      font-family: var(--serif); font-weight: 500;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      letter-spacing: 0.16em; line-height: 1.5;
+      opacity: 0; animation: moonrise 1.4s ease 0.6s forwards;
+    }
+    .archive-hero-sub {
+      margin-top: 18px; font-size: clamp(0.88rem, 1.6vw, 1.02rem);
+      letter-spacing: 0.24em; color: rgba(255, 255, 255, 0.88);
+      opacity: 0; animation: moonrise 1.4s ease 1s forwards;
+    }
+    .archive-hero-loc {
+      margin-top: 12px; font-size: 0.7rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: rgba(255, 255, 255, 0.6);
+      opacity: 0; animation: moonrise 1.4s ease 1.2s forwards;
+    }
+    .rotating-phrase {
+      margin: 44px auto 0; max-width: 560px;
+      font-family: var(--serif); font-size: clamp(0.95rem, 2vw, 1.15rem);
+      letter-spacing: 0.1em; line-height: 2;
+      color: var(--moon);
+      cursor: pointer; user-select: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 20px 16px;
+      transition: opacity 0.45s ease;
+      opacity: 0; animation: moonrise 1.4s ease 1.5s forwards;
+    }
+    .rotating-phrase.fading { opacity: 0 !important; }
+    .rotating-hint {
+      margin-top: 10px; font-size: 0.66rem; letter-spacing: 0.28em;
+      color: rgba(255, 255, 255, 0.45); text-transform: uppercase;
+      opacity: 0; animation: moonrise 1.4s ease 1.8s forwards;
+    }
+
+    /* ---------- 共通セクション ---------- */
+    .section { padding: 110px 24px; }
+    .container { max-width: 800px; margin: 0 auto; }
+    .section-label {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 0.72rem; letter-spacing: 0.32em; color: var(--navy-2);
+      margin-bottom: 26px; justify-content: center;
+    }
+    .section-label::before, .section-label::after {
+      content: ''; width: 36px; height: 1px; background: var(--line);
+    }
+    .section-title {
+      font-family: var(--serif); font-weight: 500; text-align: center;
+      font-size: clamp(1.5rem, 3.2vw, 2.15rem); letter-spacing: 0.12em;
+      color: var(--navy); line-height: 1.8; margin-bottom: 40px;
+    }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1s ease, transform 1s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ---------- 序文 ---------- */
+    .prologue-body {
+      font-family: var(--serif); font-size: clamp(0.98rem, 1.9vw, 1.1rem);
+      line-height: 2.5; letter-spacing: 0.06em; color: var(--ink);
+    }
+    .prologue-body p + p { margin-top: 2.2em; }
+    .en-sub {
+      display: block; margin-top: 2.6em; padding-top: 1.8em;
+      border-top: 1px solid var(--line);
+      font-family: var(--sans); font-weight: 300;
+      font-size: 0.84rem; line-height: 2.1; letter-spacing: 0.03em;
+      color: var(--ink-soft); font-style: italic;
+    }
+
+    /* ---------- 頁の構成 ---------- */
+    .index-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 8px;
+    }
+    .index-card {
+      background: var(--white); border: 1px solid var(--line);
+      padding: 40px 32px; text-align: center;
+      transition: box-shadow 0.4s ease, transform 0.4s ease;
+    }
+    .index-card:hover { box-shadow: 0 6px 30px rgba(1, 38, 83, 0.1); transform: translateY(-3px); }
+    .index-card .kanji {
+      font-family: var(--serif); font-size: 2rem; color: var(--navy);
+      letter-spacing: 0.2em; margin-bottom: 8px;
+    }
+    .index-card .en-name {
+      font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--ink-soft); margin-bottom: 18px;
+    }
+    .index-card p { font-size: 0.85rem; line-height: 2.1; color: var(--ink-soft); text-align: left; }
+
+    /* ---------- 手帖エントリ（余白の頁・地の頁 共通） ---------- */
+    .journal { position: relative; }
+    .journal::before {
+      content: '';
+      position: absolute; left: 10px; top: 0; bottom: 0; width: 1px;
+      background: linear-gradient(180deg, transparent, var(--line) 8%, var(--line) 92%, transparent);
+    }
+    .entry { position: relative; padding: 0 0 72px 48px; }
+    .entry:last-child { padding-bottom: 0; }
+    .entry::before {
+      content: '';
+      position: absolute; left: 5px; top: 12px;
+      width: 11px; height: 11px; border-radius: 50%;
+      background: var(--washi); border: 1.5px solid var(--navy);
+    }
+    .entry-kind {
+      font-size: 0.66rem; letter-spacing: 0.3em; color: var(--navy-2);
+      text-transform: uppercase; margin-bottom: 10px;
+    }
+    .entry-title {
+      font-family: var(--serif); font-weight: 500;
+      font-size: clamp(1.2rem, 2.6vw, 1.5rem); letter-spacing: 0.1em;
+      color: var(--navy); line-height: 1.8; margin-bottom: 6px;
+    }
+    .entry-title-en {
+      font-size: 0.76rem; letter-spacing: 0.14em; color: var(--ink-soft);
+      margin-bottom: 26px; font-style: italic;
+    }
+    .entry-body {
+      font-family: var(--serif); font-size: 0.97rem; line-height: 2.4;
+      letter-spacing: 0.05em; color: var(--ink);
+    }
+    .entry-body p + p { margin-top: 1.8em; }
+    .entry .en-sub { margin-top: 2em; padding-top: 1.4em; font-size: 0.8rem; }
+    .entry-tags { margin-top: 22px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .entry-tag {
+      font-size: 0.68rem; letter-spacing: 0.14em; color: var(--navy-2);
+      border: 1px solid var(--line); padding: 4px 14px; background: var(--white);
+    }
+
+    /* ---------- 結び ---------- */
+    .closing { background: var(--navy); color: var(--white); text-align: center; }
+    .closing .section-label { color: rgba(255, 255, 255, 0.7); }
+    .closing .section-label::before, .closing .section-label::after { background: rgba(255, 255, 255, 0.2); }
+    .closing-text {
+      font-family: var(--serif); font-size: clamp(1rem, 2vw, 1.15rem);
+      line-height: 2.6; letter-spacing: 0.08em; max-width: 640px; margin: 0 auto;
+    }
+    .closing .en-sub { border-top-color: rgba(255, 255, 255, 0.18); color: rgba(255, 255, 255, 0.65); }
+    .closing-cta {
+      display: inline-block; margin-top: 48px;
+      font-size: 0.8rem; letter-spacing: 0.24em;
+      color: var(--navy); background: var(--moon);
+      padding: 16px 44px;
+      transition: opacity 0.3s ease;
+    }
+    .closing-cta:hover { opacity: 0.85; }
+
+    /* ---------- フッター（index.htmlと共通） ---------- */
+    .footer { background: var(--navy); color: rgba(255, 255, 255, 0.6); border-top: 1px solid rgba(255, 255, 255, 0.12); padding: 60px 24px 40px; }
+    .footer-inner { max-width: 1080px; margin: 0 auto; text-align: center; }
+    .footer-logo { display: flex; justify-content: center; margin-bottom: 18px; }
+    .footer-logo img { height: 72px; }
+    .footer-tagline { font-size: 0.8rem; letter-spacing: 0.1em; color: rgba(255, 255, 255, 0.75); margin-bottom: 26px; }
+    .footer-links { display: flex; justify-content: center; gap: 26px; flex-wrap: wrap; margin-bottom: 30px; }
+    .footer-links a {
+      font-size: 0.78rem; letter-spacing: 0.1em; color: rgba(255, 255, 255, 0.75);
+      padding-bottom: 2px; border-bottom: 1px solid transparent;
+      transition: color 0.3s, border-color 0.3s;
+    }
+    .footer-links a:hover { color: var(--moon); border-color: var(--moon); }
+    .footer p { font-size: 0.74rem; letter-spacing: 0.08em; line-height: 2.1; }
+    .footer .fine { margin-top: 20px; font-size: 0.68rem; color: rgba(255, 255, 255, 0.4); }
+
+    @media (max-width: 768px) {
+      .header-nav a:not(.lang) { display: none; }
+      .section { padding: 80px 20px; }
+      .index-grid { grid-template-columns: 1fr; }
+      .entry { padding-left: 36px; }
+      .prologue-body { line-height: 2.3; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .hero-moons svg, .archive-hero-title, .archive-hero-sub, .archive-hero-loc, .rotating-phrase, .rotating-hint {
+        transition: none; animation: none; opacity: 1; transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <a class="header-brand" href="index.html">
+      <img src="assets/logos/logo_white.png" alt="8weeks">
+    </a>
+    <nav class="header-nav">
+      <a href="index.html#spaces">Spaces</a>
+      <a href="index.html#voices">Voices</a>
+      <a href="https://www.airbnb.jp/s/guidebooks?refinement_paths[]=/guidebooks/4547042" target="_blank" rel="noopener">Location</a>
+      <a href="index.html#booking">Booking</a>
+      <a href="archive.html" class="current">Archive</a>
+    </nav>
+  </header>
+
+  <!-- ヒーロー -->
+  <section class="archive-hero" id="top">
+    <div class="archive-hero-copy">
+      <div class="hero-moons" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M15 2a10 10 0 1 0 0 20 12.2 12.2 0 0 1 0-20z" fill="#FFF100"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0 0 20 8 8 0 0 1-3-20 10 10 0 0 1 3 0z" fill="#FFF100" opacity="0.85"/></svg>
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FFF100"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 0 20 8 8 0 0 0 3-20 10 10 0 0 0-3 0z" fill="#FFF100" opacity="0.85"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M9 2a10 10 0 1 1 0 20 12.2 12.2 0 0 0 0-20z" fill="#FFF100"/></svg>
+      </div>
+      <h1 class="archive-hero-title serif">Local Archive</h1>
+      <p class="archive-hero-sub">旅人のまなざしで書き留める、富士見町の記録</p>
+      <p class="archive-hero-loc">Fujimi, Nagano · 1000m Elevation</p>
+      <p class="rotating-phrase serif" id="rotatingPhrase" role="button" tabindex="0" aria-label="ことばを切り替える">あなたのまなざしが、この町の宝物になる。</p>
+      <p class="rotating-hint">Tap to change language</p>
+    </div>
+  </section>
+
+  <!-- 序文 -->
+  <section class="section" id="prologue">
+    <div class="container reveal">
+      <div class="section-label">PROLOGUE</div>
+      <h2 class="section-title serif">旅人のまなざし</h2>
+      <div class="prologue-body">
+        <p>ここに暮らす人は、八ヶ岳を「きれいだ」とは、あまり言いません。山は眺めるものではなく、そのなかで暮らすものだからです。魚が、水のことを語らないように。</p>
+        <p>土地の美しさに最初に気づくのは、いつも外から来た人です。旅人のまなざしは、この町への小さな贈りものになります。そして不思議なことに、誰かの土地を美しいと思ったとき、人は自分の故郷もまた美しかったことを、思い出すのです。</p>
+        <p>このアーカイブは、そのまなざしの往復を、書き留めておくための記録です。</p>
+        <span class="en-sub">People who live here rarely call the Yatsugatake mountains beautiful — just as fish do not speak of water, you don't gaze at the world you live inside. It is always the visitor who first notices a place's beauty. A traveler's gaze is a small gift to this town; and strangely, in finding someone else's home beautiful, you remember that your own home was beautiful, too. This archive is a record of that exchange.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁の構成 -->
+  <section class="section" style="padding-top: 0;" id="index">
+    <div class="container reveal">
+      <div class="section-label">CONTENTS</div>
+      <h2 class="section-title serif">このアーカイブの構成</h2>
+      <div class="index-grid">
+        <a class="index-card" href="#places">
+          <div class="kanji serif">Places</div>
+          <div class="en-name">場所の記録</div>
+          <p>富士見町の場所たちの記録。湧き水、遺跡、森、店、そこに立つ人。土地に根付いているものを、ひとつずつ書き留めます。</p>
+        </a>
+        <a class="index-card" href="#margins">
+          <div class="kanji serif">Notes</div>
+          <div class="en-name">旅と暮らしの覚え書き</div>
+          <p>特定の場所には紐づかない、旅と暮らしをめぐる覚え書き。この土地で過ごすうちに、ふと立ち上がってきた考えごと。</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 余白の頁 -->
+  <section class="section" style="background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);" id="margins">
+    <div class="container">
+      <div class="section-label reveal">NOTES</div>
+      <h2 class="section-title serif reveal">旅と暮らしの覚え書き</h2>
+      <div class="journal">
+
+        <article class="entry reveal">
+          <div class="entry-kind">Note 01</div>
+          <h3 class="entry-title serif">山がきれいだな、と言ったら</h3>
+          <p class="entry-title-en">"What a beautiful mountain," I said.</p>
+          <div class="entry-body">
+            <p>御柱祭の準備の夏でした。地元の人たちと一緒に汗を流したあと、ふと顔を上げて「山がきれいだな」と言いました。すると隣にいた、生まれたときからこの山を見てきた人が、笑いながらこう言ったのです。「そんなこと、思ったこともなかったなあ」。</p>
+            <p>そのとき気づきました。土地の魅力をいちばん深く味わえるのは、外から来た人なのだと。そして旅人は、遠くまで来てようやく、自分がかつて原っぱで虫を追いかけていた子どもだったことを思い出します。帰る場所が恋しくなって、自分の土地に、もう一度根を下ろしなおすのです。</p>
+            <p>旅人とは、誰もが一年のうち何度かだけ演じる、一時的な役割なのかもしれません。残りの季節、私たちは誰かを迎える側にまわる。旅先で泊まり、食べ、過ごした時間は、その土地への小さな仕送りになり、代わりに持ち帰るのは、「自分の故郷も美しかった」という記憶です。</p>
+            <p>だからこの町であなたは、「お客様」である前に、どこかの土地へ帰ってゆく人。あなたのまなざしが、この町の宝物になります。</p>
+            <span class="en-sub">It was the summer of the Onbashira festival preparations. After working up a sweat alongside the locals, I looked up and said, "What a beautiful mountain." The person beside me — who had seen this mountain every day since birth — laughed and said, "You know, I've never once thought that." That was when I understood: it is the visitor who tastes a place most deeply. And the traveler, having come this far, finally remembers being a child chasing insects in a field somewhere — grows homesick, and puts down roots again. Perhaps "traveler" is a temporary role we each play only a few times a year; the rest of the seasons, we take turns being the ones who welcome. The time you spend here becomes a small offering to this land, and what you carry home is the memory that your own hometown was beautiful, too. So in this town, before being a guest, you are someone with a place to return to. Your gaze becomes this town's treasure.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">旅と暮らし</span>
+            <span class="entry-tag">御柱祭</span>
+            <span class="entry-tag">八ヶ岳</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 地の頁 -->
+  <section class="section" id="places">
+    <div class="container">
+      <div class="section-label reveal">PLACES</div>
+      <h2 class="section-title serif reveal">場所の記録</h2>
+      <div class="journal">
+
+        <article class="entry reveal">
+          <div class="entry-kind">Place 01</div>
+          <h3 class="entry-title serif">井戸尻遺跡</h3>
+          <p class="entry-title-en">Idojiri Ruins</p>
+          <div class="entry-body">
+            <p>八ヶ岳の湧き水がつくる水辺に、およそ五千年前から人が暮らしてきました。縄文の土器と、いまも湧きつづける水と、水田。この町の時間の深さを、いちばん静かに教えてくれる場所です。</p>
+            <span class="en-sub">People have lived beside these spring-fed waters for some five thousand years. Jōmon pottery, water that still rises today, and rice paddies — no place tells you more quietly how deep this town's time runs.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">文化資本</span>
+            <span class="entry-tag">縄文</span>
+            <span class="entry-tag">湧水</span>
+          </div>
+        </article>
+
+        <article class="entry reveal">
+          <div class="entry-kind">Place 02</div>
+          <h3 class="entry-title serif">乙事</h3>
+          <p class="entry-title-en">Okkoto</p>
+          <div class="entry-body">
+            <p>この集落の名前を、どこかで聞いたことがある気がしたら——ある創作者が、かつてこの土地を歩いたことがあるのかもしれません。その続きは、この町に来た人にだけ。</p>
+            <span class="en-sub">If this village's name sounds strangely familiar — perhaps a certain storyteller once walked this land. The rest of that story is told only to those who come here.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">物語</span>
+            <span class="entry-tag">集落</span>
+          </div>
+        </article>
+
+        <article class="entry reveal">
+          <div class="entry-kind">Place 03</div>
+          <h3 class="entry-title serif">入笠山</h3>
+          <p class="entry-title-en">Mt. Nyukasa</p>
+          <div class="entry-body">
+            <p>ゴンドラで上がると、湿原と、初夏のすずらん。山頂からは八ヶ岳、富士、南北のアルプスまで、ぐるりと一望できます。この町がどんな場所に抱かれているのか、からだで分かる山です。</p>
+            <span class="en-sub">A gondola carries you up to wetlands and, in early summer, lilies of the valley. From the summit you can see Yatsugatake, Mt. Fuji, and the Alps in a full circle — the mountain that lets your body understand where this town is held.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">自然資本</span>
+            <span class="entry-tag">山</span>
+            <span class="entry-tag">展望</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 結び -->
+  <section class="section closing">
+    <div class="container reveal">
+      <div class="section-label">TO BE CONTINUED</div>
+      <div class="closing-text serif">
+        このアーカイブは、まだ書きかけです。<br>
+        訪れた人のまなざしとともに、記録は少しずつ増えていきます。
+        <span class="en-sub">This archive is still being written. Its pages grow, little by little, with the gaze of each person who visits.</span>
+      </div>
+      <a class="closing-cta" href="index.html#booking">この町に滞在する</a>
+    </div>
+  </section>
+
+  <footer class="footer" id="contact">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="assets/logos/logo_white.png" alt="8weeks">
+      </div>
+      <p class="footer-tagline">八ヶ岳山麓の静かな滞在空間</p>
+      <div class="footer-links">
+        <a href="https://airbnb.com/h/8weeksfujimi" target="_blank" rel="noopener">8weeks Fujimi</a>
+        <a href="https://airbnb.com/h/8weeks-quriu" target="_blank" rel="noopener">8weeks Quriu</a>
+        <a href="https://airbnb.com/h/8weeks-studio" target="_blank" rel="noopener">8weeks Studio</a>
+        <a href="https://www.instagram.com/8weeks.fujimi/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+      <p>運営会社：8weeks合同会社<br>
+      〒399-0211 長野県諏訪郡富士見町富士見9736番地1</p>
+      <p class="fine">&copy; 2026 8weeks Stay. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ヘッダーのスクロール状態
+    const header = document.getElementById('header');
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // 多言語ローテーション（タップで切り替え）
+    const phrases = [
+      'あなたのまなざしが、この町の宝物になる。',
+      'Your gaze becomes this town\u2019s treasure.',
+      'Votre regard devient le tr\u00e9sor de cette ville.',
+      'Ihr Blick wird zum Schatz dieser Stadt.',
+      'Tu mirada se convierte en el tesoro de este pueblo.',
+      '\u4f60\u7684\u76ee\u5149\uff0c\u4f1a\u6210\u4e3a\u8fd9\u5ea7\u5c0f\u9547\u7684\u5b9d\u7269\u3002',
+      '\ub2f9\uc2e0\uc758 \uc2dc\uc120\uc774 \uc774 \ub9c8\uc744\uc758 \ubcf4\ubb3c\uc774 \ub429\ub2c8\ub2e4.',
+      '\u0646\u0638\u0631\u062a\u0643 \u062a\u0635\u0628\u062d \u0643\u0646\u0632 \u0647\u0630\u0647 \u0627\u0644\u0628\u0644\u062f\u0629.'
+    ];
+    const rtl = [false, false, false, false, false, false, false, true];
+    let pi = 0;
+    const phraseEl = document.getElementById('rotatingPhrase');
+    const cyclePhrase = () => {
+      phraseEl.classList.add('fading');
+      setTimeout(() => {
+        pi = (pi + 1) % phrases.length;
+        phraseEl.textContent = phrases[pi];
+        phraseEl.dir = rtl[pi] ? 'rtl' : 'ltr';
+        phraseEl.classList.remove('fading');
+      }, 450);
+    };
+    phraseEl.addEventListener('click', cyclePhrase);
+    phraseEl.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); cyclePhrase(); } });
+
+    // ゆるやかなフェードイン
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

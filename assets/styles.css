@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+/* ---- tokens/colors.css ---- */
+/* 8weeks Stay — color tokens (source: 8weeks-LP index.html :root) */
+:root {
+  /* Base palette */
+  --navy: #012653;          /* 夜空の紺 — primary brand surface & text color */
+  --navy-2: #12335C;        /* lighter navy — hover states, secondary labels */
+  --moon: #FFF100;          /* 月の黄 — accent. NEVER body text on light bg */
+  --washi: #F8F6F1;         /* 和紙 — page background */
+  --white: #FFFFFF;         /* card surfaces on washi */
+  --ink: #1C2B3A;           /* body text on light */
+  --ink-soft: #4A5A6A;      /* secondary text on light */
+  --line: rgba(1, 38, 83, 0.14);   /* hairline borders on light */
+  --gold-star: #C9A227;     /* rating stars on light surfaces */
+  --moon-tint: #FFFDF2;     /* faint moon-tinted hover surface */
+
+  /* On-dark (navy) surfaces */
+  --on-navy: rgba(255, 255, 255, 0.92);
+  --on-navy-soft: rgba(255, 255, 255, 0.75);
+  --on-navy-faint: rgba(255, 255, 255, 0.6);
+  --line-on-navy: rgba(255, 255, 255, 0.22);
+  --navy-veil: rgba(1, 38, 83, 0.5);      /* photo overlay */
+  --navy-scrim: rgba(1, 38, 83, 0.96);    /* scrolled header / sticky CTA */
+
+  /* Semantic aliases */
+  --surface-page: var(--washi);
+  --surface-card: var(--white);
+  --surface-dark: var(--navy);
+  --text-body: var(--ink);
+  --text-secondary: var(--ink-soft);
+  --text-heading: var(--navy);
+  --accent: var(--moon);
+  --border-default: var(--line);
+}
+
+
+/* ---- tokens/typography.css ---- */
+/* 8weeks Stay — typography tokens */
+:root {
+  --serif: 'Zen Old Mincho', 'Hiragino Mincho ProN', serif; /* @kind font */
+  --sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif; /* @kind font */
+  --font-serif-display: var(--serif);
+  --font-sans-body: var(--sans);
+
+  /* Sizes (from source) */
+  --text-hero: clamp(2.2rem, 5.4vw, 3.8rem);
+  --text-section-title: clamp(1.5rem, 3.2vw, 2.15rem);
+  --text-h3: 1.55rem;
+  --text-h4: 1.25rem;
+  --text-body-md: 0.98rem;
+  --text-body-sm: 0.92rem;
+  --text-caption: 0.82rem;
+  --text-label: 0.72rem;
+  --text-micro: 0.66rem;
+
+  /* Letter-spacing — wide tracking is a brand signature */
+  --tracking-body: 0.04em;
+  --tracking-btn: 0.18em;
+  --tracking-title: 0.12em;
+  --tracking-hero: 0.14em;
+  --tracking-label: 0.32em;
+  --tracking-loc: 0.3em;
+
+  /* Line heights — generous, airy */
+  --leading-body: 1.9;
+  --leading-prose: 2.4;      /* philosophy / story text */
+  --leading-title: 1.8;
+  --leading-desc: 2.15;
+
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;      /* max weight for serif headings */
+  --weight-bold: 700;
+}
+
+
+/* ---- tokens/spacing.css ---- */
+/* 8weeks Stay — spacing, borders, motion tokens */
+:root {
+  /* Layout */
+  --container-max: 1080px;
+  --container-wide: 1200px;
+  --section-pad-y: 110px;
+  --section-pad-y-mobile: 80px;
+  --section-pad-x: 24px;
+
+  /* Component spacing (exact source values) */
+  --btn-pad: 13px 34px;
+  --btn-pad-sm: 10px 26px;
+  --chip-pad: 6px 16px;
+  --card-pad: 36px 32px;
+  --panel-pad: 42px 38px;
+
+  /* Corners — the brand is strictly square */
+  --radius: 0;
+
+  /* Borders */
+  --border-w: 1px;
+
+  /* Shadows — rare; only floating chrome */
+  --shadow-header: 0 1px 24px rgba(1, 38, 83, 0.25);
+  --shadow-nav-btn: 0 4px 16px rgba(1, 38, 83, 0.25);
+
+  /* Motion */
+  --ease-reveal: cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --dur-reveal: 1.6s; /* @kind other */
+  --dur-hover: 0.35s; /* @kind other */
+  --dur-fade: 2.4s; /* @kind other */
+}
+
+
+/* ---- tokens/base.css ---- */
+/* 8weeks Stay — minimal base rules */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--sans);
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--washi);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-body);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+.serif { font-family: var(--serif); }
+

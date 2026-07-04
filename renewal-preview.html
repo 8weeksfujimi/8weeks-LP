@@ -2,7 +2,6 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>8weeks Stay｜富士見町・八ヶ岳山麓の一棟貸しの宿【公式】</title>
   <meta name="description" content="八ヶ岳山麓・標高1000mの富士見町にある3つの一棟貸しの宿・貸別荘「8weeks Stay」公式サイト。都心から約2時間。ロングステイやワーケーション、移住体験にも。Airbnb平均評価4.98・レビュー190件超。">
@@ -13,8 +12,6 @@
   <link rel="alternate" hreflang="ja" href="https://8weeksfujimi.github.io/8weeks-LP/">
   <link rel="alternate" hreflang="en" href="https://8weeksfujimi.github.io/8weeks-LP/index-en.html">
   <link rel="alternate" hreflang="x-default" href="https://8weeksfujimi.github.io/8weeks-LP/">
-
-  <!-- Open Graph -->
   <meta property="og:title" content="8weeks Stay｜富士見町・八ヶ岳山麓の一棟貸しの宿">
   <meta property="og:description" content="八ヶ岳山麓・標高1000mの富士見町にある3つの一棟貸しの宿。ロングステイ・ワーケーション・移住体験にも。">
   <meta property="og:type" content="website">
@@ -22,8 +19,6 @@
   <meta property="og:image" content="https://8weeksfujimi.github.io/8weeks-LP/fujimi.png">
   <meta property="og:site_name" content="8weeks Stay">
   <meta property="og:locale" content="ja_JP">
-
-  <!-- 構造化データ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -32,1189 +27,464 @@
     "description": "長野県富士見町の標高1000mに位置する3つの貸別荘。移住体験や長期滞在が可能な宿泊施設。",
     "url": "https://8weeksfujimi.github.io/8weeks-LP/",
     "email": "8weeks.fujimi@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "諏訪郡富士見町",
-      "addressRegion": "長野県",
-      "postalCode": "399-0211",
-      "streetAddress": "富士見9736番地1",
-      "addressCountry": "JP"
-    },
+    "address": { "@type": "PostalAddress", "addressLocality": "諏訪郡富士見町", "addressRegion": "長野県", "postalCode": "399-0211", "streetAddress": "富士見9736番地1", "addressCountry": "JP" },
     "parentOrganization": { "@type": "Organization", "name": "8weeks合同会社" },
     "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.98", "reviewCount": "194" }
   }
   </script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-  <!-- Pinterest風ギャラリー -->
-  <link rel="stylesheet" href="assets/styles/host-gallery-styles.css">
-  <script src="https://unpkg.com/lucide@0.344.0/dist/umd/lucide.js" defer></script>
-  <script src="scripts/clean-gallery-data.js" defer></script>
-  <script src="scripts/pinterest-gallery.js" defer></script>
-
+  <link rel="stylesheet" href="assets/styles.css">
   <style>
-    :root {
-      --navy: #012653;
-      --navy-2: #12335C;
-      --moon: #FFF100;
-      --washi: #F8F6F1;
-      --white: #FFFFFF;
-      --ink: #1C2B3A;
-      --ink-soft: #4A5A6A;
-      --line: rgba(1, 38, 83, 0.14);
-      --serif: 'Zen Old Mincho', 'Hiragino Mincho ProN', serif;
-      --sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--sans);
-      font-weight: 400;
-      color: var(--ink);
-      background: var(--washi);
-      line-height: 1.9;
-      letter-spacing: 0.04em;
-      -webkit-font-smoothing: antialiased;
-    }
-    img { max-width: 100%; display: block; }
-    a { color: inherit; text-decoration: none; }
-    .serif { font-family: var(--serif); }
-
-    /* ---------- ヘッダー ---------- */
-    .header {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 32px;
-      transition: background 0.5s ease, box-shadow 0.5s ease, padding 0.5s ease;
-    }
-    .header.scrolled {
-      background: rgba(1, 38, 83, 0.96);
-      box-shadow: 0 1px 24px rgba(1, 38, 83, 0.25);
-      padding: 10px 32px;
-    }
-    .header-brand { display: flex; align-items: center; }
-    .header-brand img { height: 52px; width: auto; }
-    .header-nav { display: flex; align-items: center; gap: 28px; }
-    .header-nav a {
-      color: rgba(255, 255, 255, 0.88); font-size: 0.82rem; letter-spacing: 0.14em;
-      padding-bottom: 3px; border-bottom: 1px solid transparent;
-      transition: color 0.3s, border-color 0.3s;
-    }
-    .header-nav a:hover { color: var(--moon); border-bottom-color: var(--moon); }
-    .lang-switch { display: flex; gap: 2px; margin-left: 8px; }
-    .lang-switch a {
-      font-size: 0.75rem; padding: 4px 10px; border: 1px solid rgba(255, 255, 255, 0.4);
-    }
-    .lang-switch a.active { background: var(--moon); color: var(--navy); border-color: var(--moon); font-weight: 500; }
-
-    /* ---------- ヒーロー ---------- */
-    .hero {
-      position: relative; height: 100svh; min-height: 640px;
-      overflow: hidden; background: var(--navy);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .hero-slide {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; opacity: 0; transition: opacity 2.4s ease;
-      z-index: 0;
-    }
-    .hero-slide.active { opacity: 1; z-index: 1; }
-    .hero-veil {
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(1,38,83,0.5) 0%, rgba(1,38,83,0.24) 45%, rgba(1,38,83,0.58) 100%);
-    }
-    .hero-copy { position: relative; z-index: 2; text-align: center; color: var(--white); padding: 0 24px; }
-    .hero-moons { display: flex; justify-content: center; gap: 14px; margin-bottom: 34px; }
-    .hero-moons svg { width: 22px; height: 22px; opacity: 0; animation: moonrise 1.2s ease forwards; }
-    .hero-moons svg:nth-child(1) { animation-delay: 0.3s; }
-    .hero-moons svg:nth-child(2) { animation-delay: 0.55s; }
-    .hero-moons svg:nth-child(3) { animation-delay: 0.8s; }
-    .hero-moons svg:nth-child(4) { animation-delay: 1.05s; }
-    .hero-moons svg:nth-child(5) { animation-delay: 1.3s; }
-    @keyframes moonrise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    .hero-title {
-      font-family: var(--serif); font-weight: 500;
-      font-size: clamp(2.2rem, 5.4vw, 3.8rem);
-      letter-spacing: 0.14em; line-height: 1.5;
-      text-shadow: 0 2px 30px rgba(1, 38, 83, 0.6);
-      opacity: 0; animation: moonrise 1.4s ease 0.6s forwards;
-    }
-    .hero-sub {
-      margin-top: 20px; font-size: clamp(0.9rem, 1.7vw, 1.08rem);
-      letter-spacing: 0.22em; color: rgba(255, 255, 255, 0.9);
-      opacity: 0; animation: moonrise 1.4s ease 1.1s forwards;
-    }
-    .hero-loc {
-      margin-top: 12px; font-size: 0.72rem; letter-spacing: 0.3em;
-      text-transform: uppercase; color: rgba(255, 255, 255, 0.65);
-      opacity: 0; animation: moonrise 1.4s ease 1.3s forwards;
-    }
-    .hero-dots {
-      position: absolute; bottom: 150px; left: 50%; transform: translateX(-50%); z-index: 3;
-      display: flex; gap: 12px;
-    }
-    .hero-dot {
-      width: 9px; height: 9px; border-radius: 50%; cursor: pointer;
-      background: rgba(255, 255, 255, 0.45); border: none; padding: 0;
-      transition: background 0.3s, transform 0.3s;
-    }
-    .hero-dot.active { background: var(--moon); transform: scale(1.25); }
-    .hero-scroll {
-      position: absolute; bottom: 34px; left: 50%; transform: translateX(-50%); z-index: 2;
-      color: rgba(255,255,255,0.75); font-size: 0.68rem; letter-spacing: 0.3em; text-align: center;
-    }
-    .hero-scroll::after {
-      content: ''; display: block; width: 1px; height: 44px;
-      background: linear-gradient(180deg, var(--moon), transparent);
-      margin: 10px auto 0; animation: drop 2.2s ease infinite;
-    }
-    @keyframes drop { 0% { transform: scaleY(0); transform-origin: top; } 45% { transform: scaleY(1); transform-origin: top; } 100% { transform: scaleY(1); opacity: 0; } }
-
-    /* ---------- トラストバー ---------- */
-    .trust-bar {
-      background: var(--navy); border-top: 1px solid rgba(255,255,255,0.12);
-      color: rgba(255, 255, 255, 0.9); padding: 16px 24px;
-    }
-    .trust-bar-inner {
-      max-width: 1080px; margin: 0 auto;
-      display: flex; justify-content: center; gap: clamp(24px, 6vw, 72px);
-      font-size: 0.82rem; letter-spacing: 0.1em; flex-wrap: wrap;
-    }
-    .trust-item .stars { color: var(--moon); }
-
-    /* ---------- 共通セクション ---------- */
-    .section { padding: 110px 24px; }
-    .container { max-width: 1080px; margin: 0 auto; }
-    .section-label {
-      display: flex; align-items: center; gap: 14px;
-      font-size: 0.72rem; letter-spacing: 0.32em; color: var(--navy-2);
-      margin-bottom: 26px; justify-content: center;
-    }
-    .section-label::before, .section-label::after {
-      content: ''; width: 36px; height: 1px; background: var(--line);
-    }
-    .section-title {
-      font-family: var(--serif); font-weight: 500; text-align: center;
-      font-size: clamp(1.5rem, 3.2vw, 2.15rem); letter-spacing: 0.12em;
-      color: var(--navy); line-height: 1.8; margin-bottom: 40px;
-    }
-    .section-sub {
-      text-align: center; font-size: 0.88rem; color: var(--ink-soft);
-      margin: -24px auto 48px; letter-spacing: 0.08em;
-    }
-    .reveal {
-      opacity: 0; transform: translateY(38px);
-      transition: opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1), transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform;
-    }
-    .reveal.in { opacity: 1; transform: none; }
-
-    /* ---------- 物語（紺のセクション） ---------- */
-    .philosophy { background: var(--navy); color: rgba(255, 255, 255, 0.92); position: relative; overflow: hidden; }
-    .philosophy .section-title { color: var(--white); }
-    .moon-cycle { display: flex; justify-content: center; align-items: center; gap: clamp(10px, 3vw, 26px); margin: 42px 0 48px; }
-    .moon-cycle svg { width: clamp(26px, 4.5vw, 44px); height: auto; }
-    .philosophy-text {
-      max-width: 640px; margin: 0 auto; text-align: center;
-      font-size: 0.98rem; line-height: 2.4;
-    }
-    .philosophy-text p + p { margin-top: 2.2em; }
-
-    /* ---------- 三つの空間 ---------- */
-    .spaces { background: var(--white); }
-    .space-list { display: flex; flex-direction: column; gap: 90px; margin-top: 70px; }
-    .space { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center; }
-    .space:nth-child(even) .space-photo { order: 2; }
-    .space-photo { position: relative; overflow: hidden; aspect-ratio: 4 / 3; }
-    .space-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s ease; }
-    .space:hover .space-photo img { transform: scale(1.04); }
-    .space-num {
-      font-family: var(--serif); font-size: 0.78rem; letter-spacing: 0.3em;
-      color: var(--ink-soft); display: block; margin-bottom: 14px;
-    }
-    .space h3 {
-      font-family: var(--serif); font-weight: 500; font-size: 1.55rem;
-      letter-spacing: 0.1em; color: var(--navy); margin-bottom: 10px;
-    }
-    .space .rating { font-size: 0.82rem; color: var(--navy); margin-bottom: 16px; }
-    .space .rating b { font-family: var(--serif); font-size: 1.05rem; }
-    .space .rating .stars { color: #C9A227; }
-    .space p.desc { font-size: 0.92rem; line-height: 2.15; color: var(--ink-soft); margin-bottom: 16px; }
-    .space .meta { font-size: 0.78rem; letter-spacing: 0.1em; color: var(--ink-soft); margin-bottom: 26px; }
-    .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
-    .btn {
-      display: inline-block; padding: 13px 34px; font-size: 0.82rem; letter-spacing: 0.18em;
-      border: 1px solid var(--navy); color: var(--navy);
-      transition: background 0.35s, color 0.35s; cursor: pointer;
-    }
-    .btn:hover { background: var(--navy); color: var(--white); }
-    .btn.primary { background: var(--navy); color: var(--white); }
-    .btn.primary:hover { background: var(--navy-2); }
-
-    /* ---------- 声（横スクロール・多言語） ---------- */
-    .voices { background: var(--washi); }
-    .voices .container { max-width: 1200px; }
-    .voice-scroller { position: relative; margin-top: 56px; }
-    .voice-track {
-      display: flex; gap: 22px; overflow-x: auto;
-      scroll-snap-type: x mandatory; padding: 4px 4px 22px;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: thin; scrollbar-color: var(--navy-2) transparent;
-    }
-    .voice-track::-webkit-scrollbar { height: 5px; }
-    .voice-track::-webkit-scrollbar-thumb { background: var(--line); }
-    .voice-nav {
-      position: absolute; top: 50%; transform: translateY(-50%); z-index: 5;
-      width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
-      background: var(--navy); color: var(--white); border: none;
-      font-size: 1rem; line-height: 1; display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 16px rgba(1, 38, 83, 0.25); transition: background 0.3s;
-    }
-    .voice-nav:hover { background: var(--navy-2); }
-    .voice-nav.prev { left: -14px; }
-    .voice-nav.next { right: -14px; }
-    .voice {
-      background: var(--white); border: 1px solid var(--line); padding: 36px 32px;
-      display: flex; flex-direction: column;
-      flex: 0 0 min(84vw, 350px); scroll-snap-align: start;
-    }
-    .voice-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
-    .voice-lang {
-      font-size: 0.66rem; letter-spacing: 0.22em; color: var(--navy);
-      border: 1px solid var(--line); background: var(--washi); padding: 4px 12px;
-    }
-    .voice .stars { color: var(--navy); font-size: 0.78rem; letter-spacing: 0.22em; }
-    .voice-original {
-      font-family: var(--serif); font-size: 0.93rem; line-height: 2.05;
-      color: var(--ink); margin-bottom: 18px;
-    }
-    .voice-tr {
-      font-size: 0.8rem; line-height: 1.95; color: var(--ink-soft);
-      padding-left: 34px; position: relative; margin-bottom: 12px;
-    }
-    .voice-tr .tr-tag {
-      position: absolute; left: 0; top: 5px;
-      font-size: 0.6rem; letter-spacing: 0.12em; color: var(--navy-2);
-      border-bottom: 1px solid var(--line);
-    }
-    .voice cite { font-style: normal; font-size: 0.74rem; letter-spacing: 0.12em; color: var(--ink-soft); margin-top: auto; padding-top: 16px; }
-
-    /* ---------- Pinterest風ギャラリー（新デザインへの調整） ---------- */
-    .gallery-section { background: var(--white); }
-    .section-gallery { background: transparent; width: auto; margin-left: 0; padding: 0; }
-    .filter-btn {
-      border-radius: 0; border: 1px solid var(--line); color: var(--navy);
-      font-family: var(--sans); letter-spacing: 0.08em;
-    }
-    .filter-btn:hover {
-      border-color: var(--navy); box-shadow: none; transform: none;
-    }
-    .filter-btn.active { background: var(--navy); border-color: var(--navy); color: var(--white); }
-    .property-badge, .property-badge.quriu, .property-badge.studio, .property-badge.fujimi {
-      background: rgba(1, 38, 83, 0.88); border-radius: 0; letter-spacing: 0.08em;
-    }
-    .load-more-btn {
-      border-radius: 0; background: var(--white); border: 1px solid var(--navy);
-      color: var(--navy); font-family: var(--sans); letter-spacing: 0.14em;
-    }
-    .load-more-btn:hover { background: var(--navy); color: var(--white); }
-    .masonry-card { border-radius: 0; }
-    .masonry-card .card-image { border-radius: 0; }
-
-    /* ---------- ホスト ---------- */
-    .host { background: var(--washi); }
-    .host-inner { display: grid; grid-template-columns: 1fr 1.35fr; gap: 56px; align-items: start; margin-top: 60px; }
-    .host-photo-wrap { position: relative; aspect-ratio: 3 / 4; overflow: hidden; }
-    .host-photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
-    .host-superhost-badge {
-      position: absolute; left: 14px; bottom: 14px;
-      background: var(--moon); color: var(--navy); font-size: 0.72rem; font-weight: 500;
-      letter-spacing: 0.1em; padding: 6px 14px;
-    }
-    .host h3 { font-family: var(--serif); font-weight: 500; font-size: 1.5rem; letter-spacing: 0.14em; color: var(--navy); margin-bottom: 4px; }
-    .host .host-role { font-size: 0.75rem; letter-spacing: 0.22em; color: var(--ink-soft); display: block; margin-bottom: 26px; }
-    .host p { font-size: 0.9rem; line-height: 2.25; color: var(--ink-soft); margin-bottom: 1.6em; }
-    .host h4.host-sub {
-      font-size: 0.72rem; letter-spacing: 0.28em; color: var(--navy-2);
-      margin: 28px 0 14px; font-weight: 500;
-    }
-    .hobby-row { display: flex; gap: 10px; flex-wrap: wrap; }
-    .hobby-chip {
-      font-size: 0.76rem; letter-spacing: 0.08em; color: var(--navy);
-      border: 1px solid var(--line); padding: 6px 16px; background: var(--white);
-    }
-    .superhost-line {
-      display: flex; align-items: center; gap: 10px; margin-top: 26px;
-      font-size: 0.8rem; color: var(--ink-soft); background: var(--white);
-      border: 1px solid var(--line); padding: 12px 18px;
-    }
-    .media-card {
-      display: block; margin-top: 14px; background: var(--white);
-      border: 1px solid var(--line); padding: 16px 20px;
-      transition: border-color 0.35s;
-    }
-    .media-card:hover { border-color: var(--navy); }
-    .media-card .media-source { font-size: 0.7rem; letter-spacing: 0.18em; color: var(--navy-2); display: block; }
-    .media-card .media-title { font-size: 0.86rem; color: var(--ink); }
-
-    /* ---------- エリアガイド ---------- */
-    .location-section { background: var(--white); }
-    .area-tabs { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 54px; }
-    .area-tab {
-      font-family: var(--sans); font-size: 0.84rem; letter-spacing: 0.08em;
-      background: var(--white); color: var(--navy); border: 1px solid var(--line);
-      padding: 12px 26px; cursor: pointer; transition: all 0.3s;
-    }
-    .area-tab:hover { border-color: var(--navy); }
-    .area-tab.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
-    .area-panel { display: none; }
-    .area-panel.active { display: block; }
-    .area-panel h4 {
-      font-family: var(--serif); font-weight: 500; font-size: 1.25rem;
-      letter-spacing: 0.12em; color: var(--navy); margin-bottom: 34px;
-      padding-bottom: 14px; border-bottom: 1px solid var(--line);
-    }
-    .category-title {
-      font-size: 0.95rem; font-weight: 500; letter-spacing: 0.14em; color: var(--navy-2);
-      margin: 40px 0 22px; padding-left: 14px; border-left: 3px solid var(--moon);
-    }
-    .area-spots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
-    .spot-card {
-      background: var(--washi); border: 1px solid var(--line); padding: 24px 26px;
-      transition: background 0.35s;
-    }
-    .spot-card:hover { background: #FFFDF2; }
-    .spot-card h6 { font-size: 0.94rem; font-weight: 500; color: var(--navy); letter-spacing: 0.06em; margin-bottom: 8px; }
-    .spot-card p { font-size: 0.82rem; line-height: 1.95; color: var(--ink-soft); margin-bottom: 12px; }
-    .spot-time {
-      display: inline-block; font-size: 0.72rem; letter-spacing: 0.1em;
-      color: var(--navy-2); border: 1px solid var(--line); background: var(--white);
-      padding: 3px 12px; margin-right: 10px;
-    }
-    .spot-link {
-      display: inline-block; font-size: 0.74rem; letter-spacing: 0.1em;
-      color: var(--navy); border-bottom: 1px solid var(--navy); padding-bottom: 1px;
-      transition: color 0.3s, border-color 0.3s;
-    }
-    .spot-link:hover { color: var(--navy-2); border-color: var(--moon); }
-    .surrounding-areas { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
-    .area-group { background: var(--washi); border: 1px solid var(--line); padding: 28px 30px; }
-    .area-group h5 {
-      font-family: var(--serif); font-size: 1.02rem; font-weight: 500;
-      letter-spacing: 0.1em; color: var(--navy); margin-bottom: 16px;
-      display: flex; align-items: center; justify-content: space-between; gap: 10px;
-    }
-    .area-group .distance { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.1em; color: var(--ink-soft); border: 1px solid var(--line); background: var(--white); padding: 3px 10px; white-space: nowrap; }
-    .area-group ul { list-style: none; }
-    .area-group li {
-      font-size: 0.82rem; line-height: 1.9; color: var(--ink-soft);
-      padding: 8px 0 8px 18px; position: relative; border-bottom: 1px dashed var(--line);
-    }
-    .area-group li:last-child { border-bottom: none; }
-    .area-group li::before {
-      content: ''; position: absolute; left: 0; top: 17px;
-      width: 6px; height: 6px; border-radius: 50%; background: var(--moon); border: 1px solid var(--navy-2);
-    }
-
-    /* ---------- 予約 ---------- */
-    .booking { background: var(--navy); color: var(--white); }
-    .booking .section-title { color: var(--white); }
-    .booking .section-sub { color: rgba(255, 255, 255, 0.75); }
-    .booking-options { display: grid; grid-template-columns: 1.25fr 1fr; gap: 28px; margin-top: 20px; }
-    .booking-option { border: 1px solid rgba(255, 255, 255, 0.22); padding: 42px 38px; }
-    .booking-option > h3 {
-      font-family: var(--serif); font-weight: 500; font-size: 1.25rem;
-      letter-spacing: 0.14em; margin-bottom: 8px;
-    }
-    .option-description { font-size: 0.84rem; color: rgba(255, 255, 255, 0.75); margin-bottom: 30px; line-height: 2; }
-    .option-note { font-size: 0.78rem; color: rgba(255, 255, 255, 0.6); font-style: italic; margin: -18px 0 26px; }
-    .property-item {
-      display: flex; align-items: center; justify-content: space-between; gap: 16px;
-      padding: 20px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.14); flex-wrap: wrap;
-    }
-    .property-item:last-child { border-bottom: none; }
-    .property-details h4 { font-family: var(--serif); font-weight: 500; font-size: 1.02rem; letter-spacing: 0.1em; margin-bottom: 2px; }
-    .property-details p { font-size: 0.76rem; color: rgba(255, 255, 255, 0.68); letter-spacing: 0.06em; }
-    .property-buttons { display: flex; gap: 10px; }
-    .btn-moon {
-      display: inline-block; padding: 10px 26px; font-size: 0.78rem; letter-spacing: 0.16em;
-      background: var(--moon); color: var(--navy); font-weight: 500;
-      transition: opacity 0.35s;
-    }
-    .btn-moon:hover { opacity: 0.85; }
-    .btn-ghost {
-      display: inline-block; padding: 10px 22px; font-size: 0.78rem; letter-spacing: 0.16em;
-      border: 1px solid rgba(255, 255, 255, 0.4); color: var(--white);
-      transition: border-color 0.35s, color 0.35s;
-    }
-    .btn-ghost:hover { border-color: var(--moon); color: var(--moon); }
-    .contact-method {
-      display: block; border: 1px solid rgba(255, 255, 255, 0.25); padding: 20px 24px;
-      margin-bottom: 14px; transition: border-color 0.35s, background 0.35s;
-    }
-    .contact-method:hover { border-color: var(--moon); background: rgba(255, 255, 255, 0.04); }
-    .contact-method strong { display: block; font-size: 0.88rem; letter-spacing: 0.1em; font-weight: 500; }
-    .contact-method span { font-size: 0.78rem; color: rgba(255, 255, 255, 0.7); letter-spacing: 0.06em; }
-
-    /* ---------- フッター ---------- */
-    .footer { background: var(--navy); color: rgba(255, 255, 255, 0.6); border-top: 1px solid rgba(255, 255, 255, 0.12); padding: 60px 24px 40px; }
-    .footer-inner { max-width: 1080px; margin: 0 auto; text-align: center; }
-    .footer-logo { display: flex; justify-content: center; margin-bottom: 18px; }
-    .footer-logo img { height: 72px; }
-    .footer-tagline { font-size: 0.8rem; letter-spacing: 0.1em; color: rgba(255, 255, 255, 0.75); margin-bottom: 26px; }
-    .footer-links { display: flex; justify-content: center; gap: 26px; flex-wrap: wrap; margin-bottom: 30px; }
-    .footer-links a {
-      font-size: 0.78rem; letter-spacing: 0.1em; color: rgba(255, 255, 255, 0.7);
-      border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s;
-    }
-    .footer-links a:hover { color: var(--moon); border-color: var(--moon); }
-    .footer p { font-size: 0.74rem; letter-spacing: 0.08em; line-height: 2.1; }
-    .footer .fine { margin-top: 20px; font-size: 0.68rem; color: rgba(255, 255, 255, 0.4); }
-
-    /* ---------- モバイル固定CTA ---------- */
-    .sticky-cta {
-      display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 90;
-      padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
-      background: rgba(1, 38, 83, 0.97); box-shadow: 0 -4px 20px rgba(1, 38, 83, 0.3);
-    }
-    .sticky-cta-btn {
-      display: block; text-align: center; background: var(--moon); color: var(--navy);
-      font-size: 0.9rem; font-weight: 500; letter-spacing: 0.16em; padding: 14px;
-    }
-
-    /* ---------- レスポンシブ ---------- */
+    .lp-nav-link { color: rgba(255,255,255,0.88); font-size: 0.82rem; letter-spacing: 0.14em; padding-bottom: 3px; border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s; }
+    .lp-nav-link:hover { color: var(--moon); border-bottom-color: var(--moon); }
+    .lp-nav-lang-active { color: var(--moon); border-bottom-color: var(--moon); cursor: default; }
+    .lp-nav-sep { color: rgba(255,255,255,0.35); font-size: 0.78rem; }
+    .lp-scroll-hint::after { content: ''; display: block; width: 1px; height: 44px; background: linear-gradient(180deg, var(--moon), transparent); margin: 10px auto 0; animation: lp-drop 2.2s ease infinite; }
+    @keyframes lp-drop { 0% { transform: scaleY(0); transform-origin: top; } 45% { transform: scaleY(1); transform-origin: top; } 100% { transform: scaleY(1); opacity: 0; } }
+    .lp-space:hover .lp-space-img { transform: scale(1.04); }
+    .lp-voice-track { scrollbar-width: thin; scrollbar-color: var(--navy-2) transparent; }
+    .lp-voice-track::-webkit-scrollbar { height: 5px; }
+    .lp-voice-track::-webkit-scrollbar-thumb { background: var(--line); }
+    .lp-contact { transition: border-color 0.35s, background 0.35s; }
+    .lp-contact:hover { border-color: var(--moon) !important; background: rgba(255,255,255,0.04); }
+    .lp-footer-link { font-size: 0.78rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.7); border-bottom: 1px solid transparent; transition: color 0.3s, border-color 0.3s; }
+    .lp-footer-link:hover { color: var(--moon); border-color: var(--moon); }
+    .lp-area-link { display: inline-flex; align-items: center; gap: 12px; font-family: var(--serif); font-size: 0.95rem; letter-spacing: 0.16em; color: var(--navy); border-bottom: 1px solid var(--navy); padding-bottom: 6px; transition: color 0.3s, border-color 0.3s; }
+    .lp-area-link:hover { color: var(--navy-2); border-color: var(--moon); }
     @media (max-width: 860px) {
-      .hero-scroll { display: none; }
-      .hero-dots { bottom: 48px; }
-      .header { padding: 12px 20px; }
-      .header-brand img { height: 44px; }
-      .header-nav a:not(.lang) { display: none; }
-      .section { padding: 80px 20px; }
-      .voice-grid { grid-template-columns: 1fr; }
-      .space, .host-inner { grid-template-columns: 1fr; gap: 28px; }
-      .space:nth-child(even) .space-photo { order: 0; }
-      .philosophy-text { font-size: 0.92rem; line-height: 2.3; }
-      .area-spots, .surrounding-areas { grid-template-columns: 1fr; }
-      .booking-options { grid-template-columns: 1fr; }
-      .sticky-cta { display: block; }
-      body { padding-bottom: 70px; }
-      .masonry-gallery { column-count: 2; }
+      .lp-space, .lp-host-grid, .lp-booking-cols, .lp-area-teaser { grid-template-columns: 1fr !important; }
     }
-    @media (max-width: 560px) {
-      .masonry-gallery { column-count: 2; column-gap: 10px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .reveal, .hero-title, .hero-sub, .hero-loc, .hero-moons svg { transition: none; animation: none; opacity: 1; transform: none; }
-      .hero-slide { transition: none; }
-    }
+    @media (prefers-reduced-motion: reduce) { .lp-scroll-hint::after { animation: none; } }
+
+    /* ---- Design-system primitives baked in as static CSS ---- */
+    .ds-btn { display: inline-block; font-family: var(--sans); font-size: 0.82rem; letter-spacing: var(--tracking-btn); padding: var(--btn-pad); border: 1px solid transparent; border-radius: 0; cursor: pointer; background: transparent; transition: background var(--dur-hover), color var(--dur-hover), border-color var(--dur-hover), opacity var(--dur-hover); text-decoration: none; line-height: 1.6; }
+    .ds-btn-sm { font-size: 0.78rem; letter-spacing: 0.16em; padding: var(--btn-pad-sm); }
+    .ds-btn-outline { border-color: var(--navy); color: var(--navy); }
+    .ds-btn-outline:hover { background: var(--navy); color: var(--white); }
+    .ds-btn-primary { border-color: var(--navy); background: var(--navy); color: var(--white); }
+    .ds-btn-primary:hover { background: var(--navy-2); border-color: var(--navy-2); }
+    .ds-btn-moon { background: var(--moon); color: var(--navy); font-weight: 500; }
+    .ds-btn-moon:hover { opacity: 0.85; }
+    .ds-btn-ghost { border-color: rgba(255,255,255,0.4); color: var(--white); }
+    .ds-btn-ghost:hover { border-color: var(--moon); color: var(--moon); }
+
+    .ds-badge { display: inline-block; font-family: var(--sans); border-radius: 0; }
+    .ds-badge-moon { background: var(--moon); color: var(--navy); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; padding: 6px 14px; }
+    .ds-badge-lang { background: var(--washi); color: var(--navy); border: 1px solid var(--line); font-size: 0.66rem; letter-spacing: 0.22em; padding: 4px 12px; }
+
+    .voice-card { background: var(--white); border: 1px solid var(--line); padding: 36px 32px; display: flex; flex-direction: column; border-radius: 0; font-family: var(--sans); flex: 0 0 min(84vw, 350px); scroll-snap-align: start; }
+    .voice-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+    .voice-card-stars { color: var(--navy); font-size: 0.78rem; letter-spacing: 0.22em; }
+    .voice-card-original { font-family: var(--serif); font-size: 0.93rem; line-height: 2.05; color: var(--ink); margin-bottom: 18px; }
+    .voice-card-tr { font-size: 0.8rem; line-height: 1.95; color: var(--ink-soft); padding-left: 34px; position: relative; margin-bottom: 12px; }
+    .voice-card-tr .tag { position: absolute; left: 0; top: 5px; font-size: 0.6rem; letter-spacing: 0.12em; color: var(--navy-2); border-bottom: 1px solid var(--line); }
+    .voice-card-cite { font-style: normal; font-size: 0.74rem; letter-spacing: 0.12em; color: var(--ink-soft); margin-top: auto; padding-top: 16px; }
+
+    .sh-label { display: flex; align-items: center; justify-content: center; gap: 14px; font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.32em; margin-bottom: 26px; }
+    .sh-label span { width: 36px; height: 1px; }
+    .sh-title { font-family: var(--serif); font-weight: 500; font-size: clamp(1.5rem, 3.2vw, 2.15rem); letter-spacing: 0.12em; line-height: 1.8; margin: 0; }
+    .sh-sub { font-family: var(--sans); font-size: 0.88rem; letter-spacing: 0.08em; margin-top: 16px; }
+
+    .voice-nav-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 5; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; background: var(--navy); color: var(--white); border: none; font-size: 1rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(1,38,83,0.25); }
   </style>
 </head>
 <body>
 
-  <!-- ヘッダー -->
-  <header class="header" id="header">
-    <a class="header-brand" href="#top">
-      <img src="assets/images/logos/logo_white.png" alt="8weeks">
+<!-- ============ Header ============ -->
+<header id="lp-header" style="position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:16px 32px; background:transparent; box-shadow:none; transition:background 0.5s ease, box-shadow 0.5s ease, padding 0.5s ease;">
+  <a href="#top" style="display:flex; align-items:center;">
+    <img src="assets/logos/logo_white.png" alt="8weeks" style="height:52px; width:auto;">
+  </a>
+  <nav style="display:flex; align-items:center; gap:28px;">
+    <a href="#spaces" class="lp-nav-link">Spaces</a>
+    <a href="gallery.html" class="lp-nav-link">Gallery</a>
+    <a href="#voices" class="lp-nav-link">Voices</a>
+    <a href="https://www.airbnb.jp/s/guidebooks?refinement_paths[]=/guidebooks/4547042" class="lp-nav-link">Location</a>
+    <a href="archive.html" class="lp-nav-link">Archive</a>
+    <a href="#booking" class="lp-nav-link">Booking</a>
+    <span class="lp-nav-sep">|</span>
+    <span class="lp-nav-link lp-nav-lang-active" aria-current="page">日本語</span>
+    <a href="index-en.html" class="lp-nav-link">English</a>
+  </nav>
+</header>
+
+<!-- ============ Hero ============ -->
+<section id="top" data-screen-label="Hero" style="position:relative; height:100svh; min-height:640px; overflow:hidden; background:var(--navy); display:flex; align-items:center; justify-content:center;">
+  <img id="hero-slide-0" src="assets/photos/quriu_exterior.jpeg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:1; transition:opacity 2.4s ease; z-index:1;">
+  <img id="hero-slide-1" src="assets/photos/fujimi_living.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 2.4s ease; z-index:0;">
+  <img id="hero-slide-2" src="assets/photos/studio_interior.jpeg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 2.4s ease; z-index:0;">
+  <div style="position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(1,38,83,0.5) 0%, rgba(1,38,83,0.24) 45%, rgba(1,38,83,0.58) 100%);"></div>
+  <div style="position:relative; z-index:2; text-align:center; color:var(--white); padding:0 24px;">
+    <div style="display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:34px;" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="22" height="22"><path d="M15 2a10 10 0 1 0 0 20 12.2 12.2 0 0 1 0-20z" fill="#FFF100"/></svg>
+      <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 2a10 10 0 0 0 0 20 8 8 0 0 1-3-20 10 10 0 0 1 3 0z" fill="#FFF100" opacity="0.85"/></svg>
+      <svg viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="12" r="10" fill="#FFF100"/></svg>
+      <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 2a10 10 0 0 1 0 20 8 8 0 0 0 3-20 10 10 0 0 0-3 0z" fill="#FFF100" opacity="0.85"/></svg>
+      <svg viewBox="0 0 24 24" width="22" height="22"><path d="M9 2a10 10 0 1 1 0 20 12.2 12.2 0 0 0 0-20z" fill="#FFF100"/></svg>
+    </div>
+    <h1 style="font-family:var(--serif); font-weight:500; font-size:clamp(2.2rem, 5.4vw, 3.8rem); letter-spacing:0.14em; line-height:1.5; text-shadow:0 2px 30px rgba(1,38,83,0.6); margin:0;">8weeks Stay</h1>
+    <p style="margin-top:20px; font-size:clamp(0.9rem, 1.7vw, 1.08rem); letter-spacing:0.22em; color:rgba(255,255,255,0.9);">八ヶ岳山麓の静かな滞在空間</p>
+    <p style="margin-top:12px; font-size:0.72rem; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.65);">1000m Elevation · Yatsugatake Mountains</p>
+  </div>
+  <div style="position:absolute; bottom:110px; left:50%; transform:translateX(-50%); z-index:3; display:flex; gap:12px;">
+    <button class="hero-dot" data-idx="0" aria-label="slide 1" style="width:9px; height:9px; border-radius:50%; cursor:pointer; border:none; padding:0; background:var(--moon); transform:scale(1.25); transition:background 0.3s, transform 0.3s;"></button>
+    <button class="hero-dot" data-idx="1" aria-label="slide 2" style="width:9px; height:9px; border-radius:50%; cursor:pointer; border:none; padding:0; background:rgba(255,255,255,0.45); transition:background 0.3s, transform 0.3s;"></button>
+    <button class="hero-dot" data-idx="2" aria-label="slide 3" style="width:9px; height:9px; border-radius:50%; cursor:pointer; border:none; padding:0; background:rgba(255,255,255,0.45); transition:background 0.3s, transform 0.3s;"></button>
+  </div>
+  <div class="lp-scroll-hint" style="position:absolute; bottom:34px; left:50%; transform:translateX(-50%); z-index:2; color:rgba(255,255,255,0.75); font-size:0.68rem; letter-spacing:0.3em; text-align:center;">SCROLL</div>
+</section>
+
+<!-- ============ Trust bar ============ -->
+<div style="background:var(--navy); border-top:1px solid rgba(255,255,255,0.12); color:rgba(255,255,255,0.9); padding:16px 24px;">
+  <div style="max-width:1080px; margin:0 auto; display:flex; justify-content:center; gap:clamp(24px, 6vw, 72px); font-size:0.82rem; letter-spacing:0.1em; flex-wrap:wrap;">
+    <div><span style="color:var(--moon);">★</span> 4.98 平均評価</div>
+    <div>190+ レビュー</div>
+    <div><span style="color:var(--moon);">★</span> Superhost</div>
+  </div>
+</div>
+
+<!-- ============ Philosophy ============ -->
+<section style="background:var(--navy); color:rgba(255,255,255,0.92); padding:110px 24px;" data-screen-label="Philosophy">
+  <div style="max-width:1080px; margin:0 auto;">
+    <div style="text-align:center;">
+      <h2 class="sh-title" style="color:var(--white); margin-bottom:0;">この場所で暮らすまでの8週間</h2>
+    </div>
+    <div style="display:flex; align-items:center; justify-content:center; gap:22px; margin:42px 0 48px;" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="36" height="36"><circle cx="12" cy="12" r="10" fill="none" stroke="#FFF100" stroke-width="1.2" opacity="0.5"/></svg>
+      <svg viewBox="0 0 24 24" width="36" height="36"><path d="M15 2a10 10 0 1 0 0 20 12.2 12.2 0 0 1 0-20z" fill="#FFF100" opacity="0.7"/></svg>
+      <svg viewBox="0 0 24 24" width="36" height="36"><circle cx="12" cy="12" r="10" fill="#FFF100"/></svg>
+      <svg viewBox="0 0 24 24" width="36" height="36"><path d="M9 2a10 10 0 1 1 0 20 12.2 12.2 0 0 0 0-20z" fill="#FFF100" opacity="0.7"/></svg>
+      <svg viewBox="0 0 24 24" width="36" height="36"><circle cx="12" cy="12" r="10" fill="none" stroke="#FFF100" stroke-width="1.2" opacity="0.5"/></svg>
+      <svg viewBox="0 0 24 24" width="36" height="36"><path d="M15 2a10 10 0 1 0 0 20 12.2 12.2 0 0 1 0-20z" fill="#FFF100" opacity="0.7"/></svg>
+      <svg viewBox="0 0 24 24" width="36" height="36"><circle cx="12" cy="12" r="10" fill="#FFF100"/></svg>
+      <svg viewBox="0 0 24 24" width="36" height="36"><path d="M9 2a10 10 0 1 1 0 20 12.2 12.2 0 0 0 0-20z" fill="#FFF100" opacity="0.7"/></svg>
+      <svg viewBox="0 0 24 24" width="36" height="36"><circle cx="12" cy="12" r="10" fill="none" stroke="#FFF100" stroke-width="1.2" opacity="0.5"/></svg>
+    </div>
+    <div style="max-width:640px; margin:0 auto; text-align:center; font-size:0.98rem; line-height:2.4;">
+      <p>2020年に都市部から当時1歳の娘と移住した私たちは、富士見町に魅了され、8週間で移住を決断しました。お客様にも「ここにいたい」と思えるような時間を過ごして頂きたいという願いから&quot;8weeks&quot;と名付けました。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Three Spaces ============ -->
+<section id="spaces" style="background:var(--white); padding:110px 24px;" data-screen-label="Three Spaces">
+  <div style="max-width:1080px; margin:0 auto;">
+    <div style="text-align:center;">
+      <h2 class="sh-title" style="color:var(--navy);">Three Spaces</h2>
+      <p class="sh-sub" style="color:var(--ink-soft);">それぞれ異なる個性を持つ3つの空間をご用意しています</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:90px; margin-top:70px;">
+
+      <div class="lp-space" style="display:grid; grid-template-columns:1.15fr 1fr; gap:48px; align-items:center;">
+        <div style="position:relative; overflow:hidden; aspect-ratio:4 / 3; order:0;">
+          <img src="assets/photos/fujimi_living.jpg" alt="8weeks Fujimi" class="lp-space-img" style="width:100%; height:100%; object-fit:cover; transition:transform 1.4s ease;">
+        </div>
+        <div>
+          <span style="font-family:var(--serif); font-size:0.78rem; letter-spacing:0.3em; color:var(--ink-soft); display:block; margin-bottom:14px;">01</span>
+          <h3 style="font-family:var(--serif); font-weight:500; font-size:1.55rem; letter-spacing:0.1em; color:var(--navy); margin:0 0 10px;">8weeks Fujimi</h3>
+          <p style="font-size:0.82rem; color:var(--navy); margin-bottom:16px;">
+            <span style="color:#C9A227;">★</span> <b style="font-family:var(--serif); font-size:1.05rem;">4.99</b> · 94件のレビュー — 2寝室・定員6名
+          </p>
+          <p style="font-size:0.92rem; line-height:2.15; color:var(--ink-soft); margin-bottom:26px;">グランドピアノのある森の中の一棟貸切別荘</p>
+          <a href="https://airbnb.com/h/8weeksfujimi"><button type="button" class="ds-btn ds-btn-primary">予約する（Airbnb）</button></a>
+        </div>
+      </div>
+
+      <div class="lp-space" style="display:grid; grid-template-columns:1.15fr 1fr; gap:48px; align-items:center;">
+        <div style="position:relative; overflow:hidden; aspect-ratio:4 / 3; order:2;">
+          <img src="assets/photos/quriu_living.jpeg" alt="8weeks Quriu" class="lp-space-img" style="width:100%; height:100%; object-fit:cover; transition:transform 1.4s ease;">
+        </div>
+        <div>
+          <span style="font-family:var(--serif); font-size:0.78rem; letter-spacing:0.3em; color:var(--ink-soft); display:block; margin-bottom:14px;">02</span>
+          <h3 style="font-family:var(--serif); font-weight:500; font-size:1.55rem; letter-spacing:0.1em; color:var(--navy); margin:0 0 10px;">8weeks Quriu</h3>
+          <p style="font-size:0.82rem; color:var(--navy); margin-bottom:16px;">
+            <span style="color:#C9A227;">★</span> <b style="font-family:var(--serif); font-size:1.05rem;">4.97</b> · 66件のレビュー — 2寝室・定員6名
+          </p>
+          <p style="font-size:0.92rem; line-height:2.15; color:var(--ink-soft); margin-bottom:26px;">複数世帯で楽しめる100m²超のフロア貸切、マウンテンビュー</p>
+          <a href="https://airbnb.com/h/8weeks-quriu"><button type="button" class="ds-btn ds-btn-primary">予約する（Airbnb）</button></a>
+        </div>
+      </div>
+
+      <div class="lp-space" style="display:grid; grid-template-columns:1.15fr 1fr; gap:48px; align-items:center;">
+        <div style="position:relative; overflow:hidden; aspect-ratio:4 / 3; order:0;">
+          <img src="assets/photos/studio_living.jpeg" alt="8weeks Studio" class="lp-space-img" style="width:100%; height:100%; object-fit:cover; transition:transform 1.4s ease;">
+        </div>
+        <div>
+          <span style="font-family:var(--serif); font-size:0.78rem; letter-spacing:0.3em; color:var(--ink-soft); display:block; margin-bottom:14px;">03</span>
+          <h3 style="font-family:var(--serif); font-weight:500; font-size:1.55rem; letter-spacing:0.1em; color:var(--navy); margin:0 0 10px;">8weeks Studio</h3>
+          <p style="font-size:0.82rem; color:var(--navy); margin-bottom:16px;">
+            <span style="color:#C9A227;">★</span> <b style="font-family:var(--serif); font-size:1.05rem;">4.97</b> · 34件のレビュー — 2寝室・定員4名
+          </p>
+          <p style="font-size:0.92rem; line-height:2.15; color:var(--ink-soft); margin-bottom:26px;">富士見商店街のリノベーションフラット、車がなくても</p>
+          <a href="https://airbnb.com/h/8weeks-studio"><button type="button" class="ds-btn ds-btn-primary">予約する（Airbnb）</button></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ Gallery ============ -->
+<section id="gallery" style="background:var(--white); padding:110px 24px;" data-screen-label="Gallery">
+  <div style="max-width:1080px; margin:0 auto;">
+    <div style="text-align:center;">
+      <h2 class="sh-title" style="color:var(--navy);">Property Gallery</h2>
+      <p class="sh-sub" style="color:var(--ink-soft);">八ヶ岳山麓の静寂な空間で過ごす特別な時間</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:12px; margin-top:48px;">
+      <div style="position:relative; aspect-ratio:3 / 4; overflow:hidden;">
+        <img src="assets/photos/fujimi_living.jpg" alt="" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+      <div style="position:relative; aspect-ratio:3 / 4; overflow:hidden;">
+        <img src="assets/photos/quriu_view.jpeg" alt="" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+      <div style="position:relative; aspect-ratio:3 / 4; overflow:hidden;">
+        <img src="assets/photos/studio_bedroom.jpeg" alt="" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+      <div style="position:relative; aspect-ratio:3 / 4; overflow:hidden;">
+        <img src="assets/photos/quriu_exterior.jpeg" alt="" style="width:100%; height:100%; object-fit:cover;">
+      </div>
+    </div>
+    <div style="display:flex; justify-content:center; margin-top:34px;">
+      <a href="gallery.html"><button type="button" class="ds-btn ds-btn-outline">さらに写真を見る</button></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Guest Voices ============ -->
+<section id="voices" style="background:var(--washi); padding:110px 24px;" data-screen-label="Guest Voices">
+  <div style="max-width:1200px; margin:0 auto;">
+    <div style="text-align:center;">
+      <h2 class="sh-title" style="color:var(--navy);">ゲストの声</h2>
+      <p class="sh-sub" style="color:var(--ink-soft);">世界中のゲストが、この小さな町を訪れています。</p>
+    </div>
+    <div style="position:relative; margin-top:56px;">
+      <button id="voice-prev" aria-label="前のレビュー" class="voice-nav-btn" style="left:-14px;">‹</button>
+      <button id="voice-next" aria-label="次のレビュー" class="voice-nav-btn" style="right:-14px;">›</button>
+      <div id="voice-track" class="lp-voice-track" style="display:flex; gap:22px; overflow-x:auto; scroll-snap-type:x mandatory; padding:4px 4px 22px;">
+
+        <div class="voice-card">
+          <div class="voice-card-top">
+            <span class="ds-badge ds-badge-lang">NORSK · ノルウェー</span>
+            <span class="voice-card-stars">★★★★★</span>
+          </div>
+          <p class="voice-card-original">«Vi har aldri opplevd bedre verter enn Rei og Shunji. Vi spiste soba sammen, snakket om film og musikk.»</p>
+          <p class="voice-card-tr"><span class="tag">JA</span>「これ以上のホストに出会ったことがありません。一緒に蕎麦を食べ、映画や音楽について語り合いました。」</p>
+          <cite class="voice-card-cite">— Airbnb ゲスト · 8weeks Fujimi</cite>
+        </div>
+
+        <div class="voice-card">
+          <div class="voice-card-top">
+            <span class="ds-badge ds-badge-lang">ENGLISH · マレーシア</span>
+            <span class="voice-card-stars">★★★★★</span>
+          </div>
+          <p class="voice-card-original">"Wished we stayed longer! Our favourite part are the musical instruments — a baby grand piano, 3 acoustic guitars, a drum pad and a djembe drum!"</p>
+          <p class="voice-card-tr"><span class="tag">JA</span>「もっと長くいたかった！お気に入りは楽器たち — グランドピアノ、ギター3本、そしてジャンベまで。」</p>
+          <cite class="voice-card-cite">— Airbnb ゲスト · 8weeks Fujimi</cite>
+        </div>
+
+        <div class="voice-card">
+          <div class="voice-card-top">
+            <span class="ds-badge ds-badge-lang">FRANÇAIS</span>
+            <span class="voice-card-stars">★★★★★</span>
+          </div>
+          <p class="voice-card-original">« Un vrai paradis au milieu des Alpes japonaises&nbsp;! Un havre de paix avec des propriétaires absolument adorables&nbsp;! »</p>
+          <p class="voice-card-tr"><span class="tag">JA</span>「日本アルプスの真ん中の、まさに楽園。我が家のようにくつろげました。」</p>
+          <p class="voice-card-tr"><span class="tag">EN</span>"A true paradise in the middle of the Japanese Alps."</p>
+          <cite class="voice-card-cite">— Airbnb ゲスト · 8weeks Quriu</cite>
+        </div>
+
+        <div class="voice-card">
+          <div class="voice-card-top">
+            <span class="ds-badge ds-badge-lang">中文</span>
+            <span class="voice-card-stars">★★★★★</span>
+          </div>
+          <p class="voice-card-original">「我们在这里度过了非常开心的四天，并一定会再次回到这里。房主用心布置的一切都很喜欢。」</p>
+          <p class="voice-card-tr"><span class="tag">JA</span>「とても楽しい4日間を過ごしました。必ずまた戻ってきます。」</p>
+          <cite class="voice-card-cite">— Airbnb ゲスト · 8weeks Studio</cite>
+        </div>
+
+        <div class="voice-card">
+          <div class="voice-card-top">
+            <span class="ds-badge ds-badge-lang">한국어</span>
+            <span class="voice-card-stars">★★★★★</span>
+          </div>
+          <p class="voice-card-original">「가족들끼리 조용하게 BBQ하고 쉴 수 있어서 너무 좋았습니다.」</p>
+          <p class="voice-card-tr"><span class="tag">JA</span>「家族で静かにBBQをして休めて、とても良かったです。」</p>
+          <cite class="voice-card-cite">— Airbnb ゲスト · 8weeks Fujimi</cite>
+        </div>
+
+        <div class="voice-card">
+          <div class="voice-card-top">
+            <span class="ds-badge ds-badge-lang">DEUTSCH</span>
+            <span class="voice-card-stars">★★★★★</span>
+          </div>
+          <p class="voice-card-original">„Beste Airbnb-Erfahrung in Japan. Wir haben uns sofort wie zuhause gefühlt."</p>
+          <p class="voice-card-tr"><span class="tag">JA</span>「日本でのベストAirbnb体験。すぐに我が家のようにくつろげました。」</p>
+          <cite class="voice-card-cite">— Airbnb ゲスト · 8weeks Studio</cite>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Location teaser (links-only variant) ============ -->
+<section id="location" style="background:var(--white); padding:110px 24px;" data-screen-label="Location Teaser">
+  <div style="max-width:1080px; margin:0 auto; text-align:center;">
+    <div style="text-align:center;">
+      <h2 class="sh-title" style="color:var(--navy);">Location</h2>
+      <p class="sh-sub" style="color:var(--ink-soft);">標高1000m・都心から約2時間。高原の拠点から、信州を旅する。</p>
+    </div>
+    <div style="margin-top:48px;">
+      <a class="lp-area-link" href="https://www.airbnb.jp/s/guidebooks?refinement_paths[]=/guidebooks/4547042" target="_blank" rel="noopener">周辺エリアガイドを見る（Airbnbガイドブック）<span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Your Host ============ -->
+<section id="host" style="background:var(--washi); padding:110px 24px;" data-screen-label="Your Host">
+  <div style="max-width:1080px; margin:0 auto;">
+    <div style="text-align:center;">
+      <h2 class="sh-title" style="color:var(--navy);">Your Host</h2>
+    </div>
+    <div class="lp-host-grid" style="display:grid; grid-template-columns:1fr 1.35fr; gap:56px; align-items:start; margin-top:60px;">
+      <div style="position:relative; aspect-ratio:3 / 4; overflow:hidden; max-width:340px;">
+        <img src="assets/photos/host_rei.jpg" alt="Rei" style="width:100%; height:100%; object-fit:cover;">
+        <span class="ds-badge ds-badge-moon" style="position:absolute; left:14px; bottom:14px;">★ Superhost</span>
+      </div>
+      <div>
+        <h3 style="font-family:var(--serif); font-weight:500; font-size:1.5rem; letter-spacing:0.14em; color:var(--navy); margin:0 0 4px;">Rei</h3>
+        <span style="font-size:0.75rem; letter-spacing:0.22em; color:var(--ink-soft); display:block; margin-bottom:26px;">HOST · 8WEEKS STAY</span>
+        <p style="font-size:0.9rem; line-height:2.25; color:var(--ink-soft); margin:0;">2020年に家族で富士見町へ移住。八ヶ岳の麓での暮らしの豊かさを、訪れる方にもそのまま感じていただけるよう、三つの空間を整えています。移住のこと、季節ごとの町のおすすめも、どうぞ気軽に。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Booking ============ -->
+<section id="booking" style="background:var(--navy); color:var(--white); padding:110px 24px;" data-screen-label="Booking">
+  <div style="max-width:880px; margin:0 auto;">
+    <div style="text-align:center;">
+      <h2 class="sh-title" style="color:var(--white);">ご予約</h2>
+      <p class="sh-sub" style="color:rgba(255,255,255,0.75);">各施設のカレンダー・料金はAirbnbでご確認いただけます。</p>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.14); margin-top:40px;">
+
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,0.14); flex-wrap:wrap;">
+        <div>
+          <h4 style="font-family:var(--serif); font-weight:500; font-size:1.02rem; letter-spacing:0.1em; margin:0 0 2px;">8weeks Fujimi</h4>
+          <p style="font-size:0.76rem; color:rgba(255,255,255,0.68); letter-spacing:0.06em; margin:0;">森の中の一棟貸切・グランドピアノ</p>
+        </div>
+        <a href="https://airbnb.com/h/8weeksfujimi"><button type="button" class="ds-btn ds-btn-moon ds-btn-sm">予約する</button></a>
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,0.14); flex-wrap:wrap;">
+        <div>
+          <h4 style="font-family:var(--serif); font-weight:500; font-size:1.02rem; letter-spacing:0.1em; margin:0 0 2px;">8weeks Quriu</h4>
+          <p style="font-size:0.76rem; color:rgba(255,255,255,0.68); letter-spacing:0.06em; margin:0;">100m²超のフロア貸切・マウンテンビュー</p>
+        </div>
+        <a href="https://airbnb.com/h/8weeks-quriu"><button type="button" class="ds-btn ds-btn-moon ds-btn-sm">予約する</button></a>
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,0.14); flex-wrap:wrap;">
+        <div>
+          <h4 style="font-family:var(--serif); font-weight:500; font-size:1.02rem; letter-spacing:0.1em; margin:0 0 2px;">8weeks Studio</h4>
+          <p style="font-size:0.76rem; color:rgba(255,255,255,0.68); letter-spacing:0.06em; margin:0;">商店街のリノベーションフラット</p>
+        </div>
+        <a href="https://airbnb.com/h/8weeks-studio"><button type="button" class="ds-btn ds-btn-moon ds-btn-sm">予約する</button></a>
+      </div>
+
+    </div>
+    <a href="mailto:8weeks.fujimi@gmail.com" class="lp-contact" style="display:block; border:1px solid rgba(255,255,255,0.25); padding:20px 24px; margin-top:32px;">
+      <strong style="display:block; font-size:0.88rem; letter-spacing:0.1em; font-weight:500;">長期滞在・移住体験のご相談</strong>
+      <span style="font-size:0.78rem; color:rgba(255,255,255,0.7); letter-spacing:0.06em;">8weeks.fujimi@gmail.com — ロングステイ・ワーケーションにも対応しています</span>
     </a>
-    <nav class="header-nav">
-      <a href="#spaces">Spaces</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#location">Location</a>
-      <a href="#booking">Booking</a>
-      <div class="lang-switch">
-        <a class="lang active" href="index.html">日本語</a>
-        <a class="lang" href="index-en.html">English</a>
-      </div>
-    </nav>
-  </header>
-
-  <!-- ヒーロー -->
-  <section class="hero" id="top">
-    <img src="assets/images/logos/fujimi.png" alt="8weeks Fujimi" class="hero-slide active" loading="eager">
-    <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu9.jpeg" alt="8weeks Quriu" class="hero-slide" loading="eager">
-    <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu30.jpeg" alt="8weeks Quriu" class="hero-slide" loading="eager">
-    <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9615.jpeg" alt="8weeks Studio" class="hero-slide" loading="eager">
-    <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9526.jpeg" alt="8weeks Studio" class="hero-slide" loading="eager">
-    <div class="hero-veil"></div>
-
-    <div class="hero-copy">
-      <div class="hero-moons" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M15 2a10 10 0 1 0 0 20 12.2 12.2 0 0 1 0-20z" fill="#FFF100"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0 0 20 8 8 0 0 1-3-20 10 10 0 0 1 3 0z" fill="#FFF100" opacity="0.85"/></svg>
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FFF100"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 0 20 8 8 0 0 0 3-20 10 10 0 0 0-3 0z" fill="#FFF100" opacity="0.85"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M9 2a10 10 0 1 1 0 20 12.2 12.2 0 0 0 0-20z" fill="#FFF100"/></svg>
-      </div>
-      <h1 class="hero-title serif">8weeks Stay</h1>
-      <p class="hero-sub">八ヶ岳山麓の静かな滞在空間</p>
-      <p class="hero-loc">1000m Elevation · Yatsugatake Mountains</p>
-    </div>
-    <div class="hero-dots">
-      <button class="hero-dot active" data-slide="0" aria-label="Fujimi"></button>
-      <button class="hero-dot" data-slide="1" aria-label="Quriu"></button>
-      <button class="hero-dot" data-slide="2" aria-label="Quriu"></button>
-      <button class="hero-dot" data-slide="3" aria-label="Studio"></button>
-      <button class="hero-dot" data-slide="4" aria-label="Studio"></button>
-    </div>
-    <div class="hero-scroll">SCROLL</div>
-  </section>
-
-  <!-- トラストバー -->
-  <div class="trust-bar">
-    <div class="trust-bar-inner">
-      <div class="trust-item"><span class="stars">★</span> 4.98 平均評価</div>
-      <div class="trust-item">190+ レビュー</div>
-      <div class="trust-item"><span class="stars">★</span> Superhost</div>
-    </div>
   </div>
+</section>
 
-  <!-- 物語 -->
-  <section class="section philosophy" id="story">
-    <div class="container">
-      <h2 class="section-title serif reveal">この場所で暮らすまでの8週間</h2>
-
-      <div class="moon-cycle reveal" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#FFF100" stroke-width="1.2" opacity="0.5"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M15 2a10 10 0 1 0 0 20 12.2 12.2 0 0 1 0-20z" fill="#FFF100" opacity="0.7"/></svg>
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FFF100"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M9 2a10 10 0 1 1 0 20 12.2 12.2 0 0 0 0-20z" fill="#FFF100" opacity="0.7"/></svg>
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#FFF100" stroke-width="1.2" opacity="0.5"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M15 2a10 10 0 1 0 0 20 12.2 12.2 0 0 1 0-20z" fill="#FFF100" opacity="0.7"/></svg>
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FFF100"/></svg>
-        <svg viewBox="0 0 24 24"><path d="M9 2a10 10 0 1 1 0 20 12.2 12.2 0 0 0 0-20z" fill="#FFF100" opacity="0.7"/></svg>
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#FFF100" stroke-width="1.2" opacity="0.5"/></svg>
-      </div>
-
-      <div class="philosophy-text reveal">
-        <p>2020年に都市部から当時1歳の娘と移住した私たちは、富士見町に魅了され、8週間で移住を決断しました。</p>
-        <p>豊かな自然の中で贅沢な時間を過ごし、8週間が経つ頃には「この町に住み続けよう」と思うようになっていたのです。</p>
-        <p>お客様にも「ここにいたい」と思えるような時間を過ごして頂きたいという願いから"8weeks"と名付けました。</p>
-      </div>
+<!-- ============ Footer ============ -->
+<footer style="background:var(--navy); color:rgba(255,255,255,0.6); border-top:1px solid rgba(255,255,255,0.12); padding:60px 24px 40px;">
+  <div style="max-width:1080px; margin:0 auto; text-align:center;">
+    <div style="display:flex; justify-content:center; margin-bottom:18px;">
+      <img src="assets/logos/logo_white.png" alt="8weeks" style="height:72px;">
     </div>
-  </section>
-
-  <!-- 三つの空間 -->
-  <section class="section spaces" id="spaces">
-    <div class="container">
-      <h2 class="section-title serif reveal">Three Spaces</h2>
-      <p class="section-sub reveal">それぞれ異なる個性を持つ3つの空間をご用意しています</p>
-
-      <div class="space-list">
-        <div class="space reveal">
-          <div class="space-photo">
-            <img src="assets/images/gallery/optimized/Fujimi%20Photos/LINE_ALBUM_20240202_250831_1.jpg" alt="8weeks Fujimi リビング" loading="lazy">
-          </div>
-          <div>
-            <span class="space-num">01</span>
-            <h3>8weeks Fujimi</h3>
-            <p class="rating"><span class="stars">★</span> <b>4.99</b> · 94件のレビュー</p>
-            <p class="desc">グランドピアノのある森の中の一棟貸切別荘</p>
-            <p class="meta">2寝室・2ベッド・1バス・定員6名</p>
-            <div class="btn-row">
-              <a class="btn primary" href="https://airbnb.com/h/8weeksfujimi" target="_blank" rel="noopener">詳細（Airbnb）</a>
-              <a class="btn" href="https://maps.app.goo.gl/7EvAJLE3DuLRwecr7" target="_blank" rel="noopener">地図を見る</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="space reveal">
-          <div class="space-photo">
-            <img src="assets/images/gallery/optimized/Quriu%20Photo/202403_Quriu1.jpeg" alt="8weeks Quriu リビング" loading="lazy">
-          </div>
-          <div>
-            <span class="space-num">02</span>
-            <h3>8weeks Quriu</h3>
-            <p class="rating"><span class="stars">★</span> <b>4.97</b> · 66件のレビュー</p>
-            <p class="desc">複数世帯楽しめる100m²超のフロア貸切、マウンテンビュー</p>
-            <p class="meta">2寝室・5ベッド・2バス・定員6名</p>
-            <div class="btn-row">
-              <a class="btn primary" href="https://airbnb.com/h/8weeks-quriu" target="_blank" rel="noopener">詳細（Airbnb）</a>
-              <a class="btn" href="https://maps.app.goo.gl/36fJ73qrijhShca76" target="_blank" rel="noopener">地図を見る</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="space reveal">
-          <div class="space-photo">
-            <img src="assets/images/gallery/optimized/Studio%20Photos/DSCF9557.jpeg" alt="8weeks Studio" loading="lazy">
-          </div>
-          <div>
-            <span class="space-num">03</span>
-            <h3>8weeks Studio</h3>
-            <p class="rating"><span class="stars">★</span> <b>4.97</b> · 34件のレビュー</p>
-            <p class="desc">富士見商店街のリノベーションされたフラット、車がなくても楽しめる</p>
-            <p class="meta">2寝室・4ベッド・1バス・定員4名</p>
-            <div class="btn-row">
-              <a class="btn primary" href="https://airbnb.com/h/8weeks-studio" target="_blank" rel="noopener">詳細（Airbnb）</a>
-              <a class="btn" href="https://maps.app.goo.gl/ootmFKiQBJGpeUka6" target="_blank" rel="noopener">地図を見る</a>
-            </div>
-          </div>
-        </div>
-      </div>
+    <p style="font-size:0.8rem; letter-spacing:0.1em; color:rgba(255,255,255,0.75); margin-bottom:26px;">八ヶ岳山麓の静かな滞在空間</p>
+    <div style="display:flex; justify-content:center; gap:26px; flex-wrap:wrap; margin-bottom:30px;">
+      <a href="#spaces" class="lp-footer-link">Spaces</a>
+      <a href="gallery.html" class="lp-footer-link">Gallery</a>
+      <a href="#voices" class="lp-footer-link">Voices</a>
+      <a href="https://www.airbnb.jp/s/guidebooks?refinement_paths[]=/guidebooks/4547042" target="_blank" rel="noopener" class="lp-footer-link">Location</a>
+      <a href="archive.html" class="lp-footer-link">Archive</a>
+      <a href="#booking" class="lp-footer-link">Booking</a>
     </div>
-  </section>
-
-  <!-- ゲストの声 -->
-  <section class="section voices" id="voices">
-    <div class="container">
-      <h2 class="section-title serif reveal">ゲストの声</h2>
-      <p class="section-sub reveal">世界中のゲストが、この小さな町を訪れています。</p>
-      <div class="voice-scroller reveal">
-        <button class="voice-nav prev" aria-label="前のレビュー">‹</button>
-        <button class="voice-nav next" aria-label="次のレビュー">›</button>
-        <div class="voice-track">
-        <div class="voice">
-          <div class="voice-head"><span class="voice-lang">NORSK · ノルウェー</span><span class="stars">★★★★★</span></div>
-          <p class="voice-original">«Vi har aldri opplevd bedre verter enn Rei og Shunji. Vi spiste soba sammen, snakket om film og musikk, livet i Japan og Norge, og alt mulig ellers.»</p>
-          <p class="voice-tr"><span class="tr-tag">JA</span>「これ以上のホストに出会ったことがありません。一緒に蕎麦を食べ、映画や音楽、日本とノルウェーの暮らしについて語り合いました。」</p>
-          <p class="voice-tr"><span class="tr-tag">EN</span>"We have never met better hosts than Rei and Shunji. We ate soba together and talked about film, music, and life in Japan and Norway."</p>
-          <cite>— Airbnb ゲスト · 8weeks Fujimi</cite>
-        </div>
-        <div class="voice">
-          <div class="voice-head"><span class="voice-lang">ENGLISH · マレーシア</span><span class="stars">★★★★★</span></div>
-          <p class="voice-original">"Wished we stayed longer! Our favourite part are the musical instruments — a baby grand piano, 3 acoustic guitars, a drum pad and a djembe drum! Thank you for the memorable stay!"</p>
-          <p class="voice-tr"><span class="tr-tag">JA</span>「もっと長くいたかった！お気に入りは楽器たち — グランドピアノ、アコースティックギター3本、ドラムパッド、そしてジャンベまで。忘れられない滞在をありがとう。」</p>
-          <cite>— Airbnb ゲスト · 8weeks Fujimi（冬の滞在）</cite>
-        </div>
-        <div class="voice">
-          <div class="voice-head"><span class="voice-lang">ENGLISH · イスラエル</span><span class="stars">★★★★★</span></div>
-          <p class="voice-original">"This place is one of our best airbnb stays. The house is peaceful and beautiful. Quiet garden with swings and a bench to the view. The hosts were super friendly. We hope to come back one day!"</p>
-          <p class="voice-tr"><span class="tr-tag">JA</span>「これまでで最高のAirbnb滞在のひとつ。静かで美しい家、ブランコと景色を望むベンチのある庭。ホストはとてもフレンドリーで、いつかまた戻りたいです。」</p>
-          <cite>— Airbnb ゲスト · 8weeks Quriu</cite>
-        </div>
-        <div class="voice">
-          <div class="voice-head"><span class="voice-lang">FRANÇAIS</span><span class="stars">★★★★★</span></div>
-          <p class="voice-original">« Un vrai paradis au milieu des Alpes japonaises ! Un havre de paix avec des propriétaires absolument adorables ! Nous étions comme à la maison. »</p>
-          <p class="voice-tr"><span class="tr-tag">JA</span>「日本アルプスの真ん中の、まさに楽園。とても温かいホストご夫妻のもと、我が家のようにくつろげました。」</p>
-          <p class="voice-tr"><span class="tr-tag">EN</span>"A true paradise in the middle of the Japanese Alps — a haven of peace with adorable hosts. We felt right at home."</p>
-          <cite>— Airbnb ゲスト · 8weeks Quriu</cite>
-        </div>
-        <div class="voice">
-          <div class="voice-head"><span class="voice-lang">中文</span><span class="stars">★★★★★</span></div>
-          <p class="voice-original">「我们在这里度过了非常开心的四天，并一定会再次回到这里。房主用心布置的一切都很喜欢。」</p>
-          <p class="voice-tr"><span class="tr-tag">JA</span>「とても楽しい4日間を過ごしました。必ずまた戻ってきます。ホストが心を込めて整えたすべてが好きでした。」</p>
-          <p class="voice-tr"><span class="tr-tag">EN</span>"We spent four very happy days here and will definitely come back. We loved every thoughtful detail."</p>
-          <cite>— Airbnb ゲスト · 8weeks Studio</cite>
-        </div>
-        <div class="voice">
-          <div class="voice-head"><span class="voice-lang">한국어</span><span class="stars">★★★★★</span></div>
-          <p class="voice-original">「가족들끼리 조용하게 BBQ하고 쉴 수 있어서 너무 좋았습니다. 집 안에 여러 악기가 있어서 애기와 함께 즐길 수 있었습니다.」</p>
-          <p class="voice-tr"><span class="tr-tag">JA</span>「家族で静かにBBQをして休めて、とても良かったです。家の中の楽器で、子どもと一緒に楽しめました。」</p>
-          <p class="voice-tr"><span class="tr-tag">EN</span>"It was wonderful to barbecue and rest quietly as a family. With the instruments in the house, we enjoyed playing with our little one."</p>
-          <cite>— Airbnb ゲスト · 8weeks Fujimi</cite>
-        </div>
-        <div class="voice">
-          <div class="voice-head"><span class="voice-lang">ENGLISH</span><span class="stars">★★★★★</span></div>
-          <p class="voice-original">"The house is set in the midst of nature with a beautiful location, and it was a truly peaceful and memorable experience. The piano and guitar added such a lovely extra charm."</p>
-          <p class="voice-tr"><span class="tr-tag">JA</span>「美しい自然の中に佇む家で、本当に穏やかで思い出深い体験でした。ピアノとギターが、この家に特別な魅力を添えていました。」</p>
-          <cite>— Airbnb ゲスト · 8weeks Fujimi</cite>
-        </div>
-        <div class="voice">
-          <div class="voice-head"><span class="voice-lang">ENGLISH</span><span class="stars">★★★★★</span></div>
-          <p class="voice-original">"The hosts were extremely friendly and accommodating to the point that they picked us up from the train station and took us shopping for food. The location was ideal for accessing the mountain bike trails."</p>
-          <p class="voice-tr"><span class="tr-tag">JA</span>「ホストはとてもフレンドリーで、駅まで迎えに来て食料品の買い出しにも連れて行ってくれました。マウンテンバイクのトレイルへのアクセスも理想的でした。」</p>
-          <cite>— Airbnb ゲスト · 8weeks Quriu</cite>
-        </div>
-        <div class="voice">
-          <div class="voice-head"><span class="voice-lang">ENGLISH</span><span class="stars">★★★★★</span></div>
-          <p class="voice-original">"The area is a dark sky area and very close to nature so we could see many beautiful stars. There's also a great hamburg restaurant nearby, which was a nice bonus."</p>
-          <p class="voice-tr"><span class="tr-tag">JA</span>「このあたりは空が暗く自然に近いので、たくさんの美しい星が見えました。近くに素晴らしいハンバーグレストランがあるのも嬉しいポイントでした。」</p>
-          <cite>— Airbnb ゲスト · 8weeks Fujimi</cite>
-        </div>
-        <div class="voice">
-          <div class="voice-head"><span class="voice-lang">ENGLISH · マレーシア</span><span class="stars">★★★★★</span></div>
-          <p class="voice-original">"The place was spotlessly clean, fully equipped, and had everything we needed for a peaceful getaway. The futon was incredibly comfortable — it truly felt like a home away from home."</p>
-          <p class="voice-tr"><span class="tr-tag">JA</span>「隅々まで清潔で設備も完璧、穏やかな休暇に必要なものがすべて揃っていました。布団は驚くほど快適で、まさに『第二の我が家』でした。」</p>
-          <cite>— Airbnb ゲスト · 8weeks Studio</cite>
-        </div>
-        <div class="voice">
-          <div class="voice-head"><span class="voice-lang">ENGLISH · タイ</span><span class="stars">★★★★★</span></div>
-          <p class="voice-original">"It's located on the shoulder of Mt. Nyukasa, so we could clearly see a beautiful view of Mt. Aka and the town below."</p>
-          <p class="voice-tr"><span class="tr-tag">JA</span>「入笠山の中腹にあるので、赤岳と眼下に広がる町の美しい眺めがはっきりと見えました。」</p>
-          <cite>— Airbnb ゲスト · 8weeks Quriu</cite>
-        </div>
-        <div class="voice">
-          <div class="voice-head"><span class="voice-lang">日本語</span><span class="stars">★★★★★</span></div>
-          <p class="voice-original">「自然豊かで静かな環境。富士見町での滞在が素晴らしかった。移住体験として最適でした。」</p>
-          <p class="voice-tr"><span class="tr-tag">EN</span>"A quiet setting surrounded by rich nature. Our stay in Fujimi was wonderful — ideal as a trial of living here."</p>
-          <cite>— Airbnb ゲスト · 8weeks Fujimi</cite>
-        </div>
-        <div class="voice">
-          <div class="voice-head"><span class="voice-lang">日本語</span><span class="stars">★★★★★</span></div>
-          <p class="voice-original">「ホストのReiさんの温かいおもてなしに感動。地元のおすすめスポットも教えて頂き、最高の旅になりました。」</p>
-          <p class="voice-tr"><span class="tr-tag">EN</span>"We were touched by Rei's warm hospitality. She shared her favorite local spots, and it became the best trip."</p>
-          <cite>— Airbnb ゲスト · 8weeks Fujimi</cite>
-        </div>
-        <div class="voice">
-          <div class="voice-head"><span class="voice-lang">DEUTSCH</span><span class="stars">★★★★★</span></div>
-          <p class="voice-original">„Beste Airbnb-Erfahrung in Japan. Wir haben uns sofort wie zuhause gefühlt. Vielen lieben Dank für die wertvollen Tipps und die tollen Gespräche!"</p>
-          <p class="voice-tr"><span class="tr-tag">JA</span>「日本でのベストAirbnb体験。すぐに我が家のようにくつろげました。貴重なアドバイスと楽しい会話をありがとう。」</p>
-          <p class="voice-tr"><span class="tr-tag">EN</span>"Our best Airbnb experience in Japan. We felt at home right away. Thank you for the valuable tips and wonderful conversations!"</p>
-          <cite>— Airbnb ゲスト · 8weeks Studio</cite>
-        </div>
-        <div class="voice">
-          <div class="voice-head"><span class="voice-lang">PORTUGUÊS</span><span class="stars">★★★★★</span></div>
-          <p class="voice-original">«No check-out a Rei veio se despedir de mim com o marido e a filha. Me senti muito bem acolhida. Super recomendo!»</p>
-          <p class="voice-tr"><span class="tr-tag">JA</span>「チェックアウトの日、Reiさんがご主人と娘さんと見送りに来てくれました。とても温かく迎えられていると感じました。」</p>
-          <p class="voice-tr"><span class="tr-tag">EN</span>"At check-out, Rei came to say goodbye with her husband and daughter. I felt so warmly welcomed. Highly recommend!"</p>
-          <cite>— Airbnb ゲスト · 8weeks Quriu</cite>
-        </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Property Gallery（Pinterest風） -->
-  <section class="section gallery-section" id="gallery">
-    <div class="container">
-      <h2 class="section-title serif reveal">Property Gallery</h2>
-      <p class="section-sub reveal">八ヶ岳山麓の静寂な空間で過ごす特別な時間</p>
-
-      <div class="section-gallery">
-        <!-- Gallery Filters -->
-        <div class="gallery-filters">
-          <div class="filter-buttons">
-            <button class="filter-btn active" data-property="all">
-              <i data-lucide="grid-3x3" class="filter-icon"></i>
-              すべて
-            </button>
-            <button class="filter-btn" data-property="fujimi">
-              <i data-lucide="music" class="filter-icon"></i>
-              Fujimi
-            </button>
-            <button class="filter-btn" data-property="quriu">
-              <i data-lucide="maximize" class="filter-icon"></i>
-              Quriu
-            </button>
-            <button class="filter-btn" data-property="studio">
-              <i data-lucide="shopping-bag" class="filter-icon"></i>
-              Studio
-            </button>
-          </div>
-        </div>
-
-        <!-- Masonry Gallery -->
-        <div class="masonry-gallery" id="property-masonry"></div>
-
-        <!-- Loading -->
-        <div class="gallery-loading" id="gallery-loading">
-          <div class="loading-spinner"></div>
-          <p>ギャラリーを読み込み中...</p>
-        </div>
-
-        <!-- Load More -->
-        <div class="gallery-load-more" id="gallery-load-more" style="display: none;">
-          <button class="load-more-btn">
-            さらに写真を見る
-            <i data-lucide="chevron-down" class="btn-icon"></i>
-          </button>
-        </div>
-
-        <!-- Enhanced Lightbox -->
-        <div class="enhanced-lightbox" id="enhanced-lightbox">
-          <div class="lightbox-backdrop"></div>
-          <div class="lightbox-container">
-            <button class="lightbox-close" aria-label="閉じる">
-              <i data-lucide="x"></i>
-            </button>
-
-            <div class="lightbox-content">
-              <div class="lightbox-main">
-                <img id="lightbox-main-image" src="" alt="">
-                <div class="lightbox-navigation">
-                  <button class="nav-btn nav-prev" aria-label="前の画像">
-                    <i data-lucide="chevron-left"></i>
-                  </button>
-                  <button class="nav-btn nav-next" aria-label="次の画像">
-                    <i data-lucide="chevron-right"></i>
-                  </button>
-                </div>
-                <div class="lightbox-info">
-                  <div class="photo-meta">
-                    <span class="photo-counter">
-                      <span id="current-photo-num">1</span> / <span id="total-photos-num">0</span>
-                    </span>
-                    <span class="property-badge" id="lightbox-property-badge">Quriu</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Thumbnails -->
-            <div id="lightbox-thumbnails"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ホスト -->
-  <section class="section host" id="host">
-    <div class="container">
-      <h2 class="section-title serif reveal">Your Host</h2>
-      <div class="host-inner">
-        <div class="host-photo-wrap reveal">
-          <img src="assets/images/gallery/Host%20Photo/Rei_lifestyle.jpg" alt="Rei — 花を活ける暮らしのひとコマ" loading="lazy">
-          <span class="host-superhost-badge">★ Superhost</span>
-        </div>
-        <div class="reveal">
-          <h3>Rei</h3>
-          <span class="host-role">富士見町在住</span>
-          <p>2020年8月、神奈川県から富士見町へ移住。信州の豊かな自然の中で娘を育てながら、8weeks Stayを運営しています。</p>
-          <p>夫がロンドンに単身赴任中、娘と先に富士見へ。八ヶ岳エリアのおすすめスポットはもちろん、地方移住や子育てについても、気兼ねなくお尋ねください。</p>
-
-          <h4 class="host-sub">INTERESTS</h4>
-          <div class="hobby-row">
-            <span class="hobby-chip">アウトドア</span>
-            <span class="hobby-chip">アート</span>
-            <span class="hobby-chip">ハイキング</span>
-            <span class="hobby-chip">ライブミュージック</span>
-            <span class="hobby-chip">旅行</span>
-            <span class="hobby-chip">楽器演奏</span>
-          </div>
-
-          <div class="superhost-line">Airbnb Superhostとして、一貫して優れたホスピタリティを提供</div>
-
-          <h4 class="host-sub">MEDIA</h4>
-          <a class="media-card" href="https://www.kyodo.co.jp/life/2025-11-04_3972207/" target="_blank" rel="noopener">
-            <span class="media-source">共同通信</span>
-            <span class="media-title">移住と子育て、ゲストハウス経営のストーリー</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- エリアガイド -->
-  <section class="section location-section" id="location">
-    <div class="container">
-      <h2 class="section-title serif reveal">エリア別過ごし方ガイド</h2>
-
-      <div class="area-tabs reveal">
-        <button class="area-tab active" data-area="fujimi">富士見駅周辺・パノラマリゾート</button>
-        <button class="area-tab" data-area="shinanosakai">信濃境エリア</button>
-        <button class="area-tab" data-area="surrounding">周辺エリア</button>
-      </div>
-
-      <div class="area-content reveal">
-        <div class="area-panel active" id="fujimi-panel">
-          <h4>富士見駅周辺・パノラマリゾートエリア</h4>
-
-          <div class="category-section">
-            <h5 class="category-title">アクティビティ</h5>
-            <div class="area-spots">
-              <div class="spot-card">
-                <h6>富士見パノラマリゾート</h6>
-                <p>夏は爽快なマウンテンバイク、冬は家族で楽しめるスキー場。八ヶ岳連峰の絶景を背景にアクティビティを満喫</p>
-                <span class="spot-time">車で5-10分</span>
-                <a href="https://www.fujimipanorama.com/snow/" target="_blank" rel="noopener" class="spot-link">公式サイト</a>
-              </div>
-              <div class="spot-card">
-                <h6>カゴメ野菜生活ファーム</h6>
-                <p>新鮮な野菜の収穫体験と野菜ジュース作り。家族で楽しめる農業体験施設</p>
-                <span class="spot-time">車で5-10分</span>
-                <a href="https://www.kagome.co.jp/ysfarm/" target="_blank" rel="noopener" class="spot-link">公式サイト</a>
-              </div>
-              <div class="spot-card">
-                <h6>アルパカ牧場</h6>
-                <p>愛らしいアルパカたちとのふれ合い体験。癒しの時間を過ごせる人気スポット</p>
-                <span class="spot-time">車で10分</span>
-                <a href="https://www.alpaca-farm.net/" target="_blank" rel="noopener" class="spot-link">公式サイト</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="category-section">
-            <h5 class="category-title">ライフスタイル・富士見商店街</h5>
-            <div class="area-spots">
-              <div class="spot-card">
-                <h6>ワインバー Heptapod</h6>
-                <p>ナチュールワイン専門店。自然派ワインを中心とした選りすぐりのワインが楽しめるアットホームなバー</p>
-                <a href="https://www.instagram.com/heptapod_fujimi/" target="_blank" rel="noopener" class="spot-link">Instagram</a>
-              </div>
-              <div class="spot-card">
-                <h6>おにぎり屋さん onri</h6>
-                <p>地元の美味しいお米で作る手作りおにぎり。テイクアウトでピクニックにも最適</p>
-                <a href="https://www.instagram.com/onri_fujimi/" target="_blank" rel="noopener" class="spot-link">Instagram</a>
-              </div>
-              <div class="spot-card">
-                <h6>中華料理 茶虎飯店</h6>
-                <p>地元で愛される本格中華料理店。家庭的な雰囲気で美味しい中華を堪能</p>
-                <a href="https://www.instagram.com/chatorahanten/" target="_blank" rel="noopener" class="spot-link">Instagram</a>
-              </div>
-              <div class="spot-card">
-                <h6>レコードショップ 切り株</h6>
-                <p>音楽好きには堪らないレコードショップ。掘り出し物のレコードに出会えるかも</p>
-                <a href="https://www.instagram.com/fujimikirikabu/" target="_blank" rel="noopener" class="spot-link">Instagram</a>
-              </div>
-              <div class="spot-card">
-                <h6>朝喫茶 ちっと</h6>
-                <p>朝の時間を大切にする地元の喫茶店。心地よい空間でゆったりとした朝を</p>
-                <a href="https://www.instagram.com/chitto_fujimi/" target="_blank" rel="noopener" class="spot-link">Instagram</a>
-              </div>
-              <div class="spot-card">
-                <h6>Mamemura Coffee</h6>
-                <p>こだわりの自家焙煎コーヒーが楽しめるスペシャルティコーヒーショップ</p>
-                <a href="https://www.instagram.com/mame_mura_coffee/" target="_blank" rel="noopener" class="spot-link">Instagram</a>
-              </div>
-              <div class="spot-card">
-                <h6>Mountain Bookcase</h6>
-                <p>ことばと思索と創造のための本屋。山、暮らしに関する本などが並ぶ個性的な書店</p>
-                <a href="https://www.instagram.com/mountainbookcase/" target="_blank" rel="noopener" class="spot-link">Instagram</a>
-              </div>
-              <div class="spot-card">
-                <h6>沖縄そば てぃだまーる</h6>
-                <p>本格的な沖縄そばが味わえる貴重なお店。沖縄の味を富士見町で</p>
-                <a href="https://www.instagram.com/thidamaaru/" target="_blank" rel="noopener" class="spot-link">Instagram</a>
-              </div>
-              <div class="spot-card">
-                <h6>八ヶ岳珈琲工房 Table land</h6>
-                <p>自家焙煎にこだわったコーヒー豆の専門店。香り高いコーヒーを自宅でも</p>
-                <a href="https://www.instagram.com/tableland_coffee_yatsugatake/" target="_blank" rel="noopener" class="spot-link">Instagram</a>
-              </div>
-              <div class="spot-card">
-                <h6>Cafe&DiningBar KIZASHI Station</h6>
-                <p>地元食材を活かした創作料理が楽しめるモダンなレストラン</p>
-                <a href="https://www.instagram.com/kizashistationfujimi/" target="_blank" rel="noopener" class="spot-link">Instagram</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="area-panel" id="shinanosakai-panel">
-          <h4>信濃境エリア</h4>
-
-          <div class="category-section">
-            <h5 class="category-title">アクティビティ</h5>
-            <div class="area-spots">
-              <div class="spot-card">
-                <h6>井戸尻考古館</h6>
-                <p>縄文時代の遺跡を展示する考古館。古代の生活に思いを馳せる歴史体験</p>
-                <span class="spot-time">車で18分</span>
-              </div>
-              <div class="spot-card">
-                <h6>富士見高原リゾート</h6>
-                <p>標高1,000mの高原で四季を通じて楽しめるリゾート施設</p>
-                <span class="spot-time">車で25分</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="category-section">
-            <h5 class="category-title">ライフスタイル</h5>
-            <div class="area-spots">
-              <div class="spot-card">
-                <h6>高原のエコーズ 夏いちご</h6>
-                <p>夏でも美味しいいちごが味わえる高原の恵み。季節限定の贅沢な味覚体験</p>
-                <span class="spot-time">車で20分</span>
-              </div>
-              <div class="spot-card">
-                <h6>お稲荷屋さん 禾々 (信濃境駅前)</h6>
-                <p>信濃境駅前にある地元で愛されるお稲荷さん専門店。手作りの温かい味</p>
-                <span class="spot-time">車で15分</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="area-panel" id="surrounding-panel">
-          <h4>周辺エリアへの小旅行</h4>
-          <div class="surrounding-areas">
-            <div class="area-group">
-              <h5>原村・蓼科 <span class="distance">車で20-30分</span></h5>
-              <ul>
-                <li>蓼科高原バラクライングリッシュガーデン - 本格英国式庭園でのティータイム</li>
-                <li>八ヶ岳アルパカ牧場 - 愛らしいアルパカとのふれあい体験</li>
-                <li>原村の星まつり会場 - 日本屈指の星空観察スポット</li>
-                <li>蓼科テディベア美術館 - 世界のテディベアコレクション</li>
-                <li>車山高原 - 夏はニッコウキスゲ、冬はスキーリゾート</li>
-              </ul>
-            </div>
-            <div class="area-group">
-              <h5>諏訪 <span class="distance">車で30分</span></h5>
-              <ul>
-                <li>諏訪大社上社・下社 - 日本最古級の神社群で厄除け祈願</li>
-                <li>諏訪湖 - 湖畔散歩と上諏訪温泉街の散策</li>
-                <li>諏訪湖間欠泉センター - 自然の力強さを体感</li>
-                <li>片倉館 - 昭和レトロな千人風呂の日帰り温泉</li>
-              </ul>
-            </div>
-            <div class="area-group">
-              <h5>小淵沢 <span class="distance">車で30分</span></h5>
-              <ul>
-                <li>小淵沢の高原カフェ巡り - 八ヶ岳南麓の隠れ家的名店</li>
-                <li>リゾナーレ小淵沢 - 高原リゾートでの優雅なひととき</li>
-                <li>小淵沢駅周辺の工芸品ショップ - 地元作家の作品に出会う</li>
-              </ul>
-            </div>
-            <div class="area-group">
-              <h5>白州・韮崎 <span class="distance">車で30-40分</span></h5>
-              <ul>
-                <li>サントリー白州蒸溜所 - 森の蒸溜所でウイスキー工場見学</li>
-                <li>尾白川渓谷 - 名水百選の清流と神秘的な滝群</li>
-                <li>韮崎のワイナリー群 - 甲斐の地酒とワインテイスティング</li>
-                <li>シャトレーゼ白州工場 - アイスクリーム工場見学と試食</li>
-                <li>昇仙峡 - 日本有数の渓谷美と水晶の里</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 予約 -->
-  <section class="section booking" id="booking">
-    <div class="container">
-      <h2 class="section-title serif reveal">Booking</h2>
-      <p class="section-sub reveal">2つの方法でご予約いただけます。お好みの方法をお選びください。</p>
-
-      <div class="booking-options">
-        <div class="booking-option reveal">
-          <h3>Airbnbで予約</h3>
-          <p class="option-description">リアルタイムの空室状況と料金確認、即座に予約確定</p>
-
-          <div class="airbnb-properties">
-            <div class="property-item">
-              <div class="property-details">
-                <h4>8weeks Fujimi</h4>
-                <p>2寝室・2ベッド・1バス・定員6名</p>
-              </div>
-              <div class="property-buttons">
-                <a href="https://airbnb.com/h/8weeksfujimi" target="_blank" rel="noopener" class="btn-moon">Airbnb</a>
-                <a href="https://maps.app.goo.gl/7EvAJLE3DuLRwecr7" target="_blank" rel="noopener" class="btn-ghost">地図</a>
-              </div>
-            </div>
-
-            <div class="property-item">
-              <div class="property-details">
-                <h4>8weeks Quriu</h4>
-                <p>2寝室・5ベッド・2バス・定員6名</p>
-              </div>
-              <div class="property-buttons">
-                <a href="https://airbnb.com/h/8weeks-quriu" target="_blank" rel="noopener" class="btn-moon">Airbnb</a>
-                <a href="https://maps.app.goo.gl/36fJ73qrijhShca76" target="_blank" rel="noopener" class="btn-ghost">地図</a>
-              </div>
-            </div>
-
-            <div class="property-item">
-              <div class="property-details">
-                <h4>8weeks Studio</h4>
-                <p>2寝室・4ベッド・1バス・定員4名</p>
-              </div>
-              <div class="property-buttons">
-                <a href="https://airbnb.com/h/8weeks-studio" target="_blank" rel="noopener" class="btn-moon">Airbnb</a>
-                <a href="https://maps.app.goo.gl/ootmFKiQBJGpeUka6" target="_blank" rel="noopener" class="btn-ghost">地図</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="booking-option reveal">
-          <h3>DMで相談</h3>
-          <p class="option-description">柔軟な対応、特別なご要望、長期滞在のご相談など</p>
-          <p class="option-note">空室状況と料金はまずAirbnbでご確認ください</p>
-
-          <div class="contact-methods">
-            <a href="https://www.instagram.com/8weeks.fujimi/" class="contact-method" target="_blank" rel="noopener">
-              <strong>Instagram DM</strong>
-              <span>@8weeks.fujimi</span>
-            </a>
-
-            <a href="mailto:8weeks.fujimi@gmail.com?subject=予約相談&body=【ご相談内容】%0A%0A物件名：%0A日程：%0A人数：%0A特別なご要望：" class="contact-method">
-              <strong>Email</strong>
-              <span>8weeks.fujimi@gmail.com</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- フッター -->
-  <footer class="footer" id="contact">
-    <div class="footer-inner">
-      <div class="footer-logo">
-        <img src="assets/images/logos/logo_white.png" alt="8weeks">
-      </div>
-      <p class="footer-tagline">長野県富士見町 | この場所で暮らすまでの8週間</p>
-      <div class="footer-links">
-        <a href="https://airbnb.com/h/8weeksfujimi" target="_blank" rel="noopener">8weeks Fujimi</a>
-        <a href="https://airbnb.com/h/8weeks-quriu" target="_blank" rel="noopener">8weeks Quriu</a>
-        <a href="https://airbnb.com/h/8weeks-studio" target="_blank" rel="noopener">8weeks Studio</a>
-        <a href="https://www.instagram.com/8weeks.fujimi/" target="_blank" rel="noopener">Instagram</a>
-      </div>
-      <p>運営会社：8weeks合同会社<br>
-      〒399-0211 長野県諏訪郡富士見町富士見9736番地1</p>
-      <p class="fine">&copy; 2025 8weeks Stay. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- モバイル固定CTA -->
-  <div class="sticky-cta">
-    <a href="#booking" class="sticky-cta-btn">空室を確認する</a>
+    <p style="font-size:0.74rem; letter-spacing:0.08em; line-height:2.1;">長野県諏訪郡富士見町富士見9736番地1 · 8weeks合同会社</p>
+    <p style="margin-top:20px; font-size:0.68rem; color:rgba(255,255,255,0.4);">© 2026 8weeks Stay. All rights reserved.</p>
   </div>
+</footer>
 
-  <script>
-    // ヘッダーのスクロール状態
-    const header = document.getElementById('header');
-    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+<script>
+(function () {
+  /* ---- Header scroll state: transparent -> navy past 40px ---- */
+  var header = document.getElementById('lp-header');
+  function onScroll() {
+    var scrolled = window.scrollY > 40;
+    header.style.padding = scrolled ? '10px 32px' : '16px 32px';
+    header.style.background = scrolled ? 'rgba(1,38,83,0.96)' : 'transparent';
+    header.style.boxShadow = scrolled ? '0 1px 24px rgba(1,38,83,0.25)' : 'none';
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
 
-    // ヒーロースライドショー（各物件の写真が順に切り替わる・ドット連動）
-    const slides = document.querySelectorAll('.hero-slide');
-    const dots = document.querySelectorAll('.hero-dot');
-    let current = 0;
-    const goToSlide = (i) => {
-      slides[current].classList.remove('active');
-      dots[current].classList.remove('active');
-      current = i % slides.length;
-      slides[current].classList.add('active');
-      dots[current].classList.add('active');
-    };
-    let heroTimer = setInterval(() => goToSlide(current + 1), 6000);
-    dots.forEach((dot, i) => dot.addEventListener('click', () => {
-      clearInterval(heroTimer);
-      goToSlide(i);
-      heroTimer = setInterval(() => goToSlide(current + 1), 6000);
-    }));
+  /* ---- Hero crossfade slideshow ---- */
+  var slides = [
+    document.getElementById('hero-slide-0'),
+    document.getElementById('hero-slide-1'),
+    document.getElementById('hero-slide-2')
+  ];
+  var dots = Array.prototype.slice.call(document.querySelectorAll('.hero-dot'));
+  var heroIdx = 0;
 
-    // ゲストの声：横スクロールナビ
-    const voiceTrack = document.querySelector('.voice-track');
-    if (voiceTrack) {
-      const step = () => (voiceTrack.querySelector('.voice')?.offsetWidth || 350) + 22;
-      document.querySelector('.voice-nav.prev').addEventListener('click', () => voiceTrack.scrollBy({ left: -step(), behavior: 'smooth' }));
-      document.querySelector('.voice-nav.next').addEventListener('click', () => voiceTrack.scrollBy({ left: step(), behavior: 'smooth' }));
-    }
-
-    // エリアガイドのタブ切り替え
-    document.querySelectorAll('.area-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        document.querySelectorAll('.area-tab').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.area-panel').forEach(p => p.classList.remove('active'));
-        tab.classList.add('active');
-        document.getElementById(tab.dataset.area + '-panel').classList.add('active');
-      });
+  function showSlide(i) {
+    heroIdx = i;
+    slides.forEach(function (img, idx) {
+      var active = idx === i;
+      img.style.opacity = active ? '1' : '0';
+      img.style.zIndex = active ? '1' : '0';
     });
+    dots.forEach(function (dot, idx) {
+      var active = idx === i;
+      dot.style.background = active ? 'var(--moon)' : 'rgba(255,255,255,0.45)';
+      dot.style.transform = active ? 'scale(1.25)' : 'none';
+    });
+  }
 
-    // ふわっと立ち上がるフェードイン（同時に入った要素は少しずつ時間差で）
-    document.querySelectorAll('.spot-card, .area-group, .property-item, .trust-item, .hobby-chip')
-      .forEach(el => el.classList.add('reveal'));
-    const io = new IntersectionObserver((entries) => {
-      entries.filter(e => e.isIntersecting).forEach((e, i) => {
-        e.target.style.transitionDelay = `${Math.min(i, 7) * 110}ms`;
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  var heroTimer = setInterval(function () {
+    showSlide((heroIdx + 1) % slides.length);
+  }, 6000);
 
-    // lucideアイコン初期化（ギャラリーUI用）
-    window.addEventListener('load', () => { if (window.lucide) window.lucide.createIcons(); });
-  </script>
+  dots.forEach(function (dot) {
+    dot.addEventListener('click', function () {
+      showSlide(parseInt(dot.getAttribute('data-idx'), 10));
+    });
+  });
+
+  /* ---- Guest voices horizontal scroller ---- */
+  var track = document.getElementById('voice-track');
+  var prevBtn = document.getElementById('voice-prev');
+  var nextBtn = document.getElementById('voice-next');
+  if (track && prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', function () {
+      track.scrollBy({ left: -372, behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', function () {
+      track.scrollBy({ left: 372, behavior: 'smooth' });
+    });
+  }
+})();
+</script>
 </body>
 </html>
