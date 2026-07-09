@@ -227,6 +227,30 @@
       border: 1px solid var(--line); padding: 4px 14px; background: var(--white);
     }
 
+    /* ---------- 記事の折りたたみ ---------- */
+    .entry-head {
+      display: block; width: 100%; text-align: left;
+      background: none; border: none; padding: 0; margin: 0;
+      font: inherit; color: inherit; cursor: pointer;
+    }
+    .entry-head:focus-visible { outline: 2px solid var(--navy-2); outline-offset: 4px; }
+    .entry-head .entry-title { position: relative; padding-right: 40px; transition: color 0.3s; }
+    .entry-head:hover .entry-title { color: var(--navy-2); }
+    .entry-head .entry-title::after {
+      content: '';
+      position: absolute; right: 10px; top: 50%;
+      width: 9px; height: 9px;
+      border-right: 1.5px solid var(--navy-2); border-bottom: 1.5px solid var(--navy-2);
+      transform: translateY(-70%) rotate(45deg);
+      transition: transform 0.35s ease;
+    }
+    .entry.open .entry-head .entry-title::after { transform: translateY(-30%) rotate(-135deg); }
+    .entry-head .entry-title-en { margin-bottom: 0; transition: margin 0.35s ease; }
+    .entry.open .entry-head .entry-title-en { margin-bottom: 26px; }
+    .entry-detail { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.45s ease; }
+    .entry.open .entry-detail { grid-template-rows: 1fr; }
+    .entry-detail-inner { min-height: 0; overflow: hidden; }
+
     /* ---------- 結び ---------- */
     .closing { background: var(--navy); color: var(--white); text-align: center; }
     .closing .section-label { color: rgba(255, 255, 255, 0.7); }
@@ -328,15 +352,20 @@
       <div class="section-label">CONTENTS</div>
       <h2 class="section-title serif">このアーカイブの構成</h2>
       <div class="index-grid">
+        <a class="index-card" href="#margins">
+          <div class="kanji serif">Notes</div>
+          <div class="en-name">旅と暮らしの覚え書き</div>
+          <p>特定の場所には紐づかない、旅と暮らしをめぐる覚え書き。この土地で過ごすうちに、ふと立ち上がってきた考えごと。</p>
+        </a>
         <a class="index-card" href="#places">
           <div class="kanji serif">Places</div>
           <div class="en-name">場所の記録</div>
           <p>富士見町の場所たちの記録。湧き水、遺跡、森、店、そこに立つ人。土地に根付いているものを、ひとつずつ書き留めます。</p>
         </a>
-        <a class="index-card" href="#margins">
-          <div class="kanji serif">Notes</div>
-          <div class="en-name">旅と暮らしの覚え書き</div>
-          <p>特定の場所には紐づかない、旅と暮らしをめぐる覚え書き。この土地で過ごすうちに、ふと立ち上がってきた考えごと。</p>
+        <a class="index-card" href="archive-db.html" style="grid-column: 1 / -1;">
+          <div class="kanji serif">Ledger</div>
+          <div class="en-name">記録の台帳</div>
+          <p>この手帖の下書きにあたる、生の記録の台帳。確からしさの度合いと出典を添えて、あやふやなものはあやふやなまま、町の記録として公開しています。</p>
         </a>
       </div>
     </div>
@@ -812,6 +841,32 @@
     };
     phraseEl.addEventListener('click', cyclePhrase);
     phraseEl.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); cyclePhrase(); } });
+
+    // 記事の折りたたみ（JSで既存マークアップを変換。JSなし環境では全文表示のまま）
+    document.querySelectorAll('.journal .entry').forEach(entry => {
+      const head = document.createElement('div');
+      head.className = 'entry-head';
+      head.setAttribute('role', 'button');
+      head.setAttribute('tabindex', '0');
+      head.setAttribute('aria-expanded', 'false');
+      const inner = document.createElement('div');
+      inner.className = 'entry-detail-inner';
+      entry.querySelectorAll(':scope > .entry-body, :scope > .entry-tags').forEach(el => inner.appendChild(el));
+      const detail = document.createElement('div');
+      detail.className = 'entry-detail';
+      detail.appendChild(inner);
+      entry.querySelectorAll(':scope > .entry-kind, :scope > .entry-title, :scope > .entry-title-en').forEach(el => head.appendChild(el));
+      entry.prepend(head);
+      entry.appendChild(detail);
+      const toggle = () => {
+        const open = entry.classList.toggle('open');
+        head.setAttribute('aria-expanded', open ? 'true' : 'false');
+      };
+      head.addEventListener('click', toggle);
+      head.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+      });
+    });
 
     // ゆるやかなフェードイン
     const io = new IntersectionObserver((entries) => {

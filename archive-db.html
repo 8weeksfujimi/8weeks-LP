@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>記録の台帳 — Local Archive Ledger | 8weeks Stay</title>
+  <meta name="description" content="長野県富士見町のローカルアーカイブ台帳。自然・文化・人の記録を確度S–Dで層別し、出典とともに公開しています。">
+  <link rel="icon" type="image/png" href="assets/logos/favicon_moon.png">
+  <link rel="canonical" href="https://8weeksfujimi.github.io/8weeks-LP/archive-db.html">
+
+  <meta property="og:title" content="記録の台帳 — Local Archive Ledger">
+  <meta property="og:description" content="富士見町の自然・文化・人の記録を、確からしさの度合いと出典つきで公開する生きた台帳。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://8weeksfujimi.github.io/8weeks-LP/archive-db.html">
+  <meta property="og:site_name" content="8weeks Stay">
+  <meta property="og:locale" content="ja_JP">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #012653;
+      --navy-2: #12335C;
+      --moon: #FFF100;
+      --washi: #F8F6F1;
+      --white: #FFFFFF;
+      --ink: #1C2B3A;
+      --ink-soft: #4A5A6A;
+      --line: rgba(1, 38, 83, 0.14);
+      --serif: 'Zen Old Mincho', 'Hiragino Mincho ProN', serif;
+      --sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans); font-weight: 400; color: var(--ink);
+      background: var(--washi); line-height: 1.9; letter-spacing: 0.04em;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .serif { font-family: var(--serif); }
+
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 32px;
+      background: rgba(1, 38, 83, 0.96);
+      box-shadow: 0 1px 24px rgba(1, 38, 83, 0.25);
+    }
+    .header-brand img { height: 52px; width: auto; display: block; }
+    .header-nav { display: flex; align-items: center; gap: 28px; }
+    .header-nav a {
+      color: rgba(255, 255, 255, 0.88); font-size: 0.82rem; letter-spacing: 0.14em;
+      padding-bottom: 3px; border-bottom: 1px solid transparent;
+      transition: color 0.3s, border-color 0.3s;
+    }
+    .header-nav a:hover, .header-nav a.current { color: var(--moon); border-bottom-color: var(--moon); }
+
+    .ledger-hero {
+      background: var(--navy); color: var(--white);
+      padding: 140px 24px 64px; text-align: center;
+    }
+    .ledger-hero h1 {
+      font-family: var(--serif); font-weight: 500;
+      font-size: clamp(1.6rem, 4vw, 2.4rem); letter-spacing: 0.16em;
+    }
+    .ledger-hero .en {
+      margin-top: 10px; font-size: 0.7rem; letter-spacing: 0.3em;
+      text-transform: uppercase; color: rgba(255, 255, 255, 0.6);
+    }
+    .ledger-hero .lead {
+      margin: 26px auto 0; max-width: 640px;
+      font-size: 0.9rem; line-height: 2.2; color: rgba(255, 255, 255, 0.85); text-align: left;
+    }
+
+    .wrap { max-width: 860px; margin: 0 auto; padding: 48px 20px 110px; }
+
+    .legend {
+      background: var(--white); border: 1px solid var(--line);
+      padding: 22px 26px; font-size: 0.8rem; color: var(--ink-soft); line-height: 2.1;
+      margin-bottom: 36px;
+    }
+    .legend b { color: var(--navy); font-weight: 500; }
+
+    .controls { display: flex; flex-direction: column; gap: 14px; margin-bottom: 30px; }
+    .search {
+      width: 100%; padding: 12px 18px; font: inherit; font-size: 0.9rem;
+      border: 1px solid var(--line); background: var(--white); color: var(--ink);
+      letter-spacing: 0.04em;
+    }
+    .search:focus { outline: 2px solid var(--navy-2); outline-offset: 1px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      font: inherit; font-size: 0.74rem; letter-spacing: 0.1em;
+      border: 1px solid var(--line); background: var(--white); color: var(--navy-2);
+      padding: 5px 14px; cursor: pointer; transition: background 0.25s, color 0.25s;
+    }
+    .chip.on { background: var(--navy); color: var(--white); border-color: var(--navy); }
+    .count { font-size: 0.74rem; letter-spacing: 0.12em; color: var(--ink-soft); }
+
+    .rec {
+      background: var(--white); border: 1px solid var(--line);
+      padding: 26px 28px; margin-bottom: 22px;
+    }
+    .rec-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+    .badge {
+      font-size: 0.68rem; letter-spacing: 0.12em; font-weight: 500;
+      padding: 2px 10px; border: 1px solid transparent;
+    }
+    .badge.cS { background: var(--navy); color: var(--white); }
+    .badge.cA { background: rgba(1, 38, 83, 0.08); color: var(--navy); border-color: var(--navy-2); }
+    .badge.cB { background: transparent; color: var(--navy-2); border-color: var(--line); }
+    .badge.cC { background: transparent; color: var(--ink-soft); border-color: var(--line); border-style: dashed; }
+    .badge.cD { background: transparent; color: #8a5a3a; border-color: #c9a88f; border-style: dashed; }
+    .ptype { font-size: 0.68rem; letter-spacing: 0.16em; color: var(--ink-soft); }
+    .outside {
+      font-size: 0.66rem; letter-spacing: 0.08em; color: #8a5a3a;
+      border: 1px solid #c9a88f; padding: 1px 8px;
+    }
+    .rec h2 {
+      font-family: var(--serif); font-weight: 500;
+      font-size: 1.1rem; letter-spacing: 0.08em; color: var(--navy); line-height: 1.8;
+    }
+    .rec .meta { font-size: 0.74rem; color: var(--ink-soft); margin: 2px 0 12px; letter-spacing: 0.06em; }
+    .rec .bg { font-size: 0.88rem; line-height: 2.1; }
+    .rec .tags { margin-top: 12px; font-size: 0.72rem; color: var(--navy-2); letter-spacing: 0.1em; }
+    .rec details { margin-top: 12px; font-size: 0.76rem; }
+    .rec summary { cursor: pointer; color: var(--ink-soft); letter-spacing: 0.1em; }
+    .rec details a { color: #345; word-break: break-all; display: block; line-height: 1.9; }
+    .rec details a:hover { text-decoration: underline; }
+
+    .empty { text-align: center; color: var(--ink-soft); font-size: 0.85rem; padding: 60px 0; }
+
+    .foot-note {
+      margin-top: 48px; font-size: 0.76rem; color: var(--ink-soft); line-height: 2.1;
+      border-top: 1px solid var(--line); padding-top: 24px;
+    }
+    .foot-note a { color: var(--navy-2); border-bottom: 1px solid var(--line); }
+
+    .footer { background: var(--navy); color: rgba(255, 255, 255, 0.6); padding: 60px 24px 40px; text-align: center; }
+    .footer img { height: 72px; }
+    .footer p { font-size: 0.74rem; letter-spacing: 0.08em; line-height: 2.1; margin-top: 18px; }
+
+    @media (max-width: 768px) {
+      .header-nav a:not(.keep) { display: none; }
+      .wrap { padding: 36px 16px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <a class="header-brand" href="index.html">
+      <img src="assets/logos/logo_white.png" alt="8weeks">
+    </a>
+    <nav class="header-nav">
+      <a href="index.html#spaces">Spaces</a>
+      <a href="index.html#booking">Booking</a>
+      <a href="archive.html" class="keep">Archive</a>
+      <a href="archive-db.html" class="current keep">Ledger</a>
+    </nav>
+  </header>
+
+  <section class="ledger-hero">
+    <h1 class="serif">記録の台帳</h1>
+    <p class="en">Local Archive Ledger · Fujimi, Nagano</p>
+    <p class="lead">富士見町の自然・文化・人の記録を、手帖（<a href="archive.html" style="border-bottom:1px solid rgba(255,255,255,0.4)">Local Archive</a>）の下書き台帳として公開しています。それぞれの記録に、確からしさの度合いと出典を添えました。あやふやなものを消すのではなく、あやふやなまま書き留めておくこと。それがこの台帳のやり方です。町の記録として、少しずつ育っていきます。</p>
+  </section>
+
+  <div class="wrap">
+    <div class="legend">
+      <b>確度の読み方</b> — <b>S</b>：国指定文化財・一次史料など確立した事実／<b>A</b>：郷土史・自治体資料などで堅実／<b>B</b>：諸説あり／<b>C</b>：伝承・言い伝え／<b>D</b>：俗説・要検証。「A/C」のような表記は、一つの記録の中に確度の違う話が同居していることを示します。<span class="outside" style="margin-left:6px">町域外を含む</span> の印は、富士見町の外（茅野市・原村・北杜市など）の事柄を含む記録です。
+    </div>
+
+    <div class="controls">
+      <input class="search" id="q" type="search" placeholder="ことばで探す（例: 縄文 / 御柱 / ヒッピー / 桜）" aria-label="検索">
+      <div class="chips" id="chips"></div>
+      <div class="count" id="count"></div>
+    </div>
+
+    <div id="list"></div>
+
+    <p class="foot-note">
+      この台帳のデータは <a href="data/fujimi-archive-db.json">JSON形式</a> でも公開しています。出典（8weeks Local Archive と各記録の典拠）を明記のうえ、ご自由に参照・引用ください。誤りの指摘や、土地の記憶の提供は
+      <a href="https://www.instagram.com/8weeks.fujimi/" target="_blank" rel="noopener">Instagram</a> までお寄せください。
+    </p>
+  </div>
+
+  <footer class="footer">
+    <img src="assets/logos/logo_white.png" alt="8weeks">
+    <p>運営会社：8weeks合同会社<br>〒399-0211 長野県諏訪郡富士見町富士見9736番地1</p>
+    <p style="font-size:0.68rem;color:rgba(255,255,255,0.4)">&copy; 2026 8weeks Stay. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const GROUPS = [
+      ['すべて', () => true],
+      ['縄文', r => r.category.includes('縄文')],
+      ['歴史', r => r.category.includes('歴史')],
+      ['信仰・伝承', r => r.category.includes('信仰') || r.category.includes('伝承') || r.category.includes('神社') || r.category.includes('俗説') || r.category.includes('廃村')],
+      ['文学・芸術', r => r.category.includes('文学') || r.category.includes('芸術')],
+      ['街道', r => r.category.includes('街道')],
+      ['産業', r => r.category.includes('産業')],
+      ['自然', r => r.category.includes('自然')],
+      ['ヒッピー', r => r.category.includes('ヒッピー')],
+      ['現代・移住', r => r.category.includes('現代') || r.category.includes('移住')],
+    ];
+    let records = [];
+    let group = 'すべて';
+    let query = '';
+
+    const listEl = document.getElementById('list');
+    const countEl = document.getElementById('count');
+    const chipsEl = document.getElementById('chips');
+
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+    function badgeClass(conf) {
+      const head = (conf || '').trim().charAt(0);
+      return 'SABCD'.includes(head) ? 'c' + head : 'cC';
+    }
+
+    function render() {
+      const g = GROUPS.find(x => x[0] === group);
+      const q = query.trim().toLowerCase();
+      const hit = records.filter(r => g[1](r) && (!q ||
+        (r.keyword + r.background + r.category + (r.era || '') + (r.sense_tags || []).join('')).toLowerCase().includes(q)));
+      countEl.textContent = hit.length + ' 件 / 全 ' + records.length + ' 件';
+      listEl.innerHTML = hit.map(r => `
+        <article class="rec">
+          <div class="rec-head">
+            <span class="badge ${badgeClass(r.confidence)}">確度 ${esc(r.confidence)}</span>
+            <span class="ptype">${esc(r.page_type)}</span>
+            ${r.town_outside ? '<span class="outside">町域外を含む</span>' : ''}
+          </div>
+          <h2 class="serif">${esc(r.keyword)}</h2>
+          <p class="meta">${esc(r.category)}${r.era ? '｜' + esc(r.era) : ''}｜${esc(r.id)}</p>
+          <p class="bg">${esc(r.background)}</p>
+          ${(r.sense_tags || []).length ? `<p class="tags">${r.sense_tags.map(esc).join(' ・ ')}</p>` : ''}
+          ${(r.sources || []).length ? `<details><summary>出典 ${r.sources.length}件</summary>${r.sources.map(u => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a>`).join('')}</details>` : ''}
+        </article>`).join('') || '<p class="empty">みつかりませんでした。べつのことばで探してみてください。</p>';
+    }
+
+    GROUPS.forEach(([name]) => {
+      const b = document.createElement('button');
+      b.className = 'chip' + (name === group ? ' on' : '');
+      b.textContent = name;
+      b.addEventListener('click', () => {
+        group = name;
+        chipsEl.querySelectorAll('.chip').forEach(c => c.classList.toggle('on', c.textContent === name));
+        render();
+      });
+      chipsEl.appendChild(b);
+    });
+    document.getElementById('q').addEventListener('input', e => { query = e.target.value; render(); });
+
+    fetch('data/fujimi-archive-db.json')
+      .then(r => r.json())
+      .then(d => { records = d.records; render(); })
+      .catch(() => { listEl.innerHTML = '<p class="empty">台帳の読み込みに失敗しました。時間をおいてお試しください。</p>'; });
+  </script>
+</body>
+</html>

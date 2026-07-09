@@ -1,0 +1,1293 @@
+{
+ "title": "富士見町ローカルアーカイブ（8weeks Local Archive 台帳）",
+ "description": "長野県諏訪郡富士見町の自然・文化・人の記録。確度S–D（S=確立/A=堅実/B=諸説/C=伝承/D=俗説・要検証）で層別し、出典とともに公開しています。",
+ "license": "出典（8weeks Local Archive と各レコードの sources）を明記のうえ、ご自由に参照・引用いただけます。",
+ "updated": "2026-07-09",
+ "count": 53,
+ "records": [
+  {
+   "id": "FJM-JOMON-001",
+   "category": "縄文文化",
+   "keyword": "井戸尻遺跡・井戸尻文化",
+   "page_type": "地の頁",
+   "era": "縄文中期",
+   "background": "八ヶ岳南西麓・標高800〜1000mの縄文中期中核集落群。国史跡。井戸尻・曽利・藤内・坂上等が連なり考古館に約2000点。文様に蛙・半人半蛙・蛇と月の図像。周囲は大賀ハスの蓮田。",
+   "confidence": "S",
+   "source_type": "国指定史跡・井戸尻考古館・考古学史",
+   "sources": [
+    "https://bunka.nii.ac.jp/heritages/detail/210190",
+    "https://www.town.fujimi.lg.jp/site/kanko/pl20.html"
+   ],
+   "sense_tags": [
+    "時間の地層",
+    "畏敬"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-JOMON-002",
+   "category": "縄文文化",
+   "keyword": "縄文中期農耕論（藤森栄一）",
+   "page_type": "地の頁",
+   "era": "縄文中期／近代（学史）",
+   "background": "在野の考古学者・藤森栄一（諏訪出身1911-73）が石器組成から縄文中期の農耕的性格を主張。没後展の副題は『その言葉、そのまなざし』。その著書は、のちに広く知られるある創作者の若き日にも、深い影響を与えたと語られる。",
+   "confidence": "B",
+   "source_type": "学術（賛否あり）・展示図録・郷土",
+   "sources": [
+    "https://note.com/azusa183/n/n94d970cc530f"
+   ],
+   "sense_tags": [
+    "まなざし",
+    "時間の地層"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-JOMON-003",
+   "category": "縄文文化",
+   "keyword": "水煙渦巻文深鉢",
+   "page_type": "地の頁",
+   "era": "縄文中期",
+   "background": "曽利遺跡出土の深鉢。バーナード・リーチが激賞、岡本太郎が撮影、10円はがき意匠に採用。長野県宝で国宝ではない。",
+   "confidence": "S",
+   "source_type": "県宝指定・考古館",
+   "sources": [
+    "https://note.com/azusa183/n/n19bc9eb187b5"
+   ],
+   "sense_tags": [
+    "用の美",
+    "畏敬"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-HIST-001",
+   "category": "歴史・地政学",
+   "keyword": "武田信玄の信濃侵攻と諏訪氏滅亡",
+   "page_type": "地の頁",
+   "era": "戦国",
+   "background": "1542年、信玄は諏訪頼重を桑原城に破り和睦を反故に自刃させ諏訪惣領家滅亡。娘は信玄側室、子・勝頼が諏訪の通字『頼』で武田家を承継。信濃と甲斐の境界＝信濃制圧の入口。",
+   "confidence": "S",
+   "source_type": "一次史料・学術",
+   "sources": [
+    "https://ja.wikipedia.org/wiki/%E6%A1%91%E5%8E%9F%E5%9F%8E%E3%81%AE%E6%88%A6%E3%81%84"
+   ],
+   "sense_tags": [
+    "境界",
+    "時間の地層"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-HIST-002",
+   "category": "歴史・地政学",
+   "keyword": "瀬沢の戦い（1542）",
+   "page_type": "地の頁",
+   "era": "戦国",
+   "background": "甲信国境の瀬沢で武田晴信が信濃四大将連合を迎撃、1621人を討ち取ったとされる。ただし確実な一次史料になく、諏訪征服正当化のため後年に創作された合戦とする説も。国道20号脇に碑。",
+   "confidence": "B",
+   "source_type": "二次史料・現地碑・実在論争",
+   "sources": [
+    "https://ja.wikipedia.org/wiki/%E7%80%AC%E6%B2%A2%E3%81%AE%E6%88%A6%E3%81%84"
+   ],
+   "sense_tags": [
+    "境界",
+    "語りの生成"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-HIST-003",
+   "category": "歴史・地政学",
+   "keyword": "信玄棒道（上・中・下）",
+   "page_type": "地の頁",
+   "era": "戦国／江戸（記録）",
+   "background": "八ヶ岳南麓〜西麓を直進する軍用道路と伝わる古道。立沢経由・大門峠方面に史跡。初出級は『甲斐国志』(1814)で一次史料に乏しく、自然発生説・江戸期の信玄顕彰説も。沿道に観音石仏。",
+   "confidence": "B",
+   "source_type": "江戸後期地誌・現地・諸説",
+   "sources": [
+    "https://ja.wikipedia.org/wiki/%E6%A3%92%E9%81%93"
+   ],
+   "sense_tags": [
+    "時間の地層",
+    "静けさ",
+    "風"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-FAITH-001",
+   "category": "信仰・神社",
+   "keyword": "乙事諏訪神社（諏訪造・重文）",
+   "page_type": "地の頁",
+   "era": "戦国造営／近代（指定）",
+   "background": "諏訪大社上社本宮の旧拝殿を移築。本殿を持たず磐座を憑代とする諏訪造。1930年に国宝指定、1948年火災で焼失し復元、現在は重要文化財。御柱の配置が異例。桃山風彫刻。",
+   "confidence": "S",
+   "source_type": "国重文・社伝・現地案内",
+   "sources": [
+    "https://www.town.fujimi.lg.jp/page/otukotosuwajinjya.html",
+    "https://enpedia.org/wiki/%E4%B9%99%E4%BA%8B%E8%AB%8F%E8%A8%AA%E7%A5%9E%E7%A4%BE"
+   ],
+   "sense_tags": [
+    "畏敬",
+    "静けさ"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-FAITH-002",
+   "category": "信仰・伝承",
+   "keyword": "諏訪信仰の古層（ミシャグジ・守屋山）",
+   "page_type": "余白の頁",
+   "era": "古代〜",
+   "background": "諏訪大社は本殿を持たず守屋山や磐座をご神体とする。建御名方以前の土着の蛇神ミシャグジ、狩猟・自然崇拝の古層があるとされ、守矢氏神長官の系譜が伝わる。",
+   "confidence": "B",
+   "source_type": "民俗学・宗教史",
+   "sources": [
+    "https://ja.wikipedia.org/wiki/%E8%AB%8F%E8%A8%AA%E5%A4%A7%E7%A4%BE%E4%B8%83%E4%B8%8D%E6%80%9D%E8%AD%B0"
+   ],
+   "sense_tags": [
+    "畏敬",
+    "蛇と水"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-LIT-001",
+   "category": "近代文学・芸術",
+   "keyword": "富士見高原療養所（正木不如丘）",
+   "page_type": "地の頁",
+   "era": "近代",
+   "background": "1920年代後半、医師で小説家の正木不如丘がスイス的高地環境に開設した結核サナトリウム（現・富士見高原病院）。大気安静栄養療法。病棟名は白樺・竜胆・石楠花。旧療養所資料館が現存。",
+   "confidence": "A",
+   "source_type": "病院沿革・資料館・伝記",
+   "sources": [
+    "https://www.jatahq.org/pdf/headquarters/document/tb-archive/351.pdf"
+   ],
+   "sense_tags": [
+    "静けさ",
+    "有限性",
+    "光"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-LIT-002",
+   "category": "近代文学・芸術",
+   "keyword": "堀辰雄『風立ちぬ』",
+   "page_type": "地の頁",
+   "era": "近代",
+   "background": "1935年、堀は結核の婚約者・矢野綾子に付き添い当療養所へ。綾子は同年末に病没、その体験を昇華した中編（1936-38）。白樺の木陰の一句が通奏低音。旧鉄橋に作中の面影。",
+   "confidence": "S",
+   "source_type": "作品・作者伝記",
+   "sources": [
+    "https://ja.wikipedia.org/wiki/%E9%A2%A8%E7%AB%8B%E3%81%A1%E3%81%AC_(%E5%B0%8F%E8%AA%AC)"
+   ],
+   "sense_tags": [
+    "静けさ",
+    "有限性",
+    "風"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-LIT-003",
+   "category": "近代文学・芸術",
+   "keyword": "竹久夢二 終焉の地",
+   "page_type": "地の頁",
+   "era": "近代",
+   "background": "大正ロマンの画家・詩人が旧友の正木不如丘の勧めで1934年1月入所、最上級病室を無料提供された。面会を断ち療養に専心も同年9月1日、数え50歳で当地に没す。",
+   "confidence": "A",
+   "source_type": "伝記・療養所史料",
+   "sources": [
+    "https://www.jatahq.org/pdf/headquarters/document/tb-archive/351.pdf"
+   ],
+   "sense_tags": [
+    "静けさ",
+    "光"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-LIT-004",
+   "category": "近代文学・芸術",
+   "keyword": "尾崎喜八『分水荘』と高原文人サロン",
+   "page_type": "地の頁",
+   "era": "近代",
+   "background": "人道的自然詩人・尾崎喜八が1946〜52年、旧伯爵渡辺家別荘『分水荘』の一隅で簡素に暮らし『花咲ける孤独』を生む。跡地はふじみ分水の森。井伏鱒二・唐木順三らも別荘、犬養毅の白林荘も。",
+   "confidence": "A",
+   "source_type": "Wikipedia・県/町資料",
+   "sources": [
+    "https://ja.wikipedia.org/wiki/%E5%B0%BE%E5%B4%8E%E5%96%9C%E5%85%AB",
+    "https://www.town.fujimi.lg.jp/site/haku1/haku1-5.html"
+   ],
+   "sense_tags": [
+    "静けさ",
+    "孤独",
+    "光"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-ROAD-001",
+   "category": "街道・結節点",
+   "keyword": "蔦木宿・国界橋（信州最初の宿）",
+   "page_type": "地の頁",
+   "era": "江戸",
+   "background": "甲州街道42番目・信濃最初の宿（現・富士見町落合）。国界橋で釜無川を渡り信州入り。本陣『大坂屋』有賀家、旅籠15軒、桝形現存。本陣門(1864)が唯一の遺構。全戸に屋号板を掲げる住民運動も。",
+   "confidence": "S",
+   "source_type": "Wikipedia・宿村大概帳・現地",
+   "sources": [
+    "https://ja.wikipedia.org/wiki/%E8%94%A6%E6%9C%A8%E5%AE%BF"
+   ],
+   "sense_tags": [
+    "境界",
+    "時間の地層"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-ROAD-002",
+   "category": "街道・結節点",
+   "keyword": "富士見峠・原の茶屋・分水界",
+   "page_type": "地の頁",
+   "era": "江戸〜近代",
+   "background": "甲州街道の難所を登った標高約960mの原の茶屋（1772年開設が集落の起こり）。富士見公園に伊藤左千夫・斎藤茂吉らアララギ派歌碑。町域は富士川水系（釜無川）と天竜川水系（諏訪湖へ）を分ける分水界。",
+   "confidence": "A",
+   "source_type": "街道史・歌碑・地理",
+   "sources": [
+    "https://note.com/birdsea730/n/n20db0e38aaed"
+   ],
+   "sense_tags": [
+    "水",
+    "境界",
+    "風"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-IND-001",
+   "category": "産業の系譜",
+   "keyword": "河西養狐場『蚕から狐へ』",
+   "page_type": "地の頁",
+   "era": "近代",
+   "background": "1933年、河西荘三が現・富士見中学校敷地に諏訪初の養狐場を開設。世界恐慌で暴落した養蚕に代わる外貨獲得策として銀狐毛皮を欧米へ輸出。ピーク約300頭。療養所の文化人が見学し手記に記録が残る逆説。",
+   "confidence": "A",
+   "source_type": "学芸員・上智大調査・当時新聞",
+   "sources": [
+    "https://news.yahoo.co.jp/articles/5830b3118e081db3a5dedc3adae3814b3d09d74c",
+    "http://www.nagano-np.co.jp/articles/122634"
+   ],
+   "sense_tags": [
+    "時間の地層",
+    "問い"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-IND-002",
+   "category": "産業・近代化遺産",
+   "keyword": "旧立場川橋梁（ボルチモアトラス）",
+   "page_type": "地の頁",
+   "era": "近代",
+   "background": "1904年開通、岡谷の製糸会社が生糸輸送のため工事を急がせた鉄道橋。全国5基のみのボルチモアトラス。1980年複線化で廃線、赤錆で現存。1983年に町が譲受。映画の遠景・ロケ地。処遇未定。",
+   "confidence": "S",
+   "source_type": "Wikipedia・町資料・報道",
+   "sources": [
+    "https://ja.wikipedia.org/wiki/%E7%AB%8B%E5%A0%B4%E5%B7%9D%E6%A9%8B%E6%A2%81"
+   ],
+   "sense_tags": [
+    "時間の地層",
+    "静けさ"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-NAT-001",
+   "category": "自然・レジャー",
+   "keyword": "入笠山・入笠湿原・すずらん",
+   "page_type": "地の頁",
+   "era": "—",
+   "background": "富士見パノラマのゴンドラで登る天空の花畑。日本すずらん約100万株の群生、約150種の山野草。山頂1955mから日本百名山22座（深田久弥）。",
+   "confidence": "A",
+   "source_type": "町公式・観光資料",
+   "sources": [
+    "https://www.town.fujimi.lg.jp/site/kanko/nyukasa.html"
+   ],
+   "sense_tags": [
+    "光",
+    "風",
+    "畏敬"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-LEGEND-001",
+   "category": "信仰・伝承",
+   "keyword": "葛井の清池『通底伝説』",
+   "page_type": "余白の頁",
+   "era": "中世〜",
+   "background": "諏訪七不思議の一つ。大晦日に上社の幣束等を池へ沈めると元旦に遠州『さなぎの池』（桜ヶ池が有力）に浮くとされる通底伝説。中世『諏訪効験』に既出。片目の魚が主。所在は茅野市で富士見町域外。",
+   "confidence": "C",
+   "source_type": "中世文献＋口碑",
+   "sources": [
+    "https://suwaarea-examine.com/Kuzui_Shrine.html"
+   ],
+   "sense_tags": [
+    "水",
+    "畏敬",
+    "境界"
+   ],
+   "geo": null,
+   "town_outside": true
+  },
+  {
+   "id": "FJM-LEGEND-002",
+   "category": "廃村・怪異",
+   "keyword": "稗之底古村址（ひえのそこ）",
+   "page_type": "余白の頁",
+   "era": "江戸初期",
+   "background": "棒道沿い・立沢の高冷地に開かれ江戸初期に廃村。表向きは寒冷・農難だが、富士見町誌は水神社付近の怪異（白い鶏が屋根に登り人を威したという伝え）を廃村理由に記す。TV都市伝説で拡散。",
+   "confidence": "B/D",
+   "source_type": "富士見町誌／TV・ネット言説",
+   "sources": [
+    "https://blog.goo.ne.jp/ruribo0209/e/569f62746bcdfd200f76b7f2f271432a"
+   ],
+   "sense_tags": [
+    "静けさ",
+    "語りの生成",
+    "畏敬"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-LEGEND-003",
+   "category": "信仰・俗説",
+   "keyword": "大先神社の磐座・謎の石碑",
+   "page_type": "余白の頁",
+   "era": "—",
+   "background": "稗之底の森に残る小祠。磐座を拝する原始信仰の痕跡。三つ穴と天に矛先を向けた石碑を人間の宇宙帰還を暗示と語るネット言説が付随するが要検証。",
+   "confidence": "C/D",
+   "source_type": "現地祠＋ネット言説",
+   "sources": [
+    "https://blog.goo.ne.jp/ruribo0209/e/569f62746bcdfd200f76b7f2f271432a"
+   ],
+   "sense_tags": [
+    "畏敬",
+    "語りの生成",
+    "静けさ"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-HIPPIE-001",
+   "category": "ヒッピー・対抗文化",
+   "keyword": "雷赤鴉族と聖殿（「部族」富士見拠点）",
+   "page_type": "地の頁",
+   "era": "現代（昭和42年／1960年代）",
+   "background": "入笠山の山麓に、1967年（昭和42年）4月、日本で最初とされるヒッピーの共同体が生まれた（同じ「部族」の運動には東京都国分寺市と鹿児島県十島村・諏訪之瀬島の拠点もあり、この二つは富士見町域外）。郷土史家・下平武氏が跡地を調べ、2023年には企画展「ヒッピーという生き方 部族降臨」が開かれ、いまも石を組んだかまどが残る。共同体は「雷赤鴉族」と呼ばれ、瞑想の場「聖殿」は同年暮れに落成したと伝わる——回想録によれば床面積はおよそ十坪、柱には電柱の払い下げ材が転用され、骨組みは伐り出した唐松の間伐材で立てられた。窓にはキャンバス地へ透明の板をはめ込み、屋根の棟には仲間の手で刻んだ雷赤鴉の像が掲げられていたという。八ヶ岳を正面に望む約二反歩の土地は参加者・山尾三省の名義で登記されていたといい、彼らが刷ったミニコミ紙『部族』創刊号はタブロイド判二十四ページ、一万部を数えた。ただし団体名や建築の細部は当事者の回顧に多くを負い、目の前を通る建設工事で日雇いをしたという件は道路建設史との時系列が合わず、なお確かめきれていない。",
+   "confidence": "A/B",
+   "source_type": "地方紙報道(信濃毎日新聞、郷土史家の実地調査を報じる)＋当事者本人の回想録(一次証言、山田塊也 amanakuni.net、数十年後執筆)",
+   "sources": [
+    "https://www.shinmai.co.jp/news/article/CNTS2023050800611",
+    "http://amanakuni.net/pon/hippie/3.html"
+   ],
+   "sense_tags": [
+    "風",
+    "山",
+    "余白",
+    "時間の地層"
+   ],
+   "geo": {
+    "lat": 35.87,
+    "lng": 138.19
+   },
+   "town_outside": true
+  },
+  {
+   "id": "FJM-HIPPIE-002",
+   "category": "ヒッピー・対抗文化",
+   "keyword": "雷赤鴉族（部族運動）とナナオ・サカキ",
+   "page_type": "地の頁",
+   "era": "現代（1960年代〜）",
+   "background": "1967年、入笠山の山麓・御射山神戸に、ナナオ・サカキ（榊七夫）や山尾三省、長沢哲夫らが、日本で最初期とされる共同体『雷赤鴉族』をひらいた。鹿児島・諏訪之瀬島の『がじゅまるの夢族』、国分寺の『エメラルド色のそよ風族』とならぶ『部族』運動の一拠点で、私有をあまり持たず収穫を分け合う暮らしだったと伝わる。数年で解散したとも言われるが、その経緯をたしかめる史料は見あたらない。跡地にはいまも かまど跡 が残り、2023年には御射山神戸在住の下平武が写真や書籍など200点余を集めた企画展をひらいた。ナナオはのちにゲイリー・スナイダーの詩集を『亀の島』（山口書店・1991年）として訳し、渡米をへて2008年12月、大鹿村（富士見町ではない）で生涯を終えた。",
+   "confidence": "A/C",
+   "source_type": "地方紙記事（信濃毎日新聞）＋郷土史・博物館企画展レポート（kyodoshi.com）＋百科事典（ja/en.wikipedia）＋文芸メディア（papersky・wasabipress）。一次史料は未到達。",
+   "sources": [
+    "https://www.shinmai.co.jp/news/article/CNTS2023050800611",
+    "http://kyodoshi.com/article/15281",
+    "https://www.shinmai.co.jp/news/article/CNTS2023040800123",
+    "http://amanakuni.net/pon/hippie/3.html",
+    "http://www.wasabipress.com/wasabipress/2013/06/a-celebration-of-nanao-sakaki-with-gary.html",
+    "https://en.wikipedia.org/wiki/Nanao_Sakaki",
+    "https://papersky.jp/archive/nanao-sakaki/",
+    "https://ja.wikipedia.org/wiki/ななおさかき",
+    "https://geoshape.ex.nii.ac.jp/ka/resource/20/20362001001.html"
+   ],
+   "sense_tags": [
+    "時間の地層",
+    "風",
+    "欠け",
+    "静けさ"
+   ],
+   "geo": {
+    "lat": 35.929,
+    "lng": 138.21
+   },
+   "town_outside": true
+  },
+  {
+   "id": "FJM-MOD-001",
+   "category": "現代・移住",
+   "keyword": "森のオフィス（富士見町テレワークタウン構想）",
+   "page_type": "地の頁",
+   "era": "現代",
+   "background": "2015年12月、武蔵野大学の保養施設だった建物を借り上げ改修して、シェアオフィス「森のオフィス」が開かれた（2階に個室6室、1階に個室2室・コワーキング・食堂・キッチン）。運営はRoute Design合同会社。人口減少への対策として住居の補助は既にあり、行政は「働く場」の創出に力点を移したと伝わる。着工前のシェアオフィス計画は当時11名の町議会で5対5に割れ、議長採決でようやく通ったという証言も残る。先行した空き家改修の「ホームオフィス計画」には3か月の募集で約60件の申込みが殺到し、利用者どうしの交流からは地域電力「森のエネルギー」のような事業も生まれた——最初の仕事は、地元農家からのWebサイト制作の相談だったという。",
+   "confidence": "A/C",
+   "source_type": "自治体・政府資料（総務省おためしサテライトオフィス）／自主公表プレスリリース（PR TIMES, Route Design）／運営会社公式・導入事例（内田洋行, routedesign.net, careerhack）／ウェブメディア単独取材記事（smout, 2019年、一次資料の裏取りなし）",
+   "sources": [
+    "https://lab.smout.jp/area_japan/nagano/fujimi-machi/interview-morino-office-1239",
+    "https://www.uchida.co.jp/localgovernment/case/fujimi/index.html",
+    "https://prtimes.jp/main/html/rd/p/000000036.000015624.html",
+    "https://routedesign.net/member/",
+    "https://careerhack.en-japan.com/report/detail/808",
+    "https://www.soumu.go.jp/satellite-office/group/nagano/fujimi.html",
+    "https://www.town.fujimi.lg.jp/site/kanko/st44.html"
+   ],
+   "sense_tags": [
+    "静けさ",
+    "余白",
+    "居場所"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-MOD-002",
+   "category": "産業の系譜",
+   "keyword": "赤いルバーブ（富士見町ルバーブ生産組合）",
+   "page_type": "地の頁",
+   "era": "現代（平成〜）",
+   "background": "富士見町ルバーブ生産組合は2006年（平成18年）、遊休荒廃地を赤いルバーブの畑としてよみがえらせ、栽培から加工・販売までを自分たちの手でつなぐために設けられた。ここの品種は、茎の一部だけが色づく通常のものと違って茎全体がじんわりと赤くなり、5月下旬から始まる春どりは酸味がみずみずしく、9月下旬から初霜までの秋どりは色が濃く酸味がまろやかになる。農薬や化学肥料をできるだけ抑え、朝どりを冷蔵のまま届ける「顔の見える販売」を続けているのは、圃場に立つことを健やかさにもつなげる中高齢の担い手たちである。2018年には富士見町のかぼちゃん農園の赤いルバーブが日本テレビ系の食番組で紹介されたが、その年は五月の低温と霜で収穫が例年の半分ほどに落ち込んだという。赤いルバーブのほかにも、この高原はセロリやレタスといった高原野菜の産地で、八ヶ岳のふもとの冷涼な空気が、その両方を静かに育てている。",
+   "confidence": "A/D",
+   "source_type": "自治体公式サイト（town.fujimi.lg.jp）／生産組合公式サイト（fujimi-aka-rhubarb.jp）／道の駅系公式サイト（oraho-fujimi.jp）／地域観光メディア（suwa-tabi.jp）／生産者本人公式サイト（kabochan39.com）。数値・年代の一部は二次資料（Wikipedia等）にのみ登場し未確認のまま据え置き。",
+   "sources": [
+    "https://www.fujimi-aka-rhubarb.jp/ルバーブ生産組合/",
+    "https://www.town.fujimi.lg.jp/site/kanko/tokusan.html",
+    "https://www.oraho-fujimi.jp/product/rhubarb.html",
+    "https://kabochan39.com/news/250",
+    "https://suwa-tabi.jp/news/13116/"
+   ],
+   "sense_tags": [
+    "赤",
+    "酸味",
+    "季節の移ろい",
+    "手の温度"
+   ],
+   "geo": {
+    "lat": 35.917,
+    "lng": 138.233
+   },
+   "town_outside": false
+  },
+  {
+   "id": "FJM-NAT-002",
+   "category": "自然",
+   "keyword": "釜無ホテイアツモリソウ（再生活動）",
+   "page_type": "地の頁",
+   "era": "現代（1997年種指定〜現在の再生活動）",
+   "background": "ラン科のホテイアツモリソウは、学名表記からして情報源間で揺れており、富士見町公式ページと百科事典系記事とで変種名の付け方が一致しない。1997年（平成9年）に種の保存法の国内希少野生動植物種へ指定され、無許可の採取・譲渡は懲役や罰金の対象となる。環境省レッドリストの区分は「絶滅危惧IB類（EN）」で、昭和期の木材需要でカラマツ人工林への転換が進み、その後の山野草ブームの乱獲が減少を招いたと郷土史系の記述では一致する（一次資料には未到達）。2006年に住民・企業・町からなるアツモリソウ再生会議が発足し、自生地は町内の釜無川源流域とされ、ニチレイとの生物多様性保全パートナーシップ協定（2019年締結・2022年更新・2025年再延長）や、富士見パノラマリゾートでの人工培養苗の即売（1株2000〜4000円、購入者に身分証提示と管理シート記入を求める）が続く。本州の分布は主に長野・山梨・福井とされるが同じ資料内に石川県を含む記載もあり、全国およそ100個体という数字も推測にとどまる。かつて町内の山中でわずか三株まで確認されたという話も伝わる。",
+   "confidence": "B",
+   "source_type": "自治体公式ページ＋新聞報道（信濃毎日新聞・長野日報）＋企業リリース（ニチレイ）＋環境用語集（EICネット）＋園芸/観光系ウェブサイト（混在、一次学術文献には未到達）",
+   "sources": [
+    "https://ja.wikipedia.org/wiki/アツモリソウ",
+    "https://www.town.fujimi.lg.jp/page/hoteiatsumorisou.html",
+    "https://www.nichirei.co.jp/news/2019/325.html",
+    "https://neko-net.com/hana/archives/15011",
+    "https://trippers.info/botany/plants/0058"
+   ],
+   "sense_tags": [
+    "欠け",
+    "時間の地層",
+    "畏敬"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-NAT-003",
+   "category": "自然",
+   "keyword": "編笠山（富士見高原ルート・盃流し／臼久保岩小屋）",
+   "page_type": "地の頁",
+   "era": "通時（地形）／16世紀後半（狼煙台伝承）・近代（揮毫碑）",
+   "background": "編笠山（2,524m）は北杜市小淵沢町と富士見町の県境に立ち、富士見町は富士見高原を起点とするコース（盃流し・臼久保岩小屋・シャクナゲ公園を経て山頂、上り約4時間35分）を自町の登山道として案内する。盃流し付近の岩には「神仙秘境」「曲水」の文字が刻まれ、少なくとも「曲水」は犬養木堂の揮毫だと町の資料に明記される。臼久保岩小屋はかつて修験者やまたぎが使った巨大な岩屋・八ヶ岳霊場遺跡と紹介され、標高約2,300mのシャクナゲ公園は群生の名所として知られる。権現岳寄りの小ピーク「ノロシバ」には16世紀後半に高坂弾正が狼煙台を置いたという話も伝わるが一次史料の裏付けは乏しく、山名は編笠を伏せた山容に由来するという。富士川支流の源流にあたり水は太平洋側へ注ぐとも記されるが、これは単一の記載に拠る。",
+   "confidence": "A/C",
+   "source_type": "郷土史・自治体資料（富士見町公式サイト・北杜市観光協会）＋二次登山情報サイト（山と溪谷オンライン）＋Wikipedia（伝承部分の孫引き）",
+   "sources": [
+    "https://www.town.fujimi.lg.jp/page/nishi-dake.html",
+    "https://www.hokuto-kanko.jp/spot/mt_amigasa/",
+    "https://www.yamakei-online.com/yamanavi/yama.php?yama_id=455",
+    "https://ja.wikipedia.org/wiki/編笠山"
+   ],
+   "sense_tags": [
+    "時間の地層",
+    "静けさ",
+    "畏敬",
+    "風"
+   ],
+   "geo": {
+    "lat": 35.9418,
+    "lng": 138.345
+   },
+   "town_outside": false
+  },
+  {
+   "id": "FJM-FAITH-003",
+   "category": "信仰・伝承",
+   "keyword": "神戸八幡社（相殿諏訪明神）と神戸の御射山社",
+   "page_type": "余白の頁",
+   "era": "江戸中期（社殿1762）〜近代",
+   "background": "本項の主体である神戸八幡社・神戸の御射山社は富士見町内（御射山神戸）に鎮座するが、後段で言及する諏訪大社上社摂社の旧御射山（大鳥居跡周辺）は原村域とされ、社叢が両町村にまたがる可能性がある（TOWN_OUTSIDE）。旧甲州街道沿いの街村・御射山神戸（富士見町境小六）に鎮座する八幡社の本殿は一間社流造・千鳥破風に軒唐破風を付し、宝暦12年（1762）大工加藤吉左衛門の手になる町指定有形文化財で、祭神は大山祇神とされる。格子戸に貼られた昭和44年の由緒書きは、向かって左の相殿に諏訪明神を祀る「特殊な建造物」と記し、身舎の蟇股は諏訪側が鹿・八幡側が鳩と、左右で意匠を違えていると踏査者は見る。扉の神紋も片側は諏訪大社上社の諏訪梶と確認される一方、八幡側は判別しがたく巴紋かと推測されるにとどまる。社殿脇の欅は町天然記念物（樹齢は不詳）、拝殿前の六角石台座は嘉永5年（1852）奉納・昭和17年に金属供出で失われた銅燈籠の基台であろうと推測され、8月の御射山祭には軒ごとに和傘へ紙の花を飾る花笠の風習が伝わる。なお富士見町には別に町史跡『神戸の御射山社』（祭は8月26〜28日、通称「原山さま」）があり、諏訪大社上社摂社の旧御射山（大鳥居跡周辺）は境界杭に「中新田」と刻まれ原村域内とされるが、社叢が両町村にまたがる可能性も残る。",
+   "confidence": "A/C",
+   "source_type": "郷土史・個人踏査記録サイト（yatsu-genjin.jp／omiyasan.com）＋自治体一次資料（富士見町公式指定文化財一覧・広報ふじみPDF）の混在。学術定説・国指定文化財ではない。",
+   "sources": [
+    "https://www.omiyasan.com/south/fujimi/misayamagoudohachimansya.php",
+    "https://www.town.fujimi.lg.jp/site/toukei/somu-kikaku-09-12.html",
+    "http://yatsu-genjin.jp/suwataisya/sanpo/goudo8.htm",
+    "http://yatsu-genjin.jp/suwataisya/sanpo/sakai.htm",
+    "https://www.town.fujimi.lg.jp/uploaded/attachment/4436.pdf",
+    "https://genbu.net/data/sinano/misayama_title.htm"
+   ],
+   "sense_tags": [
+    "畏敬",
+    "境界",
+    "欠け",
+    "時間の地層"
+   ],
+   "geo": null,
+   "town_outside": true
+  },
+  {
+   "id": "FJM-FAITH-004",
+   "category": "信仰・伝承",
+   "keyword": "集落ごとの御柱（小宮祭）と乙事諏訪社",
+   "page_type": "余白の頁",
+   "era": "江戸前期（造営）〜現代（小宮祭）",
+   "background": "乙事諏訪社の幣殿は江戸前期・1617年（元和3年）の造営で、1930年5月23日に国宝（現・重要文化財）へ指定された建造物である。本殿を持たず幣拝殿がその機能を兼ねる諏訪造の特異な社殿とされ、乙事へは嘉永年間に移築されたと伝わるが、その年は嘉永2年（1849）説・嘉永6年（1853）説・年不詳と資料の間で一致しない。戦後には火災に遭い（社伝では昭和23年）、昭和25年前後に社殿の復元・移築が行われたという記述が町の観光資料と郷土史ブログの双方にあるが、幣殿・拝殿・本殿はそれぞれ別の年代と経緯を持つ複合体らしく、年代を語るときは取り違えに注意がいる。諏訪地方では諏訪大社にならい、大小さまざまな神社（通称「小宮」）でも御柱を建て「小宮祭」として技術を継ぐ慣習があると御柱祭公式サイトが記す。富士見町は1955年（昭和30年）に富士見・境・本郷・落合の四村が合併して生まれた町だが、その集落ごとの御柱が具体的にどう営まれているかを直接伝える一次資料は、ここではまだ確かめられていない。",
+   "confidence": "B/D",
+   "source_type": "混在：国指定文化財等データベース（一次・公的、文化庁）／自治体・観光サイト（町公式、oraho-fujimi.jp等の二次）／独立クロスチェック可能な郷土史調査ブログ複数（hineriman.work、nagareki.com、zero-position.com）／諏訪大社御柱祭公式サイトFAQ（主催者一次に近い二次）／Wikipedia（行政史実の裏取り）",
+   "sources": [
+    "https://online.bunka.go.jp/heritages/detail/199919",
+    "https://www.hineriman.work/entry/2019/06/23/063000",
+    "https://www.zero-position.com/entry/2022/12/06/170000",
+    "https://www.nagareki.com/jinjya/otu.html",
+    "https://www.oraho-fujimi.jp/culture/okkoto-cultural-property-walk.html",
+    "https://onbashira.jp/faq/",
+    "https://ja.wikipedia.org/wiki/富士見町"
+   ],
+   "sense_tags": [
+    "時間の地層",
+    "静けさ",
+    "畏敬"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-HIST-004",
+   "category": "歴史・地政学",
+   "keyword": "甲六川（甲信国境の境界川）",
+   "page_type": "地の頁",
+   "era": "中世〜戦国（国境画定）／現代（河川データ）",
+   "background": "富士川水系の総延長約9kmの小さな川で、水源は編笠山南麓・標高約1,420m地点とされ、甲州街道の新国界橋の下で釜無川に合流する。この川が、いまの長野県富士見町と山梨県北杜市を分ける県境（甲信国境）を成しており、富士見町の公式資料も「釜無川・甲六川を境に」と記す。ただし戦国期に国境がどの川筋であったかは堺川・立場川・甲六川のいずれかで諸説あり確定しておらず、天正の争乱のなかで境筋が諏訪郡側へ動いたとみられる、という推量が伝わる。天文9年（1540）、禰々御料人が諏訪頼重に嫁いだ折の化粧料として十八ヶ村を持参し国境が甲六川に移ったという伝承もあるが、その婚姻の二年後には武田晴信の諏訪侵攻で頼重が自刃に追い込まれており、穏やかな画定の物語として鵜呑みにはできない。川沿いの先達甲六公園には戦国期の狼煙台跡と伝わる小公園に石祠が残る、という土地の言い伝えもある。",
+   "confidence": "A/D",
+   "source_type": "郷土史・自治体資料（境界事実）＋国土数値情報（政府一次データ・地理座標）＋Wikipedia（出典不十分タグ付き、川の諸元・国境変更史）＋中世史伝承（化粧料十八ヶ村・堺川比定）＋ネット言説／個人ブログ（登場人物名由来説・狼煙台伝承）",
+   "sources": [
+    "https://ja.wikipedia.org/wiki/甲六川",
+    "https://www.town.fujimi.lg.jp/uploaded/attachment/18474.pdf",
+    "https://geoshape.ex.nii.ac.jp/river/resource/830308/8303080739/",
+    "https://ja.wikipedia.org/wiki/立場川",
+    "https://ja.wikipedia.org/wiki/禰々",
+    "https://kumapapa.jp/blog/?p=590"
+   ],
+   "sense_tags": [
+    "境界",
+    "水",
+    "時間の地層",
+    "風"
+   ],
+   "geo": {
+    "lat": 35.887,
+    "lng": 138.308
+   },
+   "town_outside": false
+  },
+  {
+   "id": "FJM-IND-004",
+   "category": "産業の系譜",
+   "keyword": "富士見高原の開発系譜（療養所・別荘地・スキー場）",
+   "page_type": "地の頁",
+   "era": "近代（療養所）〜現代（別荘地・スキー場）",
+   "background": "大正15年（1926年）、正木不如丘が富士見町落合に結核療養の高地サナトリウム・富士見高原療養所を開いた。周辺住民の忌避感情に配慮して外科・眼科・耳鼻科などを増設したが人件費がかさんで三年目に財政難に陥り、院長自身の文筆収入が経営を支えたという。堀辰雄・竹久夢二・横溝正史らがここで療養生活を送り、この地が『風立ちぬ』などの舞台となった。療養所は昭和56年（1981年）にJA長野厚生連の管理へ移り、現在も総合病院として存続する。いっぽう同じ高原では昭和44年（1969年）に261区画の別荘分譲が始まり、のち約2500区画へ広がって「い・ろ・は…」や憩いの森などの地区に分かれ、あえて造成しない景観保護の区画も設けられたと伝わるが、この一連は分譲会社の自社記録に拠り、町誌など行政資料での裏取りは未了である。",
+   "confidence": "A/B",
+   "source_type": "混在（病院公式サイト＋Wikipedia＝郷土史相当のA級／別荘分譲会社の自社サイト・スキー場公式サイト＝単独私的一次情報のB級）",
+   "sources": [
+    "https://ja.wikipedia.org/wiki/富士見高原医療福祉センター富士見高原病院",
+    "https://ja.wikipedia.org/wiki/正木不如丘",
+    "https://fujimihp.com/hospital/museum/",
+    "https://fujimikogen-home.jp/overview.html",
+    "https://fujimikogen-ski.jp/guide/generalguide.html"
+   ],
+   "sense_tags": [
+    "時間の地層",
+    "有限性",
+    "静けさ",
+    "光"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-LIT-005",
+   "category": "近代文学・芸術",
+   "keyword": "富士見公園と油屋歌会（伊藤左千夫）",
+   "page_type": "地の頁",
+   "era": "近代（明治）",
+   "background": "諏訪郡富士見町「原の茶屋」にある富士見公園は、明治44年(1911年)、アララギ派歌人・伊藤左千夫の提唱によって成立し、昭和41年(1966年)7月15日に富士見町指定名勝となった。発端は明治41年(1908年)10月10日午後3時の「油屋歌会」で、東京から左千夫と古泉千樫が来て、地元14名を含む計16名が兼題「草」で詠み、翌早朝に記念撮影が残されたという。歌会の折、左千夫は案内された小丘を見て、手を加えず自然のまま公園として残すことを説いたと伝わる（構想を語ったことは確かだが、実際の造園設計にどこまで関わったかは、資料により「提唱」と弱く記すものもある）。園内には左千夫・島木赤彦・斎藤茂吉らの歌碑が点在し、碑どうしが互いの書で刻まれたという話もあるが、これは一商業資料のみが伝える域を出ない。公園は今も毎年秋の「赤彦祭」の場となっている。",
+   "confidence": "A/C",
+   "source_type": "郷土史・自治体資料が中心（信州の文化財データベース＝八十二文化財団運営・長野県監修／富士見町公式サイト／地域観光サイトoraho-fujimi.jp）。歌碑揮毫の1件のみ商業ブログ（要検証）。",
+   "sources": [
+    "https://www.82bunka.or.jp/bunkazai/detail.php?no=211&seq=0",
+    "https://www.oraho-fujimi.jp/culture/aburaya-utakai.html",
+    "https://www.town.fujimi.lg.jp/site/haku1/haku1-5.html",
+    "https://itosekizai.co.jp/okamiblog/okamiblog20150513"
+   ],
+   "sense_tags": [
+    "静けさ",
+    "草",
+    "まなざし",
+    "時間の地層"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-HIPPIE-003",
+   "category": "ヒッピー・対抗文化",
+   "keyword": "山田塊也『アイ・アム・ヒッピー』と富士見・入笠山山麓の〈雷赤鴉族〉（「部族」発祥のコミューンと書誌）",
+   "page_type": "地の頁",
+   "era": "現代（1967年発祥／1960〜90年代の運動／1990年初版・2008年〜Web連載）",
+   "background": "『部族』の運動を内側から生きた山田塊也（通称ポン、1937年岐阜県高山市生まれ、脊椎カリエスをわずらう）が、六〇年代から九〇年代までの日本のヒッピー・ムーヴメントを綴った回想録が『アイ・アム・ヒッピー 日本のヒッピー・ムーヴメント史60-90』である。その物語の起点は、ほかならぬ富士見町にある。一九六七年五月、入笠山の登山口（御射山郵便局の近く、標高およそ一〇〇〇メートル、八ヶ岳と、地名の通り富士山とを同時に望む高原）に、『部族』の最初のコミューン〈雷赤鴉族（かみなりあかがらすぞく）〉が営まれた。山田自身も武蔵境の住まいを引き払ってここへ移り、二、三人が横になれるだけの仮小屋「かたつむり」を建て、畑を耕し、薪を拾い、仔山羊を飼って数人と暮らしたと記す。地元の人々はこの実験に好意的で、相談にも乗ってくれたという。この畑の片隅に、東京から来た仲間が連れてきた米国人ヒッピーの持参した種が蒔かれ、山田はそれを「嗜好を目的として日本で栽培された最初の大麻」と書き残している。信濃毎日新聞（2023年5月8日）は、同じ入笠山山麓のこの場所を全国初のヒッピー共同体とし、石組みのかまど跡がいまも残ること、2023年5月に富士見町歴史民俗資料館で郷土史家・下平武の企画により『ヒッピーという生き方 部族降臨』展が開かれたことを伝えている。／運動はやがて域外へ広がっていく。第二のコミューン〈がじゅまるの夢族〉は南海の活火山島・諏訪之瀬島（鹿児島県十島村）に、ミニコミ『部族』は東京・国分寺のそよ風族を拠点に育った。創刊号はいきなり一万部、六八年春の第二号は初版一万部・再版五千部を街頭販売だけで売り切ったという。日本で最初の大麻取締法による弾圧（摘発）はこの国分寺のそよ風族に入り、三省ら五名が逮捕され、新聞は全員の顔写真まで載せた——ただしその端緒は、富士見の雷赤鴉族の土地が同人の名義で登記されていたことにあった、と山田は綴る。回想録の書誌としては、初版が1990年5月に第三書館からA5判324頁で刊行され、のちに森と出版から2013年の増補改訂版（363頁＋図版4頁）、2023年には部族新聞創刊号の四頁復刻を添えた『増補改訂版2nd』と版を重ねた（国立国会図書館サーチには1991年9月の刷が登録され、初版か後刷かの版次差が残る）。晩年の山田は同じ主題をウェブでも書き継ぎ、『名前のない新聞』に連載した「ヒッピームーヴメント史 IN ヤポネシア」（2008年〜）は、2010年の急逝により未完で途切れている。創刊号に載せた「部族宣言」については、四〇年を経て読み返すとその楽天性が面映ゆい、と自ら振り返る一節も残る。ただしこうした細部の多くは、当事者ひとりが数十年をへて綴った回顧に負っており、外の記録（地方紙の報道・町資料館の企画展）で裏づけられる出来事と、内側でしか語られない出来事とが、静かに混じり合っている。",
+   "confidence": "A/B",
+   "source_type": "自主運営ウェブ上の一次証言（回想録の著者自身によるWeb連載）＋地方紙報道（信濃毎日新聞）・自治体資料館の企画展情報＋商業書誌情報（国立国会図書館サーチ／CiNii図書／紀伊國屋書店／版元直販サイト）",
+   "sources": [
+    "https://www.kinokuniya.co.jp/f/dsg-01-9784807490035",
+    "https://ndlsearch.ndl.go.jp/books/R100000002-I000002260251",
+    "https://ci.nii.ac.jp/ncid/BB21329060",
+    "https://flyingbooks.base.shop/items/74322219",
+    "https://www.shinmai.co.jp/news/article/CNTS2023050800611",
+    "http://amanakuni.net/pon/hippie/index.html",
+    "http://amanakuni.net/pon/hippie/1.html",
+    "http://amanakuni.net/pon/hippie/2.html",
+    "http://amanakuni.net/pon/hippie/3.html",
+    "https://maruisora.official.jp/kaiya-yamada/"
+   ],
+   "sense_tags": [
+    "時間の地層",
+    "声",
+    "余白",
+    "欠け",
+    "発祥"
+   ],
+   "geo": {
+    "lat": 35.893,
+    "lng": 138.225
+   },
+   "town_outside": true
+  },
+  {
+   "id": "FJM-MOD-003",
+   "category": "産業の系譜",
+   "keyword": "諏訪のセルリー（八ヶ岳裾野の高原野菜）",
+   "page_type": "地の頁",
+   "era": "近代〜現代",
+   "background": "諏訪地方のセルリー栽培は1922年（大正11年）、富士見町に隣接する茅野市玉川で始まり（起源地は富士見町域外＝TOWN_OUTSIDE）、原村では1933年に試作、1940年から本格化した。八ヶ岳の裾野は標高700〜1200mへ畑が段々に上がり、年平均気温11度前後の内陸性の冷涼な気候がこの葉物を育てる。1967年に洋菜系の生産部会が『諏訪洋菜専門委員会』として統一され、1975年には郡下の生産者全員による共同計算が始まった。JA信州諏訪の『諏訪3号』は一般的なコーネル種から独自に改良を重ね、香りを抑えたこの土地の品種と伝わる（導入年や栽培期間の短縮といった細部は一次資料では確認しきれていない）。収穫は暑さと水分を避けて深夜2時頃から始まり、ある作り手は冬になると近くのスキー場でゲレンデを整えるという。令和4年の長野県のセロリは全国シェア41.6%の日本一で、夏場は国産のおよそ9割がJA信州諏訪（茅野市・富士見町・原村）から出るとされる。",
+   "confidence": "A/B(一部D)",
+   "source_type": "農水省関連機関（alic.go.jp）産地紹介月報／JA長野県公式食育サイト記事（oishii.iijan.or.jp）／地方紙記事（全国郷土紙連合kyodoshi.com、RKB毎日放送）／自治体行政統計（machimura.maff.go.jp）／長野県公式ブログの混在",
+   "sources": [
+    "https://vegetable.alic.go.jp/yasaijoho/santi/1909_santi1.html",
+    "https://oishii.iijan.or.jp/reports/oishii/reports/otokomae/post-2359.php",
+    "http://kyodoshi.com/article/16108",
+    "https://blog.nagano-ken.jp/nihonichi/agri_product/46.html",
+    "https://rkb.jp/article/143348/",
+    "https://www.machimura.maff.go.jp/machi/contents/20/362/details.html"
+   ],
+   "sense_tags": [
+    "静けさ",
+    "水",
+    "時間の地層",
+    "手仕事"
+   ],
+   "geo": {
+    "lat": 35.968,
+    "lng": 138.249
+   },
+   "town_outside": true
+  },
+  {
+   "id": "FJM-JOMON-004",
+   "category": "縄文文化",
+   "keyword": "藤内遺跡出土品（神像筒形土器）",
+   "page_type": "地の頁",
+   "era": "縄文中期（指定・調査は近代〜現代）",
+   "background": "井戸尻遺跡群のひとつ、藤内遺跡（富士見町境）の頁。比較に引く長峯遺跡は茅野市域＝町外にあたる。藤内の出土品は県宝ではなく、国の重要文化財として2002年に指定された一括資料で、土器・土製品48点と石器151点の計199点に、中部高地の縄文中期における造形の到達点という評価が添えられている。象徴は実測高55.7cmの神像筒形土器で、筒形の器胎に人型の神像が抱きつき、頭部には眼とされる大きな円孔が穿たれる。区画文や重三角区画を特徴とする藤内式土器も、この井戸尻文化の様式のひとつとされる。1962年の第二次調査では231点が出土し、集落は北の環状部（藤内・井戸尻期）と南の曽利I期が八の字に接すると読まれてきたが、2025年の現地調査では西斜面の「土器捨て場」が傾斜への流れ込みと分かり、南側は環状でないことも新たに示された。文様を蛙や月の満ち欠けに重ね、再生の象徴と読む解説も展示では差し出されるが、提唱者や原論文までは辿れていない。隣接する長峯遺跡からは高さ約25cmの小ぶりな神像筒形土器が出て、藤内のものと図像の骨格を分かち合う。",
+   "confidence": "S/C",
+   "source_type": "国指定文化財等データベース／文化庁文化遺産オンライン／自治体資料（富士見町・茅野市公式）／地域史料財団資料（八十二文化財団）／地域ニュースサイト・個人ブログ（要検証、一次発掘調査報告書未照合）",
+   "sources": [
+    "https://kunishitei.bunka.go.jp/heritage/detail/201/10564",
+    "https://online.bunka.go.jp/heritages/detail/135654",
+    "https://www.82bunka.or.jp/bunkazai/detail.php?no=4826",
+    "https://jomondoki.com/jomon-picturebook/sinzoutsutsugatadoki/",
+    "https://www.city.chino.lg.jp/site/togariishi/1733.html",
+    "http://www.kamisuwa-shinyu.com/news/2013/03/29/富士見町　高原のミュージアム　「藤内遺跡出土品展」開催中/",
+    "https://note.com/azusa183/n/nf3a8c576ebf8",
+    "https://www.town.fujimi.lg.jp/site/shisetsu/ko-kokan.html",
+    "https://jomon.co/point/detail/63/",
+    "https://www.zero-position.com/entry/2022/11/11/170000"
+   ],
+   "sense_tags": [
+    "時間の地層",
+    "畏敬",
+    "欠け"
+   ],
+   "geo": {
+    "lat": 35.93,
+    "lng": 138.26
+   },
+   "town_outside": true
+  },
+  {
+   "id": "FJM-JOMON-005",
+   "category": "縄文文化",
+   "keyword": "井戸尻編年と武藤雄六",
+   "page_type": "地の頁",
+   "era": "縄文中期／近現代（学史）",
+   "background": "井戸尻編年は中部高地の縄文中期土器編年で、九兵衛尾根式・狢沢式・新道式・藤内式・井戸尻式・曽利式と連なる型式配列からなり、標式名はいずれも富士見町域内の井戸尻遺跡群の各遺跡に由来する。藤森栄一らが1960年代前半に体系化し、1965年刊行の報告書『井戸尻』で確立したとされる（初期の提示を1963年頃とする説もある）。初代井戸尻考古館館長・武藤雄六は昭和5年に東京・池袋で生まれ、結核の療養中に矢じりを拾い集めたのが考古学への入り口だったと伝わり、昭和33年の井戸尻初発掘では「一番若い小僧のお前が、掘る所を見つけろ」と任されて発掘地点を自ら定めたという。武藤はのちに、藤森栄一と見解を違えて生涯に三度「破門」されたと語ったとも伝わるが、これは一次資料の裏づけを欠く伝聞である。藤内遺跡は二つの環状集落が接する縄文中期前半の集落で、当時の祭祀の中心地ともいうべき場と評され、出土した石器・土器・土偶など199点は2002年に国の重要文化財に指定された。この井戸尻編年の型式解釈をめぐっては、三上徹也の論文に対し寺内隆夫が2001年に反論を発表するなど、学界での議論も続いている。",
+   "confidence": "A/C",
+   "source_type": "国指定文化財（文化庁データベース系）／学術論文（奈良文化財研究所全国遺跡報告総覧）／自治体・観光協会資料（Wikipedia・富士見町公式・南アルプスユネスコエコパーク公式）／個人ブログ（一次資料未確認・伝聞）混在",
+   "sources": [
+    "https://oraho-fujimi.jp/people/mutoh.html",
+    "https://jomon.co/point/detail/93/",
+    "https://minami-alps-br.org/travel_guide/detail/location_08/cultural_property/cultural_property02.html",
+    "https://ja.wikipedia.org/wiki/井戸尻遺跡",
+    "https://sitereports.nabunken.go.jp/ja/article/90263",
+    "https://note.com/azusa183/n/n94d970cc530f"
+   ],
+   "sense_tags": [
+    "時間の地層",
+    "まなざし",
+    "静けさ"
+   ],
+   "geo": {
+    "lat": 35.933,
+    "lng": 138.258
+   },
+   "town_outside": false
+  },
+  {
+   "id": "FJM-HIST-005",
+   "category": "歴史・地政学",
+   "keyword": "先達城（小東城・新五郎屋敷）と乙事の城館伝承",
+   "page_type": "余白の頁",
+   "era": "戦国／中世〜近世",
+   "background": "八ヶ岳西麓・信濃境の一角に、先達城址が富士見町の指定史跡として残る。小東城・新五郎屋敷とも呼ばれ、享禄元年(1528)に甲斐の武田信虎が諏訪へ攻め入った折、『諏訪神使御頭之日記』の伝える「小東の新五郎屋敷」がこれにあたるとされるが、その新五郎が何者かは今も判らない。同じ侵攻で武田と諏訪頼満は神戸(現・御射山神戸)や堺川で刃を交えて決着がつかず、堺川という川は今はなく、立場川のことだとする説が有力とされる。城主は武田家臣・多田淡路守常昌と伝わり、城跡の常昌寺の名の由来ともいうが、一次史料にその名は見えず、満頼の子か父かで見解も割れる伝承にとどまり、現地に立てば防御の城というより八ヶ岳西麓の道をつなぐ中継地点だったのではないかと『日本城郭大系』は記す。天文九年(1540)信虎の娘・禰々が諏訪の頼重に嫁ぐ際、境方十八ヶ村が化粧料として諏訪氏に贈られ甲六川が新たな国境になったと伝わる一方、天正壬午の乱に乗じて国境が動いたとする別の話もあり、どちらとも定まらない。近くの乙事には、武田に仕えのち徳川へ移り関東移封で乙骨を名乗った五味氏の記憶が残るが、「乙事城」という城の名は町の資料にも城郭の目録にも見あたらず、その不在もまた一つの余白として置かれている。",
+   "confidence": "A/B",
+   "source_type": "郷土史・自治体資料（富士見町文化財一覧）＋城郭愛好家個人サイトによる一次史料孫引き（諏訪神使御頭之日記・日本城郭大系からの引用を含む）＋公的機関の古文書解題（長野県立歴史館）＋事典類の混在",
+   "sources": [
+    "https://www.town.fujimi.lg.jp/site/toukei/somu-kikaku-09-12.html",
+    "https://kojousi.sakura.ne.jp/kojousi.sendatsu.htm",
+    "https://www.oraho-fujimi.jp/culture/okkoto-cultural-property-walk.html",
+    "https://www.npmh.net/books/komonjo/2020/05/33-26.php",
+    "https://kotobank.jp/word/%E5%BE%A1%E5%B0%84%E5%B1%B1%E7%A5%9E%E6%88%B8%E6%9D%91-3058461",
+    "https://www.town.fujimi.lg.jp/"
+   ],
+   "sense_tags": [
+    "境界",
+    "時間の地層",
+    "欠け",
+    "静けさ"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-HIST-006",
+   "category": "歴史・地政学",
+   "keyword": "富士見分村開拓団（満蒙開拓）",
+   "page_type": "地の頁",
+   "era": "近代（昭和・満洲移民期）／現代（継承）",
+   "background": "入植先の満州国濱江省木蘭県王家屯は富士見町域外・国外にあたる。富士見分村は1939年（昭和14年）から同地への入植を始め、長野県内でもっとも多い1000人近い規模の分村だったとされる。終戦の1年2カ月後、1946年10月に富士見村へ帰り着いたが、飢えや病で多くが命を落とし、生きて戻れたのは700人ほどだったという。町内には満州開拓殉難者供養塔が建ち、引揚者でつくる拓友会が長く供養の集いを続けてきたが、会員の高齢化により2022年を最後の集いとし、以後は町内在住の会員が年に二度の供養を担うことになった。細谷亨の研究は、全戸移住（挙家離村）が理念とされながら実際には帰村を見込む農家が多く母村からの流出は限られた一方、家族の移住が労力不足と農業生産力の低下を母村にもたらしたと分析している。近年も、体験者の証言をまとめた早出伸哉の著書、体験者が登壇する講演会、中学生が町戦没者追悼式で分村開拓団の歴史を発表する平和学習など、送り出した側の記憶を継ぐ営みが静かに続いている。",
+   "confidence": "A/D",
+   "source_type": "混成：郷土紙配信記事（kyodoshi.com）／学術論文（J-STAGE『社会経済史学』査読誌、細谷亨2014）／出版社公式書誌（鳥影社）／主催団体公式告知（みんなのつどい富士見）／地方紙記事（信濃毎日新聞、見出し・リード文のみ確認）",
+   "sources": [
+    "http://kyodoshi.com/article/13907",
+    "https://www.jstage.jst.go.jp/article/sehs/80/2/80_KJ00009497665/_article/-char/ja/",
+    "https://www.choeisha.com/pub/books/59194.html",
+    "https://tsudoi-fujimi.com/2025/02/08/manmou-kaitaku-fujimi-taiken/",
+    "https://www.shinmai.co.jp/news/article/gf01d56ga5irsv1n6t31k780"
+   ],
+   "sense_tags": [
+    "望郷",
+    "喪失",
+    "時間の地層",
+    "静けさ"
+   ],
+   "geo": null,
+   "town_outside": true
+  },
+  {
+   "id": "FJM-HIST-007",
+   "category": "歴史・地政学",
+   "keyword": "御射山神戸村・神戸新町と「新田」村の系譜",
+   "page_type": "地の頁",
+   "era": "中世〜近代",
+   "background": "御射山神戸（現・富士見町）の文献上の初出は、嘉禎3年（1237）奥書の「祝祠段」にみえる記載までさかのぼる。近世には集落が古町から甲州道中沿いの新町へ移り、金沢宿と蔦木宿のあいだの間宿となった。慶長16年（1611）には新町の家作を奨励したとされる諏訪家老臣等の連署状が伝わるが、発給者が頼満か頼水かは原典でも定まらず、当主本人が直接宛てたものと断じるのは難しい。享保18年（1733）の書上には家数126軒・高364石余と記される。興味深いのは、この典拠の本文に「新田」の語が一度も現れないことで、正式表記はあくまで「御射山神戸村」「神戸新町」である。それでも明治7年（1874）10月25日、この村を含む10ヶ村が合併して富士見村が生まれたとき、うち6ヶ村（横吹新田・花場新田・若宮新田・松目新田・大平新田・栗生新田）が「新田」を名乗っており、諏訪藩の新田開発の記憶が地名の層として残る。一方、寒冷と多霧で作物が実らず廃村になったと伝わる稗之底村については、しばしば語られる標高や気温の具体数値の裏づけが今回の出典では取れず、要検証にとどめる。",
+   "confidence": "A/C",
+   "source_type": "郷土史・地名辞典（日本歴史地名大系／kotobank）＋地域史料アーカイブ（信州地域史料アーカイブADEAC、長野県立歴史館所蔵絵図）＋自治体史（Wikipedia経由、町史での裏取り推奨）＋観光メディア（伝承色強く確度低）",
+   "sources": [
+    "https://kotobank.jp/word/%E5%BE%A1%E5%B0%84%E5%B1%B1%E7%A5%9E%E6%88%B8%E6%9D%91-3058461",
+    "https://ja.wikipedia.org/wiki/%E5%AF%8C%E5%A3%AB%E8%A6%8B%E6%9D%91_(%E9%95%B7%E9%87%8E%E7%9C%8C)",
+    "https://adeac.jp/shinshu-chiiki/catalog/mp0040010003000170",
+    "https://kotobank.jp/word/%E8%AB%8F%E8%A8%AA%E8%97%A9-85396",
+    "https://www.go-nagano.net/tradition-and-culture/id21872"
+   ],
+   "sense_tags": [
+    "時間の地層",
+    "境界",
+    "欠け"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-ROAD-003",
+   "category": "街道・結節点",
+   "keyword": "御射山神戸一里塚（甲州街道48里目）",
+   "page_type": "地の頁",
+   "era": "江戸初期（慶長年間・築造伝承）／昭和（史跡指定）",
+   "background": "甲州街道を江戸日本橋から数えて48里目にあたる一里塚で、長野県諏訪郡富士見町富士見神戸、御射山神戸集落の北端に残る。慶長年間の築造と伝わり、街道の両側に東西の塚がそろって現存する。西塚には整備の当初から植えられたとされるケヤキの大木が育ち、幹囲7.1m・樹高25m・樹齢はおよそ390年と推定される。東塚はもとエノキだったが明治20年代に枯れ、その後に植え直されたケヤキがいま大木となっている。塚もケヤキも往時のまま保たれた例は他にないと評され、指定は県ではなく町指定史跡（昭和40年4月25日）である。国道からやや奥まって駐車場もなく、隣接する御射山神戸八幡社の境内には町天然記念物の別のケヤキが立つが、その樹齢は定かでない。",
+   "confidence": "A/D",
+   "source_type": "郷土史・自治体資料（八十二文化財団「信州の文化財」データベース）＋自治体公式（富士見町指定文化財一覧）＋百科事典（Wikipedia甲州街道の一里塚一覧）＋観光系記事（アルピコ交通・おみやさんこむ）の複合",
+   "sources": [
+    "https://www.82bunka.or.jp/bunkazai/detail.php?no=141&seq=0",
+    "https://www.town.fujimi.lg.jp/site/toukei/somu-kikaku-09-12.html",
+    "https://ja.wikipedia.org/wiki/甲州街道の一里塚一覧",
+    "https://www.alpico.co.jp/shikinomori/news/2022/05/post-721.php",
+    "https://www.omiyasan.com/south/fujimi/misayamagoudohachimansya.php"
+   ],
+   "sense_tags": [
+    "時間の地層",
+    "道",
+    "境界",
+    "静けさ"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-ROAD-004",
+   "category": "街道・結節点",
+   "keyword": "法華道（若宮起点・入笠山越えの古道）",
+   "page_type": "地の頁",
+   "era": "中世〜近世（古道）",
+   "background": "起点は富士見町若宮の若宮八幡宮だが、峠を越えた先の登山口・終着地は伊那市側にあり、道の後半は町域外を歩く（TOWN_OUTSIDE）。順路は入笠山の東斜面から仏平峠（大阿原湿原の北側）を経て御所平、そして高座岩へと下る。御所平峠は標高1,787mと記される一方、仏平峠は資料により1,842m・1,845m・1,850mと数字が割れ、1,840m台後半としか言いようがない。終着も伊那市側の芝平・山室・長谷などと諸説あって一点に定まらず、赤坂または芝平とされる登山口もいずれも伊那市高遠から芝平峠へ向かう県道沿いにある。道中の高見岩は見張所跡・仮小屋跡と伝わる地点で、高島藩の金奉行が近道の末にこの清水で喉を潤そうとして盗賊に斬られたという首切清水の話も残る。身延山久遠寺11世・日朝上人は文明5年（1473）に高遠町山室の遠照寺を開いた実在の僧だが、その人が高座岩で説教したという場所付けの伝えは、複数の郷土サイトが同じ話を記すものの一次史料の裏づけは確認できていない。",
+   "confidence": "B/C",
+   "source_type": "観光ガイドサイト・郷土ブログ・個人サイトの複合（一次史料・自治体公式資料の直接確認は未達）",
+   "sources": [
+    "https://thejapanalps.com/en/activities/hokkemichi/",
+    "https://thejapanalps.com/access-hokkemichi/",
+    "https://suwa-tabi.jp/news/10681/",
+    "http://yatsugatakesigen.seesaa.net/article/465150794.html",
+    "https://www.yatsugatake-nc.com/2020/09/26/入笠山周辺の古道-法華道-を歩く/",
+    "https://anineco.org/240721.html"
+   ],
+   "sense_tags": [
+    "境界",
+    "時間の地層",
+    "静けさ",
+    "祈り"
+   ],
+   "geo": null,
+   "town_outside": true
+  },
+  {
+   "id": "FJM-FAITH-005",
+   "category": "信仰・伝承",
+   "keyword": "路傍の石神（立沢の道祖神・若宮の百庚申）",
+   "page_type": "地の頁",
+   "era": "江戸後期（万延元年造立）〜昭和（移設）",
+   "background": "富士見町教育委員会の指定文化財一覧には、立沢の「中下組の道祖神」と若宮の「百庚申」がいずれも建造物として登載されている。若宮の百庚申は、万延元年（一八六〇）に村を襲った伝染病と大洪水を機に、村役・細川藤四郎の音頭で当時六十三戸だった若宮新田が百基を揃えて据えたと伝わり、昭和六十一年の道路改修でやや南へ移して修復されたという（この由来は個人の郷土研究による伝承で、町史などでの裏取りは取れていない）。乙事の道祖神には盃を手にした像が多く、加工をほとんど加えない自然石をそのまま用いた、荒々しく力強い造形が特徴とされる。双体の道祖神については、年代的に新しく猿田彦命などの神話と後から結び付けられた例が多いとの見方もあるが、これは一般論であって富士見町固有の言及ではない。",
+   "confidence": "A/C",
+   "source_type": "自治体一次資料（町指定文化財一覧）＋町観光サイト（oraho-fujimi.jp）＋個人郷土研究サイト（伝承部分）＋専門家インタビュー記事（一般論、町名言及なし）",
+   "sources": [
+    "https://www.town.fujimi.lg.jp/site/toukei/somu-kikaku-09-12.html",
+    "https://www.oraho-fujimi.jp/culture/okkoto-cultural-property-walk.html",
+    "https://suwaarea-examine.com/Koshinto.html",
+    "https://skima-shinshu.com/dousojin-interview/",
+    "https://www.oraho-fujimi.jp/culture/fujiminosekishi.html"
+   ],
+   "sense_tags": [
+    "畏敬",
+    "祈り",
+    "時間の地層",
+    "欠け"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-FAITH-007",
+   "category": "信仰・伝承",
+   "keyword": "高森観音堂のしだれ桜",
+   "page_type": "地の頁",
+   "era": "江戸中期（推定樹齢約250年）／昭和（1967年 町指定）",
+   "background": "境高森の愛宕山に立つしだれ桜で、昭和42年（1967年）7月1日に富士見町の天然記念物（植物）へ指定された。幹の根元は石造物の円柱の残欠を抱き込んだまま育っており、樹齢は推定でおよそ250年とされる。ただし目通りの幹囲は3.7mとも3.8mとも、樹高は約15mとも約10mとも記録が割れ、数値は資料ごとに幅がある。すぐ隣の高森諏訪社は諏訪大社の祭神を勧請し社殿も同社から移したと伝わる古社で、桜はその境内の時間に寄り添うように立つ。公益財団法人日本花の会の樹木医は、山梨・北杜市の山高神代桜とともにこの木の樹勢回復にも関わったとされる。町の指定文化財では同じ高森地区に史跡「国見山」、天然記念物「大泉水源の樹林」も名を連ね、標高およそ970mの高みゆえ開花は遅く、例年の見頃は四月なかばごろに巡ってくるという。",
+   "confidence": "A/B",
+   "source_type": "自治体資料（富士見町公式サイト）＋文化財データベース（公益財団法人八十二文化財団）＋公益財団法人資料（日本花の会）",
+   "sources": [
+    "https://www.82bunka.or.jp/bunkazai/detail.php?no=207&seq=0",
+    "https://www.hananokai.or.jp/sakura/sakura-area/sakura-care-info2/",
+    "https://www.hananokai.or.jp/sakura/sakura-area/sakura-care-info1/",
+    "https://www.town.fujimi.lg.jp/page/takamorisuwajinjya.html",
+    "https://www.town.fujimi.lg.jp/site/toukei/somu-kikaku-09-12.html"
+   ],
+   "sense_tags": [
+    "時間の地層",
+    "有限性",
+    "静けさ",
+    "光"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-LIT-006",
+   "category": "近代文学・芸術",
+   "keyword": "森山汀川と歌誌『比牟呂』",
+   "page_type": "地の頁",
+   "era": "近代",
+   "background": "森山汀川（本名・藤一、1880-1946）は諏訪郡落合村（現在の富士見町大字落合）に生まれ、生涯のほとんどを諏訪の地から離れず小学校教師を続けた歌人。諏訪中学で正岡子規門下として俳句を始め、島木赤彦との出会いを機に短歌へ転じた。1903年に赤彦・太田水穂らと歌誌『比牟呂』を興し、のちアララギに合流して1929年から選者を務めた。歌集『峠路』『雲垣』『樹雫』を残し、最晩年の1946年に第二次『ヒムロ』を創刊した直後に世を去っている。赤彦の十三回忌にあたる1937年には、北海道や樺太から南洋・南米にまで及ぶ各地から約110点の追悼歌が汀川のもとへ寄せられ、そのまま保管された記録が残る。富士見公園の歌碑については、汀川自身の碑を含むとする資料と含まないとする資料があり、その数え方は今も一致していない。",
+   "confidence": "A/B",
+   "source_type": "郷土史・自治体資料＋人名事典(kotobank)＋Wikipedia(相互参照可)＋国立情報学研究所書誌データベース(CiNii)＋長野県立歴史館公式古文書目録＋公益財団法人文化財団体(82文化財団)＋民間石材店ブログ(一部・要検証扱い)",
+   "sources": [
+    "https://kotobank.jp/word/森山汀川",
+    "https://ja.wikipedia.org/wiki/森山汀川",
+    "https://ja.wikipedia.org/wiki/落合村_(長野県)",
+    "https://cir.nii.ac.jp/crid/1130282269085199872",
+    "https://www.npmh.net/books/komonjo/2020/01/id-092.php",
+    "https://www.82bunka.or.jp/bunkazai/detail.php?no=211&seq=0",
+    "https://itosekizai.co.jp/okamiblog/okamiblog20150513"
+   ],
+   "sense_tags": [
+    "静けさ",
+    "有限性",
+    "時間の地層"
+   ],
+   "geo": null,
+   "town_outside": false
+  },
+  {
+   "id": "FJM-LIT-007",
+   "category": "近代文学・芸術",
+   "keyword": "犬養毅の別荘「白林荘」",
+   "page_type": "地の頁",
+   "era": "近代",
+   "background": "白林荘は犬養毅（号・木堂）が富士見町に構えた別荘で、母屋は大正13年（1924年）に完成した。きっかけは大正11年（1922年）春、宋秉畯所有の「朝鮮別荘」を一か月あまり借りて過ごした滞在だったと伝わる。名は敷地の赤松林に混じる白樺の白さに由来し、犬養は晩年「白林遯叟」の号（印）を用いた。庭に立つ白松は、辛亥革命を記念して孫文から個人的に贈られた木である。別棟「老栗亭」では近隣の青年たちと夜ごと政党政治や普通選挙を語り合ったと伝わり、もんぺ姿で自ら植林したという逸話も残る（ただし現存する老栗亭は戦後に山縣勝見が改築したもの）。戦後は犬養健から、辰馬財閥出身で厚生大臣を務めた山縣勝見へと受け継がれ、いまも個人所有・非公開のまま、観光協会のガイドツアー経由で年に限られた機会だけ庭に入れる。",
+   "confidence": "A/C",
+   "source_type": "学術紀要（倉敷芸術科学大学紀要・査読論文）＋郷土史・観光協会公式サイト＋自治体資料＋個人ブログ混在",
+   "sources": [
+    "https://kusa.repo.nii.ac.jp/record/318/files/kk201621097115.pdf",
+    "https://suwaarea-examine.com/tsuyoshi_inukai_.html",
+    "https://www.oraho-fujimi.jp/culture/garden-you-can-feel-inukai.html",
+    "https://www.matsumoto-shoeido.jp/collections/151?lang=ja",
+    "https://ja.wikipedia.org/wiki/山縣勝見",
+    "https://www.yahhoo.website/?p=109563"
+   ],
+   "sense_tags": [
+    "静けさ",
+    "時間の地層",
+    "返礼"
+   ],
+   "geo": {
+    "lat": 35.913,
+    "lng": 138.228
+   },
+   "town_outside": false
+  },
+  {
+   "id": "FJM-LIT-008",
+   "category": "近代文学・芸術",
+   "keyword": "富士見高原の別荘文化（帰去来荘・白林荘と作家たち）",
+   "page_type": "地の頁",
+   "era": "近代",
+   "background": "御射山神戸村（現・富士見町）出身の政治家・小川平吉は、明治の末にこの高原へ別荘『帰去来荘』を構え、富士見が別荘地となる先駆けのひとつになったと伝わる。小川に勧められて大正十一年（1922）春に初めて富士見を訪れた犬養毅は、大正十三年（1924）に八ヶ岳の山麓へ別荘『白林荘』を建て、大正十四年（1925）頃から数年をこの地で過ごした。その犬養が昭和七年（1932）の五・一五事件で凶弾に倒れたのち、白林荘は荒れた時期を経て、戦後に山縣勝見（表記に異同あり）の手で修復されたと伝わる。小川の孫にあたるのが後の宰相・宮澤喜一だが、彼が少年期の夏をこの高原で過ごしたかどうかは、確かな記録には辿り着けていない。富士見町の資料は、井伏鱒二・田宮虎彦・唐木順三ら多くの作家がこの高原に別荘を構え、避暑や執筆に滞在したと記すが、それぞれの滞在の年や住まいの跡、作品に落ちた影までは、まだ辿りきれていない。",
+   "confidence": "B/D",
+   "source_type": "郷土史・自治体資料（富士見町公式）＋独立解説サイト＋二次伝記資料（Wikipedia等）の混在",
+   "sources": [
+    "https://ja.wikipedia.org/wiki/小川平吉",
+    "https://suwaarea-examine.com/tsuyoshi_inukai_.html",
+    "https://www.town.fujimi.lg.jp/site/haku1/haku1-5.html"
+   ],
+   "sense_tags": [
+    "静けさ",
+    "時間の地層",
+    "光"
+   ],
+   "geo": {
+    "lat": 35.908,
+    "lng": 138.257
+   },
+   "town_outside": false
+  },
+  {
+   "id": "FJM-IND-005",
+   "category": "産業の系譜",
+   "keyword": "カゴメ富士見工場・野菜生活ファーム富士見／八ヶ岳みらい菜園",
+   "page_type": "地の頁",
+   "era": "現代（1968操業〜）",
+   "background": "富士見2150の食品工場は1968年に操業を始めた。首都圏への近さと、南アルプス山系からしみ出す地下水の豊かさが立地の決め手だったと伝わる（この点は一媒体の記述にとどまる）。同社は2013年に構想を起こし、2016年に町と地域振興協定を結んで、六年目の2019年4月26日、富士見9275-1に体験型のファームを開いた。工場に隣り合う農業法人は2015年設立で、プラスチックフィルムで覆うセミクローズ式の大型温室（周年型1ha・夏作型0.2ha）で生鮮トマトを育てる、国内初とされる方式をとる。この温室は、隣の工場から出る天然水・排温水・排CO2を暖房と光合成の促進に回し、搾汁後のパルプや茎葉は町内で堆肥に変えられ、5.2haの露地の土づくりへ還る循環を組んでいる。ファームでは地元の菓子店と共同開発した焼き菓子も並ぶ。「町の企業誘致第一号」とも紹介されるが、町公式の記載では確かめられていない。",
+   "confidence": "A/D",
+   "source_type": "観光紹介記事＋ビジネスメディア＋企業公式サイト＋地図データベース（住所照合）＋自治体広報PDFの傍証",
+   "sources": [
+    "https://8tabi.jp/report/8466/",
+    "https://seimitsu.site/kikou/kagome/",
+    "https://project.nikkeibp.co.jp/mirakoto/atcl/food/h_vol55/",
+    "https://www.ym-farm.com",
+    "https://www.navitime.co.jp/poi?spot=00011-040769452",
+    "https://www.town.fujimi.lg.jp/uploaded/attachment/14741.pdf"
+   ],
+   "sense_tags": [
+    "水",
+    "循環",
+    "土",
+    "光"
+   ],
+   "geo": {
+    "lat": 35.917933,
+    "lng": 138.219233
+   },
+   "town_outside": false
+  },
+  {
+   "id": "FJM-IND-006",
+   "category": "産業の系譜",
+   "keyword": "献上寒晒しそば（高島藩の将軍家献上）",
+   "page_type": "地の頁",
+   "era": "江戸後期（寛政）／現代（復活）",
+   "background": "（茅野市・伊那市域の産業史。富士見町との直接の結びつきは未確認。）寒晒しそばは、大寒のころ玄そばを清流に一週間ほど沈め、天日で一月ほど干して水分を一割六分まで落とす製法で、江戸期の『蕎麦全書』に製法の一端が見えるという。高島藩は1789年、九代藩主・諏訪忠粛が『暑中信州寒晒蕎麦』を将軍家へ献じたと長野県の観光資料に記される。将軍家への献上は高遠藩にも慣例があり、高島藩系とは別系統の伝えとして区別される。復活した『献上寒晒しそば®』は、いまも茅野市内の五店でしか、例年七月半ばから下旬の短い間しか供されない。学会誌の報告では、寒晒しそばは高遠・高島の両藩を起源としつつ、現在は全国二十七か所が『本朝食鑑』を参照しながら土地の気候に合わせて作り分けているという。富士見町乙事のそば処では八ヶ岳の伏流水で手打ちそばを供するが、寒晒しの技法との結びつきは確かめられていない。",
+   "confidence": "A/D",
+   "source_type": "自治体観光サイト（Go!NAGANO）＋商工会議所系公式資料（kanzarashi.hp.peraichi.com）＋学術誌要旨（日本調理科学会誌）＋町公式観光ページ；高遠藩側の一部出典は証明書不一致で未検証",
+   "sources": [
+    "https://www.go-nagano.net/food-and-drink/id22368",
+    "https://kanzarashi.hp.peraichi.com/",
+    "https://ja.wikipedia.org/wiki/高遠そば",
+    "https://www.jstage.jst.go.jp/article/cookeryscience/57/5/57_292/_article/-char/ja/",
+    "https://www.town.fujimi.lg.jp/site/kanko/rs01.html"
+   ],
+   "sense_tags": [
+    "水",
+    "静けさ",
+    "時間の地層"
+   ],
+   "geo": null,
+   "town_outside": true
+  },
+  {
+   "id": "FJM-IND-007",
+   "category": "産業の系譜",
+   "keyword": "富士見町の精密加工集積（エプソン富士見事業所・ニシムラ）",
+   "page_type": "地の頁",
+   "era": "近代〜現代",
+   "background": "（電解コンデンサ大手ルビコンは伊那市の企業で、富士見町域外である。）町の精密加工の集積は、戦時疎開にひとつの起点を持つ。1940年に東京・蒲田で機械彫刻業として創業したニシムラは戦中に長野へ疎開し、貨車を停める線路があって大型機械を搬入しやすいという理由で富士見が選ばれ、戦後はカメラ・レンズ産業の勃興に合わせてレンズ組立業へ転じた（現在の拠点は町内落合）。セイコーエプソンは2009年3月、富士見事業所の半導体（液晶ドライバIC等）工場を閉じて山形の酒田事業所へ生産を集約する一方、のちに同事業所内へインクジェットの開発拠点（イノベーションラボ、2019年8月開設発表・2022年10月リニューアル、延床約650㎡）を据え直した。二次加工を専業とするシナノレース（2014年設立、横吹地区）のような小さな会社が、地域の受注ネットワークに組み込まれている。『NAGANOものづくり諏訪圏ガイド』の富士見エリアには61社が並び、CNC旋盤・マシニングセンタ加工やアルミダイカストを主流に、レンズ組立・オーディオ機器・食品製造まで裾野が広い。",
+   "confidence": "A/C",
+   "source_type": "企業公式発表・専門紙記事（エプソン関連）＋準公式業界データベース（NAGANOものづくり諏訪圏ガイド）＋単一の民間プロモーションサイト（SEIMITSU FUJIMI、従属確度）の混在",
+   "sources": [
+    "https://seimitsu.site/kikou/nishimura/",
+    "https://xtech.nikkei.com/dm/article/NEWS/20090311/167043/",
+    "https://corporate.epson/ja/news/2022/221026.html",
+    "https://www.epson.jp/osirase/2019/190826.htm",
+    "https://seimitsu.site/kikou/shinano/",
+    "https://seimitsu.site/about/",
+    "https://suwa.monozukuri.or.jp/list/area/fujimi/",
+    "https://www.rubycon.co.jp/en/company/locations/production/"
+   ],
+   "sense_tags": [
+    "時間の地層",
+    "精度",
+    "静けさ"
+   ],
+   "geo": {
+    "lat": 35.93699,
+    "lng": 138.20726
+   },
+   "town_outside": true
+  },
+  {
+   "id": "FJM-NAT-004",
+   "category": "自然",
+   "keyword": "入笠牧場",
+   "page_type": "地の頁",
+   "era": "現代（伝承は戦前〜）",
+   "background": "牧場施設そのものは富士見町域外、伊那市高遠町芝平の国有林を含む土地にあり、入笠山の山塊が富士見町と伊那市にまたがっている（富士見パノラマのゴンドラは山頂側からのアクセス）。標高約1,600m・約305ヘクタールの放牧地は、南信州の畜産農家から預けられた妊娠牛や育成牛を6月下旬から10月上旬まで受け入れ、足腰を鍛え、分娩の負担や飼料費を軽くする役目を担ってきた。放牧頭数はかつての約200頭から近年は50頭を割り、2024年6月の入牧は38頭（黒毛和種・ホルスタイン種）だった。JA上伊那は放牧頭数の減少による経営判断で閉鎖を決め、放牧は2024年限り、土地管理は2025年度末まで続けるという。伊那谷フィルムコミッションの仲介で2010年前後に始まったロケ撮影では市内で一番人気の場所とされ、戦前は馬がいたと伝わるなど、古い歴史も語られる。前任者から引き継いで牧場とキャンプ場を12年間預かってきた管理人は、当初考えた観光地化よりも自然を守る道を選んだと話している（2018年時点）。",
+   "confidence": "A/C",
+   "source_type": "郷土紙記事（長野日報配信/kyodoshi.com転載）＋JA上伊那公式サイト＋地図サービス（Yahoo!地図/NAVITIME）＋雑誌インタビュー記事（midorina.jp）",
+   "sources": [
+    "http://kyodoshi.com/article/22976",
+    "https://www.nagano-np.co.jp/news/detail.php?id=3757",
+    "https://www.iijan.or.jp/topic/20240626-05",
+    "https://midorina.jp/news/157/",
+    "https://map.yahoo.co.jp/v3/place/Ft2gPyLnwVE",
+    "https://www.navitime.co.jp/poi?spot=00004-20151200025"
+   ],
+   "sense_tags": [
+    "静けさ",
+    "有限性",
+    "時間の地層",
+    "風"
+   ],
+   "geo": {
+    "lat": 35.8989826,
+    "lng": 138.1621586
+   },
+   "town_outside": true
+  },
+  {
+   "id": "FJM-MOD-004",
+   "category": "現代・移住",
+   "keyword": "富士見パノラマリゾート（MTB・全日本選手権）",
+   "page_type": "地の頁",
+   "era": "現代",
+   "background": "入笠山の東斜面、富士見町富士見6666-703番地に広がるリゾート。冬のスキー客を運ぶ8人乗りゴンドラは最長3000m・標高差730m（山頂1780m→山麓1050m）で、夏にはそのまま自転車を担ぎ上げるリフトになる。全日本マウンテンバイク選手権の開催は第18回・第22〜25回・第28〜31回・第33回の計10回に及び、単一の開催地としては歴代最多（次点は秋田・田沢湖の5回）。2020年の第33回は世界選手権の日程変更のあおりで、当初予定だった田沢湖から急遽ここへ移された。UCI・JCF公認の常設ダウンヒルコースを持ち、全国ランキング戦Downhill Seriesの第6戦を2024年から3年続けて引き受けている。自転車店のブログでは白馬岩岳（白馬村・富士見町域外）と並べて「MTBの聖地」と呼ばれることもあるが、これは業界内の言い回しで、行政や学術が定めた呼称ではない。",
+   "confidence": "A/D",
+   "source_type": "大会公式記録（sportsentry.ne.jp, dhseries.jp）＋Wikipedia＋自治体資料（富士見町公式）＋業界メディア（cyclingnagano.com）、一部は自転車店ブログ等の業界言説",
+   "sources": [
+    "https://ja.wikipedia.org/wiki/全日本マウンテンバイク選手権大会",
+    "https://www.sportsentry.ne.jp/event/t/22732",
+    "https://www.cyclingnagano.com/alljapan-mtb2020/",
+    "https://ja.wikipedia.org/wiki/富士見パノラマリゾート",
+    "https://dhseries.jp/2024-5-fujimipanoramaresort/",
+    "https://dhseries.jp/2025-6-fujimipanoramaresort/",
+    "https://dhseries.jp/2026-6-fujimipanorama/",
+    "https://b-shop-ochi.com/blog/14292/2024/10/03/",
+    "https://www.town.fujimi.lg.jp/page/sangyo-syoukou-contents08.html"
+   ],
+   "sense_tags": [
+    "傾斜",
+    "速度",
+    "風",
+    "季節の反転"
+   ],
+   "geo": {
+    "lat": 35.905577,
+    "lng": 138.180857
+   },
+   "town_outside": true
+  },
+  {
+   "id": "FJM-MOD-005",
+   "category": "現代・移住",
+   "keyword": "富士見町図書館（貸出数日本一）",
+   "page_type": "地の頁",
+   "era": "現代",
+   "background": "八ヶ岳南麓の小さな町立館でありながら、住民1人あたりの貸出数で長く全国の上位に立ち続けた図書館。国立国会図書館の報道系記事によれば、2008年度は1人あたり20.5冊を貸し出して町村立図書館の区分で12年連続の全国1位、2010年度も18.0冊で人口1万5千〜2万人規模の区分で14年連続1位、自治体規模を問わない全体でも全国5位を記録した。1994年11月に富士見町コミュニティプラザ内（鉄筋コンクリート造・延床約1,217㎡）へ開館し、諏訪地域6市町村の蔵書を融通し合う相互利用網『すわズラ~』にも連なる（開始年月日は個別ページには明記がなく確証はやや弱い）。地域の随筆では『15年連続日本一』とも紹介されるが、この年数は上記の公式値と単純には合わず、正確性は確かめられていない。同じ随筆は、冬の農閑期に帳簿を整理する人のためのビジネス机やコタツのある館内を伝えるが、これは書き手の所感である。なお2018年時点で蔵書約14.8万冊・年間貸出約25万冊・職員12名とも伝わるものの、これは百科事典の記載にとどまり一次資料では確認できていない。",
+   "confidence": "A/D",
+   "source_type": "自治体統計の二次報道（国立国会図書館カレントアウェアネス・ポータル）＋百科事典（Wikipedia）＋広域図書館ネットワーク公式サイト（すわズラ~）＋地域エッセイ（oraho-fujimi、未検証の一次感想）＋座標は住所からの地図サービス逆引き推定（特定サービス名・URLは未記録）",
+   "sources": [
+    "https://current.ndl.go.jp/car/16046",
+    "https://current.ndl.go.jp/car/20811",
+    "https://ja.wikipedia.org/wiki/富士見町図書館",
+    "https://www.libnet-suwa.gr.jp/",
+    "https://www.oraho-fujimi.jp/fujimi-life/20130608001.html"
+   ],
+   "sense_tags": [
+    "静けさ",
+    "時間の地層",
+    "言葉",
+    "冬"
+   ],
+   "geo": {
+    "lat": 35.913254,
+    "lng": 138.236849
+   },
+   "town_outside": false
+  },
+  {
+   "id": "FJM-HIPPIE-004",
+   "category": "ヒッピー・対抗文化",
+   "keyword": "富士見の「部族」運動とその後（山尾三省・長沢哲夫）",
+   "page_type": "地の頁",
+   "era": "現代（1960年代〜）",
+   "background": "富士見に芽吹いた対抗文化「部族」の糸は、町域外へも長く伸びる。カミナリ赤鴉族に関わった長沢哲夫（ナーガ）は、詩人ゲーリー・スナイダーらとトカラ列島・諏訪之瀬島（富士見町外）へ渡って「バンヤン・アシュラマ」を名乗り、1980年の解散後もトビウオ漁をしながら島に暮らしたと伝わる。同じ流れにいた山尾三省は、インド・ネパールの巡礼を経て1977年に屋久島（同じく町外）の廃村・白川山へ一家で移り、詩集『聖老人』（1981）を編み、書斎「愚角庵」や自作の合唱曲を刻む石碑を土地に残した（2001年8月28日没、地元の記念会が詩の賞「オリオン三星賞」を続ける）。放浪の詩人ナナオ・サカキが下伊那郡大鹿村（町外）で世を去った日付は、資料により12月23日と24日で一日ずれる。2023年、富士見町高原のミュージアムの企画展「ヒッピーという生き方 部族降臨」（4月8日〜5月7日）は、郷土史家・下平武がヒッピーを「精神文明の大切さを説き、自給自足で暮らした人々」と捉え直して編んだもので、会期中の4月28日にはゆめひろば富士見で長沢と新納新之助の詩の朗読も開かれた。運動のその後は、教養誌『望星』2015年11月号（46巻11号）の宗像充の連載にも辿れる。",
+   "confidence": "A/C",
+   "source_type": "郷土史・自治体資料／地域メディア（yakushima.keizai.biz・信濃毎日新聞）＋Wikipedia＋国立国会図書館サーチ書誌情報＋書店ブログ（flying-books.com）＋個人noteブログ",
+   "sources": [
+    "https://ja.wikipedia.org/wiki/山尾三省",
+    "https://yakushima.keizai.biz/headline/585/",
+    "https://note.com/kiryuusha/n/n2dfed3c87d82",
+    "https://ja.wikipedia.org/wiki/ななおさかき",
+    "https://papersky.jp/archive/nanao-sakaki/",
+    "https://ndlsearch.ndl.go.jp/books/R000000004-I026810723",
+    "http://www.flying-books.com/blog/?p=4982",
+    "https://www.shinmai.co.jp/news/article/CNTS2023050800611"
+   ],
+   "sense_tags": [
+    "まなざし",
+    "放浪",
+    "風",
+    "時間の地層"
+   ],
+   "geo": null,
+   "town_outside": true
+  },
+  {
+   "id": "FJM-LEGEND-004",
+   "category": "信仰・伝承",
+   "keyword": "小正月のどんど焼きと厄投げ",
+   "page_type": "余白の頁",
+   "era": "近世〜現代（民俗）",
+   "background": "諏訪地方では小正月（およそ一月十日から十五日）に、持ち寄った正月飾りを燃やすどんど焼きが営まれ、その火にあたり団子を焼いて食べることで一年の無病息災を願うと伝わる。ここには、厄年にあたる人が賽銭や菓子を撒き、子どもたちがそれを拾う「厄投げ」という、諏訪地方に独特とされる所作が重なる。ただし富士見町に固有の実施記録までは今回たどれておらず、この地方一帯に広く見られる習わしとして受け取るのが誠実だろう。なお、同じ小正月の火祭りを「三九郎」と呼ぶのは松本・安曇野など中信地方に限られる呼び方とされ、諏訪の側でその名が使われた形跡は見当たらない——とはいえこれは検索の空白による消極的な観察にとどまり、聞き取りで覆る余地は残る。",
+   "confidence": "C/D",
+   "source_type": "観光/文化ポータル記事・一般観光ブログ（諏訪地方・中信地方の民俗紹介）",
+   "sources": [
+    "https://blog.nagano-ken.jp/suwa/experience/2674.html",
+    "https://www.i-turn.jp/sankuro-396-mubyousokusai-matsumoto.html"
+   ],
+   "sense_tags": [
+    "火",
+    "手放し",
+    "巡り"
+   ],
+   "geo": null,
+   "town_outside": false
+  }
+ ]
+}
