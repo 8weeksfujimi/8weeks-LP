@@ -130,6 +130,14 @@
     .rec summary { cursor: pointer; color: var(--ink-soft); letter-spacing: 0.1em; }
     .rec details a { color: #345; word-break: break-all; display: block; line-height: 1.9; }
     .rec details a:hover { text-decoration: underline; }
+    .rec .apparatus {
+      margin: 8px 0 4px; padding: 10px 14px;
+      background: rgba(1, 38, 83, 0.03); border-left: 2px solid var(--line);
+      font-size: 0.78rem; line-height: 2; color: var(--ink-soft);
+    }
+    .rec .apparatus a { display: inline; word-break: break-all; color: #345; border-bottom: 1px dotted #9ab; }
+    .rec .apparatus b { color: var(--navy-2); font-weight: 500; }
+    .rec .apparatus em { color: var(--navy-2); font-style: normal; }
 
     .empty { text-align: center; color: var(--ink-soft); font-size: 0.85rem; padding: 60px 0; }
 
@@ -171,7 +179,7 @@
 
   <div class="wrap">
     <div class="legend">
-      <b>確度の読み方</b> — <b>S</b>：国指定文化財・一次史料など確立した事実／<b>A</b>：郷土史・自治体資料などで堅実／<b>B</b>：諸説あり／<b>C</b>：伝承・言い伝え／<b>D</b>：俗説・要検証。「A/C」のような表記は、一つの記録の中に確度の違う話が同居していることを示します。<span class="outside" style="margin-left:6px">町域外を含む</span> の印は、富士見町の外（茅野市・原村・北杜市など）の事柄を含む記録です。
+      <b>確度の読み方</b> — <b>S</b>：国指定文化財・一次史料など確立した事実／<b>A</b>：郷土史・自治体資料などで堅実／<b>B</b>：諸説あり／<b>C</b>：伝承・言い伝え／<b>D</b>：俗説・要検証。「A/C」のような表記は、一つの記録の中に確度の違う話が同居していることを示します。<span class="outside" style="margin-left:6px">町域外を含む</span> の印は、富士見町の外（茅野市・原村・北杜市など）の事柄を含む記録です。各記録には、本文のほかに<b>考証メモ</b>（どの事実がどの程度確かめられたか）、<b>制作の記録</b>（AIどうしの監査で何が指摘され、どう直されたか）、<b>宿のメモ</b>（この記録を滞在の体験にどう翻訳するかの覚え書き）を開いて読めるようにしました。台帳の舞台裏ごと、公開しています。
     </div>
 
     <div class="controls">
@@ -219,6 +227,9 @@
     const chipsEl = document.getElementById('chips');
 
     const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    // エスケープ後にURLをリンク化（考証メモ・監査記録の中の出典もたどれるように）
+    const linkify = s => esc(s).replace(/https?:\/\/[^\s、）」()<>"']+/g,
+      u => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`);
 
     function badgeClass(conf) {
       const head = (conf || '').trim().charAt(0);
@@ -242,6 +253,9 @@
           <p class="meta">${esc(r.category)}${r.era ? '｜' + esc(r.era) : ''}｜${esc(r.id)}</p>
           <p class="bg">${esc(r.background)}</p>
           ${(r.sense_tags || []).length ? `<p class="tags">${r.sense_tags.map(esc).join(' ・ ')}</p>` : ''}
+          ${r.confidence_note ? `<details><summary>考証メモ — 確からしさの内訳</summary><p class="apparatus">${linkify(r.confidence_note)}</p></details>` : ''}
+          ${(r.review_log || []).length ? `<details><summary>制作の記録 — 監査の往復 ${r.review_log.length}回</summary>${r.review_log.map(l => `<p class="apparatus"><b>${esc(l.iter)}回目 ${esc(l.verdict)}</b> ${linkify(l.note)}</p>`).join('')}</details>` : ''}
+          ${r.cx_idea ? `<details><summary>宿のメモ — 滞在への翻訳</summary><p class="apparatus">${linkify(r.cx_idea)}${r.reciprocity_axis ? '<br><em>' + linkify(r.reciprocity_axis) + '</em>' : ''}</p></details>` : ''}
           ${(r.sources || []).length ? `<details><summary>出典 ${r.sources.length}件</summary>${r.sources.map(u => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a>`).join('')}</details>` : ''}
         </article>`).join('') || '<p class="empty">みつかりませんでした。べつのことばで探してみてください。</p>';
     }
