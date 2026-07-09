@@ -48,4 +48,10 @@
         <changefreq>weekly</changefreq>
         <priority>0.5</priority>
     </url>
+    <url>
+        <loc>https://8weeksfujimi.github.io/8weeks-LP/archive-graph.html</loc>
+        <lastmod>2026-07-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.5</priority>
+    </url>
 </urlset>

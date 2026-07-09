@@ -168,6 +168,7 @@
       <a href="index.html#booking">Booking</a>
       <a href="archive.html" class="keep">Archive</a>
       <a href="archive-db.html" class="current keep">Ledger</a>
+      <a href="archive-graph.html" class="keep">Graph</a>
     </nav>
   </header>
 
@@ -243,7 +244,7 @@
         (r.keyword + r.background + r.category + (r.era || '') + (r.sense_tags || []).join('')).toLowerCase().includes(q)));
       countEl.textContent = hit.length + ' 件 / 全 ' + records.length + ' 件';
       listEl.innerHTML = hit.map(r => `
-        <article class="rec">
+        <article class="rec" id="${esc(r.id)}">
           <div class="rec-head">
             <span class="badge ${badgeClass(r.confidence)}">確度 ${esc(r.confidence)}</span>
             <span class="ptype">${esc(r.page_type)}</span>
@@ -275,7 +276,13 @@
 
     fetch('data/fujimi-archive-db.json')
       .then(r => r.json())
-      .then(d => { records = d.records; render(); })
+      .then(d => {
+        records = d.records; render();
+        if (location.hash) {
+          const el = document.getElementById(location.hash.slice(1));
+          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      })
       .catch(() => { listEl.innerHTML = '<p class="empty">台帳の読み込みに失敗しました。時間をおいてお試しください。</p>'; });
   </script>
 </body>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>記憶の星図 — Local Archive Graph | 8weeks Stay</title>
+  <meta name="description" content="富士見町ローカルアーカイブの記録どうしのつながりを、点と線の星図として眺めるページ。">
+  <link rel="icon" type="image/png" href="assets/logos/favicon_moon.png">
+  <link rel="canonical" href="https://8weeksfujimi.github.io/8weeks-LP/archive-graph.html">
+
+  <meta property="og:title" content="記憶の星図 — Local Archive Graph">
+  <meta property="og:description" content="富士見町の記録どうしのつながりを、点と線で眺める。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://8weeksfujimi.github.io/8weeks-LP/archive-graph.html">
+  <meta property="og:site_name" content="8weeks Stay">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #012653;
+      --navy-2: #12335C;
+      --moon: #FFF100;
+      --washi: #F8F6F1;
+      --white: #FFFFFF;
+      --ink: #1C2B3A;
+      --ink-soft: #4A5A6A;
+      --line: rgba(1, 38, 83, 0.14);
+      --serif: 'Zen Old Mincho', 'Hiragino Mincho ProN', serif;
+      --sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--sans); color: var(--ink); background: var(--navy);
+      line-height: 1.9; letter-spacing: 0.04em; -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    .serif { font-family: var(--serif); }
+
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 28px;
+      background: rgba(1, 38, 83, 0.92);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .header-brand img { height: 44px; width: auto; display: block; }
+    .header-nav { display: flex; align-items: center; gap: 24px; }
+    .header-nav a {
+      color: rgba(255, 255, 255, 0.85); font-size: 0.8rem; letter-spacing: 0.14em;
+      padding-bottom: 2px; border-bottom: 1px solid transparent;
+    }
+    .header-nav a:hover, .header-nav a.current { color: var(--moon); border-bottom-color: var(--moon); }
+
+    #stage { position: fixed; inset: 0; cursor: grab; }
+    #stage.dragging { cursor: grabbing; }
+
+    .title-block {
+      position: fixed; left: 28px; top: 84px; z-index: 50; color: var(--white);
+      pointer-events: none; max-width: 300px;
+    }
+    .title-block h1 { font-family: var(--serif); font-weight: 500; font-size: 1.3rem; letter-spacing: 0.18em; }
+    .title-block p { font-size: 0.68rem; letter-spacing: 0.12em; color: rgba(255, 255, 255, 0.55); margin-top: 4px; }
+
+    .legend {
+      position: fixed; left: 28px; bottom: 24px; z-index: 50;
+      display: flex; flex-direction: column; gap: 3px;
+      font-size: 0.68rem; letter-spacing: 0.1em; color: rgba(255, 255, 255, 0.75);
+    }
+    .legend .li { display: flex; align-items: center; gap: 8px; cursor: pointer; opacity: 0.9; }
+    .legend .li.dim { opacity: 0.3; }
+    .legend .dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+
+    .panel {
+      position: fixed; right: 0; top: 0; bottom: 0; z-index: 90;
+      width: min(400px, 92vw); background: var(--washi); color: var(--ink);
+      box-shadow: -8px 0 40px rgba(0, 0, 0, 0.35);
+      transform: translateX(105%); transition: transform 0.35s ease;
+      padding: 90px 28px 28px; overflow-y: auto;
+    }
+    .panel.open { transform: translateX(0); }
+    .panel .close {
+      position: absolute; top: 74px; right: 20px; font-size: 1.1rem;
+      background: none; border: none; cursor: pointer; color: var(--ink-soft);
+    }
+    .panel .badge {
+      display: inline-block; font-size: 0.66rem; letter-spacing: 0.12em;
+      padding: 1px 9px; border: 1px solid var(--navy-2); color: var(--navy-2); margin-right: 8px;
+    }
+    .panel h2 { font-family: var(--serif); font-weight: 500; font-size: 1.1rem; color: var(--navy); margin: 10px 0 2px; line-height: 1.8; }
+    .panel .meta { font-size: 0.72rem; color: var(--ink-soft); margin-bottom: 12px; }
+    .panel .bg { font-size: 0.84rem; line-height: 2; }
+    .panel .links-list { margin-top: 16px; font-size: 0.76rem; }
+    .panel .links-list b { color: var(--navy-2); font-weight: 500; letter-spacing: 0.14em; font-size: 0.7rem; }
+    .panel .links-list a { display: block; color: var(--navy-2); padding: 2px 0; border-bottom: 1px dotted var(--line); }
+    .panel .goto {
+      display: inline-block; margin-top: 18px; font-size: 0.74rem; letter-spacing: 0.16em;
+      color: var(--navy); background: var(--moon); padding: 8px 20px;
+    }
+
+    .hint {
+      position: fixed; right: 24px; bottom: 20px; z-index: 50;
+      font-size: 0.64rem; letter-spacing: 0.14em; color: rgba(255, 255, 255, 0.4);
+      text-align: right; pointer-events: none;
+    }
+    @media (max-width: 768px) {
+      .header-nav a:not(.keep) { display: none; }
+      .title-block { top: 72px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <a class="header-brand" href="index.html"><img src="assets/logos/logo_white.png" alt="8weeks"></a>
+    <nav class="header-nav">
+      <a href="index.html#spaces">Spaces</a>
+      <a href="index.html#booking">Booking</a>
+      <a href="archive.html" class="keep">Archive</a>
+      <a href="archive-db.html" class="keep">Ledger</a>
+      <a href="archive-graph.html" class="current keep">Graph</a>
+    </nav>
+  </header>
+
+  <canvas id="stage"></canvas>
+
+  <div class="title-block">
+    <h1 class="serif">記憶の星図</h1>
+    <p>LOCAL ARCHIVE GRAPH — 記録の本文に別の記録の名が現れると、線がつながります。</p>
+  </div>
+
+  <div class="legend" id="legend"></div>
+  <div class="hint">ドラッグで移動 / ホイールで拡大縮小 / 点をクリックで詳細</div>
+
+  <aside class="panel" id="panel">
+    <button class="close" id="panelClose" aria-label="閉じる">✕</button>
+    <div id="panelBody"></div>
+  </aside>
+
+  <script>
+    const GROUPS = [
+      ['縄文', r => r.category.includes('縄文'), '#c9a06a'],
+      ['歴史', r => r.category.includes('歴史'), '#9b8ab8'],
+      ['信仰・伝承', r => /信仰|伝承|神社|俗説|廃村/.test(r.category), '#8fb08a'],
+      ['文学・芸術', r => /文学|芸術/.test(r.category), '#c98aa2'],
+      ['街道', r => r.category.includes('街道'), '#b8a05f'],
+      ['産業', r => r.category.includes('産業'), '#7aa8bd'],
+      ['自然', r => r.category.includes('自然'), '#88bf7a'],
+      ['ヒッピー', r => r.category.includes('ヒッピー'), '#e0925f'],
+      ['現代・移住', r => /現代|移住/.test(r.category), '#7c96c9'],
+      ['その他', () => true, '#93a3b5'],
+    ];
+    const GENERIC = ['富士見', '富士見町', '富士見高原', '八ヶ岳', '諏訪', '長野', '信州', '信濃'];
+
+    const canvas = document.getElementById('stage');
+    const ctx = canvas.getContext('2d');
+    let W, H, DPR;
+    function resize() {
+      DPR = window.devicePixelRatio || 1;
+      W = window.innerWidth; H = window.innerHeight;
+      canvas.width = W * DPR; canvas.height = H * DPR;
+      canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    }
+    window.addEventListener('resize', resize); resize();
+
+    let nodes = [], links = [], byId = {};
+    let cam = { x: 0, y: 0, k: 1 };
+    let hovered = null, dragged = null, panning = false, last = null, moved = 0;
+    const hiddenGroups = new Set();
+
+    function groupOf(r) { return GROUPS.find(g => g[1](r)); }
+
+    function shortLabel(kw) {
+      let s = kw.split(/[（(—・]/)[0].trim();
+      return s.length > 14 ? s.slice(0, 13) + '…' : s;
+    }
+
+    function namesOf(r) {
+      const out = new Set();
+      const head = r.keyword.split(/[（(]/)[0];
+      head.split(/[・—、]/).forEach(t => {
+        t = t.trim().replace(/「|」|『|』/g, '');
+        if (t.length >= 3 && !GENERIC.includes(t)) out.add(t);
+      });
+      return [...out];
+    }
+
+    fetch('data/fujimi-archive-db.json')
+      .then(r => r.json())
+      .then(d => build(d.records));
+
+    function build(records) {
+      const R = 30;
+      nodes = records.map((r, i) => ({
+        r,
+        id: r.id,
+        label: shortLabel(r.keyword),
+        color: groupOf(r)[2],
+        group: groupOf(r)[0],
+        x: Math.cos(i / records.length * Math.PI * 2) * R * 8 + (Math.sin(i * 7.3) * 60),
+        y: Math.sin(i / records.length * Math.PI * 2) * R * 8 + (Math.cos(i * 3.7) * 60),
+        vx: 0, vy: 0, deg: 0,
+      }));
+      byId = Object.fromEntries(nodes.map(n => [n.id, n]));
+
+      const nameTable = nodes.map(n => ({ n, names: namesOf(n.r) }));
+      const seen = new Set();
+      nodes.forEach(a => {
+        const text = a.r.background + ' ' + (a.r.confidence_note || '');
+        nameTable.forEach(({ n: b, names }) => {
+          if (a === b) return;
+          if (names.some(nm => text.includes(nm))) {
+            const key = a.id < b.id ? a.id + '|' + b.id : b.id + '|' + a.id;
+            if (!seen.has(key)) {
+              seen.add(key);
+              links.push({ a, b, w: 1 });
+              a.deg++; b.deg++;
+            }
+          }
+        });
+      });
+      // 感覚タグを2つ以上共有する記録どうしは、うすい線で
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const ta = nodes[i].r.sense_tags || [], tb = nodes[j].r.sense_tags || [];
+          const shared = ta.filter(t => tb.includes(t)).length;
+          if (shared >= 2) {
+            const key = nodes[i].id + '|' + nodes[j].id;
+            if (!seen.has(key)) { seen.add(key); links.push({ a: nodes[i], b: nodes[j], w: 0.25 }); }
+          }
+        }
+      }
+      buildLegend();
+      requestAnimationFrame(tick);
+    }
+
+    function buildLegend() {
+      const el = document.getElementById('legend');
+      const used = new Set(nodes.map(n => n.group));
+      GROUPS.forEach(([name, , color]) => {
+        if (!used.has(name)) return;
+        const li = document.createElement('div');
+        li.className = 'li';
+        li.innerHTML = `<span class="dot" style="background:${color}"></span>${name}`;
+        li.addEventListener('click', () => {
+          if (hiddenGroups.has(name)) hiddenGroups.delete(name); else hiddenGroups.add(name);
+          li.classList.toggle('dim', hiddenGroups.has(name));
+        });
+        el.appendChild(li);
+      });
+    }
+
+    function visible(n) { return !hiddenGroups.has(n.group); }
+
+    let alpha = 1;
+    function physics() {
+      const vs = nodes.filter(visible);
+      for (let i = 0; i < vs.length; i++) {
+        const a = vs[i];
+        for (let j = i + 1; j < vs.length; j++) {
+          const b = vs[j];
+          let dx = b.x - a.x, dy = b.y - a.y;
+          let d2 = dx * dx + dy * dy || 1;
+          if (d2 < 90000) {
+            const f = 1400 / d2;
+            const d = Math.sqrt(d2);
+            dx /= d; dy /= d;
+            a.vx -= dx * f; a.vy -= dy * f;
+            b.vx += dx * f; b.vy += dy * f;
+          }
+        }
+        a.vx -= a.x * 0.0016; a.vy -= a.y * 0.0016;
+      }
+      links.forEach(l => {
+        if (!visible(l.a) || !visible(l.b)) return;
+        let dx = l.b.x - l.a.x, dy = l.b.y - l.a.y;
+        const d = Math.sqrt(dx * dx + dy * dy) || 1;
+        const target = l.w >= 1 ? 110 : 190;
+        const f = (d - target) * 0.004 * l.w;
+        dx /= d; dy /= d;
+        l.a.vx += dx * f * d * 0.01; l.a.vy += dy * f * d * 0.01;
+        l.b.vx -= dx * f * d * 0.01; l.b.vy -= dy * f * d * 0.01;
+      });
+      vs.forEach(n => {
+        if (n === dragged) { n.vx = 0; n.vy = 0; return; }
+        n.vx *= 0.86; n.vy *= 0.86;
+        n.x += n.vx * alpha; n.y += n.vy * alpha;
+      });
+      if (alpha > 0.25) alpha *= 0.999;
+    }
+
+    function radius(n) { return 4 + Math.min(9, n.deg * 1.1); }
+
+    function draw() {
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      ctx.clearRect(0, 0, W, H);
+      // 背景のにじみ（月光）
+      const g = ctx.createRadialGradient(W / 2, H * 0.15, 0, W / 2, H * 0.15, H * 0.9);
+      g.addColorStop(0, 'rgba(255,241,0,0.05)');
+      g.addColorStop(1, 'rgba(1,38,83,0)');
+      ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+
+      ctx.translate(W / 2 + cam.x, H / 2 + cam.y);
+      ctx.scale(cam.k, cam.k);
+
+      const focus = hovered || (panelNode && nodes.includes(panelNode) ? panelNode : null);
+      const neighbors = new Set();
+      if (focus) {
+        links.forEach(l => {
+          if (l.a === focus) neighbors.add(l.b);
+          if (l.b === focus) neighbors.add(l.a);
+        });
+      }
+
+      links.forEach(l => {
+        if (!visible(l.a) || !visible(l.b)) return;
+        const hot = focus && (l.a === focus || l.b === focus);
+        ctx.strokeStyle = hot ? 'rgba(255,241,0,0.55)'
+          : l.w >= 1 ? 'rgba(255,255,255,0.20)' : 'rgba(255,255,255,0.06)';
+        ctx.lineWidth = (hot ? 1.4 : l.w >= 1 ? 0.8 : 0.6) / cam.k;
+        ctx.beginPath(); ctx.moveTo(l.a.x, l.a.y); ctx.lineTo(l.b.x, l.b.y); ctx.stroke();
+      });
+
+      nodes.forEach(n => {
+        if (!visible(n)) return;
+        const r = radius(n);
+        const dimmed = focus && n !== focus && !neighbors.has(n);
+        ctx.globalAlpha = dimmed ? 0.25 : 1;
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+        ctx.fillStyle = n.color;
+        ctx.fill();
+        if (n === focus) {
+          ctx.strokeStyle = 'rgba(255,241,0,0.9)'; ctx.lineWidth = 1.6 / cam.k; ctx.stroke();
+        }
+        if (cam.k > 0.55 || n === focus || neighbors.has(n)) {
+          ctx.font = `${10.5 / cam.k}px 'Noto Sans JP', sans-serif`;
+          ctx.fillStyle = dimmed ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.82)';
+          ctx.textAlign = 'center';
+          ctx.fillText(n.label, n.x, n.y + r + 12 / cam.k);
+        }
+        ctx.globalAlpha = 1;
+      });
+    }
+
+    function tick() { physics(); draw(); requestAnimationFrame(tick); }
+
+    function toWorld(px, py) {
+      return { x: (px - W / 2 - cam.x) / cam.k, y: (py - H / 2 - cam.y) / cam.k };
+    }
+    function nodeAt(px, py) {
+      const p = toWorld(px, py);
+      let best = null, bd = 1e9;
+      nodes.forEach(n => {
+        if (!visible(n)) return;
+        const dx = n.x - p.x, dy = n.y - p.y;
+        const d = Math.sqrt(dx * dx + dy * dy);
+        if (d < radius(n) + 6 && d < bd) { best = n; bd = d; }
+      });
+      return best;
+    }
+
+    canvas.addEventListener('pointerdown', e => {
+      const n = nodeAt(e.clientX, e.clientY);
+      moved = 0;
+      if (n) { dragged = n; alpha = 1; }
+      else { panning = true; canvas.classList.add('dragging'); }
+      last = { x: e.clientX, y: e.clientY };
+      canvas.setPointerCapture(e.pointerId);
+    });
+    canvas.addEventListener('pointermove', e => {
+      if (dragged) {
+        const p = toWorld(e.clientX, e.clientY);
+        dragged.x = p.x; dragged.y = p.y;
+        moved += 1;
+      } else if (panning && last) {
+        cam.x += e.clientX - last.x; cam.y += e.clientY - last.y;
+        last = { x: e.clientX, y: e.clientY };
+        moved += 1;
+      } else {
+        hovered = nodeAt(e.clientX, e.clientY);
+        canvas.style.cursor = hovered ? 'pointer' : 'grab';
+      }
+    });
+    canvas.addEventListener('pointerup', e => {
+      if (dragged && moved < 4) openPanel(dragged);
+      dragged = null; panning = false; last = null;
+      canvas.classList.remove('dragging');
+    });
+    canvas.addEventListener('wheel', e => {
+      e.preventDefault();
+      const k = Math.min(3.5, Math.max(0.3, cam.k * (e.deltaY < 0 ? 1.12 : 0.89)));
+      cam.k = k;
+    }, { passive: false });
+
+    // 詳細パネル
+    const panel = document.getElementById('panel');
+    const panelBody = document.getElementById('panelBody');
+    let panelNode = null;
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    function openPanel(n) {
+      panelNode = n;
+      const r = n.r;
+      const linked = links
+        .filter(l => l.w >= 1 && (l.a === n || l.b === n))
+        .map(l => (l.a === n ? l.b : l.a));
+      panelBody.innerHTML = `
+        <span class="badge">確度 ${esc(r.confidence)}</span><span class="badge" style="border-style:dashed">${esc(r.page_type)}</span>
+        <h2 class="serif">${esc(r.keyword)}</h2>
+        <p class="meta">${esc(r.category)}${r.era ? '｜' + esc(r.era) : ''}</p>
+        <p class="bg">${esc(r.background.length > 350 ? r.background.slice(0, 350) + '……' : r.background)}</p>
+        ${linked.length ? `<div class="links-list"><b>つながる記録</b>${linked.map(m => `<a href="#" data-id="${esc(m.id)}">${esc(m.label)}</a>`).join('')}</div>` : ''}
+        <a class="goto" href="archive-db.html#${esc(r.id)}">台帳でぜんぶ読む →</a>`;
+      panelBody.querySelectorAll('a[data-id]').forEach(a => {
+        a.addEventListener('click', ev => { ev.preventDefault(); openPanel(byId[a.dataset.id]); });
+      });
+      panel.classList.add('open');
+    }
+    document.getElementById('panelClose').addEventListener('click', () => {
+      panel.classList.remove('open'); panelNode = null;
+    });
+  </script>
+</body>
+</html>
