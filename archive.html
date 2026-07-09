@@ -227,6 +227,21 @@
       border: 1px solid var(--line); padding: 4px 14px; background: var(--white);
     }
 
+    /* ---------- 地の頁のカテゴリフィルタ ---------- */
+    .place-filter {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;
+      margin: -6px 0 44px;
+    }
+    .place-filter button {
+      font: inherit; font-size: 0.74rem; letter-spacing: 0.14em;
+      color: var(--navy-2); background: var(--white);
+      border: 1px solid var(--line); padding: 6px 18px;
+      cursor: pointer; transition: background 0.25s, color 0.25s, border-color 0.25s;
+    }
+    .place-filter button:hover { border-color: var(--navy-2); }
+    .place-filter button.on { background: var(--navy); color: var(--white); border-color: var(--navy); }
+    .entry.filtered-out { display: none; }
+
     /* ---------- 記事の折りたたみ ---------- */
     .entry-head {
       display: block; width: 100%; text-align: left;
@@ -441,6 +456,7 @@
     <div class="container">
       <div class="section-label reveal">PLACES</div>
       <h2 class="section-title serif reveal">場所の記録</h2>
+      <div class="place-filter reveal" id="placeFilter" role="group" aria-label="資本カテゴリで絞り込む"></div>
       <div class="journal">
 
         <article class="entry reveal">
@@ -867,6 +883,38 @@
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
       });
     });
+
+    // 地の頁のカテゴリフィルタ（エントリのタグから資本カテゴリを判定）
+    const CAPITALS = ['すべて', '自然資本', '文化資本', '人的資本'];
+    const filterBar = document.getElementById('placeFilter');
+    if (filterBar) {
+      const placeEntries = document.querySelectorAll('#places .journal .entry');
+      let current = 'すべて';
+      const apply = () => {
+        placeEntries.forEach(entry => {
+          const tags = Array.from(entry.querySelectorAll('.entry-tag')).map(t => t.textContent.trim());
+          const hit = current === 'すべて' || tags.includes(current);
+          entry.classList.toggle('filtered-out', !hit);
+        });
+      };
+      CAPITALS.forEach(name => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.textContent = name;
+        b.classList.toggle('on', name === current);
+        b.setAttribute('aria-pressed', name === current ? 'true' : 'false');
+        b.addEventListener('click', () => {
+          current = name;
+          filterBar.querySelectorAll('button').forEach(x => {
+            const on = x.textContent === name;
+            x.classList.toggle('on', on);
+            x.setAttribute('aria-pressed', on ? 'true' : 'false');
+          });
+          apply();
+        });
+        filterBar.appendChild(b);
+      });
+    }
 
     // ゆるやかなフェードイン
     const io = new IntersectionObserver((entries) => {
