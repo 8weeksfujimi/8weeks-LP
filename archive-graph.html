@@ -106,11 +106,17 @@
       font-size: 0.64rem; letter-spacing: 0.14em; color: rgba(255, 255, 255, 0.4);
       text-align: right; pointer-events: none;
     }
+    .mobile-desc { display: none; }
     @media (max-width: 768px) {
       .header-nav a:not(.keep) { display: none; }
       .title-block { top: 64px; left: 16px; max-width: 240px; }
-      .title-block h1 { font-size: 1.05rem; }
-      .title-block p { font-size: 0.6rem; }
+      .title-block h1 { font-size: 1rem; letter-spacing: 0.22em; }
+      .title-block .title-desc { display: none; }
+      .mobile-desc {
+        display: block; position: fixed; left: 14px; right: 14px; bottom: 58px; z-index: 50;
+        font-size: 0.62rem; letter-spacing: 0.08em; line-height: 1.8;
+        color: rgba(255, 255, 255, 0.5); pointer-events: none;
+      }
       .legend {
         left: 12px; right: 12px; bottom: 10px;
         flex-direction: row; flex-wrap: wrap; gap: 4px 12px;
@@ -139,8 +145,9 @@
 
   <div class="title-block">
     <h1 class="serif">記憶の星図</h1>
-    <p>LOCAL ARCHIVE GRAPH — 記録の本文に別の記録の名が現れると、線がつながります。</p>
+    <p class="title-desc">LOCAL ARCHIVE GRAPH — 記録の本文に別の記録の名が現れると、線がつながります。</p>
   </div>
+  <p class="mobile-desc">記録の本文に別の記録の名が現れると、線がつながります。点にふれると、記録がひらきます。</p>
 
   <div class="legend" id="legend"></div>
   <div class="hint">ドラッグで移動 / ホイールで拡大縮小 / 点をクリックで詳細</div>
