@@ -100,10 +100,31 @@
     .chip.on { background: var(--navy); color: var(--white); border-color: var(--navy); }
     .count { font-size: 0.74rem; letter-spacing: 0.12em; color: var(--ink-soft); }
 
+    .views-strip {
+      display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center;
+      margin-bottom: 30px; padding: 14px 20px;
+      background: var(--white); border: 1px solid var(--line);
+      font-size: 0.78rem; color: var(--ink-soft);
+    }
+    .views-strip b { color: var(--navy); font-weight: 500; letter-spacing: 0.14em; font-size: 0.74rem; }
+    .views-strip a {
+      color: var(--navy-2); border: 1px solid var(--line); padding: 5px 14px;
+      font-size: 0.76rem; letter-spacing: 0.1em; transition: background 0.25s, color 0.25s, border-color 0.25s;
+    }
+    .views-strip a:hover { background: var(--navy); color: var(--moon); border-color: var(--navy); }
+
     .rec {
       background: var(--white); border: 1px solid var(--line);
       padding: 26px 28px; margin-bottom: 22px;
     }
+    .rec.hl { animation: recGlow 2.6s ease 1; }
+    @keyframes recGlow { 0% { background: #FFFBD0; } 100% { background: var(--white); } }
+    .rec-views { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0 0 12px; }
+    .rec-views a {
+      font-size: 0.7rem; letter-spacing: 0.14em; color: var(--navy-2);
+      border-bottom: 1px dotted var(--line);
+    }
+    .rec-views a:hover { color: var(--navy); border-bottom-color: var(--navy); }
     .rec-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
     .badge {
       font-size: 0.68rem; letter-spacing: 0.12em; font-weight: 500;
@@ -184,6 +205,13 @@
       <b>確度の読み方</b> — <b>S</b>：国指定文化財・一次史料など確立した事実／<b>A</b>：郷土史・自治体資料などで堅実／<b>B</b>：諸説あり／<b>C</b>：伝承・言い伝え／<b>D</b>：俗説・要検証。「A/C」のような表記は、一つの記録の中に確度の違う話が同居していることを示します。<span class="outside" style="margin-left:6px">町域外を含む</span> の印は、富士見町の外（茅野市・原村・北杜市など）の事柄を含む記録です。各記録には、本文のほかに<b>考証メモ</b>（どの事実がどの程度確かめられたか）、<b>制作の記録</b>（AIどうしの監査で何が指摘され、どう直されたか）、<b>宿のメモ</b>（この記録を滞在の体験にどう翻訳するかの覚え書き）を開いて読めるようにしました。台帳の舞台裏ごと、公開しています。
     </div>
 
+    <div class="views-strip">
+      <b>べつの眺めかた</b>
+      <a href="archive-graph.html">記憶の星図 — つながりで見る</a>
+      <a href="archive-map.html">記憶の絵図 — 土地の上で見る</a>
+      <span style="font-size:0.7rem">各記録からも、その記録を開いたまま星図・絵図へ移れます。</span>
+    </div>
+
     <div class="controls">
       <input class="search" id="q" type="search" placeholder="ことばで探す（例: 縄文 / 御柱 / ヒッピー / 桜）" aria-label="検索">
       <div class="chips" id="chips"></div>
@@ -253,6 +281,10 @@
           </div>
           <h2 class="serif">${esc(r.keyword)}</h2>
           <p class="meta">${esc(r.category)}${r.era ? '｜' + esc(r.era) : ''}｜${esc(r.id)}</p>
+          <p class="rec-views">
+            <a href="archive-graph.html#${esc(r.id)}">星図でみる — つながり</a>
+            ${r.geo ? `<a href="archive-map.html#${esc(r.id)}">絵図でみる — 土地の上</a>` : ''}
+          </p>
           <p class="bg">${esc(r.background)}</p>
           ${(r.sense_tags || []).length ? `<p class="tags">${r.sense_tags.map(esc).join(' ・ ')}</p>` : ''}
           ${r.confidence_note ? `<details><summary>考証メモ — 確からしさの内訳</summary><p class="apparatus">${linkify(r.confidence_note)}</p></details>` : ''}
@@ -280,8 +312,11 @@
       .then(d => {
         records = d.records; render();
         if (location.hash) {
-          const el = document.getElementById(location.hash.slice(1));
-          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            el.classList.add('hl');
+          }
         }
       })
       .catch(() => { listEl.innerHTML = '<p class="empty">台帳の読み込みに失敗しました。時間をおいてお試しください。</p>'; });
