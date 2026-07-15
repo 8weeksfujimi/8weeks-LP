@@ -324,6 +324,9 @@
       vs.forEach(n => {
         if (n === dragged) { n.vx = 0; n.vy = 0; return; }
         n.vx *= 0.86; n.vy *= 0.86;
+        // リンク力は距離に比例して強まるため、レコード数が増えると発散しうる。速度上限で抑える
+        const sp = Math.hypot(n.vx, n.vy);
+        if (sp > 40) { n.vx *= 40 / sp; n.vy *= 40 / sp; }
         n.x += n.vx * alpha; n.y += n.vy * alpha;
       });
       if (alpha > 0.25) alpha *= 0.999;
