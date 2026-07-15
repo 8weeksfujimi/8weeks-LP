@@ -284,6 +284,14 @@
       if (desc) desc.textContent = `LOCAL ARCHIVE MAP — 座標の確かめられた${nodes.length}の記録を、土地の上に置いたもの。`;
 
       buildLegend();
+
+      // #FJM-XXX-000 で該当の記録をひらく（台帳からの導線）
+      const hashId = decodeURIComponent(location.hash.slice(1));
+      if (hashId && byId[hashId]) {
+        const t = byId[hashId];
+        map.setView(t.marker.getLatLng(), 14, { animate: false });
+        openPanel(t);
+      }
     }
 
     function buildLegend() {
@@ -325,7 +333,8 @@
         ${nearby.length ? `<div class="nearby"><b>あるいてゆける記録</b>${nearby.map(x =>
           `<a href="#" data-id="${esc(x.m.id)}">${esc(shortLabel(x.m.r.keyword))} <span style="color:var(--ink-soft)">— 約${x.d < 950 ? Math.round(x.d / 50) * 50 + 'm' : (x.d / 1000).toFixed(1) + 'km'}</span></a>`
         ).join('')}</div>` : ''}
-        <a class="goto" href="archive-db.html#${esc(r.id)}">台帳でぜんぶ読む →</a>`;
+        <a class="goto" href="archive-db.html#${esc(r.id)}">台帳でぜんぶ読む →</a>
+        <a class="goto" style="background:transparent;border:1px solid var(--navy-2);margin-left:10px" href="archive-graph.html#${esc(r.id)}">星図でみる</a>`;
       panelBody.querySelectorAll('a[data-id]').forEach(a => {
         a.addEventListener('click', ev => {
           ev.preventDefault();

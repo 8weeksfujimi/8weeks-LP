@@ -255,6 +255,14 @@
       // ウォームアップ後に画面へフィット（スマホでも全体が見える倍率で開始）
       for (let i = 0; i < 140; i++) physics();
       fitView();
+      // #FJM-XXX-000 で該当の記録をひらく（台帳からの導線）
+      const hashId = decodeURIComponent(location.hash.slice(1));
+      if (hashId && byId[hashId]) {
+        const t = byId[hashId];
+        cam.x = -t.x * cam.k;
+        cam.y = -t.y * cam.k + 24;
+        openPanel(t);
+      }
       requestAnimationFrame(tick);
     }
 
@@ -514,7 +522,8 @@
         <p class="meta">${esc(r.category)}${r.era ? '｜' + esc(r.era) : ''}</p>
         <p class="bg">${esc(r.background.length > 350 ? r.background.slice(0, 350) + '……' : r.background)}</p>
         ${linked.length ? `<div class="links-list"><b>つながる記録</b>${linked.map(m => `<a href="#" data-id="${esc(m.id)}">${esc(m.label)}</a>`).join('')}</div>` : ''}
-        <a class="goto" href="archive-db.html#${esc(r.id)}">台帳でぜんぶ読む →</a>`;
+        <a class="goto" href="archive-db.html#${esc(r.id)}">台帳でぜんぶ読む →</a>
+        ${r.geo ? `<a class="goto" style="background:transparent;border:1px solid var(--navy-2);margin-left:10px" href="archive-map.html#${esc(r.id)}">絵図でみる</a>` : ''}`;
       panelBody.querySelectorAll('a[data-id]').forEach(a => {
         a.addEventListener('click', ev => { ev.preventDefault(); openPanel(byId[a.dataset.id]); });
       });
