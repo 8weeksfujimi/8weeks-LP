@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>記憶の絵図 — Local Archive Map | 8weeks Stay</title>
+  <meta name="description" content="富士見町ローカルアーカイブのうち、座標の確かめられた記録を地図の上に置いたページ。">
+  <link rel="icon" type="image/png" href="assets/logos/favicon_moon.png">
+  <link rel="canonical" href="https://8weeksfujimi.github.io/8weeks-LP/archive-map.html">
+
+  <meta property="og:title" content="記憶の絵図 — Local Archive Map">
+  <meta property="og:description" content="富士見町の記録を、土地の上に置いて眺める。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://8weeksfujimi.github.io/8weeks-LP/archive-map.html">
+  <meta property="og:site_name" content="8weeks Stay">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <style>
+    :root {
+      --navy: #012653;
+      --navy-2: #12335C;
+      --moon: #FFF100;
+      --washi: #F8F6F1;
+      --white: #FFFFFF;
+      --ink: #1C2B3A;
+      --ink-soft: #4A5A6A;
+      --line: rgba(1, 38, 83, 0.14);
+      --serif: 'Zen Old Mincho', 'Hiragino Mincho ProN', serif;
+      --sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--sans); color: var(--ink); background: var(--navy);
+      line-height: 1.9; letter-spacing: 0.04em; -webkit-font-smoothing: antialiased;
+      overflow: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    .serif { font-family: var(--serif); }
+
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 28px;
+      background: rgba(1, 38, 83, 0.92);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .header-brand img { height: 44px; width: auto; display: block; }
+    .header-nav { display: flex; align-items: center; gap: 24px; }
+    .header-nav a {
+      color: rgba(255, 255, 255, 0.85); font-size: 0.8rem; letter-spacing: 0.14em;
+      padding-bottom: 2px; border-bottom: 1px solid transparent;
+    }
+    .header-nav a:hover, .header-nav a.current { color: var(--moon); border-bottom-color: var(--moon); }
+
+    #map { position: fixed; inset: 0; background: var(--washi); }
+    .leaflet-tile-pane { filter: sepia(0.14) saturate(0.82) brightness(1.01); }
+    .leaflet-container { font-family: var(--sans); }
+    .leaflet-control-attribution {
+      background: rgba(248, 246, 241, 0.85) !important;
+      font-size: 0.62rem; letter-spacing: 0.04em; color: var(--ink-soft);
+    }
+    .leaflet-tooltip.place-tip {
+      background: rgba(1, 38, 83, 0.92); color: var(--white);
+      border: none; border-radius: 0; box-shadow: none;
+      font-size: 0.7rem; letter-spacing: 0.1em; padding: 3px 10px;
+    }
+    .leaflet-tooltip.place-tip::before { display: none; }
+
+    .title-block {
+      position: fixed; left: 28px; top: 84px; z-index: 1100; color: var(--navy);
+      pointer-events: none; max-width: 320px;
+      text-shadow: 0 0 6px rgba(248, 246, 241, 0.9), 0 0 14px rgba(248, 246, 241, 0.7);
+    }
+    .title-block h1 { font-family: var(--serif); font-weight: 500; font-size: 1.3rem; letter-spacing: 0.18em; }
+    .title-block p { font-size: 0.68rem; letter-spacing: 0.12em; color: var(--ink-soft); margin-top: 4px; }
+
+    .legend {
+      position: fixed; left: 28px; bottom: 24px; z-index: 1100;
+      display: flex; flex-direction: column; gap: 3px;
+      font-size: 0.68rem; letter-spacing: 0.1em; color: var(--ink);
+      background: rgba(248, 246, 241, 0.82); padding: 10px 14px;
+      border: 1px solid var(--line);
+    }
+    .legend .li { display: flex; align-items: center; gap: 8px; cursor: pointer; opacity: 0.95; }
+    .legend .li.dim { opacity: 0.3; }
+    .legend .dot { width: 9px; height: 9px; border-radius: 50%; flex: none; border: 1px solid rgba(1, 38, 83, 0.35); }
+
+    .basemap-switch {
+      position: fixed; right: 24px; top: 84px; z-index: 1100;
+      display: flex; gap: 0;
+      font-size: 0.66rem; letter-spacing: 0.14em;
+    }
+    .basemap-switch button {
+      font-family: var(--sans); cursor: pointer;
+      background: rgba(248, 246, 241, 0.9); color: var(--ink-soft);
+      border: 1px solid var(--line); padding: 5px 14px;
+    }
+    .basemap-switch button.active { background: var(--navy); color: var(--moon); border-color: var(--navy); }
+
+    .panel {
+      position: fixed; right: 0; top: 0; bottom: 0; z-index: 1150;
+      width: min(400px, 92vw); background: var(--washi); color: var(--ink);
+      box-shadow: -8px 0 40px rgba(0, 0, 0, 0.35);
+      transform: translateX(105%); transition: transform 0.35s ease;
+      padding: 90px 28px 28px; overflow-y: auto;
+    }
+    .panel.open { transform: translateX(0); }
+    .panel .close {
+      position: absolute; top: 74px; right: 20px; font-size: 1.1rem;
+      background: none; border: none; cursor: pointer; color: var(--ink-soft);
+    }
+    .panel .badge {
+      display: inline-block; font-size: 0.66rem; letter-spacing: 0.12em;
+      padding: 1px 9px; border: 1px solid var(--navy-2); color: var(--navy-2); margin-right: 8px;
+    }
+    .panel h2 { font-family: var(--serif); font-weight: 500; font-size: 1.1rem; color: var(--navy); margin: 10px 0 2px; line-height: 1.8; }
+    .panel .meta { font-size: 0.72rem; color: var(--ink-soft); margin-bottom: 12px; }
+    .panel .bg { font-size: 0.84rem; line-height: 2; }
+    .panel .nearby { margin-top: 16px; font-size: 0.76rem; }
+    .panel .nearby b { color: var(--navy-2); font-weight: 500; letter-spacing: 0.14em; font-size: 0.7rem; }
+    .panel .nearby a { display: block; color: var(--navy-2); padding: 2px 0; border-bottom: 1px dotted var(--line); }
+    .panel .goto {
+      display: inline-block; margin-top: 18px; font-size: 0.74rem; letter-spacing: 0.16em;
+      color: var(--navy); background: var(--moon); padding: 8px 20px;
+    }
+
+    .mobile-desc { display: none; }
+    @media (max-width: 768px) {
+      .header-nav a:not(.keep) { display: none; }
+      .title-block { top: 64px; left: 14px; max-width: 240px; }
+      .title-block h1 { font-size: 1rem; letter-spacing: 0.22em; }
+      .title-block .title-desc { display: none; }
+      .mobile-desc {
+        display: block; position: fixed; left: 14px; right: 14px; bottom: 96px; z-index: 1100;
+        font-size: 0.62rem; letter-spacing: 0.08em; line-height: 1.8;
+        color: var(--ink-soft); pointer-events: none;
+        text-shadow: 0 0 6px rgba(248, 246, 241, 0.9);
+      }
+      .legend {
+        left: 10px; right: 10px; bottom: 8px;
+        flex-direction: row; flex-wrap: wrap; gap: 4px 12px;
+        font-size: 0.62rem; padding: 8px 10px;
+      }
+      .basemap-switch { top: 64px; right: 12px; }
+      .panel { padding: 72px 20px 24px; }
+      .panel .close { top: 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <a class="header-brand" href="index.html"><img src="assets/logos/logo_white.png" alt="8weeks"></a>
+    <nav class="header-nav">
+      <a href="index.html#spaces">Spaces</a>
+      <a href="index.html#booking">Booking</a>
+      <a href="archive.html" class="keep">Archive</a>
+      <a href="archive-db.html" class="keep">Ledger</a>
+      <a href="archive-graph.html" class="keep">Graph</a>
+      <a href="archive-map.html" class="current keep">Map</a>
+    </nav>
+  </header>
+
+  <div id="map"></div>
+
+  <div class="title-block">
+    <h1 class="serif">記憶の絵図</h1>
+    <p class="title-desc">LOCAL ARCHIVE MAP — 座標の確かめられた記録を、土地の上に置いたもの。</p>
+  </div>
+  <p class="mobile-desc">座標の確かめられた記録を、土地の上に置いたもの。点にふれると、記録がひらきます。</p>
+
+  <div class="basemap-switch" role="group" aria-label="地図の種類">
+    <button id="baseStd" class="active">淡色</button>
+    <button id="basePhoto">写真</button>
+  </div>
+
+  <div class="legend" id="legend"></div>
+
+  <aside class="panel" id="panel">
+    <button class="close" id="panelClose" aria-label="閉じる">✕</button>
+    <div id="panelBody"></div>
+  </aside>
+
+  <script>
+    // 星図（archive-graph.html）と同じ分類・配色
+    const GROUPS = [
+      ['縄文', r => r.category.includes('縄文'), '#c9a06a'],
+      ['歴史', r => r.category.includes('歴史'), '#9b8ab8'],
+      ['信仰・伝承', r => /信仰|伝承|神社|俗説|廃村/.test(r.category), '#8fb08a'],
+      ['文学・芸術', r => /文学|芸術/.test(r.category), '#c98aa2'],
+      ['街道', r => r.category.includes('街道'), '#b8a05f'],
+      ['産業', r => r.category.includes('産業'), '#7aa8bd'],
+      ['自然', r => r.category.includes('自然'), '#88bf7a'],
+      ['ヒッピー', r => r.category.includes('ヒッピー'), '#e0925f'],
+      ['現代・移住', r => /現代|移住/.test(r.category), '#7c96c9'],
+      ['その他', () => true, '#93a3b5'],
+    ];
+    const groupOf = r => GROUPS.find(g => g[1](r));
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const shortLabel = kw => {
+      let s = kw.split(/[（(—・]/)[0].trim();
+      return s.length > 14 ? s.slice(0, 13) + '…' : s;
+    };
+
+    const GSI_ATTR = '出典：<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener">国土地理院</a>';
+    const basePale = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png', { maxZoom: 18, attribution: GSI_ATTR });
+    const basePhoto = L.tileLayer('https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg', { maxZoom: 18, attribution: GSI_ATTR });
+
+    const map = L.map('map', {
+      zoomControl: false,
+      layers: [basePale],
+      center: [35.9151, 138.2408], // 富士見町中心部
+      zoom: 12,
+    });
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+    document.getElementById('baseStd').addEventListener('click', () => switchBase('std'));
+    document.getElementById('basePhoto').addEventListener('click', () => switchBase('photo'));
+    function switchBase(kind) {
+      const std = kind === 'std';
+      if (std) { map.removeLayer(basePhoto); basePale.addTo(map); }
+      else { map.removeLayer(basePale); basePhoto.addTo(map); }
+      document.getElementById('baseStd').classList.toggle('active', std);
+      document.getElementById('basePhoto').classList.toggle('active', !std);
+    }
+
+    let nodes = [], byId = {};
+    const hiddenGroups = new Set();
+
+    fetch('data/fujimi-archive-db.json')
+      .then(r => r.json())
+      .then(d => build(d.records));
+
+    function build(records) {
+      const geoRecs = records.filter(r => r.geo && typeof r.geo.lat === 'number' && typeof r.geo.lng === 'number');
+
+      // 同一座標の記録は、点が重ならないよう小さな輪の上にずらして置く
+      const byCoord = {};
+      geoRecs.forEach(r => {
+        const key = r.geo.lat + ',' + r.geo.lng;
+        (byCoord[key] = byCoord[key] || []).push(r);
+      });
+      Object.values(byCoord).forEach(group => {
+        if (group.length === 1) return;
+        const R = 0.0011; // 約100m
+        group.forEach((r, i) => {
+          const th = (i / group.length) * Math.PI * 2;
+          r._lat = r.geo.lat + Math.sin(th) * R * 0.7;
+          r._lng = r.geo.lng + Math.cos(th) * R;
+        });
+      });
+
+      nodes = geoRecs.map(r => {
+        const g = groupOf(r);
+        const marker = L.circleMarker([r._lat ?? r.geo.lat, r._lng ?? r.geo.lng], {
+          radius: 7.5,
+          color: 'rgba(1, 38, 83, 0.55)',
+          weight: 1.2,
+          fillColor: g[2],
+          fillOpacity: 0.88,
+          bubblingMouseEvents: false,
+        });
+        marker.bindTooltip(esc(shortLabel(r.keyword)), { className: 'place-tip', direction: 'top', offset: [0, -8] });
+        const n = { r, id: r.id, group: g[0], color: g[2], marker };
+        marker.on('click', () => openPanel(n));
+        marker.addTo(map);
+        return n;
+      });
+      byId = Object.fromEntries(nodes.map(n => [n.id, n]));
+
+      // 町内の記録に合わせて初期表示を調整
+      const townPts = nodes.filter(n => !n.r.town_outside).map(n => n.marker.getLatLng());
+      if (townPts.length) map.fitBounds(L.latLngBounds(townPts).pad(0.12), { maxZoom: 13, animate: false });
+
+      const desc = document.querySelector('.title-desc');
+      if (desc) desc.textContent = `LOCAL ARCHIVE MAP — 座標の確かめられた${nodes.length}の記録を、土地の上に置いたもの。`;
+
+      buildLegend();
+    }
+
+    function buildLegend() {
+      const usedGroups = GROUPS.filter(g => nodes.some(n => n.group === g[0]));
+      const legend = document.getElementById('legend');
+      legend.innerHTML = usedGroups.map(g =>
+        `<div class="li" data-g="${esc(g[0])}"><span class="dot" style="background:${g[2]}"></span>${esc(g[0])}</div>`
+      ).join('');
+      legend.querySelectorAll('.li').forEach(li => {
+        li.addEventListener('click', () => {
+          const g = li.dataset.g;
+          if (hiddenGroups.has(g)) hiddenGroups.delete(g); else hiddenGroups.add(g);
+          li.classList.toggle('dim', hiddenGroups.has(g));
+          nodes.forEach(n => {
+            if (n.group !== g) return;
+            if (hiddenGroups.has(g)) map.removeLayer(n.marker); else n.marker.addTo(map);
+          });
+        });
+      });
+    }
+
+    // 詳細パネル（星図と同じ意匠）
+    const panel = document.getElementById('panel');
+    const panelBody = document.getElementById('panelBody');
+    function openPanel(n) {
+      const r = n.r;
+      const here = n.marker.getLatLng();
+      const nearby = nodes
+        .filter(m => m !== n)
+        .map(m => ({ m, d: here.distanceTo(m.marker.getLatLng()) }))
+        .filter(x => x.d < 2500)
+        .sort((a, b) => a.d - b.d)
+        .slice(0, 5);
+      panelBody.innerHTML = `
+        <span class="badge">確度 ${esc(r.confidence)}</span><span class="badge" style="border-style:dashed">${esc(r.page_type)}</span>
+        <h2 class="serif">${esc(r.keyword)}</h2>
+        <p class="meta">${esc(r.category)}${r.era ? '｜' + esc(r.era) : ''}</p>
+        <p class="bg">${esc(r.background.length > 350 ? r.background.slice(0, 350) + '……' : r.background)}</p>
+        ${nearby.length ? `<div class="nearby"><b>あるいてゆける記録</b>${nearby.map(x =>
+          `<a href="#" data-id="${esc(x.m.id)}">${esc(shortLabel(x.m.r.keyword))} <span style="color:var(--ink-soft)">— 約${x.d < 950 ? Math.round(x.d / 50) * 50 + 'm' : (x.d / 1000).toFixed(1) + 'km'}</span></a>`
+        ).join('')}</div>` : ''}
+        <a class="goto" href="archive-db.html#${esc(r.id)}">台帳でぜんぶ読む →</a>`;
+      panelBody.querySelectorAll('a[data-id]').forEach(a => {
+        a.addEventListener('click', ev => {
+          ev.preventDefault();
+          const m = byId[a.dataset.id];
+          map.panTo(m.marker.getLatLng());
+          openPanel(m);
+        });
+      });
+      panel.classList.add('open');
+    }
+    document.getElementById('panelClose').addEventListener('click', () => panel.classList.remove('open'));
+    map.on('click', () => panel.classList.remove('open'));
+  </script>
+</body>
+</html>
