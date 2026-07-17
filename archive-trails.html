@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>道行きの栞 — Local Trails | 8weeks Stay</title>
+  <meta name="description" content="富士見町を中心に、白州・蓼科・諏訪・小淵沢まで。記録と味をひとつづきに束ねた、半日の道行きの提案。訪ねる場所、食べるもの、持ち帰る発見。">
+  <link rel="icon" type="image/png" href="assets/logos/favicon_moon.png">
+  <link rel="canonical" href="https://8weeksfujimi.github.io/8weeks-LP/archive-trails.html">
+
+  <meta property="og:title" content="道行きの栞 — Local Trails">
+  <meta property="og:description" content="富士見町を中心に、記録と味をひとつづきに束ねた半日の道行き。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://8weeksfujimi.github.io/8weeks-LP/archive-trails.html">
+  <meta property="og:site_name" content="8weeks Stay">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #012653;
+      --navy-2: #12335C;
+      --moon: #FFF100;
+      --washi: #F8F6F1;
+      --white: #FFFFFF;
+      --ink: #1C2B3A;
+      --ink-soft: #4A5A6A;
+      --line: rgba(1, 38, 83, 0.14);
+      --taste: #b0713f;
+      --serif: 'Zen Old Mincho', 'Hiragino Mincho ProN', serif;
+      --sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: var(--sans); color: var(--ink); background: var(--washi);
+      line-height: 1.9; letter-spacing: 0.04em; -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .serif { font-family: var(--serif); }
+
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 28px;
+      background: rgba(1, 38, 83, 0.92);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .header-brand img { height: 44px; width: auto; display: block; }
+    .header-nav { display: flex; align-items: center; gap: 24px; }
+    .header-nav a {
+      color: rgba(255, 255, 255, 0.85); font-size: 0.8rem; letter-spacing: 0.14em;
+      padding-bottom: 2px; border-bottom: 1px solid transparent;
+    }
+    .header-nav a:hover, .header-nav a.current { color: var(--moon); border-bottom-color: var(--moon); }
+
+    .wrap { max-width: 860px; margin: 0 auto; padding: 120px 24px 80px; }
+
+    .intro h1 { font-family: var(--serif); font-weight: 500; font-size: 1.5rem; letter-spacing: 0.18em; color: var(--navy); }
+    .intro .en { font-size: 0.68rem; letter-spacing: 0.22em; color: var(--ink-soft); margin-top: 2px; }
+    .intro .lede { font-size: 0.86rem; margin-top: 18px; max-width: 640px; }
+    .intro .disclaimer {
+      font-size: 0.7rem; color: var(--ink-soft); margin-top: 14px;
+      border-left: 2px solid var(--line); padding-left: 12px;
+    }
+
+    .area-jump {
+      margin-top: 26px; display: flex; flex-wrap: wrap; gap: 8px;
+      font-size: 0.72rem; letter-spacing: 0.12em;
+    }
+    .area-jump a {
+      border: 1px solid var(--navy-2); color: var(--navy-2); padding: 3px 14px;
+    }
+    .area-jump a:hover { background: var(--navy); color: var(--moon); border-color: var(--navy); }
+    .area-jump a.center { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+    .area { margin-top: 72px; }
+    .area-head { border-bottom: 2px solid var(--navy); padding-bottom: 10px; }
+    .area-head .en { font-size: 0.64rem; letter-spacing: 0.26em; color: var(--ink-soft); }
+    .area-head h2 { font-family: var(--serif); font-weight: 500; font-size: 1.3rem; letter-spacing: 0.2em; color: var(--navy); }
+    .area-head .role {
+      display: inline-block; font-size: 0.62rem; letter-spacing: 0.14em;
+      border: 1px solid var(--navy-2); color: var(--navy-2); padding: 0 8px; margin-left: 10px;
+      vertical-align: middle;
+    }
+    .area-head p { font-size: 0.8rem; color: var(--ink-soft); margin-top: 8px; }
+
+    .trail {
+      margin-top: 32px; background: var(--white);
+      border: 1px solid var(--line); padding: 36px 38px 30px;
+    }
+    .trail .badges { margin-bottom: 10px; }
+    .badge {
+      display: inline-block; font-size: 0.64rem; letter-spacing: 0.12em;
+      padding: 1px 9px; border: 1px solid var(--navy-2); color: var(--navy-2); margin-right: 8px;
+    }
+    .trail h3.title { font-family: var(--serif); font-weight: 500; font-size: 1.2rem; color: var(--navy); line-height: 1.9; }
+    .trail .narrative { font-size: 0.84rem; margin-top: 12px; }
+
+    .stops { margin-top: 26px; }
+    .stop { display: flex; gap: 16px; position: relative; padding-bottom: 24px; }
+    .stop:last-child { padding-bottom: 0; }
+    .stop::before {
+      content: ''; position: absolute; left: 7px; top: 20px; bottom: 0;
+      width: 1px; background: var(--line);
+    }
+    .stop:last-child::before { display: none; }
+    .stop .mark {
+      flex: none; width: 15px; height: 15px; margin-top: 7px; border-radius: 50%;
+      background: var(--navy-2); border: 1px solid rgba(1, 38, 83, 0.4); z-index: 1;
+    }
+    .stop.place .mark { background: var(--washi); border: 2px solid var(--navy-2); }
+    .stop.taste .mark { border-radius: 2px; background: var(--taste); transform: rotate(45deg); }
+    .stop .body { min-width: 0; }
+    .stop .kind { font-size: 0.62rem; letter-spacing: 0.18em; color: var(--ink-soft); }
+    .stop.taste .kind { color: var(--taste); }
+    .stop h4 { font-family: var(--serif); font-weight: 500; font-size: 0.98rem; color: var(--navy); line-height: 1.8; }
+    .stop h4 a { border-bottom: 1px dotted var(--navy-2); }
+    .stop .note { font-size: 0.8rem; margin-top: 4px; }
+    .stop .sub { font-size: 0.7rem; color: var(--ink-soft); margin-top: 4px; }
+    .stop .links { font-size: 0.7rem; margin-top: 6px; }
+    .stop .links a { color: var(--navy-2); border-bottom: 1px dotted var(--line); margin-right: 14px; }
+
+    .discovery {
+      margin-top: 26px; padding: 16px 20px;
+      background: rgba(1, 38, 83, 0.04); border-left: 3px solid var(--moon);
+      font-size: 0.82rem;
+    }
+    .discovery b {
+      display: block; font-size: 0.66rem; letter-spacing: 0.2em;
+      color: var(--navy-2); font-weight: 500; margin-bottom: 4px;
+    }
+
+    .trail-foot { margin-top: 22px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .goto {
+      display: inline-block; font-size: 0.74rem; letter-spacing: 0.16em;
+      color: var(--navy); background: var(--moon); padding: 8px 20px;
+    }
+
+    .more-spots { margin-top: 30px; }
+    .more-spots > b {
+      font-size: 0.7rem; letter-spacing: 0.2em; color: var(--navy-2); font-weight: 500;
+    }
+    .spot-grid {
+      margin-top: 10px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    }
+    .spot-card {
+      background: var(--white); border: 1px solid var(--line); padding: 12px 16px;
+      font-size: 0.74rem;
+    }
+    .spot-card .nm { font-family: var(--serif); font-size: 0.86rem; color: var(--navy); }
+    .spot-card .gn { color: var(--taste); font-size: 0.64rem; letter-spacing: 0.12em; margin-left: 8px; }
+    .spot-card .gn.pl { color: var(--navy-2); }
+    .spot-card p { color: var(--ink-soft); font-size: 0.72rem; margin-top: 2px; }
+    .spot-card a { color: var(--navy-2); font-size: 0.66rem; border-bottom: 1px dotted var(--line); }
+
+    .colophon { margin-top: 64px; font-size: 0.68rem; color: var(--ink-soft); line-height: 2; }
+
+    @media (max-width: 768px) {
+      .header-nav a:not(.keep) { display: none; }
+      .wrap { padding: 96px 16px 60px; }
+      .trail { padding: 26px 20px 24px; }
+      .spot-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <a class="header-brand" href="index.html"><img src="assets/logos/logo_white.png" alt="8weeks"></a>
+    <nav class="header-nav">
+      <a href="index.html#spaces">Spaces</a>
+      <a href="index.html#booking">Booking</a>
+      <a href="archive.html" class="keep">Archive</a>
+      <a href="archive-db.html" class="keep">Ledger</a>
+      <a href="archive-graph.html" class="keep">Graph</a>
+      <a href="archive-map.html" class="keep">Map</a>
+      <a href="archive-trails.html" class="current keep">Trails</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <div class="intro">
+      <h1>道行きの栞</h1>
+      <p class="en">LOCAL TRAILS — 記録と味を、ひとつづきに。</p>
+      <p class="lede">
+        どこかを訪ね、うまいものを食べ、ひとつ賢くなって帰る。この三つが揃ったとき、旅は思い出になります。
+        ここに綴じたのは、ローカルアーカイブの記録と土地の味をひとつづきに束ねた、半日ほどの道行きの提案です。
+        富士見町を真ん中に置いて、車で少し足を伸ばせる白州・蓼科・諏訪・小淵沢も、まわりの頁として添えました。
+      </p>
+      <p class="disclaimer" id="disclaimer"></p>
+      <nav class="area-jump" id="areaJump" aria-label="エリア"></nav>
+    </div>
+
+    <div id="areas"></div>
+
+    <p class="colophon" id="colophon"></p>
+  </main>
+
+  <script>
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    // 座標は一部が近似のため、地図アプリへは店名＋住所の検索で渡す
+    const gmap = s => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + ' ' + (s.address || ''))}`;
+
+    Promise.all([
+      fetch('data/fujimi-archive-db.json').then(r => r.json()),
+      fetch('data/fujimi-taste-bundles.json').then(r => r.json()),
+    ]).then(([db, tb]) => build(db, tb));
+
+    function build(db, tb) {
+      const recById = Object.fromEntries(db.records.map(r => [r.id, r]));
+      const tasteById = Object.fromEntries(tb.taste_spots.map(t => [t.id, t]));
+      const placeById = Object.fromEntries((tb.places || []).map(p => [p.id, p]));
+
+      document.getElementById('disclaimer').textContent = tb.disclaimer;
+      document.getElementById('colophon').textContent =
+        `${tb.title} ｜ ${tb.updated} 更新 ｜ ${tb.credit} ｜ 記録の本文と出典は台帳（Ledger）に、店の営業情報は各店の発信に依ります。`;
+
+      document.getElementById('areaJump').innerHTML = tb.areas.map(a =>
+        `<a href="#area-${esc(a.id)}" class="${a.role === 'center' ? 'center' : ''}">${esc(a.name)}</a>`
+      ).join('');
+
+      const usedInTrail = new Set(tb.trails.flatMap(t => t.stops.map(s => s.ref)));
+
+      document.getElementById('areas').innerHTML = tb.areas.map(area => {
+        const trails = tb.trails.filter(t => t.area === area.id);
+        const restTaste = tb.taste_spots.filter(t => t.area === area.id && !usedInTrail.has(t.id));
+        const restPlace = (tb.places || []).filter(p => p.area === area.id && !usedInTrail.has(p.id));
+
+        const trailHtml = trails.map(trail => {
+          const stops = trail.stops.map(stop => renderStop(stop, recById, tasteById, placeById)).join('');
+          const geoCount = trail.stops.filter(s =>
+            ({record: recById, taste: tasteById, place: placeById})[s.kind]?.[s.ref]?.geo
+          ).length;
+          return `
+            <article class="trail" id="${esc(trail.id)}">
+              <p class="badges">
+                <span class="badge">${esc(trail.duration)}</span>
+                ${trail.season_note ? `<span class="badge" style="border-style:dashed">${esc(trail.season_note)}</span>` : ''}
+              </p>
+              <h3 class="title serif">${esc(trail.title)}</h3>
+              <p class="narrative">${esc(trail.narrative)}</p>
+              <div class="stops">${stops}</div>
+              <div class="discovery"><b>もちかえる発見</b>${esc(trail.discovery)}</div>
+              <div class="trail-foot">
+                <a class="goto" href="archive-map.html#trail=${esc(trail.id)}">絵図でこの道行きをたどる →</a>
+              </div>
+            </article>`;
+        }).join('');
+
+        const rest = [...restPlace, ...restTaste];
+        const restHtml = rest.length ? `
+          <div class="more-spots">
+            <b>このあたりの、そのほかの栞</b>
+            <div class="spot-grid">${rest.map(s => `
+              <div class="spot-card">
+                <span class="nm serif">${esc(s.name)}</span><span class="gn ${s.id.startsWith('PLACE') ? 'pl' : ''}">${esc(s.genre)}</span>
+                <p>${esc(s.desc)}</p>
+                <a href="${gmap(s)}" target="_blank" rel="noopener">地図アプリでひらく</a>
+              </div>`).join('')}
+            </div>
+          </div>` : '';
+
+        return `
+          <section class="area" id="area-${esc(area.id)}">
+            <div class="area-head">
+              <p class="en">${esc(area.en)}</p>
+              <h2 class="serif">${esc(area.name)}<span class="role">${area.role === 'center' ? 'まんなかの頁' : 'まわりの頁'}</span></h2>
+              <p>${esc(area.desc)}</p>
+            </div>
+            ${trailHtml}
+            ${restHtml}
+          </section>`;
+      }).join('');
+
+      const hash = decodeURIComponent(location.hash.slice(1));
+      if (hash) document.getElementById(hash)?.scrollIntoView();
+    }
+
+    function renderStop(stop, recById, tasteById, placeById) {
+      if (stop.kind === 'record') {
+        const r = recById[stop.ref];
+        if (!r) return '';
+        return `
+          <div class="stop record">
+            <span class="mark"></span>
+            <div class="body">
+              <p class="kind">たずねる</p>
+              <h4><a href="archive-db.html#${esc(r.id)}">${esc(r.keyword)}</a></h4>
+              ${stop.note ? `<p class="note">${esc(stop.note)}</p>` : ''}
+              <p class="sub">${esc(r.category)}${r.era ? '｜' + esc(r.era) : ''}</p>
+              <p class="links">
+                <a href="archive-db.html#${esc(r.id)}">台帳でぜんぶ読む</a>
+                ${r.geo ? `<a href="archive-map.html#${esc(r.id)}">絵図でみる</a>` : ''}
+              </p>
+            </div>
+          </div>`;
+      }
+      if (stop.kind === 'place') {
+        const p = placeById[stop.ref];
+        if (!p) return '';
+        return `
+          <div class="stop place">
+            <span class="mark"></span>
+            <div class="body">
+              <p class="kind">たずねる</p>
+              <h4>${esc(p.name)} <span style="font-size:0.7rem;color:var(--ink-soft)">— ${esc(p.genre)}</span></h4>
+              <p class="note">${esc(stop.note || p.desc)}</p>
+              <p class="sub">${esc(p.area_label || '')}${p.hours_note ? '｜' + esc(p.hours_note) : ''}</p>
+              <p class="links"><a href="${gmap(p)}" target="_blank" rel="noopener">地図アプリでひらく</a></p>
+            </div>
+          </div>`;
+      }
+      const t = tasteById[stop.ref];
+      if (!t) return '';
+      return `
+        <div class="stop taste">
+          <span class="mark"></span>
+          <div class="body">
+            <p class="kind">あじわう</p>
+            <h4>${esc(t.name)} <span style="font-size:0.7rem;color:var(--ink-soft)">— ${esc(t.genre)}</span></h4>
+            <p class="note">${esc(stop.note || t.desc)}</p>
+            <p class="sub">${esc(t.area_label || '')}${t.hours_note ? '｜' + esc(t.hours_note) : ''}</p>
+            <p class="links"><a href="${gmap(t)}" target="_blank" rel="noopener">地図アプリでひらく</a></p>
+          </div>
+        </div>`;
+    }
+  </script>
+</body>
+</html>
