@@ -166,6 +166,7 @@
       <a href="archive-db.html" class="keep">Ledger</a>
       <a href="archive-graph.html" class="keep">Graph</a>
       <a href="archive-map.html" class="current keep">Map</a>
+      <a href="archive-trails.html" class="keep">Trails</a>
     </nav>
   </header>
 
@@ -233,11 +234,18 @@
     }
 
     let nodes = [], byId = {};
+    let tasteNodes = [], tasteById = {}, trails = [], places = [];
+    let trailLine = null, trailPlaceMarkers = [];
     const hiddenGroups = new Set();
+    const TASTE_COLOR = '#b0713f';
 
-    fetch('data/fujimi-archive-db.json')
-      .then(r => r.json())
-      .then(d => build(d.records));
+    Promise.all([
+      fetch('data/fujimi-archive-db.json').then(r => r.json()),
+      fetch('data/fujimi-taste-bundles.json').then(r => r.json()).catch(() => null),
+    ]).then(([db, tb]) => {
+      if (tb) { buildTaste(tb); trails = tb.trails || []; places = tb.places || []; }
+      build(db.records);
+    });
 
     function build(records) {
       const geoRecs = records.filter(r => r.geo && typeof r.geo.lat === 'number' && typeof r.geo.lng === 'number');
@@ -284,6 +292,65 @@
       if (desc) desc.textContent = `LOCAL ARCHIVE MAP — 座標の確かめられた${nodes.length}の記録を、土地の上に置いたもの。`;
 
       buildLegend();
+
+      // #FJM-XXX-000 で該当の記録を、#trail=TRAIL-000 で道行き（栞）の経路をひらく
+      const hashId = decodeURIComponent(location.hash.slice(1));
+      if (hashId.startsWith('trail=')) {
+        showTrail(hashId.slice(6));
+      } else if (hashId && byId[hashId]) {
+        const t = byId[hashId];
+        map.setView(t.marker.getLatLng(), 14, { animate: false });
+        openPanel(t);
+      }
+    }
+
+    // 味の点：記録とは別の意匠（菱形・土色）で置く
+    function buildTaste(tb) {
+      const spots = (tb.taste_spots || []).filter(t => t.geo && typeof t.geo.lat === 'number');
+      tasteNodes = spots.map(t => {
+        const icon = L.divIcon({
+          className: '',
+          html: `<div style="width:11px;height:11px;background:${TASTE_COLOR};border:1px solid rgba(1,38,83,0.5);transform:rotate(45deg);opacity:0.92"></div>`,
+          iconSize: [11, 11], iconAnchor: [6, 6],
+        });
+        const marker = L.marker([t.geo.lat, t.geo.lng], { icon });
+        marker.bindTooltip(esc(t.name), { className: 'place-tip', direction: 'top', offset: [0, -8] });
+        const n = { t, id: t.id, marker };
+        marker.on('click', () => openTastePanel(n));
+        marker.addTo(map);
+        return n;
+      });
+      tasteById = Object.fromEntries(tasteNodes.map(n => [n.id, n]));
+    }
+
+    function showTrail(trailId) {
+      const trail = trails.find(t => t.id === trailId);
+      if (!trail) return;
+      // 記録・味以外の立ち寄り先（place）は、道行き表示のあいだだけ絵図に置く
+      trailPlaceMarkers.forEach(m => map.removeLayer(m));
+      trailPlaceMarkers = [];
+      const pts = trail.stops.map(s => {
+        if (s.kind === 'record') return byId[s.ref]?.marker.getLatLng();
+        if (s.kind === 'taste') return tasteById[s.ref]?.marker.getLatLng();
+        const p = places.find(pl => pl.id === s.ref);
+        if (!p || !p.geo) return null;
+        const marker = L.circleMarker([p.geo.lat, p.geo.lng], {
+          radius: 7, color: 'rgba(1, 38, 83, 0.75)', weight: 2,
+          fillColor: '#F8F6F1', fillOpacity: 0.95,
+        });
+        marker.bindTooltip(esc(p.name), { className: 'place-tip', direction: 'top', offset: [0, -8] });
+        marker.addTo(map);
+        trailPlaceMarkers.push(marker);
+        return marker.getLatLng();
+      }).filter(Boolean);
+      if (pts.length < 2) return;
+      if (trailLine) map.removeLayer(trailLine);
+      trailLine = L.polyline(pts, {
+        color: 'rgba(1, 38, 83, 0.65)', weight: 2, dashArray: '2 7',
+      }).addTo(map);
+      map.fitBounds(L.latLngBounds(pts).pad(0.2), { animate: false });
+      const desc = document.querySelector('.title-desc');
+      if (desc) desc.textContent = `道行き「${trail.title}」— 栞（Trails）のとおりに、点をたどる。`;
     }
 
     function buildLegend() {
@@ -291,14 +358,15 @@
       const legend = document.getElementById('legend');
       legend.innerHTML = usedGroups.map(g =>
         `<div class="li" data-g="${esc(g[0])}"><span class="dot" style="background:${g[2]}"></span>${esc(g[0])}</div>`
-      ).join('');
+      ).join('') + (tasteNodes.length ?
+        `<div class="li" data-g="味"><span class="dot" style="background:${TASTE_COLOR};border-radius:2px;transform:rotate(45deg)"></span>味</div>` : '');
       legend.querySelectorAll('.li').forEach(li => {
         li.addEventListener('click', () => {
           const g = li.dataset.g;
           if (hiddenGroups.has(g)) hiddenGroups.delete(g); else hiddenGroups.add(g);
           li.classList.toggle('dim', hiddenGroups.has(g));
-          nodes.forEach(n => {
-            if (n.group !== g) return;
+          const targets = g === '味' ? tasteNodes : nodes.filter(n => n.group === g);
+          targets.forEach(n => {
             if (hiddenGroups.has(g)) map.removeLayer(n.marker); else n.marker.addTo(map);
           });
         });
@@ -317,15 +385,30 @@
         .filter(x => x.d < 2500)
         .sort((a, b) => a.d - b.d)
         .slice(0, 5);
+      const nearTaste = tasteNodes
+        .map(m => ({ m, d: here.distanceTo(m.marker.getLatLng()) }))
+        .filter(x => x.d < 3500)
+        .sort((a, b) => a.d - b.d)
+        .slice(0, 3);
       panelBody.innerHTML = `
         <span class="badge">確度 ${esc(r.confidence)}</span><span class="badge" style="border-style:dashed">${esc(r.page_type)}</span>
         <h2 class="serif">${esc(r.keyword)}</h2>
         <p class="meta">${esc(r.category)}${r.era ? '｜' + esc(r.era) : ''}</p>
         <p class="bg">${esc(r.background.length > 350 ? r.background.slice(0, 350) + '……' : r.background)}</p>
         ${nearby.length ? `<div class="nearby"><b>あるいてゆける記録</b>${nearby.map(x =>
-          `<a href="#" data-id="${esc(x.m.id)}">${esc(shortLabel(x.m.r.keyword))} <span style="color:var(--ink-soft)">— 約${x.d < 950 ? Math.round(x.d / 50) * 50 + 'm' : (x.d / 1000).toFixed(1) + 'km'}</span></a>`
+          `<a href="#" data-id="${esc(x.m.id)}">${esc(shortLabel(x.m.r.keyword))} <span style="color:var(--ink-soft)">— 約${fmtDist(x.d)}</span></a>`
+        ).join('')}</div>` : ''}
+        ${nearTaste.length ? `<div class="nearby"><b style="color:${TASTE_COLOR}">ちかくの味</b>${nearTaste.map(x =>
+          `<a href="#" data-taste="${esc(x.m.id)}">${esc(x.m.t.name)} <span style="color:var(--ink-soft)">— ${esc(x.m.t.genre)}・約${fmtDist(x.d)}</span></a>`
         ).join('')}</div>` : ''}
         <a class="goto" href="archive-db.html#${esc(r.id)}">台帳でぜんぶ読む →</a>`;
+      bindPanelLinks();
+      panel.classList.add('open');
+    }
+
+    const fmtDist = d => d < 950 ? Math.round(d / 50) * 50 + 'm' : (d / 1000).toFixed(1) + 'km';
+
+    function bindPanelLinks() {
       panelBody.querySelectorAll('a[data-id]').forEach(a => {
         a.addEventListener('click', ev => {
           ev.preventDefault();
@@ -334,6 +417,37 @@
           openPanel(m);
         });
       });
+      panelBody.querySelectorAll('a[data-taste]').forEach(a => {
+        a.addEventListener('click', ev => {
+          ev.preventDefault();
+          const m = tasteById[a.dataset.taste];
+          map.panTo(m.marker.getLatLng());
+          openTastePanel(m);
+        });
+      });
+    }
+
+    // 味の頁：営業情報は移ろうので、断り書きと外部地図への導線を添える
+    function openTastePanel(n) {
+      const t = n.t;
+      const here = n.marker.getLatLng();
+      const nearby = nodes
+        .map(m => ({ m, d: here.distanceTo(m.marker.getLatLng()) }))
+        .filter(x => x.d < 3500)
+        .sort((a, b) => a.d - b.d)
+        .slice(0, 4);
+      panelBody.innerHTML = `
+        <span class="badge" style="border-color:${TASTE_COLOR};color:${TASTE_COLOR}">味</span><span class="badge">${esc(t.genre)}</span>
+        <h2 class="serif">${esc(t.name)}</h2>
+        <p class="meta">${esc(t.area_label || '')}${t.hours_note ? '｜' + esc(t.hours_note) + '（要確認）' : ''}</p>
+        <p class="bg">${esc(t.desc)}</p>
+        ${t.story_hook ? `<p class="bg" style="margin-top:10px;padding:10px 14px;background:rgba(1,38,83,0.05);border-left:3px solid ${TASTE_COLOR};font-size:0.78rem">${esc(t.story_hook)}</p>` : ''}
+        ${nearby.length ? `<div class="nearby"><b>あわせてたずねる記録</b>${nearby.map(x =>
+          `<a href="#" data-id="${esc(x.m.id)}">${esc(shortLabel(x.m.r.keyword))} <span style="color:var(--ink-soft)">— 約${fmtDist(x.d)}</span></a>`
+        ).join('')}</div>` : ''}
+        <a class="goto" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.name + ' ' + (t.address || ''))}" target="_blank" rel="noopener">地図アプリでひらく →</a>
+        <a class="goto" style="background:transparent;border:1px solid var(--navy-2);margin-left:10px" href="archive-trails.html">栞にもどる</a>`;
+      bindPanelLinks();
       panel.classList.add('open');
     }
     document.getElementById('panelClose').addEventListener('click', () => panel.classList.remove('open'));
