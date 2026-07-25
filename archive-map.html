@@ -132,6 +132,17 @@
       color: var(--navy); background: var(--moon); padding: 8px 20px;
     }
 
+    .trail-bar {
+      position: fixed; left: 50%; transform: translateX(-50%); bottom: 26px; z-index: 1100;
+      display: none; align-items: center; gap: 10px;
+      background: rgba(248, 246, 241, 0.92); border: 1px solid var(--line);
+      padding: 8px 12px; font-size: 0.72rem; letter-spacing: 0.12em;
+    }
+    .trail-bar.show { display: flex; }
+    .trail-bar a { padding: 5px 14px; }
+    .trail-bar .route { background: var(--moon); color: var(--navy); }
+    .trail-bar .back { border: 1px solid var(--navy-2); color: var(--navy-2); }
+
     .mobile-desc { display: none; }
     @media (max-width: 768px) {
       .header-nav a:not(.keep) { display: none; }
@@ -152,6 +163,7 @@
       .basemap-switch { top: 64px; right: 12px; }
       .panel { padding: 72px 20px 24px; }
       .panel .close { top: 60px; }
+      .trail-bar { bottom: 64px; width: max-content; max-width: 94vw; flex-wrap: wrap; justify-content: center; }
     }
   </style>
 </head>
@@ -184,6 +196,8 @@
   </div>
 
   <div class="legend" id="legend"></div>
+
+  <div class="trail-bar" id="trailBar"></div>
 
   <aside class="panel" id="panel">
     <button class="close" id="panelClose" aria-label="閉じる">✕</button>
@@ -351,6 +365,43 @@
       map.fitBounds(L.latLngBounds(pts).pad(0.2), { animate: false });
       const desc = document.querySelector('.title-desc');
       if (desc) desc.textContent = `道行き「${trail.title}」— 栞（Trails）のとおりに、点をたどる。`;
+
+      // 道順（Googleマップ）と栞への帰り道
+      const bar = document.getElementById('trailBar');
+      const routeUrl = gmapsRouteUrl(trail);
+      bar.innerHTML = `
+        ${routeUrl ? `<a class="route" href="${routeUrl}" target="_blank" rel="noopener">Googleマップで道順をひらく →</a>` : ''}
+        <a class="back" href="archive-trails.html#${esc(trail.id)}">栞にもどる</a>
+        ${trail.route?.note ? `<span style="color:var(--ink-soft);font-size:0.66rem">${esc(trail.route.note)}</span>` : ''}`;
+      bar.classList.add('show');
+    }
+
+    // 道行きをGoogleマップの道順としてひらくURL（栞と同じ規約）
+    function gmapsRouteUrl(trail) {
+      const r = trail.route || {};
+      if (r.kind === 'dest' && r.dest_name) {
+        return 'https://www.google.com/maps/dir/?api=1'
+          + `&destination=${encodeURIComponent(r.dest_name)}&travelmode=${r.mode || 'driving'}`;
+      }
+      const geoOf = s => {
+        if (s.kind === 'record') return byId[s.ref]?.r.geo;
+        if (s.kind === 'taste') return tasteById[s.ref]?.t.geo;
+        return places.find(p => p.id === s.ref)?.geo;
+      };
+      const pts = [];
+      trail.stops.forEach(s => {
+        const g = geoOf(s);
+        if (!g || typeof g.lat !== 'number') return;
+        const key = g.lat.toFixed(4) + ',' + g.lng.toFixed(4);
+        if (pts.length && pts[pts.length - 1].key === key) return;
+        pts.push({ key, q: g.lat + ',' + g.lng });
+      });
+      if (pts.length < 2) return null;
+      const way = pts.slice(1, -1).map(p => p.q).join('|');
+      return 'https://www.google.com/maps/dir/?api=1'
+        + `&origin=${encodeURIComponent(pts[0].q)}&destination=${encodeURIComponent(pts[pts.length - 1].q)}`
+        + (way ? `&waypoints=${encodeURIComponent(way)}` : '')
+        + `&travelmode=${r.mode || 'walking'}`;
     }
 
     function buildLegend() {

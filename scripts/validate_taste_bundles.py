@@ -130,6 +130,37 @@ def check(tb, record_ids):
         if kinds['record'] == 0:
             warnings.append(f'{trid}: 台帳の記録に触れない（知的な発見が薄くなる）')
 
+        # 道順（Googleマップ連携）と時間割の形式
+        route = tr.get('route')
+        if route is None:
+            warnings.append(f'{trid}: route がない（Googleマップの道順ボタンが出ない）')
+        else:
+            if route.get('kind') not in ('chain', 'dest'):
+                errors.append(f'{trid}: route.kind 不正: {route.get("kind")}')
+            if route.get('mode') not in ('walking', 'driving'):
+                errors.append(f'{trid}: route.mode 不正: {route.get("mode")}')
+            if route.get('kind') == 'dest' and not route.get('dest_name'):
+                errors.append(f'{trid}: route.kind=dest なのに dest_name がない')
+            if route.get('kind') == 'chain':
+                pools_geo = {'record': None, 'taste': None, 'place': None}
+                geo_stops = 0
+                for s in stops:
+                    ref = s.get('ref')
+                    src = None
+                    if s.get('kind') == 'taste':
+                        src = next((t for t in tb.get('taste_spots', []) if t.get('id') == ref), None)
+                    elif s.get('kind') == 'place':
+                        src = next((p for p in tb.get('places', []) if p.get('id') == ref), None)
+                    if src is None:
+                        geo_stops += 1  # 記録側の座標は台帳にあり、ここでは数えるだけ
+                    elif src.get('geo'):
+                        geo_stops += 1
+                if geo_stops < 2:
+                    errors.append(f'{trid}: route.kind=chain だが座標つき停留所が2件未満')
+        for j, row in enumerate(tr.get('timeline', [])):
+            if not (isinstance(row, dict) and row.get('t') and row.get('label')):
+                errors.append(f'{trid}: timeline[{j}] は t / label が必要')
+
     return errors, warnings
 
 

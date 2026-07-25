@@ -122,6 +122,42 @@
     .stop .links { font-size: 0.7rem; margin-top: 6px; }
     .stop .links a { color: var(--navy-2); border-bottom: 1px dotted var(--line); margin-right: 14px; }
 
+    .stop .depth { margin-top: 8px; font-size: 0.76rem; }
+    .stop .depth summary {
+      cursor: pointer; font-size: 0.66rem; letter-spacing: 0.18em;
+      color: var(--navy-2); list-style: none;
+    }
+    .stop .depth summary::before { content: '▸ '; }
+    .stop .depth[open] summary::before { content: '▾ '; }
+    .stop .depth p {
+      margin-top: 6px; padding: 10px 14px; line-height: 2;
+      background: rgba(1, 38, 83, 0.035); border-left: 2px solid var(--line);
+      color: var(--ink);
+    }
+    .stop .tip { font-size: 0.72rem; color: var(--ink-soft); margin-top: 6px; }
+    .stop .tip::before { content: '◦ こつ — '; letter-spacing: 0.1em; color: var(--navy-2); }
+
+    .timeline {
+      margin-top: 26px; border: 1px solid var(--line);
+      padding: 16px 20px; background: rgba(1, 38, 83, 0.02);
+    }
+    .timeline b {
+      display: block; font-size: 0.66rem; letter-spacing: 0.2em;
+      color: var(--navy-2); font-weight: 500; margin-bottom: 8px;
+    }
+    .timeline .row { display: flex; gap: 14px; font-size: 0.78rem; padding: 2px 0; }
+    .timeline .t {
+      flex: none; width: 3.2em; font-family: var(--serif); color: var(--navy);
+      font-variant-numeric: tabular-nums; text-align: right;
+    }
+    .practical { margin-top: 18px; font-size: 0.74rem; color: var(--ink-soft); }
+    .practical b {
+      display: block; font-size: 0.66rem; letter-spacing: 0.2em;
+      color: var(--navy-2); font-weight: 500; margin-bottom: 4px;
+    }
+    .practical li { list-style: none; padding-left: 1em; text-indent: -1em; }
+    .practical li::before { content: '— '; }
+
     .discovery {
       margin-top: 26px; padding: 16px 20px;
       background: rgba(1, 38, 83, 0.04); border-left: 3px solid var(--moon);
@@ -186,8 +222,8 @@
       <p class="en">LOCAL TRAILS — 記録と味を、ひとつづきに。</p>
       <p class="lede">
         どこかを訪ね、うまいものを食べ、ひとつ賢くなって帰る。この三つが揃ったとき、旅は思い出になります。
-        ここに綴じたのは、ローカルアーカイブの記録と土地の味をひとつづきに束ねた、半日ほどの道行きの提案です。
-        富士見町を真ん中に置いて、車で少し足を伸ばせる白州・蓼科・諏訪・小淵沢も、まわりの頁として添えました。
+        いまの版は、<b>井戸尻</b>と<b>入笠山</b>——ふたつの一日を、時間割と深よみつきでふかく綴じました。
+        まわりの白州・蓼科・諏訪・小淵沢のスポットは、次の栞のたねとして末尾に添えてあります。
       </p>
       <p class="disclaimer" id="disclaimer"></p>
       <nav class="area-jump" id="areaJump" aria-label="エリア"></nav>
@@ -202,6 +238,31 @@
     const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     // 座標は一部が近似のため、地図アプリへは店名＋住所の検索で渡す
     const gmap = s => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.name + ' ' + (s.address || ''))}`;
+
+    // 道行き全体をGoogleマップの経路（道順）としてひらくURL。
+    // kind=chain: 座標のある停留所を 出発地→経由地→目的地 に並べる（同座標は間引く）
+    // kind=dest : 目的地だけを渡す（山上など、車の道順が入口までの道行き）
+    function gmapsRouteUrl(trail, geoOf) {
+      const r = trail.route || {};
+      if (r.kind === 'dest' && r.dest_name) {
+        return 'https://www.google.com/maps/dir/?api=1'
+          + `&destination=${encodeURIComponent(r.dest_name)}&travelmode=${r.mode || 'driving'}`;
+      }
+      const pts = [];
+      trail.stops.forEach(s => {
+        const g = geoOf(s);
+        if (!g || typeof g.lat !== 'number') return;
+        const key = g.lat.toFixed(4) + ',' + g.lng.toFixed(4);
+        if (pts.length && pts[pts.length - 1].key === key) return;
+        pts.push({ key, q: g.lat + ',' + g.lng });
+      });
+      if (pts.length < 2) return null;
+      const way = pts.slice(1, -1).map(p => p.q).join('|');
+      return 'https://www.google.com/maps/dir/?api=1'
+        + `&origin=${encodeURIComponent(pts[0].q)}&destination=${encodeURIComponent(pts[pts.length - 1].q)}`
+        + (way ? `&waypoints=${encodeURIComponent(way)}` : '')
+        + `&travelmode=${r.mode || 'walking'}`;
+    }
 
     Promise.all([
       fetch('data/fujimi-archive-db.json').then(r => r.json()),
@@ -230,9 +291,16 @@
 
         const trailHtml = trails.map(trail => {
           const stops = trail.stops.map(stop => renderStop(stop, recById, tasteById, placeById)).join('');
-          const geoCount = trail.stops.filter(s =>
-            ({record: recById, taste: tasteById, place: placeById})[s.kind]?.[s.ref]?.geo
-          ).length;
+          const geoOf = s => ({record: recById, taste: tasteById, place: placeById})[s.kind]?.[s.ref]?.geo;
+          const routeUrl = gmapsRouteUrl(trail, geoOf);
+          const timeline = (trail.timeline || []).length ? `
+            <div class="timeline"><b>一日の時間割</b>${trail.timeline.map(x =>
+              `<div class="row"><span class="t">${esc(x.t)}</span><span>${esc(x.label)}</span></div>`).join('')}
+            </div>` : '';
+          const practical = (trail.practical || []).length ? `
+            <ul class="practical"><b>しおりの覚え書き</b>${trail.practical.map(x =>
+              `<li>${esc(x)}</li>`).join('')}
+            </ul>` : '';
           return `
             <article class="trail" id="${esc(trail.id)}">
               <p class="badges">
@@ -241,10 +309,14 @@
               </p>
               <h3 class="title serif">${esc(trail.title)}</h3>
               <p class="narrative">${esc(trail.narrative)}</p>
+              ${timeline}
               <div class="stops">${stops}</div>
               <div class="discovery"><b>もちかえる発見</b>${esc(trail.discovery)}</div>
+              ${practical}
               <div class="trail-foot">
                 <a class="goto" href="archive-map.html#trail=${esc(trail.id)}">絵図でこの道行きをたどる →</a>
+                ${routeUrl ? `<a class="goto" style="background:transparent;border:1px solid var(--navy-2);color:var(--navy-2)" href="${routeUrl}" target="_blank" rel="noopener">Googleマップで道順をひらく →</a>` : ''}
+                ${trail.route?.note ? `<span style="font-size:0.68rem;color:var(--ink-soft)">${esc(trail.route.note)}</span>` : ''}
               </div>
             </article>`;
         }).join('');
@@ -278,6 +350,14 @@
       if (hash) document.getElementById(hash)?.scrollIntoView();
     }
 
+    // 深よみ（台帳由来の一段）と、こつ。どの種類の停留所にも添えられる
+    function stopExtras(stop) {
+      return `
+        ${stop.depth ? `<details class="depth"><summary>ふかよみ</summary><p>${esc(stop.depth)}</p></details>` : ''}
+        ${stop.tip ? `<p class="tip">${esc(stop.tip)}</p>` : ''}`;
+    }
+    const staySub = stop => stop.stay ? `｜滞在のめやす ${esc(stop.stay)}` : '';
+
     function renderStop(stop, recById, tasteById, placeById) {
       if (stop.kind === 'record') {
         const r = recById[stop.ref];
@@ -289,7 +369,8 @@
               <p class="kind">たずねる</p>
               <h4><a href="archive-db.html#${esc(r.id)}">${esc(r.keyword)}</a></h4>
               ${stop.note ? `<p class="note">${esc(stop.note)}</p>` : ''}
-              <p class="sub">${esc(r.category)}${r.era ? '｜' + esc(r.era) : ''}</p>
+              <p class="sub">${esc(r.category)}${r.era ? '｜' + esc(r.era) : ''}${staySub(stop)}</p>
+              ${stopExtras(stop)}
               <p class="links">
                 <a href="archive-db.html#${esc(r.id)}">台帳でぜんぶ読む</a>
                 ${r.geo ? `<a href="archive-map.html#${esc(r.id)}">絵図でみる</a>` : ''}
@@ -307,7 +388,8 @@
               <p class="kind">たずねる</p>
               <h4>${esc(p.name)} <span style="font-size:0.7rem;color:var(--ink-soft)">— ${esc(p.genre)}</span></h4>
               <p class="note">${esc(stop.note || p.desc)}</p>
-              <p class="sub">${esc(p.area_label || '')}${p.hours_note ? '｜' + esc(p.hours_note) : ''}</p>
+              <p class="sub">${esc(p.area_label || '')}${p.hours_note ? '｜' + esc(p.hours_note) : ''}${staySub(stop)}</p>
+              ${stopExtras(stop)}
               <p class="links"><a href="${gmap(p)}" target="_blank" rel="noopener">地図アプリでひらく</a></p>
             </div>
           </div>`;
@@ -321,7 +403,8 @@
             <p class="kind">あじわう</p>
             <h4>${esc(t.name)} <span style="font-size:0.7rem;color:var(--ink-soft)">— ${esc(t.genre)}</span></h4>
             <p class="note">${esc(stop.note || t.desc)}</p>
-            <p class="sub">${esc(t.area_label || '')}${t.hours_note ? '｜' + esc(t.hours_note) : ''}</p>
+            <p class="sub">${esc(t.area_label || '')}${t.hours_note ? '｜' + esc(t.hours_note) : ''}${staySub(stop)}</p>
+            ${stopExtras(stop)}
             <p class="links"><a href="${gmap(t)}" target="_blank" rel="noopener">地図アプリでひらく</a></p>
           </div>
         </div>`;
