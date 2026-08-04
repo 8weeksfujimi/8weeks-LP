@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>道行きの栞 — あなたの感性を呼び起こす旅 | 8weeks Stay 富士見</title>
+  <meta name="description" content="どこかを訪ね、うまいものを食べ、土地の記憶にふれて帰る。富士見町のローカルアーカイブから生まれた、考証つきの一日の道行き。縄文の食卓(井戸尻)と、食べるために登る山(入笠山)。">
+  <link rel="icon" type="image/png" href="assets/logos/favicon_moon.png">
+  <link rel="canonical" href="https://8weeksfujimi.github.io/8weeks-LP/experience.html">
+
+  <meta property="og:title" content="道行きの栞 — あなたの感性を呼び起こす旅">
+  <meta property="og:description" content="富士見町のローカルアーカイブから生まれた、考証つきの一日の道行き。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://8weeksfujimi.github.io/8weeks-LP/experience.html">
+  <meta property="og:site_name" content="8weeks Stay">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #012653;
+      --navy-deep: #011A3B;
+      --navy-2: #12335C;
+      --moon: #FFF100;
+      --washi: #F8F6F1;
+      --white: #FFFFFF;
+      --ink: #1C2B3A;
+      --ink-soft: #4A5A6A;
+      --line: rgba(1, 38, 83, 0.14);
+      --taste: #b0713f;
+      --serif: 'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+      --sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans); color: var(--ink); background: var(--washi);
+      line-height: 2.1; letter-spacing: 0.06em; font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .serif { font-family: var(--serif); }
+    img { max-width: 100%; display: block; }
+
+    /* ---------- ヘッダー ---------- */
+    .header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 32px;
+      background: linear-gradient(rgba(1, 26, 59, 0.55), transparent);
+      transition: background 0.4s ease;
+    }
+    .header.solid { background: rgba(1, 38, 83, 0.94); }
+    .header-brand img { height: 40px; width: auto; }
+    .header-cta {
+      font-size: 0.72rem; letter-spacing: 0.22em; color: var(--navy);
+      background: var(--moon); padding: 9px 26px;
+    }
+
+    /* ---------- ヒーロー ---------- */
+    .hero {
+      position: relative; min-height: 100svh; overflow: hidden;
+      background: linear-gradient(180deg, #010F24 0%, var(--navy-deep) 46%, var(--navy) 78%, #0A3568 100%);
+      color: var(--white);
+      display: flex; align-items: center; justify-content: center; text-align: center;
+    }
+    .hero-sky { position: absolute; inset: 0; pointer-events: none; }
+    .hero-inner { position: relative; z-index: 2; padding: 120px 24px 140px; }
+    .hero-eyebrow {
+      font-size: 0.7rem; letter-spacing: 0.5em; text-indent: 0.5em;
+      color: rgba(255, 255, 255, 0.75);
+    }
+    .hero h1 {
+      font-family: var(--serif); font-weight: 500;
+      font-size: clamp(1.9rem, 5.2vw, 3.4rem); letter-spacing: 0.24em; text-indent: 0.24em;
+      margin-top: 26px; line-height: 1.9; text-wrap: balance;
+    }
+    .hero-sub {
+      margin-top: 30px; font-size: 0.86rem; letter-spacing: 0.14em;
+      color: rgba(255, 255, 255, 0.85); line-height: 2.4;
+    }
+    .hero-title-en {
+      margin-top: 34px; font-size: 0.64rem; letter-spacing: 0.44em; text-indent: 0.44em;
+      color: rgba(255, 241, 0, 0.85);
+    }
+    .scroll-cue {
+      position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 2;
+      font-size: 0.6rem; letter-spacing: 0.34em; text-indent: 0.34em;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .scroll-cue::after {
+      content: ''; display: block; width: 1px; height: 44px;
+      background: linear-gradient(rgba(255,255,255,0.7), transparent);
+      margin: 10px auto 0; animation: cue 2.6s ease infinite;
+    }
+    @keyframes cue { 0% { transform: scaleY(0); transform-origin: top; } 55% { transform: scaleY(1); } 100% { opacity: 0; transform: scaleY(1); } }
+
+    /* ---------- 共通セクション ---------- */
+    .section { padding: 120px 24px; }
+    .narrow { max-width: 700px; margin: 0 auto; }
+    .wide { max-width: 1080px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 0.66rem; letter-spacing: 0.4em; color: var(--navy-2);
+      display: block;
+    }
+    .section h2 {
+      font-family: var(--serif); font-weight: 500;
+      font-size: clamp(1.4rem, 3.4vw, 2rem); letter-spacing: 0.2em;
+      color: var(--navy); margin-top: 18px; line-height: 2; text-wrap: balance;
+    }
+    .section .lead { margin-top: 26px; font-size: 0.9rem; color: var(--ink); }
+    .rule { width: 44px; height: 1px; background: var(--navy); margin-top: 30px; }
+
+    /* 三つの柱 */
+    .triad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 70px; }
+    .triad .t .kind { font-size: 0.66rem; letter-spacing: 0.3em; color: var(--ink-soft); }
+    .triad .t h3 { font-family: var(--serif); font-weight: 500; font-size: 1.3rem; letter-spacing: 0.16em; color: var(--navy); margin-top: 10px; }
+    .triad .t p { font-size: 0.8rem; color: var(--ink-soft); margin-top: 12px; }
+    .triad .t .mark { display: block; width: 13px; height: 13px; margin-bottom: 18px; }
+    .triad .t .mark.rec { border-radius: 50%; background: var(--navy-2); }
+    .triad .t .mark.taste { background: var(--taste); transform: rotate(45deg); border-radius: 2px; }
+    .triad .t .mark.disc { background: var(--moon); border: 1px solid rgba(1,38,83,0.35); }
+
+    /* ---------- 道行きフィーチャー ---------- */
+    .trail-feature { background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .trail-feature.alt { background: var(--washi); border: none; }
+    .tf-grid {
+      max-width: 1080px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 90px);
+      align-items: center;
+    }
+    .tf-grid.flip .tf-art { order: 2; }
+    .tf-art { position: relative; }
+    .tf-art svg { width: 100%; height: auto; display: block; }
+    .tf-art .art-caption {
+      margin-top: 14px; font-size: 0.62rem; letter-spacing: 0.18em; color: var(--ink-soft); text-align: right;
+    }
+    .tf-no { font-size: 0.66rem; letter-spacing: 0.4em; color: var(--ink-soft); }
+    .tf-body h2 { margin-top: 14px; }
+    .tf-body .narrative { margin-top: 26px; font-size: 0.86rem; }
+    .tf-hl { margin-top: 34px; border-top: 1px solid var(--line); }
+    .tf-hl li {
+      list-style: none; display: flex; gap: 18px; align-items: baseline;
+      padding: 13px 2px; border-bottom: 1px solid var(--line); font-size: 0.8rem;
+    }
+    .tf-hl li b {
+      font-family: var(--serif); font-weight: 500; color: var(--navy);
+      font-size: 0.86rem; letter-spacing: 0.1em; flex: none; min-width: 9.5em;
+    }
+    .tf-hl li span { color: var(--ink-soft); }
+    .tf-ctas { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .btn-primary {
+      font-size: 0.74rem; letter-spacing: 0.2em; color: var(--navy);
+      background: var(--moon); padding: 12px 30px;
+    }
+    .btn-ghost {
+      font-size: 0.74rem; letter-spacing: 0.2em; color: var(--navy-2);
+      border: 1px solid var(--navy-2); padding: 11px 26px;
+    }
+
+    /* ---------- 仕組み(アーカイブの層) ---------- */
+    .system { background: var(--navy); color: rgba(255, 255, 255, 0.88); }
+    .system .eyebrow { color: rgba(255, 241, 0, 0.8); }
+    .system h2 { color: var(--white); }
+    .system .lead { color: rgba(255, 255, 255, 0.82); }
+    .layers { margin-top: 70px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.16); }
+    .layer { background: var(--navy); padding: 34px 26px 38px; }
+    .layer .no { font-size: 0.62rem; letter-spacing: 0.3em; color: rgba(255, 241, 0, 0.8); }
+    .layer h3 { font-family: var(--serif); font-weight: 500; font-size: 1.06rem; letter-spacing: 0.14em; color: var(--white); margin-top: 12px; }
+    .layer p { font-size: 0.74rem; color: rgba(255, 255, 255, 0.72); margin-top: 12px; line-height: 2; }
+    .layer a { display: inline-block; margin-top: 16px; font-size: 0.68rem; letter-spacing: 0.16em; color: var(--moon); border-bottom: 1px dotted rgba(255, 241, 0, 0.5); padding-bottom: 2px; }
+    .system-note { margin-top: 44px; font-size: 0.72rem; color: rgba(255, 255, 255, 0.6); }
+
+    /* ---------- 泊まる ---------- */
+    .stay-grid { margin-top: 64px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+    .stay { background: var(--white); border: 1px solid var(--line); }
+    .stay .ph { aspect-ratio: 4 / 3; overflow: hidden; }
+    .stay .ph img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s ease; }
+    .stay:hover .ph img { transform: scale(1.04); }
+    .stay .bd { padding: 22px 24px 26px; }
+    .stay h3 { font-family: var(--serif); font-weight: 500; font-size: 1.02rem; letter-spacing: 0.12em; color: var(--navy); }
+    .stay p { font-size: 0.74rem; color: var(--ink-soft); margin-top: 8px; }
+    .stay-cta { margin-top: 54px; text-align: center; }
+
+    /* ---------- 締め・フッター ---------- */
+    .closing { text-align: center; }
+    .closing .sentence {
+      font-family: var(--serif); font-weight: 400;
+      font-size: clamp(1.1rem, 2.6vw, 1.5rem); letter-spacing: 0.22em;
+      color: var(--navy); line-height: 2.4; text-wrap: balance;
+    }
+    .footer {
+      background: var(--navy-deep); color: rgba(255, 255, 255, 0.66);
+      padding: 54px 24px 64px; text-align: center; font-size: 0.7rem; letter-spacing: 0.12em;
+    }
+    .footer img { height: 40px; margin: 0 auto 18px; }
+    .footer nav { display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+    .footer nav a:hover { color: var(--moon); }
+
+    /* ---------- 出現アニメーション ---------- */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 1s ease, transform 1s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .scroll-cue::after { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    @media (max-width: 860px) {
+      .section { padding: 84px 20px; }
+      .triad { grid-template-columns: 1fr; gap: 34px; margin-top: 50px; }
+      .tf-grid { grid-template-columns: 1fr; gap: 40px; }
+      .tf-grid.flip .tf-art { order: 0; }
+      .layers { grid-template-columns: 1fr 1fr; }
+      .stay-grid { grid-template-columns: 1fr; }
+      .tf-hl li b { min-width: 0; }
+      .tf-hl li { flex-direction: column; gap: 2px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <a class="header-brand" href="index.html"><img src="assets/logos/logo_white.png" alt="8weeks Stay"></a>
+    <a class="header-cta" href="index.html#booking">宿を予約する</a>
+  </header>
+
+  <!-- ヒーロー: 月夜の入笠山稜 -->
+  <section class="hero">
+    <svg class="hero-sky" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <!-- 星 -->
+      <g fill="#FFFFFF">
+        <circle cx="180" cy="140" r="1.1" opacity="0.7"/><circle cx="420" cy="90" r="0.9" opacity="0.5"/>
+        <circle cx="640" cy="180" r="1.2" opacity="0.6"/><circle cx="900" cy="70" r="1" opacity="0.55"/>
+        <circle cx="1120" cy="150" r="0.9" opacity="0.5"/><circle cx="1310" cy="100" r="1.2" opacity="0.65"/>
+        <circle cx="300" cy="250" r="0.8" opacity="0.45"/><circle cx="770" cy="120" r="0.8" opacity="0.4"/>
+        <circle cx="1030" cy="240" r="1" opacity="0.5"/><circle cx="1240" cy="300" r="0.8" opacity="0.4"/>
+        <circle cx="90" cy="330" r="0.9" opacity="0.4"/><circle cx="530" cy="300" r="0.9" opacity="0.45"/>
+      </g>
+      <!-- 月 -->
+      <circle cx="1080" cy="215" r="46" fill="#FFF100" opacity="0.95"/>
+      <circle cx="1080" cy="215" r="66" fill="none" stroke="#FFF100" stroke-opacity="0.18" stroke-width="1"/>
+      <!-- 山稜(奥から手前へ) -->
+      <path d="M0 560 L150 500 L300 545 L480 455 L660 530 L840 470 L1010 540 L1200 480 L1350 525 L1440 500 L1440 900 L0 900 Z"
+            fill="#0A2C58" opacity="0.85"/>
+      <path d="M0 640 L180 585 L360 630 L560 540 L760 620 L950 555 L1150 630 L1320 585 L1440 620 L1440 900 L0 900 Z"
+            fill="#062348" opacity="0.95"/>
+      <path d="M0 730 L220 670 L430 720 L640 645 L860 715 L1080 660 L1280 720 L1440 685 L1440 900 L0 900 Z"
+            fill="#03193A"/>
+    </svg>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">8WEEKS STAY — FUJIMI, NAGANO</p>
+      <h1>あなたの感性を、<br>呼び起こす旅。</h1>
+      <p class="hero-sub">
+        どこかを訪ね、うまいものを食べ、土地の記憶にふれて帰る。<br>
+        この三つが揃ったとき、旅は思い出になります。
+      </p>
+      <p class="hero-title-en">道行きの栞 — LOCAL TRAILS</p>
+    </div>
+    <p class="scroll-cue">SCROLL</p>
+  </section>
+
+  <!-- コンセプト -->
+  <section class="section">
+    <div class="narrow reveal">
+      <span class="eyebrow">CONCEPT</span>
+      <h2>観光地ではなく、<br>土地の記録を旅する。</h2>
+      <div class="rule"></div>
+      <p class="lead">
+        富士見町には、五千年前の食卓の跡があり、山の上に食堂があり、
+        駅前には町の寄り合いを兼ねた大衆食堂があります。
+        わたしたちはこの町の記録を掘り、考証し、88の頁からなるローカルアーカイブに束ねてきました。
+        「道行きの栞」は、その記録と土地の味をひとつづきに編んだ、一日の提案です。
+      </p>
+      <div class="triad">
+        <div class="t">
+          <span class="mark rec"></span>
+          <p class="kind">TAZUNERU</p>
+          <h3>たずねる</h3>
+          <p>考証つきの記録が案内する場所へ。遺跡、湿原、古道。どの停留所にも「ふかよみ」の頁がついています。</p>
+        </div>
+        <div class="t">
+          <span class="mark taste"></span>
+          <p class="kind">AJIWAU</p>
+          <h3>あじわう</h3>
+          <p>そば、定食、山小屋の煮込み。土地の味は、記録のとなりにあります。営業情報と道順つき。</p>
+        </div>
+        <div class="t">
+          <span class="mark disc"></span>
+          <p class="kind">MOCHIKAERU</p>
+          <h3>もちかえる</h3>
+          <p>歩き終えたとき、手もとに残るひとつの発見。それが、この栞のおみやげです。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 道行き 01: 井戸尻 -->
+  <section class="trail-feature section">
+    <div class="tf-grid wide reveal">
+      <div class="tf-art">
+        <!-- 渦巻の意匠(抽象化): 縄文の水煙をおもわせる線 -->
+        <svg viewBox="0 0 520 420" aria-hidden="true">
+          <rect width="520" height="420" fill="#012653"/>
+          <g fill="none" stroke="#F8F6F1" stroke-width="1.6" opacity="0.9">
+            <path d="M260 210 m0 -8 a8 8 0 1 1 -8 8 a16 16 0 1 0 16 -16 a28 28 0 1 1 -28 28 a44 44 0 1 0 44 -44 a64 64 0 1 1 -64 64 a88 88 0 1 0 88 -88"/>
+            <path d="M120 330 a30 30 0 1 1 30 30" opacity="0.55"/>
+            <path d="M400 90 a26 26 0 1 0 26 26" opacity="0.55"/>
+          </g>
+          <circle cx="430" cy="330" r="20" fill="#FFF100" opacity="0.9"/>
+          <g stroke="#F8F6F1" stroke-opacity="0.28" stroke-width="1">
+            <line x1="40" y1="40" x2="70" y2="40"/><line x1="40" y1="40" x2="40" y2="70"/>
+            <line x1="480" y1="380" x2="450" y2="380"/><line x1="480" y1="380" x2="480" y2="350"/>
+          </g>
+        </svg>
+        <p class="art-caption">意匠は抽象化しています。ほんものは、井戸尻考古館で。</p>
+      </div>
+      <div class="tf-body">
+        <span class="tf-no">TRAIL 01 — 徒歩でめぐる一日</span>
+        <h2>縄文の食卓<br>井戸尻をふかく歩く</h2>
+        <p class="narrative">
+          八ヶ岳南麓、標高880mほどの台地には、五千年前の食卓の跡が残っています。
+          地元の人たちが自分の手で掘り、復元し、その営みが館になっていった井戸尻(いどじり)。
+          土器の文様を読み、曽利(そり)の丘を歩き、崖下の泉に立ち寄って、
+          駅前食堂で定食を食べて帰る。歩く距離は、全部で2kmほど。
+        </p>
+        <ul class="tf-hl">
+          <li><b>水煙渦巻文深鉢</b><span>「世界一の土器」と評されたと伝わる、県宝の一点に会う</span></li>
+          <li><b>六十年の論争</b><span>謎の器・有孔鍔付土器は、種子の壺か、太鼓か、酒の器か</span></li>
+          <li><b>縄文クッキー</b><span>その言葉が生まれた曽利の丘と、五千年後の駅前定食</span></li>
+          <li><b>井戸尻の泉</b><span>地名の由来と考えられる、いまも湧きつづける水</span></li>
+        </ul>
+        <div class="tf-ctas">
+          <a class="btn-primary" href="archive-trails.html#TRAIL-001">この道行きの栞をひらく</a>
+          <a class="btn-ghost" href="archive-map.html#trail=TRAIL-001">絵図でたどる</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 道行き 02: 入笠山 -->
+  <section class="trail-feature alt section">
+    <div class="tf-grid flip wide reveal">
+      <div class="tf-art">
+        <!-- 山稜と月: 入笠山 -->
+        <svg viewBox="0 0 520 420" aria-hidden="true">
+          <rect width="520" height="420" fill="#012653"/>
+          <circle cx="400" cy="110" r="30" fill="#FFF100" opacity="0.95"/>
+          <g fill="none" stroke="#F8F6F1" stroke-width="1.4">
+            <path d="M0 300 L90 240 L160 275 L260 190 L360 265 L440 225 L520 260" opacity="0.9"/>
+            <path d="M0 345 L110 300 L200 330 L310 255 L410 320 L520 290" opacity="0.55"/>
+            <path d="M0 385 L140 350 L250 375 L380 315 L520 355" opacity="0.3"/>
+          </g>
+          <!-- 湿原の木道をおもわせる点線 -->
+          <path d="M60 400 C 180 380, 300 385, 470 350" fill="none" stroke="#FFF100" stroke-width="1.2" stroke-dasharray="2 8" opacity="0.75"/>
+          <g fill="#F8F6F1" opacity="0.8">
+            <circle cx="260" cy="190" r="2.4"/>
+          </g>
+        </svg>
+        <p class="art-caption">標高1955m。頂は、富士見町と伊那市の境にあります。</p>
+      </div>
+      <div class="tf-body">
+        <span class="tf-no">TRAIL 02 — ゴンドラと徒歩の一日</span>
+        <h2>入笠山<br>食べるために登る</h2>
+        <p class="narrative">
+          ゴンドラで湿原のある山の上まで一気に上がり、木道を歩き、
+          山小屋の煮込みで昼にして、午後に山頂へ。
+          「食べるために登る」が成立してしまう山。すずらんの六月、
+          山の上に食卓があるという安心が、入笠(にゅうかさ)の文化になっています。
+        </p>
+        <ul class="tf-hl">
+          <li><b>百万株のすずらん</b><span>六月、標高1730mの湿原が小さな白い花で埋まる</span></li>
+          <li><b>山小屋の煮込み</b><span>売り切れ次第終了。昼は早めに、が この山の作法</span></li>
+          <li><b>銀色のドーム</b><span>標高1800mの公開天文台。泊まれば星の夜がある</span></li>
+          <li><b>山のふもとの記憶</b><span>1967年、日本で最初のヒッピー・コミューンが営まれた高原</span></li>
+        </ul>
+        <div class="tf-ctas">
+          <a class="btn-primary" href="archive-trails.html#TRAIL-002">この道行きの栞をひらく</a>
+          <a class="btn-ghost" href="archive-map.html#trail=TRAIL-002">絵図でたどる</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 仕組み -->
+  <section class="system section">
+    <div class="wide reveal">
+      <span class="eyebrow">HOW IT WORKS</span>
+      <h2>栞の裏には、記録の山がある。</h2>
+      <p class="lead narrow" style="margin-left:0">
+        この道行きは、思いつきの観光案内ではありません。
+        出典と確度を明記した88の記録(ローカルアーカイブ)から生まれ、
+        機械の検証と、考証者・旅行者・編集者・山岳ガイドのレビューを重ねて編まれています。
+      </p>
+      <div class="layers">
+        <div class="layer">
+          <p class="no">01</p>
+          <h3>台帳</h3>
+          <p>すべての記録に出典・確度(S〜D)・考証メモ。制作の舞台裏ごと公開しています。</p>
+          <a href="archive-db.html">台帳をひらく →</a>
+        </div>
+        <div class="layer">
+          <p class="no">02</p>
+          <h3>栞</h3>
+          <p>記録と味をひとつづきに束ねた一日の道行き。時間割と「ふかよみ」つき。</p>
+          <a href="archive-trails.html">栞をひらく →</a>
+        </div>
+        <div class="layer">
+          <p class="no">03</p>
+          <h3>絵図</h3>
+          <p>座標の確かめられた記録を、土地の上に。道行きの経路も地図でたどれます。</p>
+          <a href="archive-map.html">絵図をひらく →</a>
+        </div>
+        <div class="layer">
+          <p class="no">04</p>
+          <h3>道順</h3>
+          <p>歩く順そのままにGoogleマップへ。読む栞から、歩ける栞へ。</p>
+          <a href="archive-trails.html">道順をひらく →</a>
+        </div>
+      </div>
+      <p class="system-note">記録の本文と出典はすべて台帳(Ledger)で読めます。店の営業情報は、訪ねる前に各店の発信でご確認ください。</p>
+    </div>
+  </section>
+
+  <!-- 泊まる -->
+  <section class="section">
+    <div class="wide reveal">
+      <span class="eyebrow">STAY</span>
+      <h2>この栞は、泊まる人のためのもの。</h2>
+      <p class="lead narrow" style="margin-left:0">
+        道行きはどれも、富士見町の一棟貸しの宿「8weeks Stay」を起点に編まれています。
+        朝ゆっくり出て、日が落ちる前に帰ってくる。
+        そういう一日のための、三つの宿があります。
+      </p>
+      <div class="stay-grid">
+        <a class="stay" href="index.html#spaces">
+          <div class="ph"><img src="assets/photos/fujimi_living.jpg" alt="8weeks Fujimi の室内" loading="lazy"></div>
+          <div class="bd"><h3>8weeks Fujimi</h3><p>グランドピアノのある、森のなかの一棟貸切。</p></div>
+        </a>
+        <a class="stay" href="index.html#spaces">
+          <div class="ph"><img src="assets/photos/quriu_living.jpeg" alt="8weeks Quriu の室内" loading="lazy"></div>
+          <div class="bd"><h3>8weeks Quriu</h3><p>100m²超のフロア貸切。薪ストーブとマウンテンビュー。</p></div>
+        </a>
+        <a class="stay" href="index.html#spaces">
+          <div class="ph"><img src="assets/photos/studio_living.jpeg" alt="8weeks Studio の室内" loading="lazy"></div>
+          <div class="bd"><h3>8weeks Studio</h3><p>富士見商店街のリノベーションフラット。車がなくても。</p></div>
+        </a>
+      </div>
+      <div class="stay-cta">
+        <a class="btn-primary" href="index.html#booking">宿を予約する</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 締め -->
+  <section class="section closing" style="padding-top: 60px;">
+    <div class="narrow reveal">
+      <p class="sentence">
+        帰り道、世界がすこし違って見える。<br>
+        それがこの町の、いちばんのおみやげです。
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <img src="assets/logos/logo_white.png" alt="8weeks Stay">
+    <p>長野県諏訪郡富士見町 · 8weeks合同会社</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="archive.html">Archive</a>
+      <a href="archive-db.html">Ledger</a>
+      <a href="archive-trails.html">Trails</a>
+      <a href="archive-map.html">Map</a>
+    </nav>
+  </footer>
+
+  <script>
+    // ヘッダー: ヒーローを抜けたら地色をつける
+    const header = document.getElementById('header');
+    addEventListener('scroll', () => {
+      header.classList.toggle('solid', scrollY > innerHeight * 0.7);
+    }, { passive: true });
+
+    // スクロール出現
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,1474 @@
+{
+  "title": "富士見 道行きの栞",
+  "description": "ローカルアーカイブの記録と土地の味をひとつづきに束ねた道行きの提案。いまの版は、井戸尻と入笠山——ふたつの一日をふかく綴じている。まわりの白州・蓼科・諏訪・小淵沢は、栞のたねとして添えた。",
+  "disclaimer": "店の営業時間・定休日は移ろいます。訪ねる前に、各店の発信でご確認ください。座標は絵図に置くためのもので、一部はおよその位置です（geo_note参照）。",
+  "credit": "エリアの区切りと店の下敷きは、ホストのAirbnbガイドブック「8weeks Fujimiでの暮らし」",
+  "license": "CC BY 4.0（各店の営業情報の正確性は保証しません）",
+  "updated": "2026-07-26",
+  "areas": [
+    {
+      "id": "fujimi",
+      "name": "富士見",
+      "en": "FUJIMI",
+      "role": "center",
+      "desc": "縄文の台地、乙事の水、風立ちぬの高原、駅前の商店街。アーカイブの記録がもっとも厚く積もっている、この栞の中心。"
+    },
+    {
+      "id": "kobuchizawa",
+      "name": "小淵沢",
+      "en": "KOBUCHIZAWA",
+      "role": "sub",
+      "desc": "車で15分、信玄棒道の続く隣町。三分一湧水と大滝湧水、二つの名水百選と、駅前の老舗。八ヶ岳南麓の「水と道」の頁。"
+    },
+    {
+      "id": "hakushu",
+      "name": "白州",
+      "en": "HAKUSHU",
+      "role": "sub",
+      "desc": "国界橋を渡って甲州へ。台ヶ原宿の和菓子と酒蔵、尾白川の水遊び、名水の里。蔦木宿と対になる、甲州街道のむこう側の頁。"
+    },
+    {
+      "id": "tateshina",
+      "name": "蓼科・霧ヶ峰",
+      "en": "TATESHINA / KIRIGAMINE",
+      "role": "sub",
+      "desc": "八ヶ岳の北へ、ビーナスラインの高原とふたつめの縄文考古館。山小屋のモーニングと湯上がりのジェラートの頁。"
+    },
+    {
+      "id": "suwa",
+      "name": "諏訪",
+      "en": "SUWA",
+      "role": "sub",
+      "desc": "富士見の記録の多くが指し示す先、諏訪信仰の中心地。四つの宮と温泉町、移住者の店。記録の「出典」を歩いて確かめる頁。"
+    }
+  ],
+  "taste_spots": [
+    {
+      "id": "TASTE-001",
+      "area": "fujimi",
+      "name": "そば処 おっこと亭",
+      "genre": "そば",
+      "area_label": "乙事",
+      "address": "長野県諏訪郡富士見町乙事3777-3",
+      "geo": {
+        "lat": 35.91924,
+        "lng": 138.28241
+      },
+      "geo_precision": "poi",
+      "desc": "乙事集落で地元有志が営む手打ちそばの名店。100%地元産の玄そば（八ヶ岳西麓しなの1号）を、年間13℃前後の八ヶ岳伏流水で締める。信州そば切りの会認定店で、そば打ち体験も併設。",
+      "story_hook": "乙事はそば栽培を地区の伝統として受け継いできた集落。ここのそばは地元産玄そばと八ヶ岳伏流水という「土地そのもの」でできている。",
+      "hours_note": "4〜11月 10:30-15:00、12〜3月 11:00-15:00、木曜定休",
+      "confidence": "S",
+      "sources": [
+        "https://okkototei.com/",
+        "https://www.town.fujimi.lg.jp/site/kanko/rs01.html"
+      ],
+      "related_records": [
+        "FJM-FAITH-001",
+        "FJM-FAITH-008"
+      ]
+    },
+    {
+      "id": "TASTE-002",
+      "area": "fujimi",
+      "name": "道の駅 信州蔦木宿（てのひら館・つたの湯）",
+      "genre": "そば・直売所・温泉",
+      "area_label": "蔦木（旧甲州街道 蔦木宿）",
+      "address": "長野県諏訪郡富士見町落合1984-1",
+      "geo": {
+        "lat": 35.86347,
+        "lng": 138.27661
+      },
+      "geo_precision": "poi",
+      "desc": "甲州街道43番目の宿場・蔦木宿の歴史を引き継ぐ道の駅。八ヶ岳山麓産のそばを店内の石臼で挽き、職人が手打ちで出す。直売所には高原野菜と諏訪九蔵元の地酒、温泉つたの湯も併設。",
+      "story_hook": "江戸と下諏訪を結んだ宿場の「旅人をもてなす」機能を、現代の道の駅がそのまま受け継いでいる。",
+      "hours_note": "食事処 11:00-20:00、つたの湯 10:00-21:00、全館火曜定休",
+      "confidence": "S",
+      "sources": [
+        "https://www.tsutakijuku.jp/",
+        "https://www.jalan.net/kankou/spt_20362aa1030162139/"
+      ],
+      "related_records": [
+        "FJM-ROAD-001"
+      ]
+    },
+    {
+      "id": "TASTE-003",
+      "area": "fujimi",
+      "name": "ヒュッテ入笠（旧マナスル山荘本館）",
+      "genre": "山小屋レストラン",
+      "area_label": "入笠山・御所平",
+      "address": "長野県諏訪郡富士見町 入笠山（御所平）",
+      "geo": {
+        "lat": 35.90192,
+        "lng": 138.17204
+      },
+      "geo_precision": "poi",
+      "desc": "入笠山の山頂直下に立つ山小屋。2023年に旧マナスル山荘本館から改称した。長年の名物ビーフシチューは赤ワイン煮込みへと進化し、「山の上とは思えない食事」を目当てに登る人が絶えない。",
+      "story_hook": "山小屋の食事そのものが登山文化の一部。「食べるために山に登る」という逆転がここにはある。",
+      "hours_note": "ランチ11:00-13:00頃・食材切れ次第終了。季節変動大、要確認",
+      "confidence": "S",
+      "sources": [
+        "https://hutte-new-casa.com/",
+        "https://tabelog.com/en/nagano/A2004/A200405/20000651/"
+      ],
+      "related_records": [
+        "FJM-NAT-001",
+        "FJM-NAT-005"
+      ]
+    },
+    {
+      "id": "TASTE-004",
+      "area": "fujimi",
+      "name": "八ヶ岳カントリーキッチン",
+      "genre": "洋食・薪窯ベーカリー",
+      "area_label": "富士見高原（立沢広原）",
+      "address": "長野県諏訪郡富士見町立沢広原1-1436",
+      "geo": {
+        "lat": 35.9357,
+        "lng": 138.2934
+      },
+      "desc": "富士見高原の森にレストラン・ベーカリー・ショップが集まる一角。30年以上使い込んだドイツ製石窯にナラの薪をくべてパンを焼き、紅玉のアップルパイも名物。",
+      "story_hook": "薪石窯という前近代の技術がいまも現役。保養地として拓かれた富士見高原の歴史と重なる店。",
+      "hours_note": "レストラン9:00-17:00、ベーカリー9:00-18:00、水・木曜定休",
+      "confidence": "S",
+      "sources": [
+        "https://country-kitchen.info/",
+        "https://www.town.fujimi.lg.jp/site/kanko/bakerycountry.html"
+      ],
+      "related_records": [
+        "FJM-LIT-001"
+      ],
+      "geo_precision": "poi"
+    },
+    {
+      "id": "TASTE-005",
+      "area": "fujimi",
+      "name": "レストランかぶと",
+      "genre": "洋食・ジビエ",
+      "area_label": "富士見・国道20号沿い",
+      "address": "長野県諏訪郡富士見町富士見1892",
+      "geo": {
+        "lat": 35.92382,
+        "lng": 138.217
+      },
+      "desc": "「国道がまだ砂利道だった頃から」続く1967年開業の洋食店。名物のナポリタン鉄板焼きに加え、信州ジビエ取扱店として地元産鹿ロースの和風ステーキを出す。",
+      "story_hook": "富士見の山で獲れた鹿が昭和の洋食メニューに並ぶ。街道筋のドライブイン文化と現代のジビエ利活用が一皿で交差する。",
+      "hours_note": "11:30-15:00 / 17:00-21:00、木曜定休",
+      "confidence": "S",
+      "sources": [
+        "https://www.town.fujimi.lg.jp/site/kanko/rs37.html",
+        "http://www.shinshu-gibier.net/shop/nanshin/997.html"
+      ],
+      "related_records": [
+        "FJM-FAITH-006"
+      ],
+      "geo_precision": "poi"
+    },
+    {
+      "id": "TASTE-006",
+      "area": "fujimi",
+      "name": "onri 工藝とおむすび",
+      "genre": "おむすび・工藝",
+      "area_label": "富士見駅前商店街",
+      "address": "長野県諏訪郡富士見町富士見4654-73",
+      "geo": {
+        "lat": 35.91126,
+        "lng": 138.23874
+      },
+      "geo_precision": "poi",
+      "desc": "染色家の店主が営む、おむすびと焼き菓子と珈琲の店。店内では店主や地元ゆかりの作家の工藝品を展示・販売し、食事と手仕事がひとつの空間に同居する。",
+      "story_hook": "米のおむすびと染色・工藝が同じ空間に並ぶと、「食べること」も「つくること」も土地の手仕事だと気づく。",
+      "hours_note": "11:00-16:00、日・月・火曜定休。Instagram要確認",
+      "confidence": "S",
+      "sources": [
+        "https://www.town.fujimi.lg.jp/site/kanko/onri.html",
+        "https://suwa-tabi.jp/spot/12527/"
+      ]
+    },
+    {
+      "id": "TASTE-007",
+      "area": "fujimi",
+      "name": "信州富士見高原ファーム",
+      "genre": "ジビエ加工・直売所",
+      "area_label": "富士見高原",
+      "address": "長野県諏訪郡富士見町富士見6666-1588",
+      "geo": {
+        "lat": 35.90218,
+        "lng": 138.2107
+      },
+      "geo_precision": "poi",
+      "desc": "富士見町で捕獲された鹿を無駄なく利活用するため、地元猟友会の有志が立ち上げた食肉加工施設。国産ジビエ認証を取得し、鹿肉ソーセージやカレーを製造・直売する。",
+      "story_hook": "八ヶ岳山麓では縄文の昔から鹿は重要な食資源。井戸尻の狩猟文化から現代のジビエまで、人と鹿の一万年がこの直売所につながる。",
+      "hours_note": "8:00-16:00、日曜休。不在の場合あり、電話確認推奨",
+      "confidence": "S",
+      "sources": [
+        "https://blog.nagano-ken.jp/gibier/inshoku_suwachi/6684.html",
+        "https://www.tokyo-chefs.jp/pr/2015013014015234.html"
+      ],
+      "related_records": [
+        "FJM-FAITH-006",
+        "FJM-FAITH-010"
+      ]
+    },
+    {
+      "id": "TASTE-008",
+      "area": "fujimi",
+      "name": "cafe DanDan",
+      "genre": "スパイスカレー・カフェ",
+      "area_label": "富士見駅周辺・国道20号沿い",
+      "address": "長野県諏訪郡富士見町落合9984-559",
+      "geo": {
+        "lat": 35.91127,
+        "lng": 138.23925
+      },
+      "geo_precision": "poi",
+      "desc": "自家畑と地元農家の野菜を使ったスパイスカレーと手作りナンの店。音楽ライブや日本酒会など、地域の人が集まる催しを毎月のように開く。",
+      "story_hook": "寒暖差の大きい標高約1000mの畑の野菜が、そのままスパイスカレーになる。高原の気候を一皿で体感できる。",
+      "hours_note": "11:00-17:30頃、日・月曜定休。イベントで変動あり",
+      "confidence": "S",
+      "sources": [
+        "https://www.town.fujimi.lg.jp/site/kanko/rs59.html",
+        "https://yatsunavi.jp/2023/01/yatsugatake-cafe-cafedandan/"
+      ]
+    },
+    {
+      "id": "TASTE-009",
+      "area": "fujimi",
+      "name": "家ごはん キエルトティエ",
+      "genre": "定食・カフェ",
+      "area_label": "落合",
+      "address": "長野県諏訪郡富士見町落合12643-1",
+      "geo": {
+        "lat": 35.91617,
+        "lng": 138.25437
+      },
+      "desc": "フィンランド語で「まわり道」を意味する店名の小さなカフェレストラン。隔週で替わる手作りの「お昼ごはん」定食が、地元客と移住者の両方に愛されている。",
+      "story_hook": "幹線から一本入った富士見の日常の食卓。観光地ではない高原の町の暮らしそのものが発見になる。",
+      "hours_note": "11:00-16:00、日・月曜定休、現金のみ",
+      "confidence": "A",
+      "sources": [
+        "https://www.lcv.ne.jp/~kiertotie/",
+        "https://tabelog.com/nagano/A2004/A200405/20023993/"
+      ],
+      "geo_precision": "poi"
+    },
+    {
+      "id": "TASTE-010",
+      "area": "fujimi",
+      "name": "食堂しなの",
+      "genre": "食堂",
+      "area_label": "信濃境駅前",
+      "address": "長野県諏訪郡富士見町境信濃境7807-3",
+      "geo": {
+        "lat": 35.88404,
+        "lng": 138.2757
+      },
+      "geo_precision": "poi",
+      "desc": "信濃境駅の駅前に立つ昔ながらの大衆食堂。名物のレバニラや日替わりランチで地元に親しまれ、2階は宴会場という地域の寄り合い所。井戸尻遺跡見学の前後に立ち寄れる貴重な食事処。",
+      "story_hook": "縄文遺跡群の玄関口・信濃境の駅前食堂という立地そのものが物語。考古館帰りに地元の人と同じ定食を食べる。",
+      "hours_note": "11:30-14:00 / 17:00-21:00、月曜定休",
+      "confidence": "S",
+      "sources": [
+        "https://www.town.fujimi.lg.jp/site/kanko/rs14.html",
+        "https://tabelog.com/en/nagano/A2004/A200405/20006334/"
+      ],
+      "related_records": [
+        "FJM-JOMON-001",
+        "FJM-JOMON-007"
+      ]
+    },
+    {
+      "id": "TASTE-011",
+      "area": "fujimi",
+      "name": "八ヶ岳食堂",
+      "genre": "シェアキッチン食堂",
+      "area_label": "富士見（駅から車で3分）",
+      "address": "長野県諏訪郡富士見町富士見4654-971",
+      "geo": {
+        "lat": 35.92013,
+        "lng": 138.2346
+      },
+      "geo_precision": "poi",
+      "desc": "曜日ごとに店主が入れ替わるシェアキッチン型の食堂。地元産食材の手作り定食を中心に、週末は駐車場でマルシェや朝市も開かれる。",
+      "story_hook": "一つの厨房を複数の作り手が日替わりで使う仕組み自体が、移住者と地元をつなぐ富士見の新しい経済の縮図。",
+      "hours_note": "日替わり店主制のため週ごとに変動。Instagram要確認",
+      "confidence": "S",
+      "sources": [
+        "https://www.town.fujimi.lg.jp/site/kanko/yatugatakeshokudou.html",
+        "https://www.instagram.com/yatsugatakeshokudou/"
+      ]
+    },
+    {
+      "id": "TASTE-012",
+      "area": "fujimi",
+      "name": "ベーカリージャム",
+      "genre": "パン",
+      "area_label": "ゆめひろば横",
+      "address": "長野県諏訪郡富士見町落合10038-3",
+      "geo": {
+        "lat": 35.91311,
+        "lng": 138.23887
+      },
+      "geo_precision": "poi",
+      "desc": "「ゆめひろば富士見」の隣、青い屋根のパン屋。北海道産小麦100%・発酵バターの無添加生地で毎日20種類以上が並ぶ。3日仕込みのクロワッサンが人気。",
+      "story_hook": "駅裏の広場のとなりでパンを焼く。観光地ではない「暮らしの富士見」の側に立つ店。",
+      "hours_note": "10:00-17:00頃（売切れ次第終了）、月・木曜定休",
+      "confidence": "S",
+      "sources": [
+        "https://www.town.fujimi.lg.jp/site/kanko/jyamu.html",
+        "https://www.instagram.com/bakery_jam_fjm/"
+      ]
+    },
+    {
+      "id": "TASTE-013",
+      "area": "fujimi",
+      "name": "オキナワソバ ティダマール",
+      "genre": "沖縄そば",
+      "area_label": "富士見駅前・大丸屋1F",
+      "address": "長野県諏訪郡富士見町富士見3590",
+      "geo": {
+        "lat": 35.91183,
+        "lng": 138.23787
+      },
+      "geo_precision": "poi",
+      "desc": "富士見駅前の大丸屋の一角、沖縄出身の店主が作る本格沖縄そば。2日間煮込んだ軟骨ソーキそばが看板で、サーターアンダギーも評判。ビーガン対応の選択肢もある。",
+      "story_hook": "店名は「ティダ（太陽）」と「マール（結い）」の造語。移住者が八ヶ岳山麓の駅前に持ち込んだ、あたらしい食文化。",
+      "hours_note": "昼11:30-14:00、木・金は夜も営業、火・水曜定休",
+      "confidence": "A",
+      "sources": [
+        "https://tabelog.com/nagano/A2004/A200405/20025297/",
+        "https://www.instagram.com/thidamaaru/"
+      ]
+    },
+    {
+      "id": "TASTE-014",
+      "area": "fujimi",
+      "name": "八ヶ岳珈琲工房テーブルランド",
+      "genre": "自家焙煎珈琲",
+      "area_label": "富士見駅前・大丸屋1F",
+      "address": "長野県諏訪郡富士見町富士見3590",
+      "geo": {
+        "lat": 35.91178,
+        "lng": 138.2379
+      },
+      "geo_precision": "poi",
+      "desc": "2001年に移住した夫妻が始めた自家焙煎珈琲工房。豆の甘みを引き出す焙煎が信条で、深煎り「八ヶ岳ブレンド」などを駅前徒歩30秒のビーンズショップで販売する。",
+      "story_hook": "屋号のテーブルランドは八ヶ岳山麓の台地状の地形のこと。標高約1000mで焙煎される一杯から、富士見の地形を知る。",
+      "hours_note": "10:00-17:00、火・水曜定休。カフェ営業なし",
+      "confidence": "S",
+      "sources": [
+        "https://tableland-coffee.net/",
+        "https://www.oraho-fujimi.jp/shop/tableland.html"
+      ]
+    },
+    {
+      "id": "TASTE-015",
+      "area": "fujimi",
+      "name": "丸政そば 富士見店",
+      "genre": "駅そば",
+      "area_label": "富士見駅改札横",
+      "address": "長野県諏訪郡富士見町富士見4654-796",
+      "geo": {
+        "lat": 35.912,
+        "lng": 138.23848
+      },
+      "geo_precision": "poi",
+      "desc": "富士見駅の改札横にある丸政の駅そば。信州名物・山賊焼きがどんと乗る「山賊そば」と紅しょうが天そばが人気。列車待ちの時間で味わえる旅情の一杯。",
+      "story_hook": "駅弁・駅そばの丸政は大正7年（1918年）、この中央線富士見駅での立売から始まった。ここが発祥の地。",
+      "hours_note": "10:00-14:30 / 15:30-17:00、無休",
+      "confidence": "S",
+      "sources": [
+        "https://www.marumasasoba.com/%E4%B8%B8%E6%94%BF%E3%81%9D%E3%81%B0-%E5%AF%8C%E5%A3%AB%E8%A6%8B%E5%BA%97",
+        "https://tabelog.com/nagano/A2004/A200405/20015681/"
+      ]
+    },
+    {
+      "id": "TASTE-016",
+      "area": "fujimi",
+      "name": "mame mura coffee",
+      "genre": "カフェ・自家焙煎",
+      "area_label": "富士見駅前商店街",
+      "address": "長野県諏訪郡富士見町落合9984-327",
+      "geo": {
+        "lat": 35.91143,
+        "lng": 138.23989
+      },
+      "geo_precision": "poi",
+      "desc": "富士見駅から徒歩5分、古材や古道具を活かした内装の自家焙煎コーヒー店。日本茶・中国茶・台湾茶、バスクチーズケーキやソルベも楽しめる。",
+      "story_hook": "移住者や若い作り手が、古材と古道具で駅前に居場所を編み直している。富士見の「駅前再生」の空気を感じる一軒。",
+      "hours_note": "月・火・金 11:00-18:00／土・日 12:00-20:00、水・木定休",
+      "confidence": "A",
+      "sources": [
+        "https://suwa-tabi.jp/spot/9167/",
+        "https://tabelog.com/nagano/A2004/A200405/20025254/"
+      ]
+    },
+    {
+      "id": "TASTE-017",
+      "area": "fujimi",
+      "name": "磯五郎",
+      "genre": "海鮮・そば",
+      "area_label": "落合",
+      "address": "長野県諏訪郡富士見町落合11227-166",
+      "geo": {
+        "lat": 35.91187,
+        "lng": 138.24307
+      },
+      "desc": "海なし県の山あいで鮮魚にこだわる磯料理の店。糸魚川・北海道・豊洲から直送の魚を刺身や海鮮丼で出し、自家栽培・自家製粉の手打ちそばも名物。",
+      "story_hook": "海のない信州の町で新鮮な魚が食べられる意外性の裏に、日本海側（糸魚川）と山国をつなぐ物流の縁が見える。",
+      "hours_note": "11:30-14:00 / 17:00-21:30、水曜定休",
+      "confidence": "A",
+      "sources": [
+        "https://www.town.fujimi.lg.jp/site/kanko/rs10.html",
+        "https://tabelog.com/nagano/A2004/A200405/20009550/"
+      ],
+      "geo_precision": "poi"
+    },
+    {
+      "id": "TASTE-018",
+      "area": "fujimi",
+      "name": "夏イチゴ農園 高原のエコーズ",
+      "genre": "農園・無人直売所",
+      "area_label": "境",
+      "address": "長野県諏訪郡富士見町境1270-1",
+      "geo": {
+        "lat": 35.87946,
+        "lng": 138.29857
+      },
+      "desc": "標高約1000mでヤギを飼いながら夏イチゴを栽培する農園。敷地内の無人直売所で採れたての夏イチゴと「八ヶ岳夏イチゴミルクジェラート」を買える。",
+      "story_hook": "冷涼な高原気候だからこそ真夏にイチゴが実る。標高1000mの気候そのものが商品になっている。",
+      "hours_note": "無人直売所。夏イチゴは季節限定、在庫はInstagram要確認",
+      "confidence": "A",
+      "sources": [
+        "https://www.kougennoechoes.com/",
+        "https://www.instagram.com/kougen.no.echoes/"
+      ],
+      "related_records": [
+        "FJM-MOD-002",
+        "FJM-MOD-003"
+      ],
+      "geo_precision": "poi"
+    },
+    {
+      "id": "TASTE-019",
+      "area": "fujimi",
+      "name": "KIZASHI station",
+      "genre": "カフェ・レストラン",
+      "area_label": "富士見駅前",
+      "address": "長野県諏訪郡富士見町富士見3586-7",
+      "geo": {
+        "lat": 35.91147,
+        "lng": 138.23794
+      },
+      "geo_precision": "poi",
+      "desc": "駅前交差点の旧薬局をリノベーションしたカフェ＆レストラン。昼はカフェ、夜はイタリアンダイニング。ピザやキーマカレーなど町の食材を活かしたメニューを揃える。",
+      "story_hook": "駅前の元薬局が、町の賑わいづくりの拠点に生まれ変わった。富士見の商店街再生の「兆し」を体現する場所。",
+      "hours_note": "11:30-22:00、火曜定休（情報に揺れあり要確認）",
+      "confidence": "A",
+      "sources": [
+        "https://kizashi-station.com/kizashi/",
+        "https://www.town.fujimi.lg.jp/site/kanko/rs61.html"
+      ]
+    },
+    {
+      "id": "TASTE-020",
+      "area": "fujimi",
+      "name": "ゆーとろん水神の湯・お食事処",
+      "genre": "温泉・食事処",
+      "area_label": "富士見パノラマ入口",
+      "address": "長野県諏訪郡富士見町富士見9547",
+      "geo": {
+        "lat": 35.91511,
+        "lng": 138.21255
+      },
+      "geo_precision": "poi",
+      "desc": "pH10.3の強アルカリ性硫黄泉で知られる日帰り温泉の食事処。長く「くーとろん」として親しまれたが、2025年に「とろけるハンバーグ福よし」へ替わった。温泉は通常営業中。",
+      "story_hook": "「水神さまの美肌の湯」に浸かると、入笠山の麓が水の土地であることを肌で知る。",
+      "hours_note": "温泉 平日11:00-19:30・土日祝11:00-20:30、水・木定休（夏は木のみ）。食事処は要確認",
+      "confidence": "A",
+      "sources": [
+        "https://yuutoron.com/",
+        "https://www.town.fujimi.lg.jp/site/kanko/rs56.html"
+      ]
+    },
+    {
+      "id": "TASTE-021",
+      "area": "fujimi",
+      "name": "山路ペンション（Y's kitchen）",
+      "genre": "週3日の食堂",
+      "area_label": "富士見パノラマ入口",
+      "address": "長野県諏訪郡富士見町富士見7888-1",
+      "geo": {
+        "lat": 35.91002,
+        "lng": 138.21833
+      },
+      "geo_precision": "poi",
+      "desc": "富士見パノラマリゾート入口近くの和室ペンション。喫茶室を改装した食堂を月〜水曜のランチタイムに開放し、野菜たっぷりの週替わりランチプレートを出す。",
+      "story_hook": "宿泊客だけのものだった宿の台所が、週3日だけ町に開かれる。ペンション文化が残る富士見高原ならではの風景。",
+      "hours_note": "月・火・水 11:00-14:00のみ。要確認",
+      "confidence": "A",
+      "sources": [
+        "https://www.lcv.ne.jp/~yamazi/",
+        "https://web-komachi.com/?p=70594"
+      ]
+    },
+    {
+      "id": "TASTE-022",
+      "area": "kobuchizawa",
+      "name": "小淵沢 井筒屋",
+      "genre": "うなぎ・和食",
+      "area_label": "小淵沢駅前",
+      "address": "山梨県北杜市小淵沢町1035-1",
+      "geo": {
+        "lat": 35.86276,
+        "lng": 138.31697
+      },
+      "geo_precision": "poi",
+      "desc": "小淵沢駅から徒歩約2分のうなぎ専門店。食べログ「うなぎ百名店」に選ばれた地域の名店で、薬味と出汁でひつまぶし風にも楽しめるうな重が看板。行列必至のため予約推奨。",
+      "story_hook": "甲州往還の結節点だった小淵沢の駅前で、旅人をもてなしてきた食文化の現在形。",
+      "hours_note": "昼11:00-14:30／夜17:00-20:00、火・水曜定休",
+      "confidence": "S",
+      "sources": [
+        "https://www.itutuya.com/",
+        "https://www.hokuto-kanko.jp/spot/itutuya/"
+      ]
+    },
+    {
+      "id": "TASTE-023",
+      "area": "kobuchizawa",
+      "name": "そば処 三分一",
+      "genre": "そば",
+      "area_label": "甲斐小泉・三分一湧水公園内",
+      "address": "山梨県北杜市長坂町小荒間292-1",
+      "geo": {
+        "lat": 35.8776,
+        "lng": 138.3558
+      },
+      "geo_precision": "poi",
+      "desc": "三分一湧水公園に併設されたそば処。地元産そば粉を名水百選の湧水で打ち、農産物直売所も隣接する。湧水見学とひとつづきで楽しめる。",
+      "story_hook": "そばを締める水は、信玄が三つの村に三等分したと伝わるその湧水。戦国の水利がいまも一枚のそばに生きている。",
+      "hours_note": "11:00-15:00。定休日変動あり要確認",
+      "confidence": "S",
+      "sources": [
+        "https://www.sanbuichiyusui.com/",
+        "https://tabelog.com/en/yamanashi/A1902/A190201/19000680/"
+      ],
+      "related_records": [
+        "FJM-HIST-003",
+        "FJM-JOMON-016"
+      ]
+    },
+    {
+      "id": "TASTE-024",
+      "area": "kobuchizawa",
+      "name": "道の駅こぶちさわ",
+      "genre": "道の駅・直売所",
+      "area_label": "小淵沢・スパティオ小淵沢隣接",
+      "address": "山梨県北杜市小淵沢町2968-1",
+      "geo": {
+        "lat": 35.879,
+        "lng": 138.3177
+      },
+      "geo_precision": "poi",
+      "desc": "八ヶ岳南麓の農産物直売所を核に、イタリアン、そば処、パン屋、体験工房が集まる道の駅。温泉「延命の湯」が隣接し、買い物・食事・入浴が一箇所で完結する。",
+      "story_hook": "標高約1000mの高原農業の恵みが一堂に集まる、八ヶ岳南麓の「現代の市」。",
+      "hours_note": "9:00-19:00（冬期-18:00）、ほぼ無休",
+      "confidence": "S",
+      "sources": [
+        "https://mkobuchisawa.jp/",
+        "https://www.hokuto-kanko.jp/spot/michinoeki_kobuchizawa/"
+      ]
+    },
+    {
+      "id": "TASTE-025",
+      "area": "hakushu",
+      "name": "台ヶ原 金精軒",
+      "genre": "和菓子",
+      "area_label": "白州・台ヶ原宿",
+      "address": "山梨県北杜市白州町台ヶ原2211",
+      "geo": {
+        "lat": 35.8078,
+        "lng": 138.3426
+      },
+      "geo_precision": "poi",
+      "desc": "明治35年創業の和菓子店。白州の名水で育ったもち米を使う「極上生信玄餅」が名物で、夏季限定の「水信玄餅」でも知られる。店舗は嘉永5年築、旧旅籠「まるや」を改装したもの。",
+      "story_hook": "日本の道百選・甲州街道台ヶ原宿の旧旅籠がそのまま店舗。宿場町の記憶を、菓子と建物の両方で受け継ぐ。",
+      "hours_note": "9:00-17:00、木曜定休",
+      "confidence": "S",
+      "sources": [
+        "https://kinseiken.co.jp/store-information/",
+        "https://rekishinomichi-yamanashi.jp/ja/spot/1-179.html"
+      ],
+      "related_records": [
+        "FJM-ROAD-001"
+      ]
+    },
+    {
+      "id": "TASTE-026",
+      "area": "hakushu",
+      "name": "七賢（山梨銘醸）",
+      "genre": "酒蔵",
+      "area_label": "白州・台ヶ原宿",
+      "address": "山梨県北杜市白州町台ヶ原2283",
+      "geo": {
+        "lat": 35.80812,
+        "lng": 138.34296
+      },
+      "geo_precision": "poi",
+      "geo_note": "台ヶ原宿の通り沿い",
+      "desc": "寛延3年（1750年）創業、台ヶ原宿に構える「七賢」の蔵元。白州の名水で仕込む日本酒とスパークリング日本酒で知られ、明治天皇行在所や酒蔵の見学、直営レストラン「臺眠」も。",
+      "story_hook": "台ヶ原宿の街道筋で270年以上酒を醸し続ける。宿場町と名水が育てた造り酒屋。",
+      "hours_note": "売店9:00-17:00、試飲9:00-16:30。見学は時間指定制",
+      "confidence": "S",
+      "sources": [
+        "https://sake-shichiken.com/brewery",
+        "https://www.hokuto-kanko.jp/spot/shichiken_yamanashimeijo/"
+      ],
+      "related_records": [
+        "FJM-ROAD-001"
+      ]
+    },
+    {
+      "id": "TASTE-027",
+      "area": "hakushu",
+      "name": "おっぽに亭 こっこ",
+      "genre": "食堂・卵かけご飯",
+      "area_label": "白州町横手",
+      "address": "山梨県北杜市白州町横手2129-1",
+      "geo": null,
+      "geo_note": "信頼できる座標が取れず未記載",
+      "desc": "白州郷牧場が営む食堂。自家平飼い養鶏の産みたて卵の卵かけご飯定食と白州鶏カレーが看板で、シンプルな定食のボリュームに定評がある。",
+      "story_hook": "名水と飼料にこだわる白州の養鶏農家が、卵そのものをごちそうに変えた一軒。",
+      "hours_note": "昼のみ営業。定休日情報に揺れあり、要電話確認",
+      "confidence": "A",
+      "sources": [
+        "https://www.hokuto-kanko.jp/guide/%E3%81%8A%E3%81%A3%E3%81%BD%E3%81%AB%E4%BA%AD%E3%81%93%E3%81%A3%E3%81%93",
+        "https://tabelog.com/yamanashi/A1902/A190201/19004042/"
+      ]
+    },
+    {
+      "id": "TASTE-028",
+      "area": "hakushu",
+      "name": "道の駅 はくしゅう",
+      "genre": "道の駅・直売所",
+      "area_label": "白州・国道20号沿い",
+      "address": "山梨県北杜市白州町白須1308",
+      "geo": {
+        "lat": 35.8103,
+        "lng": 138.3306
+      },
+      "geo_precision": "poi",
+      "desc": "国道20号（甲州街道）沿いの道の駅。地元農産物の直売所とレストランを備え、入口には甲斐駒ヶ岳を源流とする名水の水汲み場があり、ペットボトル持参で自由に汲める。",
+      "story_hook": "名水百選の里・白州の水を誰でも無料で持ち帰れる、「水の町」の玄関口。",
+      "hours_note": "9:00-18:00、水曜定休（4〜11月は無休）。水汲みは終日可",
+      "confidence": "S",
+      "sources": [
+        "https://michinoeki-hakushu.com/",
+        "https://www.hokuto-kanko.jp/spot/roadside_station_hakushu/"
+      ]
+    },
+    {
+      "id": "TASTE-029",
+      "area": "tateshina",
+      "name": "ころぼっくるひゅって",
+      "genre": "山小屋・カフェ",
+      "area_label": "霧ヶ峰・車山肩",
+      "address": "長野県諏訪市四賀7718-9",
+      "geo": {
+        "lat": 36.1048,
+        "lng": 138.1881
+      },
+      "geo_precision": "poi",
+      "desc": "1956年創業、霧ヶ峰・車山肩に建つ小さな山小屋。テラスから高原と八ヶ岳・アルプスを一望でき、厚切りトーストとサイフォンコーヒーのモーニングやボルシチが名物。",
+      "story_hook": "宿泊者だけのものだった山小屋の朝が、車で車山肩まで来られる時代に「日本一空に近いモーニング」として開かれた。",
+      "hours_note": "4月下旬〜11月末の営業、9:00-16:00頃＋早朝営業あり。冬期休業",
+      "confidence": "S",
+      "sources": [
+        "https://www.yamaonsen.com/entry/kirigamine",
+        "https://www.instagram.com/korobokkuru_hutte/"
+      ],
+      "related_records": [
+        "FJM-FAITH-006"
+      ]
+    },
+    {
+      "id": "TASTE-030",
+      "area": "tateshina",
+      "name": "グラスリーぺぱん",
+      "genre": "ジェラート",
+      "area_label": "茅野・縄文の湯近く",
+      "address": "長野県茅野市豊平4734-253",
+      "geo": {
+        "lat": 36.01476,
+        "lng": 138.22179
+      },
+      "geo_precision": "poi",
+      "desc": "標高約1000m、縄文の湯のそばの手作りアイスクリーム＆焼き菓子の店。約200種のレパートリーから毎日8〜10種のアイスとソルベが並ぶ。湯上がりの一杯の定番地。",
+      "story_hook": "尖石の縄文遺跡と温泉のすぐ隣で、高原の牛乳と果実が一皿のジェラートに結晶する。",
+      "hours_note": "10:00-17:00、火曜定休（冬期は月・火）",
+      "confidence": "A",
+      "sources": [
+        "https://blog.nagano-ken.jp/suwa/foods/16004.html",
+        "https://www.suwa-tourism.jp/archives/001517.php"
+      ]
+    },
+    {
+      "id": "TASTE-031",
+      "area": "suwa",
+      "name": "ReBuilding Center JAPAN",
+      "genre": "古材カフェ・古道具",
+      "area_label": "上諏訪",
+      "address": "長野県諏訪市小和田3-8",
+      "geo": {
+        "lat": 36.0412,
+        "lng": 138.119
+      },
+      "geo_precision": "poi",
+      "desc": "解体される建物から古材や古道具を「レスキュー」して販売する建築建材のリサイクルショップ。1階には古材づくしのカフェを併設し、DIYワークショップも多数開催。",
+      "story_hook": "捨てられるはずだった材に次の使い手を橋渡しする。ものを長く生かす諏訪の暮らしの、新しい文化拠点。",
+      "hours_note": "10:00-17:00、水・木曜定休",
+      "confidence": "S",
+      "sources": [
+        "https://rebuildingcenter.jp/",
+        "https://suwa-tabi.jp/spot/6472/"
+      ]
+    },
+    {
+      "id": "TASTE-032",
+      "area": "suwa",
+      "name": "本田食堂",
+      "genre": "創作イタリアン",
+      "area_label": "下諏訪駅近く",
+      "address": "長野県諏訪郡下諏訪町広瀬町5382",
+      "geo": null,
+      "geo_note": "下諏訪駅から徒歩2分ほど。信頼できる座標が取れず未記載",
+      "desc": "神奈川から移住した店主が営む創作料理店。信州食材を洋食・イタリアンの技法で仕立てたコースが評判で、週末はほぼ予約で満席になる。",
+      "story_hook": "移住者の店主が諏訪の食材を再発見して皿にのせる。温泉町・下諏訪に新しい人の流れが生まれている。",
+      "hours_note": "昼11:30-14:00／夜18:00-22:00、日・月曜定休。週末は予約必須",
+      "confidence": "A",
+      "sources": [
+        "https://tabelog.com/nagano/A2004/A200404/20023468/",
+        "https://shimosuwaonsen.jp/food/11051/"
+      ]
+    },
+    {
+      "id": "TASTE-033",
+      "area": "suwa",
+      "name": "湯田坂 岩井堂酒店",
+      "genre": "ナチュラルワイン・角打ち",
+      "area_label": "下諏訪・湯田坂",
+      "address": "長野県諏訪郡下諏訪町湯田町3366",
+      "geo": null,
+      "geo_note": "下諏訪駅から秋宮へ続く湯田坂沿い。信頼できる座標が取れず未記載",
+      "desc": "2022年開業のナチュラルワイン専門店。東京・築地でワインショップを営んだソムリエが下諏訪に移住して開いた店で、立ち飲みスタンドではグラスワインとつまみが楽しめる。",
+      "story_hook": "中山道と甲州街道が交わる宿場町の温泉街の坂に、東京から移住したソムリエが灯した一軒。",
+      "hours_note": "昼から夕方中心の営業、月・火定休。Instagram要確認",
+      "confidence": "A",
+      "sources": [
+        "https://iwai-wines.jp/about-us/",
+        "https://tabelog.com/en/nagano/A2004/A200404/20026720/"
+      ]
+    },
+    {
+      "id": "TASTE-034",
+      "area": "suwa",
+      "name": "ツルヤ 上諏訪店",
+      "genre": "スーパーマーケット",
+      "area_label": "上諏訪駅東口・アーク諏訪1F",
+      "address": "長野県諏訪市諏訪1-6-1",
+      "geo": {
+        "lat": 36.0466,
+        "lng": 138.1173
+      },
+      "geo_precision": "poi",
+      "desc": "長野県の人気スーパー「ツルヤ」の諏訪店舗。上諏訪駅直結の再開発ビル1階にあり、契約農園直送の青果やオリジナルのジャム・ドライフルーツが土産にも人気。",
+      "story_hook": "信州の食の豊かさが一堂に集まるローカルスーパー。土地の食文化は、スーパーの棚にいちばん正直に現れる。",
+      "hours_note": "9:30-20:00、ほぼ無休",
+      "confidence": "S",
+      "sources": [
+        "https://www.tsuruya-corp.co.jp/store/kamisuwa/",
+        "https://www.mapion.co.jp/phonebook/M02002/20206/22030453383/"
+      ]
+    },
+    {
+      "id": "TASTE-035",
+      "area": "suwa",
+      "name": "香港厨房",
+      "genre": "中華・点心",
+      "area_label": "諏訪市湖南",
+      "address": "長野県諏訪市湖南108-1",
+      "geo": null,
+      "geo_note": "所在は富士見町ではなく諏訪市湖南（車で約30分）。信頼できる座標が取れず未記載",
+      "desc": "香港出身のオーナーが手包み点心と本格広東料理を出す店。ホテルで腕を磨いた本場の味をランチ1,000円以下から楽しめる85席の大箱。",
+      "story_hook": "山国の諏訪で香港人シェフの手包み点心に出会える、意外な食の国際性。",
+      "hours_note": "ランチ11:00-14:30／ディナー17:00-23:00。情報がやや古く要確認",
+      "confidence": "B",
+      "sources": [
+        "https://tabelog.com/nagano/A2004/A200403/20021628/",
+        "https://www.instagram.com/suwa_hongkongchubo/"
+      ]
+    }
+  ],
+  "places": [
+    {
+      "id": "PLACE-001",
+      "area": "fujimi",
+      "name": "ゆめひろば富士見",
+      "genre": "公園",
+      "area_label": "富士見駅裏",
+      "address": "長野県諏訪郡富士見町落合10039-1",
+      "geo": {
+        "lat": 35.9135,
+        "lng": 138.2383
+      },
+      "geo_precision": "poi",
+      "desc": "駅から徒歩すぐ、標高約960mの芝生の広場公園。町図書館の入るコミュニティプラザに隣接し、本を借りてそのまま芝生で読める。",
+      "story_hook": "雪の季節に子どもがそり遊びできる起伏を、わざわざ土でつくった。設計に富士見の冬が刻まれている。",
+      "hours_note": "常時開放。図書館は9:30-18:00",
+      "confidence": "A",
+      "sources": [
+        "https://mag.tecture.jp/project/20220329-yumehirobafujimi/",
+        "https://www.navitime.co.jp/poi?spot=01365-64134"
+      ]
+    },
+    {
+      "id": "PLACE-002",
+      "area": "fujimi",
+      "name": "mountain bookcase",
+      "genre": "本屋",
+      "area_label": "富士見駅前商店街",
+      "address": "長野県諏訪郡富士見町落合9984-574",
+      "geo": {
+        "lat": 35.9114,
+        "lng": 138.23993
+      },
+      "geo_precision": "poi",
+      "desc": "駅前商店街にある約7.5坪の「新刊と古本」の書店。店主の選書に手仕事の棚や民藝が並び、朗読会など言葉にまつわる催しも開かれる。",
+      "story_hook": "仕立屋とラーメン店の間に本屋がある。歩いて暮らせる富士見の駅前の、いまを象徴する一軒。",
+      "hours_note": "基本は土・日・月 13:00-18:00。変動多くInstagram要確認",
+      "confidence": "A",
+      "sources": [
+        "https://www.oraho-fujimi.jp/shop/mountain-bookcase.html",
+        "https://www.instagram.com/mountainbookcase/"
+      ]
+    },
+    {
+      "id": "PLACE-003",
+      "area": "hakushu",
+      "name": "白州・尾白の森名水公園べるが",
+      "genre": "公園・キャンプ場",
+      "area_label": "白州",
+      "address": "山梨県北杜市白州町白須8056",
+      "geo": {
+        "lat": 35.7998,
+        "lng": 138.3145
+      },
+      "geo_precision": "poi",
+      "desc": "甲斐駒ヶ岳の麓、尾白川沿いに広がる約20haの森の公園。天然の川を利用した水遊びゾーンがあり、キャンプ場と温泉「尾白の湯」も併設。夏は家族連れで賑わう。",
+      "story_hook": "南アルプス天然水の源流・尾白川そのものが遊び場になる。名水の里白州を体で感じる公園。",
+      "hours_note": "おおむね9:00-17:30（施設・季節により変動）",
+      "confidence": "S",
+      "sources": [
+        "https://www.verga.info/",
+        "https://www.hokuto-kanko.jp/spot/verga_camp/"
+      ]
+    },
+    {
+      "id": "PLACE-004",
+      "area": "hakushu",
+      "name": "サントリー白州蒸溜所",
+      "genre": "蒸溜所見学",
+      "area_label": "白州町鳥原",
+      "address": "山梨県北杜市白州町鳥原2913-1",
+      "geo": {
+        "lat": 35.8268,
+        "lng": 138.3018
+      },
+      "geo_precision": "poi",
+      "desc": "「森の蒸溜所」と呼ばれるウイスキー蒸溜所。シングルモルト白州と南アルプス天然水の生産拠点で、見学ツアーは事前申込の抽選制。入場自体も完全予約制。",
+      "story_hook": "白州の名水と森の環境そのものがウイスキーの味を決める。名水の里の水文化を象徴する場所。",
+      "hours_note": "9:30-16:30。ツアーは抽選制・完全予約制",
+      "confidence": "S",
+      "sources": [
+        "https://www.suntory.co.jp/factory/hakushu/",
+        "https://www.suntory.co.jp/factory/hakushu/news/detail/post_30.html"
+      ]
+    },
+    {
+      "id": "PLACE-005",
+      "area": "hakushu",
+      "name": "白州塩沢温泉 フォッサ・マグナの湯",
+      "genre": "日帰り温泉",
+      "area_label": "白州町大武川",
+      "address": "山梨県北杜市白州町大武川344-19",
+      "geo": null,
+      "geo_note": "信頼できる座標が取れず未記載",
+      "desc": "フォッサマグナ（糸魚川-静岡構造線）沿いから湧く塩化物泉の日帰り温泉。露天風呂から甲斐駒ヶ岳方面の山並みを望む。",
+      "story_hook": "日本を東西に分ける大地の裂け目の真上で湧く湯、という地質学の物語を持つ温泉。",
+      "hours_note": "11:00-21:00、水曜定休",
+      "confidence": "S",
+      "sources": [
+        "https://www.fossamagnanoyu.com/",
+        "https://www.hokuto-kanko.jp/spot/fossamaguna_onsen/"
+      ]
+    },
+    {
+      "id": "PLACE-006",
+      "area": "hakushu",
+      "name": "フレンドパークむかわ",
+      "genre": "公園",
+      "area_label": "武川町柳沢",
+      "address": "山梨県北杜市武川町柳沢3506-1",
+      "geo": null,
+      "geo_note": "信頼できる座標が取れず未記載",
+      "desc": "大武川沿いの親水公園。滝から流れる人工の川が浅いプールまで続き、小さな子どもも安心して水遊びできる。アスレチックと芝生広場は入場無料。",
+      "story_hook": "甲斐駒ヶ岳から流れ下る大武川の水をそのまま引き込んだ、「川と暮らす」文化を体験できる公園。",
+      "hours_note": "9:00-16:00、開園3〜11月、水曜定休（夏休み期間は無休）",
+      "confidence": "S",
+      "sources": [
+        "https://www.fp-mukawa-kaikoma.com/",
+        "https://www.hokuto-kanko.jp/spot/mukawa/"
+      ]
+    },
+    {
+      "id": "PLACE-007",
+      "area": "tateshina",
+      "name": "白樺湖",
+      "genre": "湖",
+      "area_label": "蓼科・ビーナスライン",
+      "address": "長野県茅野市北山",
+      "geo": {
+        "lat": 36.1017,
+        "lng": 138.2294
+      },
+      "geo_precision": "poi",
+      "desc": "標高1,416m、周囲約4kmの高原の湖。白樺林に囲まれ、湖畔にはホテル・美術館・遊園地が集まる蓼科・ビーナスラインの拠点リゾート。",
+      "story_hook": "実は天然湖ではなく、戦中〜戦後の農業用温水ため池が観光地へ姿を変えた「人がつくった高原の湖」。",
+      "hours_note": "見学自由・通年",
+      "confidence": "S",
+      "sources": [
+        "https://navi.chinotabi.jp/shirakabako-kurumayama/",
+        "https://ja.wikipedia.org/wiki/%E7%99%BD%E6%A8%BA%E6%B9%96"
+      ]
+    },
+    {
+      "id": "PLACE-008",
+      "area": "tateshina",
+      "name": "車山高原",
+      "genre": "高原・展望リフト",
+      "area_label": "霧ヶ峰",
+      "address": "長野県茅野市北山3413",
+      "geo": {
+        "lat": 36.1028,
+        "lng": 138.1964
+      },
+      "geo_precision": "poi",
+      "desc": "霧ヶ峰の主峰・車山（1,925m）の東斜面に広がる高原。展望リフトを乗り継ぎ約15分で山頂に立て、八ヶ岳・富士山・アルプスの360度展望が広がる。夏はニッコウキスゲ。",
+      "story_hook": "山頂の気象レーダードーム前に立つと、エアコン「霧ヶ峰」の名の由来になった涼風がなぜ吹くのかを体感できる。",
+      "hours_note": "夏季リフト9:00-16:00頃。冬季はスキー場営業",
+      "confidence": "S",
+      "sources": [
+        "https://summer.kurumayama-skypark.com/lift-2",
+        "https://navi.chinotabi.jp/spot/3092/"
+      ]
+    },
+    {
+      "id": "PLACE-009",
+      "area": "tateshina",
+      "name": "白駒池（苔の森）",
+      "genre": "湖・原生林",
+      "area_label": "北八ヶ岳・メルヘン街道",
+      "address": "長野県南佐久郡佐久穂町・小海町境",
+      "geo": {
+        "lat": 36.0514,
+        "lng": 138.362
+      },
+      "geo_precision": "poi",
+      "desc": "標高2,115m、標高2,100m以上では日本最大の天然湖。周囲の原生林には485種類の苔が生育する「日本の貴重なコケの森」。駐車場から徒歩約15分、一周約40分の散策路。",
+      "story_hook": "数百年かけて倒木や岩を覆った苔の絨毯が、「もののけ姫の森」と呼ばれる別世界をつくる。",
+      "hours_note": "散策自由。駐車場4月下旬〜11月中旬。冬期は道路閉鎖",
+      "confidence": "S",
+      "sources": [
+        "https://yachiho-kogen.jp/article/shirakomanoike/",
+        "https://yachiho-montblanc.com/shirakomaike.html"
+      ]
+    },
+    {
+      "id": "PLACE-010",
+      "area": "tateshina",
+      "name": "尖石温泉 縄文の湯",
+      "genre": "日帰り温泉",
+      "area_label": "茅野",
+      "address": "長野県茅野市豊平4734-7821",
+      "geo": {
+        "lat": 36.0146,
+        "lng": 138.2205
+      },
+      "geo_precision": "poi",
+      "desc": "茅野市営の日帰り温泉。八ヶ岳山麓の縄文遺跡群のただ中にあり、蓼科・白駒池帰りに立ち寄りやすい。広い内湯と露天風呂を備えた、地元利用も多い気取らない湯。",
+      "story_hook": "五千年前に縄文人が集落を築いた台地で、現代人が湯に浸かる。時間の重なりを味わえる温泉。",
+      "hours_note": "9:00-21:00。定休日情報に揺れあり要確認",
+      "confidence": "A",
+      "sources": [
+        "https://www.city.chino.lg.jp/soshiki/chiikifukushi/1356.html",
+        "https://navi.chinotabi.jp/spot/3158/"
+      ]
+    },
+    {
+      "id": "PLACE-011",
+      "area": "tateshina",
+      "name": "茅野市尖石縄文考古館",
+      "genre": "博物館",
+      "area_label": "茅野",
+      "address": "長野県茅野市豊平4734-132",
+      "geo": {
+        "lat": 36.0136,
+        "lng": 138.234
+      },
+      "geo_precision": "poi",
+      "desc": "八ヶ岳山麓の縄文遺跡群の出土品を展示する考古館。国宝土偶「縄文のビーナス」と「仮面の女神」の2体を所蔵する縄文文化の聖地。土偶制作などの縄文体験は予約制。",
+      "story_hook": "約5,000年前、この八ヶ岳山麓は日本有数の人口密集地だった。その豊穣の象徴が、ここでしか会えない国宝「縄文のビーナス」。",
+      "hours_note": "9:00-17:00、月曜休（祝日の場合翌日）",
+      "confidence": "S",
+      "sources": [
+        "https://www.city.chino.lg.jp/site/togariishi/",
+        "https://ja.wikipedia.org/wiki/%E8%8C%85%E9%87%8E%E5%B8%82%E5%B0%96%E7%9F%B3%E7%B8%84%E6%96%87%E8%80%83%E5%8F%A4%E9%A4%A8"
+      ]
+    },
+    {
+      "id": "PLACE-012",
+      "area": "tateshina",
+      "name": "旧御射山社（霧ヶ峰旧御射山遺跡）",
+      "genre": "神社・史跡",
+      "area_label": "霧ヶ峰・八島ヶ原湿原南",
+      "address": "長野県諏訪市四賀 霧ヶ峰",
+      "geo": null,
+      "geo_note": "八島湿原ビーナスライン側から徒歩。座標未確認のため未記載",
+      "desc": "諏訪大社下社の狩猟神事「御射山祭」が古代から中世に営まれた祭祀場の跡。草原に社殿と、鎌倉時代に武士が観覧した桟敷の土壇が残る。流鏑馬・相撲・鷹狩りを神に奉納する一大祭典の舞台だった。",
+      "story_hook": "草原の斜面に刻まれた桟敷席の段々は「日本のオリンピア」とも呼ばれる。狩猟神・諏訪明神に武芸を捧げた中世の記憶。",
+      "hours_note": "屋外の史跡で見学自由。冬期はビーナスライン閉鎖に注意",
+      "confidence": "A",
+      "sources": [
+        "https://suwacitymuseum.jp/nandemo/gojuuon/35_mo/~mo_03.htm",
+        "https://yatsu-genjin.jp/suwataisya/simosya/motomisayama.htm"
+      ]
+    },
+    {
+      "id": "PLACE-013",
+      "area": "suwa",
+      "name": "諏訪大社 上社本宮",
+      "genre": "神社",
+      "area_label": "諏訪市中洲",
+      "address": "長野県諏訪市中洲宮山1",
+      "geo": {
+        "lat": 35.9984,
+        "lng": 138.1184
+      },
+      "geo_precision": "poi",
+      "desc": "信濃國一之宮・諏訪大社四社のうち上社の中心。幣拝殿と片拝殿が横に並び本殿を持たない「諏訪造り」の代表例で、社殿の四隅に御柱が立つ。多数の建造物が重要文化財。",
+      "story_hook": "本殿を建てずに神体山を拝む。社殿以前の古代祭祀の形をいまに残す宮で、四隅の御柱がその聖域を示す。",
+      "hours_note": "終日参拝自由。授与所8:30-17:00",
+      "confidence": "S",
+      "sources": [
+        "https://suwataisha.or.jp/about/miyamori/kamishahonmiya/",
+        "https://www.suwakanko.jp/attraction/%E8%AB%8F%E8%A8%AA%E5%A4%A7%E7%A4%BE-%E4%B8%8A%E7%A4%BE%E6%9C%AC%E5%AE%AE/"
+      ]
+    },
+    {
+      "id": "PLACE-014",
+      "area": "suwa",
+      "name": "諏訪大社 上社前宮",
+      "genre": "神社",
+      "area_label": "茅野市宮川",
+      "address": "長野県茅野市宮川2030",
+      "geo": {
+        "lat": 35.9931,
+        "lng": 138.1345
+      },
+      "geo_precision": "poi",
+      "desc": "御祭神が最初に居を構えたと伝わる「諏訪信仰発祥の地」。四社で唯一本殿を持ち、境内には水眼（すいが）の清流が流れる。本宮より原始的な自然信仰の空気が残る。",
+      "story_hook": "ミシャグジ神が宿るとされた祭政の中心地。鹿の頭を供えた御頭祭が、いまも十間廊で営まれている。",
+      "hours_note": "終日参拝自由。本宮から東へ約2km、遊歩道で結ばれる",
+      "confidence": "S",
+      "sources": [
+        "https://suwataisha.or.jp/about/miyamori/kamishamaemiya/",
+        "https://suwa-tabi.jp/news/3447/"
+      ]
+    },
+    {
+      "id": "PLACE-015",
+      "area": "suwa",
+      "name": "諏訪大社 下社春宮",
+      "genre": "神社",
+      "area_label": "下諏訪",
+      "address": "長野県諏訪郡下諏訪町193",
+      "geo": {
+        "lat": 36.0821,
+        "lng": 138.0821
+      },
+      "geo_precision": "poi",
+      "desc": "下社の祭神が2月から7月まで鎮座する宮。重文の幣拝殿は秋宮と同じ絵図面をもとに別の宮大工が腕を競って建てたもの。徒歩数分の砥川沿いに万治の石仏がある。",
+      "story_hook": "同じ設計図で二組の宮大工が競作した社殿を秋宮と見比べる。岡本太郎が絶賛した万治の石仏まで歩けば、下諏訪の信仰の風景がひとつながりに見える。",
+      "hours_note": "参拝自由。授与所8:30-16:30",
+      "confidence": "S",
+      "sources": [
+        "https://suwataisha.or.jp/about/miyamori/shimoshaharumiya/",
+        "https://www.suwa-tourism.jp/archives/000059.php"
+      ]
+    },
+    {
+      "id": "PLACE-016",
+      "area": "suwa",
+      "name": "諏訪大社 下社秋宮",
+      "genre": "神社",
+      "area_label": "下諏訪",
+      "address": "長野県諏訪郡下諏訪町5828",
+      "geo": {
+        "lat": 36.0754,
+        "lng": 138.0913
+      },
+      "geo_precision": "poi",
+      "desc": "下社の祭神が8月から翌1月まで鎮座する宮。中山道と甲州街道が交わる要所に建ち、神楽殿には長さ約13m・推定500kgの大しめ縄が掛かる。青銅製では日本最大級の狛犬も。",
+      "story_hook": "祭神は毎年2月に春宮へ、8月に秋宮へ遷る。半年ごとに主役が入れ替わる宮の格を、御柱祭のたびに氏子が新調する大しめ縄が物語る。",
+      "hours_note": "参拝自由。授与所8:30-17:00",
+      "confidence": "S",
+      "sources": [
+        "https://suwataisha.or.jp/about/miyamori/shimoshaakimiya/",
+        "https://www.town.shimosuwa.lg.jp/www/contents/1001000000742/index.html"
+      ]
+    },
+    {
+      "id": "PLACE-017",
+      "area": "suwa",
+      "name": "遊泉ハウス児湯",
+      "genre": "温泉銭湯",
+      "area_label": "下諏訪・秋宮近く",
+      "address": "長野県諏訪郡下諏訪町横町木の下3477",
+      "geo": {
+        "lat": 36.0766,
+        "lng": 138.0899
+      },
+      "geo_precision": "poi",
+      "desc": "秋宮近くに立つ下諏訪温泉を代表する公衆浴場。江戸時代から旅人に親しまれた「児湯」の跡地に建ち、源泉かけ流しの熱めの湯は朝から地元の常連で賑わう。大人300円。",
+      "story_hook": "女神・八坂刀売神が化粧用の湯を含ませた綿を運んだ地から湯が湧いたという「綿の湯」伝説の残る湯処。",
+      "hours_note": "5:30-22:00、年中無休（メンテナンス休あり）",
+      "confidence": "A",
+      "sources": [
+        "https://shimosuwaonsen.jp/spa/1040/",
+        "https://yuru-to.net/detail.php?oid=259"
+      ]
+    },
+    {
+      "id": "PLACE-018",
+      "area": "suwa",
+      "name": "すわっこランド",
+      "genre": "温泉・プール",
+      "area_label": "諏訪湖畔",
+      "address": "長野県諏訪市大字豊田732",
+      "geo": {
+        "lat": 36.0361,
+        "lng": 138.0908
+      },
+      "geo_precision": "poi",
+      "desc": "諏訪湖畔の複合健康運動施設。下水終末処理場の余熱を活用した温水プールを中心に、温泉浴場やトレーニングルームを備える。天候を問わず家族で楽しめる。",
+      "story_hook": "まちのインフラの余熱まで無駄にしない、温泉の町・諏訪湖畔の知恵が生きた施設。",
+      "hours_note": "10:00-22:00、木曜休",
+      "confidence": "S",
+      "sources": [
+        "https://suwakko-land.com/",
+        "https://www.suwakanko.jp/attraction/%E3%81%99%E3%82%8F%E3%81%A3%E3%81%93%E3%83%A9%E3%83%B3%E3%83%89/"
+      ]
+    },
+    {
+      "id": "PLACE-019",
+      "area": "kobuchizawa",
+      "name": "三分一湧水",
+      "genre": "史跡・湧水",
+      "area_label": "甲斐小泉",
+      "address": "山梨県北杜市長坂町小荒間292-1",
+      "geo": {
+        "lat": 35.8778,
+        "lng": 138.3556
+      },
+      "geo_precision": "poi",
+      "desc": "武田信玄が3つの村に湧水を三等分したと伝わる水利施設で、名水百選「八ヶ岳南麓高原湧水群」のひとつ。公園として整備され、湧水館と直売所が併設。甲斐小泉駅から徒歩圏。",
+      "story_hook": "分水枡の中央に置かれた三角石ひとつで水争いを収めた、戦国の「公平の設計」が今も現役で田を潤す。",
+      "hours_note": "公園・分水枡は見学自由",
+      "confidence": "S",
+      "sources": [
+        "https://www.sanbuichiyusui.com/",
+        "https://www.hokuto-kanko.jp/spot/sanbuichi/"
+      ]
+    },
+    {
+      "id": "PLACE-020",
+      "area": "kobuchizawa",
+      "name": "平山郁夫シルクロード美術館",
+      "genre": "美術館",
+      "area_label": "甲斐小泉駅前",
+      "address": "山梨県北杜市長坂町小荒間2000-6",
+      "geo": {
+        "lat": 35.8793,
+        "lng": 138.3593
+      },
+      "geo_precision": "poi",
+      "desc": "日本画家・平山郁夫夫妻が収集したシルクロードの美術品約9,000点と平山作品を収蔵。甲斐小泉駅の目の前で、三分一湧水と徒歩でセットにできる。",
+      "story_hook": "黒曜石や塩が行き交った八ヶ岳山麓の「道の文化」と、ユーラシアの交易路が一駅前で交差する。",
+      "hours_note": "10:00-17:00。展示替え期間と冬季休館あり",
+      "confidence": "S",
+      "sources": [
+        "https://www.silkroad-museum.jp/information/",
+        "https://www.jalan.net/kankou/spt_19405cc3300033684/"
+      ]
+    },
+    {
+      "id": "PLACE-021",
+      "area": "kobuchizawa",
+      "name": "身曾岐神社",
+      "genre": "神社・能楽殿",
+      "area_label": "小淵沢町上笹尾",
+      "address": "山梨県北杜市小淵沢町上笹尾3401",
+      "geo": {
+        "lat": 35.8622,
+        "lng": 138.3365
+      },
+      "geo_precision": "poi",
+      "desc": "古神道本宮を掲げる神社で、池の上に浮かぶように建つ能楽殿は日本屈指の能舞台と評される。夏の薪能でも知られ、境内は八ヶ岳の水を湛えた静謐な空間。",
+      "story_hook": "「みそぎ＝水で心身を清める」古神道の思想を、八ヶ岳の湧水を引いた水上の能舞台が体現する。",
+      "hours_note": "参拝・授与所9:00-17:00",
+      "confidence": "S",
+      "sources": [
+        "https://www.misogi.jp/access/",
+        "https://www.hokuto-kanko.jp/spot/mizogi_shrine/"
+      ]
+    },
+    {
+      "id": "PLACE-022",
+      "area": "kobuchizawa",
+      "name": "大滝湧水（大滝神社）",
+      "genre": "湧水・神社",
+      "area_label": "小淵沢",
+      "address": "山梨県北杜市小淵沢町（大滝神社境内）",
+      "geo": {
+        "lat": 35.8557,
+        "lng": 138.3289
+      },
+      "geo_precision": "poi",
+      "desc": "創建2000年以上と伝わる大滝神社の境内から日量約22,000トンが湧く名水百選の湧水。水温は年間約12℃で、水田灌漑やニジマス養殖にも使われる穴場スポット。",
+      "story_hook": "祭神は大国主命と少彦名命——「国づくりと医薬の神」を水源に祀る、水への信仰がそのまま残る場所。",
+      "hours_note": "見学自由。夜間照明なし",
+      "confidence": "A",
+      "sources": [
+        "https://www.hokuto-kanko.jp/spot/otaki_spring_park/",
+        "https://www.kobuchisawa.com/miru/ootaki.html"
+      ]
+    },
+    {
+      "id": "PLACE-023",
+      "area": "kobuchizawa",
+      "name": "信玄棒道（上の棒道）ハイキングコース",
+      "genre": "史跡・ハイキング",
+      "area_label": "小淵沢〜甲斐小泉",
+      "address": "山梨県北杜市小淵沢町〜長坂町小荒間",
+      "geo": null,
+      "geo_note": "線状のコースのため座標未記載。小淵沢駅または三分一湧水を起点に",
+      "desc": "武田信玄が信州攻略のために開いたと伝わる軍用道路。「上の棒道」は全長約8.4kmのハイキングコースとして整備され、道沿いに江戸期の観音石仏が三十数体並ぶ。",
+      "story_hook": "信玄の軍勢が信州へ駆けた最短直線路が、富士見側へと続く「国境を越える道」として今も歩ける。",
+      "hours_note": "散策自由。冬季は積雪・凍結あり",
+      "confidence": "A",
+      "sources": [
+        "https://rekishinomichi-yamanashi.jp/ja/course/4-3.html",
+        "https://yamanashi-hiking100.jp/course/detail/92"
+      ]
+    }
+  ],
+  "trails": [
+    {
+      "id": "TRAIL-001",
+      "area": "fujimi",
+      "title": "縄文の食卓 — 井戸尻をふかく歩く一日",
+      "narrative": "八ヶ岳南麓、標高880mほどの台地には、五千年前の食卓の跡が残っている。地元の人たちが自分の手で掘り、復元し、その営みが館になっていった井戸尻(いどじり)。土器の文様を読み、曽利(そり)の丘を歩き、崖下の泉に立ち寄って、駅前食堂で定食を食べて帰る。歩く距離は全部で2kmほど。",
+      "duration": "一日",
+      "season_note": "夏は蓮池の大賀ハス",
+      "route": {
+        "kind": "chain",
+        "mode": "walking",
+        "note": "考古館から曽利の丘、泉、駅前まで、徒歩でつながる道順。"
+      },
+      "timeline": [
+        {
+          "t": "9:30",
+          "label": "井戸尻考古館(7月は、先に蓮池をひとまわり)。展示をゆっくり(90分)"
+        },
+        {
+          "t": "11:00",
+          "label": "史跡公園を抜けて曽利の丘へ"
+        },
+        {
+          "t": "11:40",
+          "label": "崖下の泉——地名「井戸尻」の水"
+        },
+        {
+          "t": "12:15",
+          "label": "食堂しなので昼"
+        },
+        {
+          "t": "13:30",
+          "label": "来た道を考古館へもどって帰路"
+        }
+      ],
+      "practical": [
+        "考古館は月曜休が基本。臨時休館もあるので、公式の案内で確認を。",
+        "アクセスはJR信濃境(しなのさかい)駅から徒歩、または車で考古館まで。車の人は、昼のあと来た道をそのまま考古館へ戻る。",
+        "丘と泉は舗装の外に出る。歩ける靴で。夏は日差しを遮るものが少ない区間がある——帽子と水分を。冬は道が凍ることがある。",
+        "雨の日・雨上がりは丘と泉の道がぬかるむ。そんな日は考古館だけでもいい——展示だけで、この道行きの中心は味わえる。",
+        "夏は蓮池に大賀ハス。花は朝にひらくと言われる——見頃は年で動くので、蓮が目当てなら開花情報を確かめて、午前の早くに。",
+        "食堂しなのは月曜定休、昼は14:00まで。あてが外れた日は、そのほかの栞へ。",
+        "地方の店は支払いが現金のみのこともある。現金を少し持っておくと安心。"
+      ],
+      "stops": [
+        {
+          "kind": "record",
+          "ref": "FJM-JOMON-015",
+          "note": "役所でも大学でもなく、地元の手で始まった考古館。蛙・蛇・月の文様の読み解きが展示の背骨。",
+          "stay": "展示60〜90分",
+          "depth": "発掘は昭和33年(1958年)、地元の境史学会と諏訪清陵高校の生徒たちが、在野の考古学者・藤森栄一らの指導で試掘に入ったのが始まり。同じ年の秋にはもう土器の復元展示が行われ、それが館の原型になったと伝わる。館長は初代・武藤雄六から小林公明、小松隆史へ。いまは地元有志の「井戸尻応援団」が蓮池の手入れや発掘記録の映像化を担っている。",
+          "tip": "最初に館内の年表——土器のかたちが時代ごとにどう変わるかを並べた「編年表」——をざっと見ておくと、あとの丘歩きが立体になる。"
+        },
+        {
+          "kind": "record",
+          "ref": "FJM-JOMON-003",
+          "note": "展示室では、まずこの一点に時間を使う。渦を巻いて立ち上がる把手——炎とも水煙ともつかない造形。",
+          "depth": "曽利遺跡4号住居址から一括で出た深鉢7点は県宝(長野県指定の文化財、1975年)。1963年にはパリの日本古美術展に出陳され、1972年には郵便はがきの料額印面(切手にあたる印刷部分)の意匠になった。陶芸家バーナード・リーチが「これこそ世界一の土器」と評したと藤森栄一は伝えている——実見の確証はなく、館では「リーチが見たと伝わる3点のうちの1点」として並ぶ。国の重要文化財ではなく、あくまで県の宝である。"
+        },
+        {
+          "kind": "record",
+          "ref": "FJM-JOMON-012",
+          "note": "口縁(器の口のふち)の小さな孔と、胴をめぐる鍔(つば)。この器を何に使ったのか、六十年をこえて続く論争がある。",
+          "depth": "種子の貯蔵具(藤森栄一・武藤雄六、1963)、土製の太鼓(山内清男、1964)、そして1970年、当の武藤自身が酒造の器へと説を改めた。1980年代には内面の黒い変色とヤマブドウらしき炭化種子を手がかりに、孔を発酵のガス抜きとみる読みが加わり、いま最も支持を集める。2023年には曽利から完形の一体が出土し、発掘作業員は「ゴン太くん」と呼んだという。蛇や半人半蛙の文様(藤内遺跡出土・国の重要文化財)の読み解きも、この論争と地続きにある。"
+        },
+        {
+          "kind": "record",
+          "ref": "FJM-JOMON-007",
+          "note": "館を出て、史跡公園から曽利の丘へ。「縄文クッキー」という言葉が生まれた場所。",
+          "stay": "30分",
+          "depth": "パン状炭化物は1960年の第1次調査で5号住居址から出土し、ばらばらだった破片を武藤雄六が長い年月をかけて復元した。電子顕微鏡の観察では、内部にエゴマ・シソ特有の「わらじ状細胞」が検出されている。曽利ではこれまで13回の調査で、住居の跡(住居址)が112軒見つかっている。2025年には国の審査(文化審議会の答申)を経て、曽利遺跡は史跡井戸尻遺跡群に加えられた。"
+        },
+        {
+          "kind": "record",
+          "ref": "FJM-JOMON-016",
+          "note": "竪穴住居の東側、崖下に今も湧く泉。地名「井戸尻」の由来と考えられている水。",
+          "stay": "20分",
+          "depth": "八ヶ岳に染みた雨水が、溶岩層の境目を伝って地表へ滲み出す——そう考えられている。標高800〜1000mの台地に井戸尻・曽利・藤内・九兵衛尾根と集落が数珠つなぎに並ぶのは、人々が「水の湧く線」を選んで住み続けた跡のように見える。泉の水はいまも蓮池やセリ・ワサビに使われ、水温はおよそ10度と伝わる。",
+          "tip": "7月は隣の蓮池に大賀ハス。2002年に姉妹町・西伊豆町から株分けされ、人の手が継いできた花。"
+        },
+        {
+          "kind": "taste",
+          "ref": "TASTE-010",
+          "note": "丘から駅前へ下りて、地元の人と同じ定食を。名物はレバニラ。2階は地域の宴会や集まりに使われる、町の寄り合いの場。",
+          "stay": "60分"
+        }
+      ],
+      "discovery": "パンのような炭化物が出た曽利の丘と、駅前食堂の定食。五千年を隔てて、人は同じ台地の上で、同じ湧水のそばで食べてきた。"
+    },
+    {
+      "id": "TRAIL-002",
+      "area": "fujimi",
+      "title": "入笠山 — 食べるために登る一日",
+      "narrative": "ゴンドラで湿原のある山の上まで一気に上がり、木道を歩き、山小屋の煮込みで昼にして、午後に山頂へ。「食べるために登る」が成立してしまう山。すずらんの六月、山の上に食卓があるという安心が、入笠(にゅうかさ)の文化になっている。山麓の高原には一九六七年、日本で最初のヒッピー・コミューン〈雷赤鴉族(かみなりあかがらすぞく)〉が営まれた——跡は山麓側で、この栞の道筋からは離れているけれど、この山の懐は昔から人を住まわせてきた。",
+      "duration": "一日",
+      "season_note": "すずらんは6月・冬季は営業要確認",
+      "route": {
+        "kind": "dest",
+        "mode": "driving",
+        "dest_name": "富士見パノラマリゾート",
+        "note": "車はゴンドラ山麓駅まで。山の上はゴンドラと徒歩で。"
+      },
+      "timeline": [
+        {
+          "t": "8:45",
+          "label": "富士見パノラマ。駐車場からゴンドラへ"
+        },
+        {
+          "t": "9:15",
+          "label": "山頂駅から木道を入笠湿原へ"
+        },
+        {
+          "t": "11:15",
+          "label": "ヒュッテ入笠で昼(売り切れる前に)"
+        },
+        {
+          "t": "12:30",
+          "label": "マナスル山荘天文館のドームを覗く"
+        },
+        {
+          "t": "13:00",
+          "label": "入笠山山頂へ(往復約90分のめやす)"
+        },
+        {
+          "t": "15:00",
+          "label": "余裕があれば大阿原(おおあはら)湿原へ(その場合、下の16:00は目安にならない)"
+        },
+        {
+          "t": "16:00",
+          "label": "ゴンドラで下りる"
+        }
+      ],
+      "practical": [
+        "すずらんは6月上旬〜中旬。花期の入笠林道はマイカー規制があり、ゴンドラ利用が基本。",
+        "名物の煮込みは食材切れ次第終了。昼は早めに。",
+        "御所平(ごしょだいら・標高1800m)から山頂まで、標高差はおよそ150m。歩ける靴と、上に一枚を。未就学児連れなら、抱っこと休憩を見込んで。",
+        "夏の午後は空模様が変わりやすい。怪しい雲が出たら、山頂の長居は控えて早めに引き返す。",
+        "大阿原湿原へ足をのばすのは、時間と体力に余裕のある日に。片道の所要は山上の案内図で確かめてから、ゴンドラの最終時刻から逆算を。",
+        "冬はスノーシーズン。山上の営業は要確認。雪や凍結のある時期の山頂往復は、夏と装備も所要も大きく異なる。",
+        "山の上や地方の店は、支払いが現金のみのこともある。現金を少し持って。"
+      ],
+      "stops": [
+        {
+          "kind": "record",
+          "ref": "FJM-IND-008",
+          "note": "ゴンドラで一気に山の上へ。このスキー場自体が、町が「西山」に賭けてきた物語。",
+          "stay": "ゴンドラ約10分",
+          "depth": "根にあるのは昭和44年(1969年)設立の富士見町開発公社。八ヶ岳側の開発が先行するなか、西山地域の均衡発展を求める声を受けて昭和62年(1987年)にスキー場が開業した。バブル崩壊後は負債が55億円を超え、町が施設を買い取る「上下分離方式」(施設は町が持ち、運営は公社が担うやり方)で再建。MTBの全日本選手権も走ってきた斜面には、町の釣り合いの歴史が埋まっている。",
+          "tip": "帰りのゴンドラ最終時刻を、乗る前に確かめておく。"
+        },
+        {
+          "kind": "record",
+          "ref": "FJM-NAT-001",
+          "note": "山頂駅から木道を下りて入笠湿原へ。六月は約100万株の日本すずらん。山頂へは昼のあと、あらためて。",
+          "stay": "湿原(午前)60〜120分/山頂往復(午後)約90分",
+          "depth": "標高1730m・1.85haの小さな湿原は、県の自然環境保全地域。春から秋へ約150種の山野草が入れ替わり、希少なアツモリソウの保護区もある。ゴンドラは、この慎ましい花畑への人の負荷を分散させる装置でもある。午後は標高1955mの山頂へ——富士見町と伊那市の境にまたがる頂から、南アルプス、中央アルプス、八ヶ岳、富士山。"
+        },
+        {
+          "kind": "taste",
+          "ref": "TASTE-003",
+          "note": "湿原から御所平(ごしょだいら)へ歩いて、山小屋の昼。名物の煮込みは食材切れ次第終了、11時台に着くのがこつ。",
+          "stay": "60分",
+          "depth": "2023年に旧マナスル山荘本館から改称。長年の名物ビーフシチューは、赤ワイン煮込みへとかたちを変えたと伝わる。山小屋の食事そのものが、この山の登山文化の一部になっている。"
+        },
+        {
+          "kind": "record",
+          "ref": "FJM-NAT-005",
+          "note": "ヒュッテのすぐ近く、銀色のドームの公開天文台。スリッパのまま入れる設え。",
+          "depth": "標高1800m。「マナスル」はサンスクリットで「精霊の地」を意味するとされ、1956年の日本隊マナスル初登頂は戦後の登山ブームを起こした——山荘名がそれに因むかどうかは、推測にとどまる。ヒュッテ入笠(旧マナスル山荘本館)としばしば混同されるが、運営の異なる別施設。泊まれる公開天文台でもある。"
+        },
+        {
+          "kind": "record",
+          "ref": "FJM-NAT-004",
+          "note": "もうひとつの入笠——牧場だった高原。山塊の伊那市側、標高1600m、305ヘクタールの放牧地の跡。",
+          "depth": "南信州の畜産農家から妊娠牛や育成牛を預かり、夏の高原で足腰を鍛えさせてきた牧場。放牧頭数は最盛期の約200頭から2024年には38頭まで減り、その年かぎりで放牧は幕を下ろした。伊那市側ではよく知られたロケ地とされ、管理人は観光地化より自然を守る道を選んだと語っていた。",
+          "tip": "放牧も土地の管理も、期限つきで続けられてきた場所。掲示や整備は変わっている可能性がある。現地の表示に従い、判断がつかなければ立ち入らない。山上から徒歩で行けるかも要確認。"
+        },
+        {
+          "kind": "record",
+          "ref": "FJM-ROAD-004",
+          "note": "歩きなれた人なら、法華道(ほっけみち)の古道をたどる読み方もある。起点は町内・若宮の八幡宮。仏平峠を越えると道は伊那市側へ下っていく——ゴンドラへ戻る周回にはならない、片道の古道。",
+          "depth": "起点は町内若宮の八幡宮、峠を越えた先は伊那市側へ下る古道。高島藩の金奉行が清水で喉を潤そうとして斬られたという「首切清水」の話が残る。日朝上人が高座岩で説教したという伝えは、郷土サイトが同じ話を記すものの一次史料の裏づけは確認できていない——そういう「確からしさごと」歩ける道。",
+          "tip": "後半は富士見町の外に出る、本格的な山道。引き返す地点を決めてから、地図と時間にじゅうぶんな余裕を。"
+        }
+      ],
+      "discovery": "山小屋の食事が、登る理由になる。そしてその食卓の下には、スキー場の負債も、コミューンの畑も、牧場に牛のいた歳月も、山がまるごと暮らしの装置だった歴史が積もっている。"
+    }
+  ]
+}
