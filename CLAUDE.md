@@ -148,3 +148,54 @@ git push origin main
 3. SEO対策の強化
 4. 多言語対応の拡充
 5. パフォーマンスの最適化
+
+## ローカルアーカイブ（archive*.html・records/・data/）
+
+宿の頁とは別に、土地の記録「8weeks Local Archive」を同じリポジトリで公開している。**記録の本文は宣伝にしない**（宿への案内は、頁の外側の開示欄に一か所だけ）。つくり方と決まりは `archive-method.html`（方法と凡例）に公開している。
+
+**台帳は一つ**（`data/archive-db.json`）。その中の記録を、土地（サブリージョン）で三つに分けている — 富士見（`FJM-`）・蓼科（`TSN-`）・諏訪（`SUW-`）。「富士見編」「蓼科編」という言い方はしない。
+
+### 構成
+| ファイル | 役割 |
+|---|---|
+| `archive.html` | 手帖。Notes（一人称の覚え書き。本人だけが書く）・Places（場所の記録。一つの並びで、土地は絞り込みの区分） |
+| `archive-db.html` | 台帳（Ledger）。土地・主題・資本で絞り込み、考証メモ・制作の記録・出典を開ける。`?region=suwa` で土地を指定 |
+| `archive-graph.html` | 星図（Graph）。記録どうしのつながり |
+| `archive-map.html` | 絵図（Map）。座標のある記録を地図に置く。`?region=suwa` で土地を指定 |
+| `archive-method.html` | 方法と凡例。確度の定義・出典の扱い・土地の線引き・書き手の立場・引用と訂正・統計 |
+| `records/<ID>.html` | 記録ごとの頁（固定URL。**生成物**） |
+| `records/index.html`・`records/<土地>.html` | 総目録と、土地ごとの入口の頁（**生成物**。三つの土地は同じ型） |
+| `data/archive-db.json` | **一つの台帳（生成物）**。頁はこれだけを読む。各記録に `subregion`（主の土地）・`related_subregions`（関わる土地）・`updated`（版）が付く |
+| `data/fujimi-archive-db.json` | 富士見の書き出し元（**制作側パイプラインの書き出し。このリポジトリで手で直さない**） |
+| `data/tateshina-archive-db.json`・`data/suwa-archive-db.json` | 蓼科・諏訪の書き出し元（考証の資料から統合スクリプトで作る。内部の資料は vault にある） |
+| `data/archive-config.json` | 土地（線引き・市町村・色）・分類・資本の割り当て・出典の種類の規則（頁と生成スクリプトの両方が読む） |
+| `data/archive-stats.json` | 台帳の統計（**生成物**） |
+| `assets/styles/archive-pages.css` | 記録の頁・総目録・土地の入口・方法の頁の共通スタイル |
+
+### 書き出し元を差し替えたら（富士見の書き出しを更新したときも、かならず）
+```bash
+python3 scripts/build_archive_pages.py            # 一つの台帳・records/*.html・総目録・土地の入口・統計・sitemap.xml を作り直す
+python3 scripts/validate_archive_db.py            # 形と整合性の検査（--links で出典URLの生存確認）
+python3 scripts/build_archive_pages.py --check    # 何も書かずに、生成物ぜんぶが、いまの書き出し元・設定・生成スクリプトと合っているかを確かめる
+```
+- **回し直さないと、台帳・星図・絵図・記録の頁は古いままになる**（頁は `data/archive-db.json` だけを読むため）。`--check` は、台帳だけでなく、記録の頁・総目録・土地の入口・統計・sitemap・方法の頁の統計欄までを突き合わせ、古ければ `STALE` で止まる（検査スクリプトもこれを呼ぶ）
+- **記録が台帳から無くなると、生成スクリプトは頁を消さずに止まる**。書き出し元の置き忘れや記録の落ちで、引用されている頁を黙って消さないため。本当に消してよいときだけ `--prune` を付ける（原則として使わない。下の「頁を消さない」を先に読む）
+- 生成物は、同じ書き出し元と設定からは、いつ回しても同じ内容になる（日付は書き出し元の `updated` から取る。回した日を入れない）
+- `data/archive-db.json`・`records/`・`data/archive-stats.json`・`sitemap.xml` のアーカイブの行・`archive-method.html` の統計欄（`STATS:BEGIN`〜`END`）は、生成スクリプトが書き換える。手で直さない
+- 記録の頁のURL（`records/<ID>.html`）は引用の単位なので、**IDを変えない・頁を消さない**
+- 訂正は黙って直さない。記録の `review_log` と、`archive-method.html` の「これまでの歩みと、主な訂正」に残す
+
+### 土地（サブリージョン）の決まり
+- 記録は主の土地を一つ持つ（書き出し元のファイルで決まる）。線引きは `data/archive-config.json` の `subregions` と、方法の頁の「一つの台帳と、三つの土地」
+- 「関わる土地」は、記録の `municipality` に別の土地の市町村が含まれるとき、生成スクリプトが機械的に付ける。手で足さない
+- 記録の頁の題は「名称｜分類の記録（主の市町村）｜ローカルアーカイブ」。土地の名ではなく市町村を入れる。市町村を決められない記録（富士見の `town_outside: true`＝舞台が富士見町の外にある記録）には、括弧を付けない
+- `town_outside` は富士見の記録のための印で、「富士見町の外の事柄を含む」の意味。蓼科・諏訪の記録では常に `true` なので、意味を持たない。蓼科・諏訪の記録の市町村は `municipality` で見る（台帳の `field_notes` に書いてある）
+- 宿の有無は、土地の説明（`desc`）に書かない。開示の一文（`stay`）に分けてあり、記録の頁と土地の入口の、本文の外側の開示欄（書き手の立場）にだけ出る。方法の頁には「書き手の立場」の節に別に書いてある
+- 三つの土地は同じ扱いにする。一つだけ別立てにしない
+
+### 記録を書くときの決まり（要点）
+- 出典は、開いて確かめたURLだけ。1記録に2件以上。確度は主張ごとに S/A/B/C/D（定義は方法の頁）
+- 当事者（企業・施設・観光協会・社寺、そして宿）の発信は確度B。事典だけを根拠に S・A を付けない
+- 書かない: 現存の企業・団体・個人の評価、宣伝の語、進歩の物語・賛美・悲嘆、存命の私人の特定、移ろう実用情報、宿のこと
+- 書く: 記録の欠落（探しても見つからなかったこと）、出典間の食い違い
+- 蓼科・諏訪の記録の項目（`capital`・`source_details`・`references`・`related_records`・`open_questions`・`geo_precision` など）は `scripts/validate_archive_db.py` が検査する
