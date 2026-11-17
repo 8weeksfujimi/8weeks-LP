@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>記録の台帳 — Local Archive Ledger | 8weeks Stay</title>
-  <meta name="description" content="長野県富士見町のローカルアーカイブ台帳。自然・文化・人の記録を確度S–Dで層別し、出典とともに公開しています。">
+  <meta name="description" content="長野県・八ヶ岳のすそから諏訪湖まで、富士見・蓼科・諏訪のローカルアーカイブ台帳。自然・文化・人の記録を確度S–Dで層別し、考証メモと出典とともに公開しています。">
   <link rel="icon" type="image/png" href="assets/logos/favicon_moon.png">
   <link rel="canonical" href="https://8weeksfujimi.github.io/8weeks-LP/archive-db.html">
 
   <meta property="og:title" content="記録の台帳 — Local Archive Ledger">
-  <meta property="og:description" content="富士見町の自然・文化・人の記録を、確からしさの度合いと出典つきで公開する生きた台帳。">
+  <meta property="og:description" content="富士見・蓼科・諏訪の自然・文化・人の記録を、確からしさの度合いと出典つきで公開する生きた台帳。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://8weeksfujimi.github.io/8weeks-LP/archive-db.html">
   <meta property="og:site_name" content="8weeks Stay">
@@ -18,6 +18,33 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "@id": "https://8weeksfujimi.github.io/8weeks-LP/archive-db.html#dataset",
+    "name": "8weeks Local Archive 台帳",
+    "alternateName": "8weeks Local Archive Ledger — Fujimi, Tateshina and Suwa, Nagano, Japan",
+    "description": "長野県・八ヶ岳のすそから諏訪湖までの土地の記録。一つの台帳を、富士見（諏訪郡富士見町）、蓼科（茅野市を中心に蓼科高原・霧ヶ峰・白樺湖・北八ヶ岳）、諏訪（諏訪湖のまわりの諏訪市・下諏訪町・岡谷市）の三つの土地に分け、記録ごとに本文・確度（S 確立／A 堅実／B 諸説／C 伝承／D 俗説・要検証）・考証メモ・出典・制作の記録を収める。公開資料の断片を集めたもので、正確性を保証するものではない。",
+    "url": "https://8weeksfujimi.github.io/8weeks-LP/archive-db.html",
+    "inLanguage": "ja",
+    "isAccessibleForFree": true,
+    "keywords": ["富士見町", "茅野市", "蓼科", "霧ヶ峰", "八ヶ岳", "諏訪市", "下諏訪町", "岡谷市", "諏訪湖", "縄文", "諏訪信仰", "郷土史", "local history", "Nagano"],
+    "license": "https://8weeksfujimi.github.io/8weeks-LP/archive-method.html#reuse",
+    "creator": { "@type": "Organization", "name": "8weeks Local Archive", "url": "https://8weeksfujimi.github.io/8weeks-LP/archive.html" },
+    "publisher": { "@type": "Organization", "name": "8weeks合同会社", "url": "https://8weeksfujimi.github.io/8weeks-LP/" },
+    "spatialCoverage": [
+      { "@type": "Place", "name": "長野県諏訪郡富士見町", "geo": { "@type": "GeoCoordinates", "latitude": 35.9151, "longitude": 138.2408 } },
+      { "@type": "Place", "name": "長野県茅野市・蓼科高原・霧ヶ峰", "geo": { "@type": "GeoCoordinates", "latitude": 36.02, "longitude": 138.24 } },
+      { "@type": "Place", "name": "長野県諏訪市・下諏訪町・岡谷市（諏訪湖のまわり）", "geo": { "@type": "GeoCoordinates", "latitude": 36.049, "longitude": 138.085 } }
+    ],
+    "measurementTechnique": "公開資料の収集と出典の照合。確度の等級づけと監査の手順は https://8weeksfujimi.github.io/8weeks-LP/archive-method.html に記載。",
+    "distribution": [
+      { "@type": "DataDownload", "name": "8weeks Local Archive 台帳（JSON）", "encodingFormat": "application/json", "contentUrl": "https://8weeksfujimi.github.io/8weeks-LP/data/archive-db.json" }
+    ]
+  }
+  </script>
 
   <style>
     :root {
@@ -99,12 +126,49 @@
     }
     .chip.on { background: var(--navy); color: var(--white); border-color: var(--navy); }
     .count { font-size: 0.74rem; letter-spacing: 0.12em; color: var(--ink-soft); }
+    .chip-row { display: flex; align-items: baseline; gap: 12px; }
+    .chip-row > b { flex: none; width: 3.4em; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; color: var(--ink-soft); }
+
+    .views-strip {
+      display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center;
+      margin-bottom: 30px; padding: 14px 20px;
+      background: var(--white); border: 1px solid var(--line);
+      font-size: 0.78rem; color: var(--ink-soft);
+    }
+    .views-strip b { color: var(--navy); font-weight: 500; letter-spacing: 0.14em; font-size: 0.74rem; }
+    .views-strip a {
+      color: var(--navy-2); border: 1px solid var(--line); padding: 5px 14px;
+      font-size: 0.76rem; letter-spacing: 0.1em; transition: background 0.25s, color 0.25s, border-color 0.25s;
+    }
+    .views-strip a:hover { background: var(--navy); color: var(--moon); border-color: var(--navy); }
 
     .rec {
       background: var(--white); border: 1px solid var(--line);
       padding: 26px 28px; margin-bottom: 22px;
     }
+    .rec.hl { animation: recGlow 2.6s ease 1; }
+    @keyframes recGlow { 0% { background: #FFFBD0; } 100% { background: var(--white); } }
+    .rec-views { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0 0 12px; }
+    .rec-views a {
+      font-size: 0.7rem; letter-spacing: 0.14em; color: var(--navy-2);
+      border-bottom: 1px dotted var(--line);
+    }
+    .rec-views a:hover { color: var(--navy); border-bottom-color: var(--navy); }
     .rec-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+    .badge.sub { background: var(--white); color: var(--navy-2); border-color: var(--navy-2); }
+    .badge.sub.tateshina { color: #2f6b55; border-color: #2f6b55; }
+    .badge.sub.suwa { color: #1f5f96; border-color: #1f5f96; }
+    .badge.sub.also { background: transparent; border-style: dashed; }
+    .badge.cap { color: var(--ink-soft); border-color: var(--line); font-weight: 400; }
+    .rec .yomi { font-size: 0.72rem; letter-spacing: 0.14em; color: var(--ink-soft); }
+    .rec .en-sum { display: block; margin-top: 10px; font-size: 0.78rem; line-height: 1.9; color: var(--ink-soft); font-style: italic; letter-spacing: 0.02em; }
+    .src-kind {
+      display: inline-block; font-size: 0.62rem; letter-spacing: 0.08em; padding: 0 7px; margin-right: 6px;
+      border: 1px solid var(--line); color: var(--navy-2); background: var(--white); white-space: nowrap;
+    }
+    .rec details .src { display: block; line-height: 1.9; padding: 3px 0; }
+    .rec details .src a { display: inline; }
+    .rec details .rel a { display: block; }
     .badge {
       font-size: 0.68rem; letter-spacing: 0.12em; font-weight: 500;
       padding: 2px 10px; border: 1px solid transparent;
@@ -154,6 +218,7 @@
     @media (max-width: 768px) {
       .header-nav a:not(.keep) { display: none; }
       .wrap { padding: 36px 16px 80px; }
+      .chip-row { flex-direction: column; gap: 4px; }
     }
   </style>
 </head>
@@ -170,23 +235,33 @@
       <a href="archive-db.html" class="current keep">Ledger</a>
       <a href="archive-graph.html" class="keep">Graph</a>
       <a href="archive-map.html" class="keep">Map</a>
+      <a href="archive-method.html">Method</a>
     </nav>
   </header>
 
   <section class="ledger-hero">
     <h1 class="serif">記録の台帳</h1>
-    <p class="en">Local Archive Ledger · Fujimi, Nagano</p>
-    <p class="lead">富士見町の自然・文化・人の記録を、手帖（<a href="archive.html" style="border-bottom:1px solid rgba(255,255,255,0.4)">Local Archive</a>）の下書き台帳として公開しています。ここに集めたのは、いまインターネットの上で観測できる、情報の断片です。正しくないものが混ざっているかもしれません。確定した事典ではなく、あなたが自分で出典にあたり、土地で確かめ、深く掘っていくための最初の手がかりとして置いています。あやふやなものを消すのではなく、確からしさの度合いと出典を添えて、あやふやなまま書き留めておくこと。それがこの台帳のやり方です。町の記録として、少しずつ育っていきます。</p>
+    <p class="en">Local Archive Ledger · Fujimi, Tateshina &amp; Suwa, Nagano</p>
+    <p class="lead">八ヶ岳のすそから諏訪湖まで。富士見・蓼科・諏訪の、自然・文化・人の記録を、手帖（<a href="archive.html" style="border-bottom:1px solid rgba(255,255,255,0.4)">Local Archive</a>）の下書き台帳として公開しています。ここに集めたのは、いまインターネットの上で観測できる、情報の断片です。正しくないものが混ざっているかもしれません。確定した事典ではなく、あなたが自分で出典にあたり、土地で確かめ、深く掘っていくための最初の手がかりとして置いています。あやふやなものを消すのではなく、確からしさの度合いと出典を添えて、あやふやなまま書き留めておくこと。それがこの台帳のやり方です。土地の記録として、少しずつ育っていきます。つくり方と、書かないと決めていることは <a href="archive-method.html" style="border-bottom:1px solid rgba(255,255,255,0.4)">方法と凡例</a> にまとめました。</p>
   </section>
 
   <div class="wrap">
     <div class="legend">
-      <b>確度の読み方</b> — <b>S</b>：国指定文化財・一次史料など確立した事実／<b>A</b>：郷土史・自治体資料などで堅実／<b>B</b>：諸説あり／<b>C</b>：伝承・言い伝え／<b>D</b>：俗説・要検証。「A/C」のような表記は、一つの記録の中に確度の違う話が同居していることを示します。<span class="outside" style="margin-left:6px">町域外を含む</span> の印は、富士見町の外（茅野市・原村・北杜市など）の事柄を含む記録です。各記録には、本文のほかに<b>考証メモ</b>（どの事実がどの程度確かめられたか）、<b>制作の記録</b>（AIどうしの監査で何が指摘され、どう直されたか）、<b>宿のメモ</b>（この記録を滞在の体験にどう翻訳するかの覚え書き）を開いて読めるようにしました。台帳の舞台裏ごと、公開しています。
+      <b>確度の読み方</b> — <b>S</b>：国指定文化財・一次史料など確立した事実／<b>A</b>：郷土史・自治体資料などで堅実／<b>B</b>：諸説あり／<b>C</b>：伝承・言い伝え／<b>D</b>：俗説・要検証。「A/C」のような表記は、一つの記録の中に確度の違う話が同居していることを示します。<span class="outside" style="margin-left:6px">町域外を含む</span> の印は、富士見の記録のうち、町の外（茅野市・原村・北杜市など）の事柄を含むものです。各記録には、本文のほかに<b>考証メモ</b>（どの事実がどの程度確かめられたか）、<b>制作の記録</b>（AIどうしの監査で何が指摘され、どう直されたか）、<b>宿のメモ</b>（この記録を滞在の体験にどう翻訳するかの覚え書き。宿のない蓼科と諏訪の記録では<b>書き手のメモ</b>と呼んでいます）を開いて読めるようにしました。台帳の舞台裏ごと、公開しています。台帳は一つで、土地を<b>富士見</b>・<b>蓼科</b>・<b>諏訪</b>の三つに分けています。読み方はどの土地も同じです。点線の札（＋諏訪 など）は、市町村がその土地にもかかる記録です。宿があるのは富士見だけで、蓼科と諏訪にはありません。等級の付け方のくわしい決まりは <a href="archive-method.html#grades" style="border-bottom:1px solid var(--line)">方法と凡例</a> に。
+    </div>
+
+    <div class="views-strip">
+      <b>べつの眺めかた</b>
+      <a href="records/index.html">総目録 — 記録ごとの頁へ</a>
+      <a href="archive-graph.html">記憶の星図 — つながりで見る</a>
+      <a href="archive-map.html">記憶の絵図 — 土地の上で見る</a>
     </div>
 
     <div class="controls">
-      <input class="search" id="q" type="search" placeholder="ことばで探す（例: 縄文 / 御柱 / ヒッピー / 桜）" aria-label="検索">
-      <div class="chips" id="chips"></div>
+      <input class="search" id="q" type="search" placeholder="ことばで探す（例: 縄文 / 御柱 / 堰 / 製糸 / 湖）" aria-label="検索">
+      <div class="chip-row"><b>土地</b><div class="chips" id="chipsArea" role="group" aria-label="土地で絞り込む"></div></div>
+      <div class="chip-row"><b>主題</b><div class="chips" id="chips" role="group" aria-label="主題で絞り込む"></div></div>
+      <div class="chip-row"><b>資本</b><div class="chips" id="chipsCap" role="group" aria-label="資本の区分で絞り込む"></div></div>
       <div class="count" id="count"></div>
     </div>
 
@@ -196,7 +271,7 @@
       <b>おことわり</b> — この台帳は、ネット上で観測可能な情報の断片を収集したものであり、内容の正確性を保証するものではありません。誤りや、諸説の一方だけが載っている場合があります。引用・利用の際はかならず各記録の出典にあたり、大切なことは現地や一次資料で確かめてください。この台帳は結論ではなく、あなた自身の探究がはじまる入口です。
     </p>
     <p class="foot-note" style="border-top:none;padding-top:0;margin-top:16px;">
-      この台帳のデータは <a href="data/fujimi-archive-db.json">JSON形式</a> でも公開しています。出典（8weeks Local Archive と各記録の典拠）を明記のうえ、ご自由に参照・引用ください。誤りの指摘や、土地の記憶の提供は
+      この台帳のデータは JSON形式でも公開しています（<a href="data/archive-db.json">台帳のデータ</a>。土地の区分は各記録の subregion に入っています）。引用するときは、記録ごとの頁（<a href="records/index.html">総目録</a>）の変わらないURLと、そこにある書式をお使いください。出典（8weeks Local Archive と各記録の典拠）を明記のうえ、ご自由に参照・引用ください。誤りの指摘や、土地の記憶の提供は
       <a href="https://www.instagram.com/8weeks.fujimi/" target="_blank" rel="noopener">Instagram</a> までお寄せください。
     </p>
   </div>
@@ -208,83 +283,157 @@
   </footer>
 
   <script>
-    const GROUPS = [
-      ['すべて', () => true],
-      ['縄文', r => r.category.includes('縄文')],
-      ['歴史', r => r.category.includes('歴史')],
-      ['信仰・伝承', r => r.category.includes('信仰') || r.category.includes('伝承') || r.category.includes('神社') || r.category.includes('俗説') || r.category.includes('廃村')],
-      ['文学・芸術', r => r.category.includes('文学') || r.category.includes('芸術')],
-      ['街道', r => r.category.includes('街道')],
-      ['産業', r => r.category.includes('産業')],
-      ['自然', r => r.category.includes('自然')],
-      ['ヒッピー', r => r.category.includes('ヒッピー')],
-      ['現代・移住', r => r.category.includes('現代') || r.category.includes('移住')],
-    ];
-    let records = [];
-    let group = 'すべて';
-    let query = '';
-
-    const listEl = document.getElementById('list');
-    const countEl = document.getElementById('count');
-    const chipsEl = document.getElementById('chips');
-
+    // 設定（土地・分類・出典の種類の規則）と、一つの台帳（data/archive-db.json）を読む。
     const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     // エスケープ後にURLをリンク化（考証メモ・監査記録の中の出典もたどれるように）
     const linkify = s => esc(s).replace(/https?:\/\/[^\s、）」()<>"']+/g,
       u => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`);
 
+    let CFG = null, records = [], byId = {};
+    let sub = 'すべて', group = 'すべて', capital = 'すべて', query = '';
+
+    const listEl = document.getElementById('list');
+    const countEl = document.getElementById('count');
+
     function badgeClass(conf) {
       const head = (conf || '').trim().charAt(0);
       return 'SABCD'.includes(head) ? 'c' + head : 'cC';
     }
+    const groupOf = r => (CFG.groups.find(g => new RegExp(g[1]).test(r.category || '')) || CFG.groups[CFG.groups.length - 1])[0];
+    function capitalOf(r) {
+      if (CFG.capitals.includes(r.capital)) return [r.capital, false];
+      if (CFG.capital_override[r.id]) return [CFG.capital_override[r.id], true];
+      const hit = CFG.capital_default.find(([k]) => (r.category || '').includes(k));
+      return [hit ? hit[1] : CFG.capital_fallback, true];
+    }
+    function kindOf(url, detailKind) {
+      if (detailKind && CFG.detail_kind_map[detailKind]) return CFG.detail_kind_map[detailKind];
+      let host = '';
+      try { host = new URL(url).hostname.toLowerCase(); } catch (e) { return 'other'; }
+      const rule = CFG.source_rules.find(([suf]) => host === suf || host.endsWith(suf.startsWith('.') ? suf : '.' + suf));
+      return rule ? rule[1] : 'other';
+    }
+    const subLabel = id => (CFG.subregions.find(a => a.id === id) || {}).label || id;
+    // 土地で絞るときは、主の土地に加えて「関わる土地」（市町村から機械的に付けたもの）も拾う
+    const inSub = (r, label) => subLabel(r.subregion) === label || (r.related_subregions || []).some(id => subLabel(id) === label);
+
+    function sourcesHtml(r) {
+      const details = Object.fromEntries((r.source_details || []).map(d => [d.url, d]));
+      return (r.sources || []).map(u => {
+        const d = details[u] || {};
+        const k = kindOf(u, d.kind);
+        return `<span class="src"><span class="src-kind">${esc(CFG.source_kinds[k])}</span>${d.title ? esc(d.title) + ' — ' : ''}<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a></span>`;
+      }).join('');
+    }
+    function relatedHtml(r) {
+      const ids = (r.related_records || []).filter(id => byId[id]);
+      const back = records.filter(o => (o.related_records || []).includes(r.id) && !ids.includes(o.id)).map(o => o.id);
+      const all = [...ids, ...back];
+      if (!all.length) return '';
+      return `<details class="rel"><summary>つながる記録 — 考証者が張ったもの ${all.length}件</summary>${all.map(id => {
+        const o = byId[id];
+        return `<a href="records/${esc(id)}.html">${o.subregion !== r.subregion ? esc(subLabel(o.subregion)) + ' — ' : ''}${esc(o.keyword)}</a>`;
+      }).join('')}</details>`;
+    }
 
     function render() {
-      const g = GROUPS.find(x => x[0] === group);
       const q = query.trim().toLowerCase();
-      const hit = records.filter(r => g[1](r) && (!q ||
-        (r.keyword + r.background + r.category + (r.era || '') + (r.sense_tags || []).join('')).toLowerCase().includes(q)));
+      const hit = records.filter(r =>
+        (sub === 'すべて' || inSub(r, sub)) &&
+        (group === 'すべて' || groupOf(r) === group) &&
+        (capital === 'すべて' || capitalOf(r)[0] === capital) &&
+        (!q || (r.keyword + (r.yomi || '') + (r.keyword_en || '') + r.background + r.category + (r.era || '') + (r.municipality || '') + (r.sense_tags || []).join('')).toLowerCase().includes(q)));
+      // 土地で絞ったときは、その土地を主とする記録を先に、関わる土地として拾った記録をあとに並べる
+      if (sub !== 'すべて') hit.sort((a, b) => (subLabel(a.subregion) === sub ? 0 : 1) - (subLabel(b.subregion) === sub ? 0 : 1));
       countEl.textContent = hit.length + ' 件 / 全 ' + records.length + ' 件';
-      listEl.innerHTML = hit.map(r => `
+      listEl.innerHTML = hit.map(r => {
+        const [cap, prov] = capitalOf(r);
+        return `
         <article class="rec" id="${esc(r.id)}">
           <div class="rec-head">
             <span class="badge ${badgeClass(r.confidence)}">確度 ${esc(r.confidence)}</span>
             <span class="ptype">${esc(r.page_type)}</span>
-            ${r.town_outside ? '<span class="outside">町域外を含む</span>' : ''}
+            <span class="badge sub ${esc(r.subregion)}">${esc(subLabel(r.subregion))}</span>${(r.related_subregions || []).map(id => `<span class="badge sub also ${esc(id)}" title="市町村がこの土地にもかかる記録">＋${esc(subLabel(id))}</span>`).join('')}
+            ${r.subregion === 'fujimi' && r.town_outside ? '<span class="outside">町域外を含む</span>' : ''}
+            ${r.municipality ? `<span class="badge cap">${esc(r.municipality)}</span>` : ''}
+            <span class="badge cap">${esc(cap)}${prov ? '（暫定）' : ''}</span>
           </div>
           <h2 class="serif">${esc(r.keyword)}</h2>
+          ${r.yomi ? `<p class="yomi">${esc(r.yomi)}</p>` : ''}
           <p class="meta">${esc(r.category)}${r.era ? '｜' + esc(r.era) : ''}｜${esc(r.id)}</p>
-          <p class="bg">${esc(r.background)}</p>
+          <p class="rec-views">
+            <a href="records/${esc(r.id)}.html">この記録だけの頁 — 引用・つながり</a>
+            <a href="archive-graph.html#${esc(r.id)}">星図でみる</a>
+            ${r.geo ? `<a href="archive-map.html#${esc(r.id)}">絵図でみる</a>` : ''}
+          </p>
+          <p class="bg">${esc(r.background)}${r.summary_en ? `<span class="en-sum" lang="en">${esc(r.summary_en)}</span>` : ''}</p>
           ${(r.sense_tags || []).length ? `<p class="tags">${r.sense_tags.map(esc).join(' ・ ')}</p>` : ''}
           ${r.confidence_note ? `<details><summary>考証メモ — 確からしさの内訳</summary><p class="apparatus">${linkify(r.confidence_note)}</p></details>` : ''}
+          ${(r.open_questions || []).length ? `<details><summary>まだ確かめられていないこと ${r.open_questions.length}件</summary><p class="apparatus">${r.open_questions.map(esc).join('<br>')}</p></details>` : ''}
           ${(r.review_log || []).length ? `<details><summary>制作の記録 — 監査の往復 ${r.review_log.length}回</summary>${r.review_log.map(l => `<p class="apparatus"><b>${esc(l.iter)}回目 ${esc(l.verdict)}</b> ${linkify(l.note)}</p>`).join('')}</details>` : ''}
-          ${r.cx_idea ? `<details><summary>宿のメモ — 滞在への翻訳</summary><p class="apparatus">${linkify(r.cx_idea)}${r.reciprocity_axis ? '<br><em>' + linkify(r.reciprocity_axis) + '</em>' : ''}</p></details>` : ''}
-          ${(r.sources || []).length ? `<details><summary>出典 ${r.sources.length}件</summary>${r.sources.map(u => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u)}</a>`).join('')}</details>` : ''}
-        </article>`).join('') || '<p class="empty">みつかりませんでした。べつのことばで探してみてください。</p>';
+          ${r.cx_idea ? `<details><summary>${esc((CFG.subregions.find(a => a.id === r.subregion) || {}).memo_label || '書き手のメモ — 訪ねるときの受けとり方')}</summary><p class="apparatus">${linkify(r.cx_idea)}${r.reciprocity_axis ? '<br><em>' + linkify(r.reciprocity_axis) + '</em>' : ''}</p></details>` : ''}
+          ${(r.sources || []).length ? `<details><summary>出典 ${r.sources.length}件</summary>${sourcesHtml(r)}</details>` : ''}
+          ${relatedHtml(r)}
+        </article>`;
+      }).join('') || '<p class="empty">みつかりませんでした。べつのことばで探してみてください。</p>';
     }
 
-    GROUPS.forEach(([name]) => {
-      const b = document.createElement('button');
-      b.className = 'chip' + (name === group ? ' on' : '');
-      b.textContent = name;
-      b.addEventListener('click', () => {
-        group = name;
-        chipsEl.querySelectorAll('.chip').forEach(c => c.classList.toggle('on', c.textContent === name));
-        render();
+    function chips(elId, names, get, set) {
+      const el = document.getElementById(elId);
+      el.innerHTML = '';
+      names.forEach(name => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'chip' + (name === get() ? ' on' : '');
+        b.setAttribute('aria-pressed', name === get() ? 'true' : 'false');
+        b.textContent = name;
+        b.addEventListener('click', () => {
+          set(name);
+          el.querySelectorAll('.chip').forEach(c => {
+            const on = c.textContent === name;
+            c.classList.toggle('on', on);
+            c.setAttribute('aria-pressed', on ? 'true' : 'false');
+          });
+          render();
+        });
+        el.appendChild(b);
       });
-      chipsEl.appendChild(b);
-    });
+    }
     document.getElementById('q').addEventListener('input', e => { query = e.target.value; render(); });
 
-    fetch('data/fujimi-archive-db.json')
-      .then(r => r.json())
-      .then(d => {
-        records = d.records; render();
-        if (location.hash) {
-          const el = document.getElementById(location.hash.slice(1));
-          if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      })
-      .catch(() => { listEl.innerHTML = '<p class="empty">台帳の読み込みに失敗しました。時間をおいてお試しください。</p>'; });
+    function openHash() {
+      const id = decodeURIComponent(location.hash.slice(1));
+      if (!id || !byId[id]) return;
+      // 絞り込みで隠れているかもしれないので、いったんすべて表示に戻す
+      if (!document.getElementById(id)) {
+        sub = group = capital = 'すべて'; query = ''; document.getElementById('q').value = '';
+        buildChips(); render();
+      }
+      const el = document.getElementById(id);
+      if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); el.classList.remove('hl'); void el.offsetWidth; el.classList.add('hl'); }
+    }
+    function buildChips() {
+      const loaded = CFG.subregions.filter(a => records.some(r => r.subregion === a.id)).map(a => a.label);
+      chips('chipsArea', ['すべて', ...loaded], () => sub, v => { sub = v; });
+      const used = CFG.groups.map(g => g[0]).filter(n => records.some(r => groupOf(r) === n));
+      chips('chips', ['すべて', ...used], () => group, v => { group = v; });
+      chips('chipsCap', ['すべて', ...CFG.capitals], () => capital, v => { capital = v; });
+    }
+
+    fetch('data/archive-config.json').then(r => r.json()).then(cfg => {
+      CFG = cfg;
+      return fetch(cfg.db.file).then(r => r.json());
+    }).then(db => {
+      records = db.records;
+      if (!records.length) throw new Error('empty');
+      byId = Object.fromEntries(records.map(r => [r.id, r]));
+      // ?region=suwa のように、土地を指定して開ける
+      const want = new URLSearchParams(location.search).get('region');
+      const hitSub = CFG.subregions.find(a => a.id === want && records.some(r => r.subregion === a.id));
+      if (hitSub) sub = hitSub.label;
+      buildChips(); render(); openHash();
+      window.addEventListener('hashchange', openHash);
+    }).catch(() => { listEl.innerHTML = '<p class="empty">台帳の読み込みに失敗しました。時間をおいてお試しください。</p>'; });
   </script>
 </body>
 </html>

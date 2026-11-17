@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Local Archive — 8weeks Stay</title>
-  <meta name="description" content="長野県富士見町のローカルアーカイブ。この土地の自然・文化・人の記録を、旅人のまなざしとともに書き留めてゆく8weeks Stayの記録。">
+  <meta name="description" content="長野県富士見町と、尾根と湖でつづく蓼科・諏訪のローカルアーカイブ。この土地の自然・文化・人の記録を、確からしさの度合いと出典を添えて、旅人のまなざしとともに書き留めてゆく記録。">
   <link rel="icon" type="image/png" href="assets/logos/favicon_moon.png">
   <link rel="canonical" href="https://8weeksfujimi.github.io/8weeks-LP/archive.html">
 
@@ -15,6 +15,29 @@
   <meta property="og:url" content="https://8weeksfujimi.github.io/8weeks-LP/archive.html">
   <meta property="og:site_name" content="8weeks Stay">
   <meta property="og:locale" content="ja_JP">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Local Archive — 8weeks Stay",
+    "alternateName": "8weeks Local Archive（富士見・蓼科・諏訪のローカルアーカイブ）",
+    "url": "https://8weeksfujimi.github.io/8weeks-LP/archive.html",
+    "inLanguage": ["ja", "en"],
+    "description": "長野県・八ヶ岳のすそから諏訪湖まで、富士見・蓼科・諏訪の土地の記録。手帖（覚え書きと場所の記録）と、確度・出典つきの一つの台帳からなる。",
+    "about": [
+      { "@type": "Place", "name": "長野県諏訪郡富士見町" },
+      { "@type": "Place", "name": "長野県茅野市・原村（蓼科高原・霧ヶ峰・白樺湖・北八ヶ岳）" },
+      { "@type": "Place", "name": "長野県諏訪市・下諏訪町・岡谷市（諏訪湖のまわり）" }
+    ],
+    "hasPart": [
+      { "@type": "Dataset", "@id": "https://8weeksfujimi.github.io/8weeks-LP/archive-db.html#dataset", "name": "8weeks Local Archive 台帳", "url": "https://8weeksfujimi.github.io/8weeks-LP/archive-db.html" },
+      { "@type": "CollectionPage", "name": "総目録", "url": "https://8weeksfujimi.github.io/8weeks-LP/records/index.html" },
+      { "@type": "AboutPage", "name": "方法と凡例", "url": "https://8weeksfujimi.github.io/8weeks-LP/archive-method.html" }
+    ],
+    "publisher": { "@type": "Organization", "name": "8weeks合同会社", "url": "https://8weeksfujimi.github.io/8weeks-LP/" }
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -227,6 +250,35 @@
       border: 1px solid var(--line); padding: 4px 14px; background: var(--white);
     }
 
+    /* ---------- もとになった記録への道しるべ ---------- */
+    .entry-source {
+      margin-top: 18px; font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.1em;
+      color: var(--ink-soft); line-height: 2;
+    }
+    .entry-source a { color: var(--navy-2); border-bottom: 1px dotted var(--line); margin-right: 14px; }
+    .entry-source a:hover { color: var(--navy); border-bottom-color: var(--navy); }
+    /* ---------- 場所の記録のなかの、土地の見出しと前書き ---------- */
+    .land-lead {
+      font-family: var(--serif); font-size: 0.97rem; line-height: 2.4; letter-spacing: 0.05em;
+      color: var(--ink); margin: 96px 0 8px; padding-top: 56px; border-top: 1px solid var(--line);
+    }
+    .journal > .land-lead:first-child, .journal.one-land > .land-lead { margin-top: 0; padding-top: 0; border-top: none; }
+    .land-lead { padding-left: 48px; }   /* 記事の列にそろえる（左の罫は溝を通る） */
+    /* 場所の記録は一つの並び。札に土地の名を添える（印のない頁は富士見） */
+    #places .journal .entry .entry-kind::after { content: " · 富士見"; letter-spacing: 0.2em; }
+    #places .journal .entry[data-land="tateshina"] .entry-kind::after { content: " · 蓼科"; }
+    #places .journal .entry[data-land="suwa"] .entry-kind::after { content: " · 諏訪"; }
+    .land-lead .land-name { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 16px; margin-bottom: 20px; }
+    .land-lead .land-name .ja { font-size: clamp(1.2rem, 2.6vw, 1.5rem); letter-spacing: 0.18em; color: var(--navy); }
+    .land-lead .land-name .en { font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.3em; color: var(--navy-2); text-transform: uppercase; }
+    .land-lead p + p { margin-top: 1.6em; }
+    .land-lead .en-sub { margin-top: 2em; padding-top: 1.4em; font-size: 0.8rem; }
+    .land-lead a { border-bottom: 1px solid var(--line); }
+    .land-lead.filtered-out { display: none; }
+    .index-card.quiet { padding: 26px 28px; }
+    .index-card.quiet .kanji { font-size: 1.3rem; margin-bottom: 4px; }
+    .index-card.quiet .en-name { margin-bottom: 10px; }
+
     /* ---------- 地の頁のカテゴリフィルタ ---------- */
     .place-filter {
       display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;
@@ -241,6 +293,7 @@
     .place-filter button:hover { border-color: var(--navy-2); }
     .place-filter button.on { background: var(--navy); color: var(--white); border-color: var(--navy); }
     .entry.filtered-out { display: none; }
+    .place-filter.land { margin-bottom: 22px; }
 
     /* ---------- 記事の折りたたみ ---------- */
     .entry-head {
@@ -305,6 +358,7 @@
       .section { padding: 80px 20px; }
       .index-grid { grid-template-columns: 1fr; }
       .entry { padding-left: 36px; }
+      .land-lead { padding-left: 36px; }
       .prologue-body { line-height: 2.3; }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -375,7 +429,7 @@
         <a class="index-card" href="#places">
           <div class="kanji serif">Places</div>
           <div class="en-name">場所の記録</div>
-          <p>富士見町の場所たちの記録。湧き水、遺跡、森、店、そこに立つ人。土地に根付いているものを、ひとつずつ書き留めます。</p>
+          <p>富士見町の場所たちの記録。湧き水、遺跡、森、店、そこに立つ人。土地に根付いているものを、ひとつずつ書き留めます。尾根と湖でつづく蓼科と諏訪の場所も、同じ並びに置いています。</p>
         </a>
         <a class="index-card" href="archive-db.html" style="grid-column: 1 / -1;">
           <div class="kanji serif">Ledger</div>
@@ -391,6 +445,16 @@
           <div class="kanji serif">Map</div>
           <div class="en-name">記憶の絵図</div>
           <p>座標の確かめられた記録を、土地の上に置いて眺める頁。点にふれると記録がひらき、歩いてゆける距離の記録もわかります。</p>
+        </a>
+        <a class="index-card quiet" href="records/index.html">
+          <div class="kanji serif">Catalogue</div>
+          <div class="en-name">総目録</div>
+          <p>台帳のすべての記録を、土地と主題ごとに並べた目録。記録ひとつひとつに、変わらないURLの頁があります。</p>
+        </a>
+        <a class="index-card quiet" href="archive-method.html">
+          <div class="kanji serif">Method</div>
+          <div class="en-name">方法と凡例</div>
+          <p>どうやって書き、何を書かないと決めているか。確からしさの五段、出典の扱い、書き手の立場、引用と訂正の決まり。</p>
         </a>
       </div>
     </div>
@@ -483,8 +547,13 @@
     <div class="container">
       <div class="section-label reveal">PLACES</div>
       <h2 class="section-title serif reveal">場所の記録</h2>
+      <div class="place-filter land reveal" id="landFilter" role="group" aria-label="土地で絞り込む"></div>
       <div class="place-filter reveal" id="placeFilter" role="group" aria-label="資本カテゴリで絞り込む"></div>
       <div class="journal">
+
+        <div class="land-lead reveal" data-land="fujimi" id="places-fujimi">
+          <div class="land-name"><span class="ja serif">富士見</span><span class="en">Fujimi · <span class="n"></span></span></div>
+        </div>
 
         <article class="entry reveal">
           <div class="entry-kind">Place 01</div>
@@ -1129,6 +1198,504 @@
           </div>
         </article>
 
+        <!-- PLACES-MORE:BEGIN -->
+        <div class="land-lead reveal" data-land="tateshina" id="places-tateshina">
+          <div class="land-name"><span class="ja serif">蓼科</span><span class="en">Tateshina · <span class="n">15</span></span></div>
+          <p>富士見の記録を掘っていくと、出典は、なんども尾根のむこうを指しました。乙事の堰に関わったと伝わる人は、茅野の人でした。井戸尻の最初の発掘を指導したと伝わる人は、尖石を掘った人でした。甲州街道で、蔦木のつぎの宿場は茅野の金沢です。</p>
+          <p>行政の線は引かれていますが、水も、祭も、道も、その線では止まりません。ここからの頁は、同じ八ヶ岳のすそを、北へ回りこんで書いたものです。</p>
+          <p>蓼科の土地に、わたしたちの宿はありません。案内としてではなく、同じ山のすその記録として置いています。どの頁にも、もとになった台帳の記録への道しるべを添えました。確かめたことと、確かめられなかったことは、そちらに書いてあります。</p>
+          <span class="en-sub">As we dug into Fujimi's records, the sources kept pointing over the ridge. The man said to have been behind the Okkoto weir was from Chino; the man said to have guided the first dig at Idojiri was the one who excavated Togariishi; the next post station after Tsutaki on the old highway is Kanazawa, in Chino. Administrative lines are drawn here, but water, festivals and roads do not stop at them. The pages that follow are written from the same foot of the Yatsugatake, a little further round to the north. We run no inn in Tateshina; these pages are set here not as a guide but as a record of the same mountain's foot. Each carries a pointer to the ledger records it draws on — what was checked, and what could not be, is written there.</span>
+        </div>
+
+        <article class="entry reveal" data-land="tateshina">
+          <div class="entry-kind">Place 01</div>
+          <h3 class="entry-title serif">ほとんどひとりで掘りはじめた人</h3>
+          <p class="entry-title-en">The Man Who Began Digging, Largely Alone</p>
+          <div class="entry-body">
+            <p>尖石の発掘は、ひとりの小学校の先生が始めたと伝わります。昭和五年、宮坂英弌は、家族の手を借りながら、ほとんどひとりで炉のあとを掘りはじめました。やがて、一軒の家ではなく、村のかたちそのものを知ろうとします。戦後は隣の与助尾根に移り、二十八の住まいのあとを掘り出したといいます。遺跡の名のもとになった石は、いまも南の斜面にあります。三角にとがった大きな石で、古くから信仰の対象だったと、国が史跡にしたときの説明は記します。その石にどんな言い伝えがあるのかを書いた資料には、まだ届いていません。昭和三十三年、宮坂は、富士見の井戸尻の最初の発掘にも指導に入ったと伝わります。そうだとすれば、尾根のむこうとこちらの縄文は、同じ人の手を通っていたことになります。あなたが考古館を出たら、その石の前に、いちど立ってみてください。</p>
+            <span class="en-sub">The digging at Togariishi was begun, it's told, by one primary-school teacher. In 1930 Miyasaka Hideichi, with his family's help but largely on his own, started with the trace of a hearth — and came to want not a single house but the shape of the whole village. After the war he moved to the neighbouring Yosukeone site and uncovered, they say, twenty-eight dwellings. The stone that gave the site its name still stands on the south slope: a great pointed boulder, “an object of worship since old times,” says the text written when the state designated the site. No record has yet been reached that tells what stories the stone carries. In 1958, it's told, Miyasaka also went to guide the first excavation at Idojiri in Fujimi. If so, the Jomon on both sides of the ridge passed through the same hands. When you leave the museum, go and stand, once, before that stone.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">文化資本</span>
+            <span class="entry-tag">縄文</span>
+            <span class="entry-tag">人</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/TSN-JOMON-001.html">尖石遺跡・与助尾根遺跡と宮坂英弌（確度 S/A/B）</a><a href="records/TSN-JOMON-004.html">茅野市尖石縄文考古館の歩みと「尖石」という石（確度 S/A/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="tateshina">
+          <div class="entry-kind">Place 02</div>
+          <h3 class="entry-title serif">「土偶」とだけ</h3>
+          <p class="entry-title-en">Simply “Dogu”</p>
+          <div class="entry-body">
+            <p>縄文のビーナスは、工業団地をつくるための発掘で見つかりました。昭和六十一年の九月、茅野の棚畑。百四十九の住まいのあとが二つの輪になって並ぶ村の、南の広場の穴に、寝かせるように納められていたといいます。土偶は、たいてい割れた姿で見つかります。この一体は、ほぼそのままの形でした。国の解説は、そこに「納める」という意図を読みます。けれど、置いた人の気持ちまでは、誰にも分かりません。国宝としての正式な名前は「土偶」の二文字だけです。ビーナスという名は、通り名です。高さは二十七センチ。あなたが展示室でこの像の前に立ったら、いちど、呼び名を忘れて眺めてみてください。名前がつくよりずっと前から、この像はこの形でした。</p>
+            <span class="en-sub">The “Venus of Jomon” was found in a dig carried out to make way for an industrial park — September 1986, at Tanabatake in Chino. In a village where the traces of 149 dwellings stood in two rings, it lay, they say, as if laid down to rest in a pit on the southern plaza. Figurines are mostly found broken; this one was nearly whole. The official commentary reads in that an intent to “deposit.” But what the person who placed it felt, no one can know. Its formal name as a National Treasure is just the two characters for “clay figurine”; “Venus” is a nickname. It stands twenty-seven centimetres tall. When you stand before it, try for a moment to forget the name. It had this shape long before it had one.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">文化資本</span>
+            <span class="entry-tag">縄文</span>
+            <span class="entry-tag">名づけ</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/TSN-JOMON-002.html">国宝土偶「縄文のビーナス」（確度 S/A）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="tateshina">
+          <div class="entry-kind">Place 03</div>
+          <h3 class="entry-title serif">はずれていた右足</h3>
+          <p class="entry-title-en">The Right Leg, Apart</p>
+          <div class="entry-body">
+            <p>仮面の女神は、平成十二年の夏、茅野の中ッ原で見つかりました。田畑を整える工事のまえの発掘でした。見つかったのは、墓と考えられる穴が集まる一角です。右の脇を上にして、ほぼ真横に寝かされていたと、国の記録は書いています。右の足は、胴から外れていました。人の手で外された可能性が高い、と市は説明します。まわりの穴からは、亡くなった人に添えたとみられる鉢も出ています。なぜ足が外れていたのか、なぜそこに寝かされたのか。分かっているのは、そうなっていた、ということだけです。見つかった場所の一部は、そのまま残されて、公園になりました。あなたが考古館を訪ねたあとに時間があったら、中ッ原まで足をのばしてみてください。像が土の中にあった、その場所を見ることができます。</p>
+            <span class="en-sub">The “Goddess with a Mask” was found in the summer of 2000 at Nakappara in Chino, in a dig ahead of farmland works. The spot was a corner where pits thought to be graves cluster. The figure lay almost flat on its side, its right side uppermost — so the national record states. Its right leg had come away from the body; very likely removed by human hands, the city explains. From the pits around it came bowls thought to be grave goods. Why the leg had come away, why the figure was laid there — all that is known is that it was so. Part of the place where it was found has been kept as it was and made into a park. If you have time after visiting the museum, go on to Nakappara. You can see the very place where it lay in the earth.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">文化資本</span>
+            <span class="entry-tag">縄文</span>
+            <span class="entry-tag">欠け</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/TSN-JOMON-003.html">国宝土偶「仮面の女神」（確度 S/A/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="tateshina">
+          <div class="entry-kind">Place 04</div>
+          <h3 class="entry-title serif">全部は取らない</h3>
+          <p class="entry-title-en">Not Taking It All</p>
+          <div class="entry-body">
+            <p>八ヶ岳の西の斜面では、川は山から西へ流れ下ります。南の原野には、水が足りませんでした。坂本養川という人は、川を横につなぐ水路を考えたと伝わります。北の川の余った水を、順に南へ繰り越していく仕組みです。取り入れ口では、水を全部は取りません。わざと漏らして、下の人のぶんを川に残します。藩に願い出て、いちどは退けられ、最初の堰が掘られはじめたのは十年後の天明五年でした。堰の数は十五とも十数ともいい、数え方は資料で揺れます。養川がどんな最期を迎えたのかを書いた資料には、まだ届いていません。富士見の乙事の堰も、この人の働きかけで藩の仕事になったと伝わります。水は、町の境を知りません。あなたが乙女滝の前に立つことがあったら、思い出してください。その滝は、人が引いた水路の一部だと、国の資料は記しています。</p>
+            <span class="en-sub">On the western slope of the Yatsugatake, rivers run down from the mountain toward the west, and the plains to the south were short of water. A man named Sakamoto Yosen, it's told, conceived of channels joining river to river sideways — carrying the surplus of each northern stream on to the south, in turn. At the intake, the water is not all taken; some is deliberately let through, leaving the river its share for those below. He petitioned the domain and was at first refused; the first weir began to be cut ten years later, in 1785. The weirs number fifteen, or “ten-odd” — the count wavers from source to source. No record has yet been reached that tells how Yosen's life ended. The Okkoto weir in Fujimi, too, became a work of the domain through his urging, it's said. Water does not know where one town ends. If you ever stand before the Otome Falls, remember: that waterfall, a government record notes, is part of a man-made channel.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">人的資本</span>
+            <span class="entry-tag">水</span>
+            <span class="entry-tag">分かち合い</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/TSN-IND-001.html">坂本養川と繰越堰（確度 A/B）</a><a href="records/TSN-IND-002.html">滝之湯堰・大河原堰と世界かんがい施設遺産（確度 S/A）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="tateshina">
+          <div class="entry-kind">Place 05</div>
+          <h3 class="entry-title serif">絵になるまえの池</h3>
+          <p class="entry-title-en">The Pond Before the Painting</p>
+          <div class="entry-body">
+            <p>御射鹿池は、田んぼのための池です。昭和八年にできました。このあたりは、三年に一度しか米がとれないと言われた土地だったそうです。山から来る渋川の水は、冷たいうえに、強い酸性でした。その水をいったん池にためて、薄め、温めてから、田へ送る。池は、そのための道具でした。水はいまも酸っぱく、底には酸性を好む苔が育つといいます。画家の東山魁夷が「緑響く」に描いたのは、この池だとされます。池の名は、神にささげる鹿を射た狩りの場に由来すると伝わりますが、確かなことは分かりません。あなたが岸に立ったら、水に映る木々のむこうに、その水が下っていく先の田を、思い浮かべてみてください。</p>
+            <span class="en-sub">Mishakaike is a pond made for rice fields. It was finished in 1933. This was land, they say, where rice could be harvested only one year in three. The water of the Shibu River coming off the mountain was cold and, on top of that, strongly acidic. Hold it for a while in a pond, thin it, warm it, and only then send it to the paddies — the pond was a tool for that. The water is acidic still, and a moss that favours acid grows, they say, on the bottom. The painter Higashiyama Kaii's “Midori hibiku” is held to depict this pond. Its name is said to come from a hunting ground where deer were shot as offerings to the gods, but nothing certain is known. When you stand on the bank, try to picture, beyond the trees mirrored in the water, the fields that the water is on its way to.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">自然資本</span>
+            <span class="entry-tag">水</span>
+            <span class="entry-tag">光</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/TSN-IND-003.html">御射鹿池（確度 A/B/C）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="tateshina">
+          <div class="entry-kind">Place 06</div>
+          <h3 class="entry-title serif">温めるための湖</h3>
+          <p class="entry-title-en">A Lake Made to Warm Water</p>
+          <div class="entry-body">
+            <p>白樺湖は、もとは「蓼科大池」という名の、田んぼのための池でした。山の水は冷たすぎて、稲の三割が実らないこともあったといいます。水をためて日に当て、温めてから田へ送る。そのための池を、柏原の人びとが言い出しました。工事は昭和十五年に始まり、途中で県の手を離れたと研究者は記します。残りは区が費用を負い、区の人びとと諏訪中学校の生徒の手で、昭和二十一年にできあがったといいます。白樺湖という名も、区の人びとの発案だったと伝えられます。貸しボートを始めたのも、まず区の人びとでした。土地の人が言い出し、自分たちの手で仕上げたと伝わる湖でした。あなたが湖畔を歩くとき、目のまえの水は、もともと、稲のために温められていた水です。</p>
+            <span class="en-sub">Lake Shirakaba began as a pond for rice fields, under the name “Tateshina Oike.” The mountain water was so cold that, they say, three-tenths of the rice sometimes failed to ripen. Hold the water, let the sun warm it, then send it to the paddies — a pond for that was first proposed by the people of Kashiwabara. Work began in 1940 and, researchers record, passed out of the prefecture's hands along the way. The ward bore the remaining cost, and with the labour of its people and of students from Suwa Middle School it was finished, they say, in 1946. The name “Lake Shirakaba”, too, is said to have been the ward's idea, and it was the ward's people who first began hiring out boats on it. It is a lake that local people proposed and, it's told, finished with their own hands. When you walk the shore, the water before you was once water being warmed for rice.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">人的資本</span>
+            <span class="entry-tag">水</span>
+            <span class="entry-tag">名づけ</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/TSN-IND-004.html">温水ため池という技術——白樺湖（確度 A/B）</a><a href="records/TSN-IND-009.html">白樺湖の観光開発（確度 S/A/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="tateshina">
+          <div class="entry-kind">Place 07</div>
+          <h3 class="entry-title serif">凍みる</h3>
+          <p class="entry-title-en">Shimiru</p>
+          <div class="entry-body">
+            <p>茅野では、真冬にとりわけ寒いことを「凍みる」と言うそうです。晴れた夜に凍り、晴れた昼に融ける。そのくり返しを、人は道具にしました。ところてんを外に出し、凍らせては融かし、乾かしたものが寒天です。天保のころ、行商の人が丹波や京から作り方を持ち帰ったと伝わりますが、その年は資料によって十年ほど揺れます。冬、田畑の仕事のないあいだの稼ぎとして広がったといいます。原料の海藻は、海のないこの土地へ、鉄道で運ばれてきたといいます。大正十三年には、四千八百トンあまりが茅野の駅に着いたと伝わります。豆腐も、大根も、同じように外に吊るされて凍みてきました。あなたが冬にこの土地を通るなら、寒さを、ただ耐えるものとしてではなく、誰かの仕事の相棒として、眺めてみてください。</p>
+            <span class="en-sub">In Chino, they say, a spell of deep midwinter cold is called shimiru. It freezes on clear nights and thaws on clear days — and people made a tool of that rhythm. Tokoroten jelly set outdoors, frozen and thawed over and over until it dries, becomes kanten, agar. In the Tenpo years (1830–44) a travelling pedlar is said to have brought the method home from Tanba and Kyoto, though the year wavers by a decade from source to source. It spread, they say, as winter earnings for the months when the fields gave no work. The seaweed it is made from is said to have come to this landlocked place by rail: in 1924, by the same account, more than 4,800 tonnes arrived at Chino station. Tofu and daikon, too, have been hung outside to freeze in the same way. If you pass through in winter, try looking at the cold not as something to be endured but as somebody's working partner.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">人的資本</span>
+            <span class="entry-tag">冬</span>
+            <span class="entry-tag">手仕事</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/TSN-IND-005.html">角寒天（確度 A/B）</a><a href="records/TSN-IND-006.html">凍り豆腐・凍み大根と「凍み」の食文化（確度 A/B/C）</a><a href="records/TSN-ROAD-004.html">茅野駅と中央本線（確度 A/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="tateshina">
+          <div class="entry-kind">Place 08</div>
+          <h3 class="entry-title serif">凍らないといわれる水</h3>
+          <p class="entry-title-en">Water Said Not to Freeze</p>
+          <div class="entry-body">
+            <p>前宮のある斜面のまんなかを、清い流れが下っています。水眼（すいが）と呼ばれる水です。一年じゅう量も温かさも変わらず、冬にも凍らないといわれます。諏訪の上社がこの場所に始まったのは、この水によるところが大きいといわれる——市の報告書は、そう書いています。神社は、ここを信仰の始まりの地と伝えていますが、いつ建てられたのかは、示されていません。いまの本殿は、昭和のはじめに、伊勢の神宮の古い材を受けて建てたものだと、神社は記します。斜面の下には、かつて大祝（おおほうり）という神職の館があったといいます。建物より先に、まず水があったのかもしれません。あなたが参道で水音に気づいたら、足を止めて、その流れが来る山のほうを、見上げてみてください。</p>
+            <span class="en-sub">Down the middle of the slope where Maemiya stands runs a clear stream, called Suiga. It is said to keep the same volume and warmth all year, and not to freeze even in winter. That the Upper Shrine of Suwa began in this place is said to owe much to this water — so a city report writes. The shrine tells of this as the place where the faith began, but gives no date for its founding. The present main hall, the shrine records, was built in the early 1930s with old timbers received from the Grand Shrine of Ise. Below on the slope, they say, once stood the residence of the priest called the Ohori. Before any building, perhaps, there was first the water. If you catch its sound along the approach, stop, and look up toward the mountain it comes from.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">文化資本</span>
+            <span class="entry-tag">水</span>
+            <span class="entry-tag">祈り</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/TSN-FAITH-001.html">諏訪大社上社前宮と水眼（確度 A/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="tateshina">
+          <div class="entry-kind">Place 09</div>
+          <h3 class="entry-title serif">三十年ぶりの山</h3>
+          <p class="entry-title-en">The Mountain, After Thirty Years</p>
+          <div class="entry-body">
+            <p>上社の御柱は、もともと、御小屋山という神社の森から伐り出すものでした。昭和三十四年の台風で木が倒れ、柱にできる大木が足りなくなったといいます。それから、よその山の木を迎えた回がありました。令和四年の祭では、およそ三十年ぶりに、御小屋山の木が柱になったと報じられています。木を伐るのは、感染が落ち着いているうちにと、前の年の秋に早められたといいます。いつもなら人の手で曳く柱は、四月のある一日、車に載せられて里へ下りました。曳かずに下ろした春のことも、祭の記憶の一部です。あなたが茅野の宮川のあたりを通ったら、御柱屋敷という名の場所を、探してみてください。山の木が、里の柱になる途中の場所です。</p>
+            <span class="en-sub">The great pillars of the Upper Shrine were, by old custom, felled in a shrine forest on Mt. Okoya. A typhoon in 1959 brought trees down, and timber large enough for the pillars, they say, ran short. After that there were festivals for which trees were welcomed from other mountains. For the festival of 2022, it was reported, trees from Mt. Okoya became pillars again for the first time in some thirty years. The felling, they say, was brought forward to the autumn before, while infections were calm. The pillars, which in other years are hauled by hand, came down to the village in a single April day, carried on vehicles. A spring when they came down without being hauled is part of the festival's memory too. If you pass by Miyagawa in Chino, look for a place called Onbashira-yashiki — a stop on the way by which a tree of the mountain becomes a pillar of the village.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">文化資本</span>
+            <span class="entry-tag">祭</span>
+            <span class="entry-tag">木</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/TSN-FAITH-002.html">上社御柱の山出し（確度 A/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="tateshina">
+          <div class="entry-kind">Place 10</div>
+          <h3 class="entry-title serif">囲炉裏のある居間</h3>
+          <p class="entry-title-en">The Room with the Hearth</p>
+          <div class="entry-body">
+            <p>映画監督の小津安二郎は、昭和二十九年の夏、脚本家の野田高梧に連れられて、はじめて蓼科の野田の山荘を訪ねたといいます。二年のちには近くの山荘を借りて「無藝荘」と名づけ、それからの脚本を、この高原で書くようになったと伝わります。蓼科で書かれた作品がいくつなのかは、市の資料でも六作とも七作ともあり、数え方が揺れています。野田の山荘「雲呼荘」は、すでに取り壊されて、ありません。無藝荘は、小津の生誕から百年の年に、地元が残すと決めて、二人の暮らしの中心だった場所へ移されました。茅葺きの屋根と、囲炉裏のある居間は、当時のままだといいます。あなたがその居間に上がることがあったら、囲炉裏のそばに、しばらく座ってみてください。書かれたものは映画になって残り、書いた時間は、この高原に残っています。</p>
+            <span class="en-sub">The film director Ozu Yasujiro first visited the screenwriter Noda Kogo's mountain house in Tateshina, they say, in the summer of 1954, brought there by Noda. Two years later he rented a mountain house nearby, named it Mugeiso, and from then on, it's told, wrote his scripts on this plateau. How many of the films were written here — six, or seven — differs even among the city's own documents; it depends how they are counted. Noda's house, Unkoso, has been pulled down and is gone. Mugeiso, in the hundredth year from Ozu's birth, was kept by local decision and moved to the spot that had been the centre of the two men's life here. Its thatched roof and the room with the sunken hearth are, they say, as they were. If you ever step up into that room, sit for a while beside the hearth. What was written remains as films; the time spent writing remains on this plateau.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">文化資本</span>
+            <span class="entry-tag">映画</span>
+            <span class="entry-tag">言葉</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/TSN-LIT-001.html">小津安二郎・野田高梧と蓼科（確度 A/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="tateshina">
+          <div class="entry-kind">Place 11</div>
+          <h3 class="entry-title serif">人がつくった草原</h3>
+          <p class="entry-title-en">A Grassland Made by Hands</p>
+          <div class="entry-body">
+            <p>霧ヶ峰の草原の多くは、手つかずの自然ではありません。まわりの村の人びとが、牛や馬の餌にし、田畑の肥やしにするために、草を刈りつづけてきた山です。江戸のころには刈り場が山ぜんたいに及んだと、県の計画書は記します。草原を保つのに、火も使われました。昭和三十年代に、草は刈られなくなりました。それから五十年ほどのあいだに松や楢が入り、ニッコウキスゲの群れは、多くが消えたといいます。鹿が食べることも、理由に挙げられています。いまは柵の中で、花が咲きます。平成二十五年の春、草原を取りもどすための火は燃え広がって、二百二十ヘクタールほどを焼きました。人の手で生まれた景色は、手を止めても、入れなおしても、もとのままではいられないようです。あなたが八島ヶ原の湿原のへりを歩くとき、まわりの草の斜面を、誰かの刈り場のあととして、眺めてみてください。</p>
+            <span class="en-sub">Most of the grassland of Kirigamine is not untouched nature. It is mountain that the people of the surrounding villages kept mowing — for fodder for cattle and horses, for manure for their fields. By the Edo period the mowing reached over the whole upland, a prefectural plan records, and fire was used to keep it grass. In the decade from 1955 the mowing stopped. Over the fifty years or so that followed, pine and oak moved in, and many of the day-lily colonies disappeared, they say. Browsing by deer is given as a cause as well. Today the flowers bloom inside fences. In the spring of 2013 a fire set to bring the grassland back spread, and burned some 220 hectares. A landscape born of human hands, it seems, cannot stay as it was — whether the hands stop, or return. When you walk the edge of the Yashimagahara mire, try seeing the grassy slopes around you as what remains of someone's mowing ground.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">自然資本</span>
+            <span class="entry-tag">草</span>
+            <span class="entry-tag">火</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/TSN-NAT-004.html">霧ヶ峰の半自然草原（確度 A/B）</a><a href="records/TSN-NAT-003.html">八島ヶ原湿原（確度 S/A/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="tateshina">
+          <div class="entry-kind">Place 12</div>
+          <h3 class="entry-title serif">枯れながら続く森</h3>
+          <p class="entry-title-en">A Forest That Goes On by Dying</p>
+          <div class="entry-body">
+            <p>北八ヶ岳の斜面を遠くから見ると、濃い緑のなかに、白い帯が何本も走っています。帯のところでは、木が立ったまま、まとまって枯れています。縞枯れと呼ばれます。枯れた帯の下では、もう次の若い木が育っていて、帯そのものは、年に二メートルあまりの速さで、ゆっくり斜面を上っていくといいます。森が弱っているのではなく、これがこの森の代のかわり方なのだと、林野庁は説明します。なぜ帯になるのか。決まった向きに吹く風が有力だと考えられていますが、確かな説明は、まだありません。分かっていないことを、分かっていないまま眺められる場所は、そう多くありません。あなたが北八ヶ岳の稜線に出ることがあったら、白い帯の下の、若い緑を探してみてください。</p>
+            <span class="en-sub">Seen from afar, the slopes of the northern Yatsugatake are crossed by white bands running through the dark green. Along each band the trees have died together, still standing. It is called shimagare — “striped die-back.” Beneath a dead band the next young trees are already growing, and the band itself, they say, climbs slowly up the slope at a little over two metres a year. The forest is not failing, the Forestry Agency explains; this is the way this forest passes from one generation to the next. Why in bands? Wind blowing from a constant direction is thought the likeliest cause, but there is no settled explanation yet. Places where you can look at something not understood, and leave it not understood, are not so many. If you ever come out on the ridge of the northern Yatsugatake, look for the young green under the white bands.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">自然資本</span>
+            <span class="entry-tag">森</span>
+            <span class="entry-tag">問い</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/TSN-NAT-002.html">縞枯れ現象（確度 S/A/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="tateshina">
+          <div class="entry-kind">Place 13</div>
+          <h3 class="entry-title serif">別荘地の地面</h3>
+          <p class="entry-title-en">The Ground Beneath the Villas</p>
+          <div class="entry-body">
+            <p>蓼科の別荘地には、買った土地ではなく、借りた土地の上にひらかれたものがあるといいます。貸しているのは、「財産区」という、聞きなれない名前の持ち主です。むかし村の人びとが共同で使ってきた山。その山を、村の人びとのものとして持ちつづけるための、法律の上の入れものが財産区です。茅野の柏原では、明治四十年に置かれたといいます。戦後、茅野の財産区のなかには、山を開発する会社に貸すという形をとったところがあると、研究者は記します。森のなかの別荘の下に、いまも、ふもとの集落の山がつづいているところがあるといいます。富士見のスキー場の記録にも、財産区の名前が出てきます。同じ名前の仕組みが、尾根のこちらにもあります。あなたが別荘地の静かな道を歩くとき、その地面が、ふもとの集落から借りられたものかもしれないことを、思い出してみてください。</p>
+            <span class="en-sub">Some of Tateshina's villa districts, they say, were opened not on land that was bought but on land that was leased. The lessor is an owner with an unfamiliar name: a zaisanku, a “property ward.” The mountain that villagers once used in common — a property ward is the legal vessel for going on holding that mountain as the villagers' own. At Kashiwabara in Chino, one was set up in 1907, they say. After the war, researchers record, some of Chino's property wards took the course of leasing their mountains to companies that would develop them. Under some of the villas in the woods, they say, the mountain of a village at the foot still continues. The name “property ward” appears in the record of Fujimi's ski slope, too; an institution of the same name exists on this side of the ridge. When you walk the quiet roads of a villa district, remember that the ground may be on loan from the village below.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">人的資本</span>
+            <span class="entry-tag">境界</span>
+            <span class="entry-tag">分かち合い</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/TSN-IND-008.html">財産区と蓼科高原の別荘地開発（確度 S/A/B）</a><a href="records/FJM-IND-008.html">富士見パノラマリゾート（確度 A/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="tateshina">
+          <div class="entry-kind">Place 14</div>
+          <h3 class="entry-title serif">誰が植えたのか</h3>
+          <p class="entry-title-en">Who Planted Them</p>
+          <div class="entry-body">
+            <p>八ヶ岳のすそには、カラマツの林が広がっています。この木は、山の高いところにもとから生える木ですが、すそ野の林の多くは、人が植えたものだといいます。県の報告によれば、信州のカラマツの植林は、江戸のはじめの川上村にさかのぼり、明治からのちに広がり、戦後にさらに増えました。植えられたのは、昭和三十五年の前後がいちばん多いとされます。八ヶ岳の南西のすそは、江戸から明治にかけて、広い草地だったと、研究所の報告は記します。草を刈る山が、木の山に変わったのです。富士見の広原では、明治三十七年から植林が本格的に始まったと、同じ報告は記します。けれど、誰が、一本ずつ植えたのかを伝える資料には、まだ届いていません。この景色には、作者の名前がありません。あなたがカラマツの林の道を通るとき、木が、列になって並んでいるかどうかを、見てみてください。</p>
+            <span class="en-sub">At the foot of the Yatsugatake, larch woods spread wide. The larch grows of its own accord high on the mountains, but most of the woods on the lower slopes, they say, were planted. According to a prefectural report, larch planting in Shinshu goes back to Kawakami village in the early Edo period, spread from the Meiji era on, and grew further after the war; the planting is held to have peaked around 1960. The south-western foot of the Yatsugatake, a research institute's report records, was broad grassland from the Edo into the Meiji period. Mountains for mowing turned into mountains of trees. At Hirohara in Fujimi, the same report notes, planting began in earnest in 1904. Yet of who planted them, tree by tree, no record has yet been reached. This landscape has no author's name. When you take a road through the larches, look to see whether the trees stand in rows.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">自然資本</span>
+            <span class="entry-tag">森</span>
+            <span class="entry-tag">欠け</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/TSN-NAT-005.html">八ヶ岳西麓のカラマツ林（確度 A/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="tateshina">
+          <div class="entry-kind">Place 15</div>
+          <h3 class="entry-title serif">蔦木のつぎの宿</h3>
+          <p class="entry-title-en">The Next Station After Tsutaki</p>
+          <div class="entry-body">
+            <p>甲州街道を江戸から歩いてくると、信濃に入って最初の宿が、富士見の蔦木です。そのつぎの宿が、茅野の金沢でした。あいだは三里と四町とされます。金沢の宿は、もとは北の原にあって、青柳という名だったと伝わります。水の害と火事を重ねて、慶安のころ、いまの場所へ移されたといいます。本陣のあった場所には、いま、公民館と消防の詰所が建っているといいます。もとの宿があったと伝わる権現の森は、市の史跡になりました。宿場は、旅人を一晩泊めて、つぎの宿へ送り出すための場所です。尾根のむこうとこちらは、もともと、三里あまりの道でつながっていました。あなたが富士見から茅野へ向かうことがあったら、いちど、古い街道のほうを、たどってみてください。</p>
+            <span class="en-sub">Walking the Koshu Kaido from Edo, the first post station after you enter Shinano is Tsutaki, in Fujimi. The next was Kanazawa, in Chino — three ri and four cho further on, it is said. The Kanazawa station, it's told, first stood to the north, on open ground, under the name Aoyagi; after repeated floods and fires it was moved, they say, to its present site around 1651. Where the honjin, the official inn, stood, there is now, they say, a community hall and a fire-brigade post. Gongen-no-mori, the grove where the old station is said to have been, has become a city historic site. A post station is a place for lodging travellers a night and sending them on to the next. The two sides of the ridge were joined, from the start, by a road of three ri and a little. If you ever travel from Fujimi toward Chino, follow the old highway for once.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">文化資本</span>
+            <span class="entry-tag">道</span>
+            <span class="entry-tag">境界</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/TSN-ROAD-001.html">金沢宿（確度 A/B）</a><a href="records/FJM-ROAD-001.html">蔦木宿・国界橋（確度 S）</a></p>
+        </article>
+
+        <div class="land-lead reveal" data-land="suwa" id="places-suwa">
+          <div class="land-name"><span class="ja serif">諏訪</span><span class="en">Suwa · <span class="n">15</span></span></div>
+          <p>富士見の峠に降った雨は、あるものは甲斐へ、あるものは宮川を下って、諏訪湖に入ります。富士見の記録を掘っていくと、道も、祭も、仕事の話も、同じように湖のほうへ下っていきました。甲州街道は、蔦木、金沢、上諏訪とつづいて、下諏訪で中山道に合います。縄文の黒曜石の産地のひとつは、下諏訪の山でした。「東洋のスイス」と呼ばれた工場の話の主語は、湖のまわりの町でした。</p>
+          <p>湖のまわりには、三つの市と町があります。諏訪市、下諏訪町、岡谷市。ここからの頁は、八ヶ岳のすその水が集まる、その湖のまわりを書いたものです。</p>
+          <p>諏訪湖のまわりに、わたしたちの宿はありません。案内としてではなく、同じ水の行き先の記録として置いています。どの頁にも、もとになった台帳の記録への道しるべを添えました。確かめたことと、確かめられなかったことは、そちらに書いてあります。凍った湖や峠の道の様子は、季節と天気で変わります。出かけるときは、その日の知らせを確かめてください。</p>
+          <span class="en-sub">The rain that falls on the pass at Fujimi goes two ways: some toward Kai, some down the Miya River into Lake Suwa. As we dug into Fujimi's records, roads, festivals and stories of work kept running down toward the lake in the same way. The Koshu Kaido passes Tsutaki, Kanazawa and Kamisuwa and meets the Nakasendo at Shimosuwa; one of the Jomon obsidian sources lay in the hills of Shimosuwa; and the factory story known as the “Switzerland of the East” belonged to the towns around the lake. Three municipalities ring the water — Suwa, Shimosuwa and Okaya — and the pages that follow are about the land around that lake, where the water from the foot of the Yatsugatake gathers. We run no inn around Lake Suwa; these pages are set here not as a guide but as a record of where the same water goes. Each carries a pointer to the ledger records it draws on — what was checked, and what could not be, is written there. Ice on the lake and roads over the passes change with the season and the weather; please check the day's public information before you go.</span>
+        </div>
+
+        <article class="entry reveal" data-land="suwa">
+          <div class="entry-kind">Place 01</div>
+          <h3 class="entry-title serif">氷を待つ朝</h3>
+          <p class="entry-title-en">The Mornings They Wait for Ice</p>
+          <div class="entry-body">
+            <p>諏訪湖が端から端まで凍ると、氷は裂けて、せり上がることがあります。上社の男神が、下社の女神のもとへ通った道すじだと伝えられてきました。それを見とどけるのは、諏訪市小和田の八剱神社の人たちです。筋があらわれると、宮司や氏子の総代たちがそれを見てまわり、その年の作柄や世の中を占って、結果を上社へ届けるといいます。こうした知らせの控えを、のちに書き写してまとめたものが、上社の側に、一四四三年から一六八一年のぶんまで伝わっています。諏訪湖が凍った日の記録は、気候のうつりかわりを読む手がかりとして、研究に使われてきました。ただ、途中には暦の変わり目や欠けた年があり、読み方には不確かさが残るといいます。最後に御神渡りと認められたのは、二〇一八年でした。あらわれない冬は「明けの海」と呼ばれます。あなたが冬の朝に湖のそばを通ることがあったら、岸に立って、まだ凍らない水をながめてみてください。</p>
+            <span class="en-sub">When Lake Suwa freezes from shore to shore, the ice sometimes splits and heaves up in a ridge — the path, it has long been told, by which the god of the Upper Shrine crossed to the goddess of the Lower. Those who keep watch for it are the people of Yatsurugi Shrine in Kowata, Suwa. When a ridge appears, the priest and the parish elders go out to look, read from it the year's harvest and fortunes, and, it is said, carry the result to the Upper Shrine. A later compilation, copied from the drafts of such reports and kept on the Upper Shrine's side, survives for the years from 1443 to 1681. Records of the lake's freezing have been read by researchers as evidence of a changing climate — though there are calendar changes and missing years in them, and their reading, it is said, remains uncertain. The last crossing to be recognised was in 2018. A winter without one is called ake no umi, “the open sea.” If you pass the lake on a winter morning, stand on the shore and look a while at water that has not yet frozen.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">自然資本</span>
+            <span class="entry-tag">冬</span>
+            <span class="entry-tag">待つ時間</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/SUW-FAITH-004.html">御神渡りと八剱神社（確度 A/B）</a><a href="records/SUW-NAT-002.html">御神渡りの記録を気候の史料として読む（確度 S/A/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="suwa">
+          <div class="entry-kind">Place 02</div>
+          <h3 class="entry-title serif">本殿のない社</h3>
+          <p class="entry-title-en">A Shrine Without a Main Hall</p>
+          <div class="entry-body">
+            <p>諏訪大社の上社本宮には、神さまのすまいにあたる本殿がありません。門のかたちをした幣殿と、その前の拝殿、左右にのびる片拝殿がならび、四すみに御柱が立っています。国の説明は、いまの社殿を天保六年、一八三五年の建て替えとし、立川流の二代目、富昌の代表作だとします。神社は、天保二年から九年にかけて建てたと記しています。富士見の乙事の諏訪社は、上社本宮の拝殿を建てなおしたものだと、富士見町は記します。四脚門は、慶長十三年、一六〇八年の造営と伝わり、徳川家康の寄進とされますが、市の博物館は慶長十九年としていて、年はそろいません。うしろの守屋山をご神体とする説明は、広く聞かれます。けれども Wikipedia は、山をご神体とするいちばん古い文献には山の名が出てこないと記し、守屋山とする説は明治からあとのものだとする見方も紹介しています。拝む先がどこなのかは、思うほどはっきりしていません。あなたが拝殿の前に立ったら、建物のむこうに何があるのかを、しばらく見てみてください。</p>
+            <span class="en-sub">The Upper Shrine's Honmiya has no main hall — no house for the god. A gate-shaped offering hall, a worship hall before it and wing halls to either side stand in a row, with the four great pillars at the corners. The state's description dates the present buildings to a rebuilding of 1835 and calls them the representative work of Tomimasa, second master of the Tatekawa school; the shrine itself gives the years of building as 1831 to 1838. The Suwa shrine at Okkoto in Fujimi, that town records, is the Honmiya's worship hall rebuilt. The four-legged gate is said to date from 1608 and to be a gift of Tokugawa Ieyasu, but the city museum says 1614, and the years do not agree. That Mount Moriya, behind, is the body of the god is widely said. Yet Wikipedia notes that the oldest text to speak of a mountain as the god's body does not name the mountain, and reports the view that the Moriya theory dates only from the Meiji era onward. What one bows toward is less settled than it seems. When you stand before the worship hall, look for a while at what lies beyond the buildings.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">文化資本</span>
+            <span class="entry-tag">祈り</span>
+            <span class="entry-tag">欠け</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/SUW-FAITH-001.html">諏訪大社上社本宮（確度 S/A/B）</a><a href="records/FJM-FAITH-001.html">乙事諏訪神社（確度 S/A）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="suwa">
+          <div class="entry-kind">Place 03</div>
+          <h3 class="entry-title serif">散っていった仏たち</h3>
+          <p class="entry-title-en">The Buddhas That Were Scattered</p>
+          <div class="entry-body">
+            <p>上社本宮のまわりには、かつて神宮寺というお寺がありました。普賢菩薩をまつるお堂と、高さ三十八メートルの五重塔、八つの院や坊があったと、市の博物館は記します。明治元年の冬、五重塔は取りこわされました。神と仏を分けることになった時代のことです。普賢堂の仏像は、ひそかに四賀の仏法紹隆寺へ運ばれたとされます。そのお寺の住職は、多くの仏像を寺が引きとり、二十五か所ほどの寺に仏具が分かれてまつられていると語っています。塔にあった鉄の伏鉢のかけらと、風鐸は、いま市の博物館にあります。二〇二二年の秋には、二十五か所の社寺と二つの博物館で、上社と下社の神宮寺ゆかりの仏像がいっせいに公開されました。どの仏がどこへ行ったのか、そのすべてを書いた資料には、まだ届いていません。あなたが本宮を訪ねたら、塔があったはずの空を、いちど見上げてみてください。</p>
+            <span class="en-sub">Around the Honmiya there once stood a temple, Jinguji: a hall for the bodhisattva Fugen, a five-storied pagoda thirty-eight metres high, and eight sub-temples, as the city museum records. In the winter of 1868 the pagoda was pulled down — it was the time when gods and buddhas were ordered apart. The images from the Fugen hall are said to have been carried in secret to Bupposhoryuji in Shiga. That temple's priest says the temple took in many of the statues, and that ritual objects are kept, divided, in some twenty-five temples. A fragment of the pagoda's iron finial base and one of its wind bells are now in the city museum. In the autumn of 2022, images from the Jinguji temples of both the Upper and Lower Shrines were shown all at once at twenty-five shrines and temples and two museums. No record has yet been reached that tells where every one of them went. When you visit the Honmiya, look up, once, at the sky where the pagoda would have been.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">文化資本</span>
+            <span class="entry-tag">祈り</span>
+            <span class="entry-tag">欠け</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/SUW-FAITH-002.html">上社神宮寺と神仏分離（確度 A/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="suwa">
+          <div class="entry-kind">Place 04</div>
+          <h3 class="entry-title serif">同じ図面、ふたりの大工</h3>
+          <p class="entry-title-en">One Drawing, Two Carpenters</p>
+          <div class="entry-body">
+            <p>下社には、春宮と秋宮の二つの宮があります。どちらにも本殿はなく、幣殿と拝殿をひとつに重ねた、二階建ての幣拝殿が立っています。秋宮を建てたのは、立川流の初代、和四郎富棟とされます。町の記録では、安永六年の暮れにとりかかり、同十年に仕上がりました。春宮は、同じ絵図面で、べつの大工が請け負いました。あとから始めて、一年早く仕上げたといいます。その大工の名は、神社は柴宮長左衛門、町は村田長左衛門矩重と書いていて、そろっていません。仕上がった年も、安永八年とも九年とも書かれます。国の説明も町の説明も、二人が競いあったと書いています。その競いあいを伝えるもとの資料には、まだ届いていません。二つの建物は、一九八三年に、そろって国の重要文化財になりました。あなたが両方の宮を歩くなら、建物の彫りものを、見くらべてみてください。</p>
+            <span class="en-sub">The Lower Shrine has two sanctuaries, Harumiya and Akimiya. Neither has a main hall; each has a two-storied building in which offering hall and worship hall are set one upon the other. Akimiya's is attributed to Washiro Tomimune, first master of the Tatekawa school; by the town's account, work began at the end of 1777 and was finished in 1781. Harumiya's was contracted to another carpenter, from the same drawing — begun later, they say, and finished a year sooner. His name is given by the shrine as Shibamiya Chozaemon and by the town as Murata Chozaemon, and the two do not agree; nor does the year, written as 1779 and as 1780. Both the state's description and the town's say that the two men vied with each other; the original record that tells of the contest has not yet been reached. Both buildings became Important Cultural Properties together in 1983. If you walk to both, compare the carvings.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">文化資本</span>
+            <span class="entry-tag">手仕事</span>
+            <span class="entry-tag">祈り</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/SUW-FAITH-007.html">諏訪大社下社の秋宮と春宮（確度 S/A/B）</a><a href="records/SUW-LIT-006.html">立川流と大隅流（確度 S/A/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="suwa">
+          <div class="entry-kind">Place 05</div>
+          <h3 class="entry-title serif">血を流したという石</h3>
+          <p class="entry-title-en">The Stone Said to Have Bled</p>
+          <div class="entry-body">
+            <p>下諏訪の東山田に、大きな自然の石に彫られた阿弥陀さまがあります。胴には「南無阿弥陀仏　万治三年十一月一日」と刻まれ、願主として二人の僧の名がならんでいます。万治三年は、一六六〇年です。町に伝わる話では、その前の年、高島藩主が春宮に石の大鳥居を寄進することになり、石工がこの石に鑿を入れました。すると石から血が流れたので、たたりをおそれて、手を止めたといいます。その夜の夢のお告げで別のよい石が見つかり、鳥居はそちらで造られたとされます。この石には、急いで阿弥陀さまをまつり、鳥居の完成を祈ったといいます。石に残る鑿のあとは、そのときのものだと伝わります。Wikipedia は、一九七四年に諏訪を訪れた岡本太郎がこの石仏を評価したことが、広く知られるきっかけになったと記します。まわりを三度まわるお参りのしかたは、新しい習わしではないかと書く人もいますが、いつ始まったのかは確かめられていません。あなたが石の前に立ったら、彫られた顔より先に、石そのものの大きさを見てください。</p>
+            <span class="en-sub">At Higashiyamada in Shimosuwa there is an Amida carved on a great natural boulder. On its body are cut the words “Namu Amida Butsu, the first day of the eleventh month, Manji 3,” with the names of two monks as sponsors; Manji 3 is 1660. By the story the town hands down, the lord of Takashima was, the year before, to give a great stone torii to Harumiya, and a mason set a chisel to this rock. Blood ran from it, they say, and fearing a curse the mason stopped. A dream that night, the story goes, pointed to another, better stone, and the torii was made of that; at this one an Amida was hurriedly enshrined, with prayers for the torii's completion. The chisel marks that remain are said to be from that day. Wikipedia records that it became widely known after the artist Okamoto Taro, visiting Suwa in 1974, spoke highly of it. One writer supposes that walking around it three times in prayer is a new custom, but when it began has not been confirmed. When you stand before it, look first not at the carved face but at the size of the stone itself.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">文化資本</span>
+            <span class="entry-tag">祈り</span>
+            <span class="entry-tag">語りの生成</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/SUW-FAITH-011.html">万治の石仏（確度 A/B/C）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="suwa">
+          <div class="entry-kind">Place 06</div>
+          <h3 class="entry-title serif">山の中の掘りあと</h3>
+          <p class="entry-title-en">Diggings in the Forest</p>
+          <div class="entry-body">
+            <p>霧ヶ峰の北西、星ヶ塔山の東の斜面に、縄文の人が黒曜石を掘ったあとが残っています。標高はおよそ千五百メートル。林のなかです。大正九年に鳥居龍蔵がここを黒曜石の産地だとし、昭和三十年代の藤森栄一の調べで、縄文の採掘のあとだと分かりました。その後の町の調査では、およそ三万五千平方メートルの範囲に、百九十三か所の掘りあとが見つかっています。およそ五千七百年前の人びとは、鹿の角などとみられる道具で岩を掘りくずし、原石のまま持ち出しました。およそ三千年前の人びとは、地下の岩脈を石でたたいて採り、割ったかたちで持ち出したといいます。ここの石は、東北から東海まで運ばれたと考えられています。富士見の記録は、井戸尻のあたりを、黒曜石を受けとった側として書いています。二〇一五年に、国の史跡になりました。あなたが黒い石のかけらを見ることがあったら、それが山のどこから来たのかを、思ってみてください。</p>
+            <span class="en-sub">On the east slope of Mount Hoshigato, north-west of Kirigamine, the places where Jomon people dug for obsidian remain — at about 1,500 metres, in the woods. In 1920 Torii Ryuzo identified the spot as a source of obsidian; Fujimori Eiichi's survey around 1960 showed the pits to be Jomon mines. The town's later investigations found 193 diggings spread over some 35,000 square metres. People of about 5,700 years ago broke down the rock with picks thought to be of antler and carried the stone away raw; people of about 3,000 years ago, it is said, struck it from veins underground with hammerstones and carried it away as cores and flakes. Stone from here is thought to have travelled from Tohoku to Tokai, and the Fujimi records describe the Idojiri area as one of the places that received obsidian. In 2015 the site became a National Historic Site. If you ever see a chip of the black stone, think of where on the mountain it came from.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">文化資本</span>
+            <span class="entry-tag">縄文</span>
+            <span class="entry-tag">山</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/SUW-JOMON-001.html">星ヶ塔黒曜石原産地遺跡（確度 S/A/B）</a><a href="records/FJM-JOMON-010.html">黒曜石の道（確度 A/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="suwa">
+          <div class="entry-kind">Place 07</div>
+          <h3 class="entry-title serif">湖の底から出た石</h3>
+          <p class="entry-title-en">Stone Points from the Lake Bed</p>
+          <div class="entry-body">
+            <p>明治四十一年の秋、諏訪湖の深さを測っていた小学校の先生が、湖の底の硬いところから、石の矢じりを二つすくい上げたのが、はじまりとされます。高島小学校の橋本福松という人です。翌年には東京の大学の坪井正五郎が湖の底を調べ、そこに遺跡があることが確かめられました。なぜ、湖の底に人の暮らしのあとがあるのか。杭の上に家を建てていたという説、断層や地すべりで沈んだという説、筏の上に住んでいたという説が唱えられたといい、長いあいだ決着しませんでした。昭和三十八年、諏訪の考古学者の藤森栄一は、湖の水位が変わって沈んだのだと考えました。二〇二四年の湖底の調査で、水位の変化が確かめられたと紹介されています。遺跡そのものは、いまも掘られていません。集められた矢じりや土器は、数万点にのぼります。あなたが湖の岸に立ったら、水の下にも土地があることを、思ってみてください。</p>
+            <span class="en-sub">In the autumn of 1908 a primary-school teacher sounding the depth of Lake Suwa is said to have scooped two stone arrowheads from a hard place on the bottom — Hashimoto Fukumatsu of Takashima school. The next year Tsuboi Shogoro of the university in Tokyo examined the lake bed, and the existence of a site was confirmed. Why should there be traces of human life at the bottom of a lake? Houses built on piles, one theory is said to have gone; sunk by a fault or a landslide, another; lived on rafts, a third — and for a long time none prevailed. In 1963 Fujimori Eiichi, an archaeologist of Suwa, proposed that the lake's level had changed and drowned it. A boring survey of the lake bed in 2024 is reported to have confirmed changes in the water level. The site itself has still never been excavated. The arrowheads and pottery gathered from it run to tens of thousands. When you stand on the shore, think that there is land under the water too.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">文化資本</span>
+            <span class="entry-tag">水</span>
+            <span class="entry-tag">問い</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/SUW-JOMON-002.html">曽根遺跡（確度 A/B）</a><a href="records/SUW-JOMON-006.html">藤森栄一と諏訪の在野考古学（確度 A/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="suwa">
+          <div class="entry-kind">Place 08</div>
+          <h3 class="entry-title serif">浮いていた城</h3>
+          <p class="entry-title-en">The Castle That Once Floated</p>
+          <div class="entry-body">
+            <p>高島城は、慶長三年、一五九八年に、日根野高吉が諏訪湖のほとりに築いたと、市は記します。島のような土地にあった漁村を、まるごとよそへ移して建てたといわれます。できたころ、城のまわりは湖の水と湿地で、「諏訪の浮城」と呼ばれました。三年後に諏訪頼水がもとの領地にもどり、それから明治まで、諏訪の家が藩主をつとめました。明治八年には天守が取りはらわれ、あとは公園になりました。いまの天守は、昭和四十五年に、鉄筋コンクリートで建てなおされたものです。市の博物館の頁は、これを昭和四十年と書いています。同じ名の古い城が、北の茶臼山にもあったとされます。湖の水が、いつ、どのようにして城から遠のいたのかを書いた確かな資料には、まだ当たれていません。あなたが天守にのぼったら、湖がどのあたりまで来ていたのかを、さがしてみてください。</p>
+            <span class="en-sub">Takashima Castle was built on the shore of Lake Suwa in 1598 by Hineno Takayoshi, the city records — on an island-like piece of ground from which, it is said, a whole fishing village was moved away. When it was finished, lake water and marsh lay all around it, and it was called “the floating castle of Suwa.” Three years later Suwa Yorimizu returned to his family's old domain, and from then until the Meiji era the Suwa house held it. In 1875 the keep was removed and the grounds became a park. The keep that stands now was rebuilt in reinforced concrete in 1970 — the city museum's page says 1965. An older castle of the same name is said to have stood on Chausuyama to the north. No reliable record has yet been found that tells when, and how, the lake water drew back from the castle. If you climb the keep, look for how far the lake once came.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">文化資本</span>
+            <span class="entry-tag">水</span>
+            <span class="entry-tag">時間の地層</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/SUW-HIST-001.html">高島城（確度 A/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="suwa">
+          <div class="entry-kind">Place 09</div>
+          <h3 class="entry-title serif">二つの道が合うところ</h3>
+          <p class="entry-title-en">Where Two Roads Meet</p>
+          <div class="entry-body">
+            <p>江戸から甲州街道を歩いてくると、蔦木、金沢、上諏訪と宿場がつづき、下諏訪で、中山道に行きあたります。下諏訪宿は、中山道では江戸から二十九番目の宿で、甲州街道の終わりともされます。宿のまんなかは、綿の湯の前の問屋場で、そこから三つの方角へ道がのびていたと、地名の事典は記します。東へ五十二間すすむと下社の秋宮に突きあたり、鉤の手にまがると甲州街道です。天保十四年の記録では、家が三百十五軒、本陣が一軒、脇本陣が一軒、旅籠が四十軒あったとされます。本陣をつとめたのは岩波家で、その住まいは二〇二三年に長野県宝になっています。文久元年、皇女和宮が江戸へ下るとき、この本陣に泊まったと紹介されています。ただ、当時の記録では、まだ確かめられていません。あなたが下諏訪の町を歩くなら、道が三つに分かれるところで、いちど立ちどまってみてください。</p>
+            <span class="en-sub">Walking the Koshu Kaido from Edo, the post stations run on — Tsutaki, Kanazawa, Kamisuwa — until, at Shimosuwa, the road meets the Nakasendo. Shimosuwa was the twenty-ninth station from Edo on the Nakasendo and is also counted as the end of the Koshu Kaido. The centre of the station was the relay office before the Wata-no-yu spring, from which, a gazetteer records, roads ran off three ways: fifty-two ken to the east one comes up against Akimiya of the Lower Shrine, and turning the corner there one is on the Koshu Kaido. A register of 1843 is said to count 315 houses, one honjin, one secondary honjin and forty inns. The honjin was kept by the Iwanami family, whose house became a Nagano Prefectural Treasure in 2023. Princess Kazunomiya, on her way down to Edo in 1861, is said to have lodged there — though it has not yet been confirmed in records of the time. If you walk in Shimosuwa, stop once at the place where the road divides in three.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">文化資本</span>
+            <span class="entry-tag">道</span>
+            <span class="entry-tag">境界</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/SUW-ROAD-001.html">下諏訪宿（確度 S/A/B）</a><a href="records/SUW-ROAD-002.html">上諏訪宿（確度 A/B）</a><a href="records/TSN-ROAD-001.html">金沢宿（確度 A/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="suwa">
+          <div class="entry-kind">Place 10</div>
+          <h3 class="entry-title serif">レンガの三重丸</h3>
+          <p class="entry-title-en">Three Rings of Brick</p>
+          <div class="entry-body">
+            <p>岡谷の町なかに、レンガを丸く積んだものがあります。丸山タンクといいます。県の発表では、大正三年、一九一四年にできた、製糸をささえた貯水の施設です。町歩きの雑誌によれば、川や湖から離れた工場では水が足りず、「丸山製糸水道組合」がつくられて、みんなで使うタンクが建てられたといいます。同じ記事は、現地の説明板によるとして、外まわりを三十八メートルほどと書きます。真上から見ると、三重の丸になっているそうです。天竜川からポンプで水をくみ上げていて、取水口のポンプは一九七二年ごろまで残っていたそうです。いくつの工場が加わり、どれだけの水が送られたのかは、確かめられていません。岡谷は「糸都」と呼ばれました。あなたがこの丸の前に立ったら、ここから水が流れていった先を、たどってみてください。</p>
+            <span class="en-sub">In the middle of Okaya there is a structure of brick laid in a circle: the Maruyama Tank. By the prefecture's announcement it was completed in 1914, a reservoir that supported silk reeling. According to a walking magazine, mills that stood away from the river and the lake ran short, a “Maruyama Silk-Reeling Waterworks Union” was formed, and a shared tank was built. The same article, citing the board at the site, gives it as some thirty-eight metres around, and says that seen from directly above it makes three concentric rings. Water is said to have been pumped up from the Tenryu River, and the pump at the intake to have remained until about 1972. How many mills joined, and how much water was sent, has not been confirmed. Okaya was called Shito, “the thread capital.” When you stand before the rings, try to trace where the water went from here.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">人的資本</span>
+            <span class="entry-tag">水</span>
+            <span class="entry-tag">手仕事</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/SUW-IND-006.html">丸山タンクと製糸の水（確度 A/B）</a><a href="records/SUW-IND-001.html">諏訪式繰糸機と岡谷の製糸業（確度 A/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="suwa">
+          <div class="entry-kind">Place 11</div>
+          <h3 class="entry-title serif">旅から持ち帰ったもの</h3>
+          <p class="entry-title-en">What He Brought Back from His Journey</p>
+          <div class="entry-body">
+            <p>諏訪湖のほとりに、昭和三年、一九二八年にできた温泉の建物があります。片倉館です。製糸をいとなんだ片倉の家が、公共の福利厚生の施設として建てました。設計は森山松之助。館の説明によれば、当主の二代片倉兼太郎は、大正十一年から十二年にかけて、南北アメリカとヨーロッパを八万キロほど旅しました。ヨーロッパの農村に、人びとのための施設がととのっているのを見て、心を動かされたといいます。帰ってから、土地の人のための温泉と、集いと、楽しみと、文化の場をつくろうと、一族にはかりました。これは、建てた側の語りです。Wikipedia は、工場ではたらく女工のための福利厚生がおもな目的だったとしていて、説明はそろっていません。浴場と会館と渡り廊下は、二〇一一年に国の重要文化財になりました。国の説明は、実業家による最初期の公共の福利厚生施設のひとつだとしています。あなたがこの建物の前を通ったら、ひとりの旅が、町に何を残したのかを、ながめてみてください。</p>
+            <span class="en-sub">On the shore of Lake Suwa stands a bathhouse completed in 1928: Katakurakan. The Katakura family, silk reelers, built it as a public welfare facility; the architect was Moriyama Matsunosuke. By the hall's own account, the head of the house, the second Katakura Kanetaro, travelled some eighty thousand kilometres through the Americas and Europe in 1922 and 1923. Seeing that the farming villages of Europe were provided with facilities for their people, he was, it says, deeply moved, and on his return he put to the family a plan for a place of hot springs, gathering, recreation and culture for the people of the district. This is the telling of those who built it; Wikipedia gives the welfare of the women who worked in the mills as the main purpose, and the accounts do not agree. The bathhouse, the hall and the connecting corridor became Important Cultural Properties in 2011; the state's description calls it one of the earliest public welfare facilities founded by an industrialist. When you pass the building, consider what one man's journey left in a town.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">人的資本</span>
+            <span class="entry-tag">水</span>
+            <span class="entry-tag">まなざし</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/SUW-IND-008.html">片倉館（確度 S/B）</a><a href="records/SUW-IND-002.html">片倉組と片倉兼太郎（確度 S/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="suwa">
+          <div class="entry-kind">Place 12</div>
+          <h3 class="entry-title serif">出口はひとつ</h3>
+          <p class="entry-title-en">Only One Way Out</p>
+          <div class="entry-body">
+            <p>諏訪湖には、三十一の川が流れこみます。流れ出る川は、天竜川ひとつだけです。その出口に、釜口水門があります。出口がひとつなので、湖は昔からあふれることをくりかえしたと、県は記します。江戸時代の文政十三年、有賀村の伊藤五六郎たちが出口をひろげることを願い出て、浜中島という島が取りのぞかれました。昭和に入って最初の水門がつくられ、県の資料は完成を昭和十一年とも十二年とも書いています。いまの水門は二代目で、昭和六十三年に、八十メートルほど上流にできました。流せる水の量は、毎秒六百立方メートルと決められています。けれども、下流の川の工事にあわせて少しずつふやしてきたので、いまは四百で動かしていると書く資料と、当面は四百三十と書く県の資料があります。ここを出た水は、二百十三キロを流れて、遠州灘にそそぎます。富士見の峠に降って宮川へ落ちた雨も、この湖に入る水系のものです。あなたが水門のそばに立ったら、湖の側と川の側を、かわるがわる見てください。</p>
+            <span class="en-sub">Thirty-one rivers run into Lake Suwa. Only one runs out: the Tenryu. At the lake's outlet stands the Kamaguchi Sluice Gate. Because there is only the one outlet, the prefecture records, the lake has flooded again and again since old times. In 1830 Ito Gorokuro of Aruga village and others petitioned to have the outlet widened, and an island there, Hamanakajima, was taken away. The first sluice gate was built in the Showa era; the prefecture's documents give its completion as both 1936 and 1937. The present gate is the second, finished in 1988 some eighty metres upstream. Its discharge is set at six hundred cubic metres a second — but since it has been raised step by step as the river below is improved, some documents say it is run for now at four hundred, and a prefectural leaflet says four hundred and thirty. The water that leaves here flows 213 kilometres to the sea of Enshu. Rain that falls on the pass at Fujimi and drains to the Miya River belongs to this same water system. If you stand beside the gate, look by turns at the lake side and the river side.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">自然資本</span>
+            <span class="entry-tag">水</span>
+            <span class="entry-tag">循環</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/SUW-NAT-004.html">釜口水門と天竜川の流れ出し（確度 S/A/B）</a><a href="records/SUW-NAT-001.html">諏訪湖の成り立ち（確度 S/A/B）</a><a href="records/FJM-ROAD-002.html">富士見峠・原の茶屋・分水界（確度 A/C）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="suwa">
+          <div class="entry-kind">Place 13</div>
+          <h3 class="entry-title serif">小鳥バスの森</h3>
+          <p class="entry-title-en">The Forest of the Bird Bus</p>
+          <div class="entry-body">
+            <p>岡谷の旧塩尻峠にある塩嶺の林は、「小鳥の森」と呼ばれています。県の資料によれば、野鳥を観察する「小鳥バス」が、昭和二十九年に走りはじめました。鳥のさえずりは、環境省の「日本の音風景百選」にも選ばれました。このあたりの林は鳥獣保護区の特別保護地区で、令和七年の十一月から、また十年のあいだ指定されています。峠の公園には、明治天皇の巡幸で立ち寄られたことを記念する碑があります。これとは別に、南へ勝弦峠、小野峠をへて王城山までつづく高原が、昭和三十九年に県立公園になりました。県の資料は、この一帯で百二十をこえる種類の野鳥が観察されていると記します。あなたが早起きをする朝があったら、名前を知らないままで、声だけを聞いてみてください。</p>
+            <span class="en-sub">The woods of Enrei, at the old Shiojiri pass in Okaya, are called the “forest of small birds.” According to the prefecture, a “bird bus” for watching wild birds began running in 1954. The birdsong was chosen for the Ministry of the Environment's “100 Soundscapes of Japan,” and the woods are a special protection zone of a wildlife sanctuary, designated again for ten years from November 2025. In the park at the pass stands a monument marking a stop on the Meiji Emperor's progress. Separately, the upland running south over the Katsutsuru and Ono passes to Mount Ojo became a prefectural park in 1964. The prefecture's document records that more than 120 species of wild birds have been observed in the area. If there is a morning when you rise early, listen only to the voices, without knowing the names.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">自然資本</span>
+            <span class="entry-tag">静けさ</span>
+            <span class="entry-tag">待つ時間</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/SUW-NAT-005.html">塩嶺の小鳥の森（確度 S/A/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="suwa">
+          <div class="entry-kind">Place 14</div>
+          <h3 class="entry-title serif">下駄に刃をつけた人</h3>
+          <p class="entry-title-en">The Craftsman Who Put a Blade on a Clog</p>
+          <div class="entry-body">
+            <p>下駄の底に、鉄の刃をつける。そうしてできたのが、下駄スケートです。国の文化財の説明は、外国のスケート靴を手本に、明治のころ、下諏訪の錺（かざり）職人が発明したと記します。その人の名は、説明には書かれていません。名と年を挙げる観光の紹介はありますが、公の資料では確かめられていません。県の資料によれば、明治三十六年の二月に、田中という兄弟が諏訪湖の上で滑ったのが、この土地のスケートの起こりだといわれています。同じ資料は、翌年には体育の先生が授業にとり入れ、明治四十二年には湖を一周する競技会がひらかれたと記します（観光の紹介は、競技会を明治四十一年とします）。湖の上のリンクは、昭和五十九年からあとはつくられていないとも書いています。下諏訪町が持つ下駄スケートのコレクション百三十点は、二〇二三年に、国の登録有形民俗文化財になりました。あなたがそれを見ることがあったら、刃をつけたところの、手のあとを見てください。</p>
+            <span class="en-sub">Fix an iron blade to the sole of a wooden clog, and you have a geta skate. The state's description of the cultural property says it was invented in the Meiji era by a metal craftsman of Shimosuwa, modelled on skates from abroad; it does not give the craftsman's name. One tourist account gives a name and a year, but neither has been confirmed in public records. By the prefecture's account, skating here is said to have begun in February 1903, when two brothers named Tanaka skated on the lake; the next year, it says, a gymnastics teacher took it into lessons, and in 1909 a race was held around the lake (a tourist account dates the race to 1908). No rink, it adds, has been made on the lake since 1984. The geta skate collection owned by the town of Shimosuwa, 130 items in all, became a Registered Tangible Folk Cultural Property in 2023. If you ever see them, look at where the blade is fixed — at the marks of the hand.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">文化資本</span>
+            <span class="entry-tag">冬</span>
+            <span class="entry-tag">手仕事</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/SUW-IND-013.html">下駄スケートと諏訪湖の氷（確度 S/A/B）</a></p>
+        </article>
+
+        <article class="entry reveal" data-land="suwa">
+          <div class="entry-kind">Place 15</div>
+          <h3 class="entry-title serif">約束された本</h3>
+          <p class="entry-title-en">The Books That Were Promised</p>
+          <div class="entry-body">
+            <p>岩波書店をつくった岩波茂雄は、いまの諏訪市中洲の農家に生まれたとされます。亡くなったのは、昭和二十一年の四月でした。その翌年の五月、戦争が終わってまもない中洲村で、よい本を読んで学びたいと願う青年たちの熱意にこたえて、岩波書店は、出版する本のすべてを贈ると約束しました。はじめに届いたのは、二百一冊でした。信州風樹文庫の歴史は、ここから始まると、市は説明します。名は、若くして両親をなくした茂雄が、座右の銘にした「風樹の歎」によります。いま文庫は市の施設で、昭和二十二年からあとの岩波書店の本を、すべておさめているといいます。それより前、大正二年から昭和二十一年までの本は、いまも集めているところです。二階には、茂雄の記念室があります。あなたが棚の前に立ったら、いちばん古い年の本を、さがしてみてください。</p>
+            <span class="en-sub">Iwanami Shigeo, founder of the publisher Iwanami Shoten, is said to have been born to a farming family in what is now Nakasu, in Suwa. He died in April 1946. In May of the following year, in the village of Nakasu not long after the war, the publisher answered the eagerness of young people who wished to read good books and learn by promising to give them everything it published. The first to arrive were 201 volumes. The history of the Shinshu Fuju Library begins here, the city explains. The name comes from fuju no tan, “the lament of the wind in the trees,” which Shigeo, who lost both parents young, kept as his motto. The library is now a city facility and holds, it is said, every Iwanami book since 1947; those from before, 1913 to 1946, are still being collected. On the second floor is a room in Shigeo's memory. When you stand before the shelves, look for the book with the oldest year.</span>
+          </div>
+          <div class="entry-tags">
+            <span class="entry-tag">文化資本</span>
+            <span class="entry-tag">本</span>
+            <span class="entry-tag">人</span>
+          </div>
+          <p class="entry-source">もとになった記録 — <a href="records/SUW-LIT-002.html">岩波茂雄と信州風樹文庫（確度 S/A/B）</a></p>
+        </article>
+
+        <!-- PLACES-MORE:END -->
       </div>
     </div>
   </section>
@@ -1210,7 +1777,7 @@
       head.setAttribute('aria-expanded', 'false');
       const inner = document.createElement('div');
       inner.className = 'entry-detail-inner';
-      entry.querySelectorAll(':scope > .entry-body, :scope > .entry-tags').forEach(el => inner.appendChild(el));
+      entry.querySelectorAll(':scope > .entry-body, :scope > .entry-tags, :scope > .entry-source').forEach(el => inner.appendChild(el));
       const detail = document.createElement('div');
       detail.className = 'entry-detail';
       detail.appendChild(inner);
@@ -1227,37 +1794,58 @@
       });
     });
 
-    // 地の頁のカテゴリフィルタ（エントリのタグから資本カテゴリを判定）
-    const CAPITALS = ['すべて', '自然資本', '文化資本', '人的資本'];
-    const filterBar = document.getElementById('placeFilter');
-    if (filterBar) {
-      const placeEntries = document.querySelectorAll('#places .journal .entry');
-      let current = 'すべて';
+    // 場所の記録は一つの並び。土地（富士見・蓼科・諏訪）と資本カテゴリの二つで絞り込む
+    (function () {
+      const LANDS = [['all', 'すべて'], ['fujimi', '富士見'], ['tateshina', '蓼科'], ['suwa', '諏訪']];
+      const CAPITALS = ['すべて', '自然資本', '文化資本', '人的資本'];
+      const landBar = document.getElementById('landFilter');
+      const capBar = document.getElementById('placeFilter');
+      if (!landBar || !capBar) return;
+      const entries = Array.from(document.querySelectorAll('#places .journal .entry'));
+      const leads = Array.from(document.querySelectorAll('#places .journal .land-lead'));
+      const landOf = el => el.dataset.land || 'fujimi';   // 印のない頁は富士見
+      let land = 'all', cap = 'すべて';
       const apply = () => {
-        placeEntries.forEach(entry => {
+        entries.forEach(entry => {
           const tags = Array.from(entry.querySelectorAll('.entry-tag')).map(t => t.textContent.trim());
-          const hit = current === 'すべて' || tags.includes(current);
+          const hit = (land === 'all' || landOf(entry) === land) && (cap === 'すべて' || tags.includes(cap));
           entry.classList.toggle('filtered-out', !hit);
         });
-      };
-      CAPITALS.forEach(name => {
-        const b = document.createElement('button');
-        b.type = 'button';
-        b.textContent = name;
-        b.classList.toggle('on', name === current);
-        b.setAttribute('aria-pressed', name === current ? 'true' : 'false');
-        b.addEventListener('click', () => {
-          current = name;
-          filterBar.querySelectorAll('button').forEach(x => {
-            const on = x.textContent === name;
-            x.classList.toggle('on', on);
-            x.setAttribute('aria-pressed', on ? 'true' : 'false');
-          });
-          apply();
+        const journal = document.querySelector('#places .journal');
+        if (journal) journal.classList.toggle('one-land', land !== 'all');
+        // 土地の見出しの件数は、いま見えている頁の数。一つも無ければ見出しも隠す
+        leads.forEach(l => {
+          const n = entries.filter(e => landOf(e) === landOf(l) && !e.classList.contains('filtered-out')).length;
+          const num = l.querySelector('.land-name .n');
+          if (num) num.textContent = n;
+          l.classList.toggle('filtered-out', !(land === 'all' || landOf(l) === land) || n === 0);
         });
-        filterBar.appendChild(b);
-      });
-    }
+      };
+      const build = (bar, items, isOn, pick) => {
+        items.forEach(([key, name]) => {
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.textContent = name;
+          b.dataset.key = key;
+          b.addEventListener('click', () => { pick(key); sync(); apply(); });
+          bar.appendChild(b);
+        });
+        const sync = () => bar.querySelectorAll('button').forEach(x => {
+          const on = isOn(x.dataset.key);
+          x.classList.toggle('on', on);
+          x.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+        sync();
+        return sync;
+      };
+      // 土地の札は、頁のある土地だけ
+      const present = LANDS.filter(([id]) => id === 'all' || entries.some(e => landOf(e) === id));
+      const want = new URLSearchParams(location.search).get('region');
+      if (present.some(([id]) => id === want)) land = want;
+      build(landBar, present, k => k === land, k => { land = k; });
+      build(capBar, CAPITALS.map(c => [c, c]), k => k === cap, k => { cap = k; });
+      apply();
+    })();
 
     // ゆるやかなフェードイン
     const io = new IntersectionObserver((entries) => {

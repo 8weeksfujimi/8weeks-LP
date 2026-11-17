@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>記憶の星図 — Local Archive Graph | 8weeks Stay</title>
-  <meta name="description" content="富士見町ローカルアーカイブの記録どうしのつながりを、点と線の星図として眺めるページ。">
+  <meta name="description" content="富士見・蓼科・諏訪のローカルアーカイブの記録どうしのつながりを、点と線の星図として眺めるページ。">
   <link rel="icon" type="image/png" href="assets/logos/favicon_moon.png">
   <link rel="canonical" href="https://8weeksfujimi.github.io/8weeks-LP/archive-graph.html">
 
   <meta property="og:title" content="記憶の星図 — Local Archive Graph">
-  <meta property="og:description" content="富士見町の記録どうしのつながりを、点と線で眺める。">
+  <meta property="og:description" content="富士見・蓼科・諏訪の記録どうしのつながりを、点と線で眺める。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://8weeksfujimi.github.io/8weeks-LP/archive-graph.html">
   <meta property="og:site_name" content="8weeks Stay">
@@ -113,7 +113,7 @@
       .title-block h1 { font-size: 1rem; letter-spacing: 0.22em; }
       .title-block .title-desc { display: none; }
       .mobile-desc {
-        display: block; position: fixed; left: 14px; right: 14px; bottom: 58px; z-index: 50;
+        display: block; position: fixed; left: 14px; right: 14px; bottom: calc(var(--legend-h, 48px) + 20px); z-index: 50;
         font-size: 0.62rem; letter-spacing: 0.08em; line-height: 1.8;
         color: rgba(255, 255, 255, 0.5); pointer-events: none;
       }
@@ -139,6 +139,7 @@
       <a href="archive-db.html" class="keep">Ledger</a>
       <a href="archive-graph.html" class="current keep">Graph</a>
       <a href="archive-map.html" class="keep">Map</a>
+      <a href="archive-method.html">Method</a>
     </nav>
   </header>
 
@@ -146,9 +147,9 @@
 
   <div class="title-block">
     <h1 class="serif">記憶の星図</h1>
-    <p class="title-desc">LOCAL ARCHIVE GRAPH — 記録の本文に別の記録の名が現れると、線がつながります。</p>
+    <p class="title-desc">LOCAL ARCHIVE GRAPH — 記録の本文に別の記録の名が現れると、線がつながります。輪のない点は富士見、白い輪は蓼科、青い破線の輪は諏訪。黄色い線は、考証者が張った、土地をまたぐつながりです。</p>
   </div>
-  <p class="mobile-desc">記録の本文に別の記録の名が現れると、線がつながります。点にふれると、記録がひらきます。</p>
+  <p class="mobile-desc">記録の本文に別の記録の名が現れると、線がつながります。輪は土地のしるし（白＝蓼科、青の破線＝諏訪）。点にふれると、記録がひらきます。</p>
 
   <div class="legend" id="legend"></div>
   <div class="hint">ドラッグで移動 / ホイールで拡大縮小 / 点をクリックで詳細</div>
@@ -171,7 +172,12 @@
       ['現代・移住', r => /現代|移住/.test(r.category), '#7c96c9'],
       ['その他', () => true, '#93a3b5'],
     ];
-    const GENERIC = ['富士見', '富士見町', '富士見高原', '八ヶ岳', '諏訪', '長野', '信州', '信濃'];
+    // つなぐ手がかりにしない一般的な地名。設定ファイルの generic_names があればそちらを使う
+    let GENERIC = ['富士見', '富士見町', '富士見高原', '八ヶ岳', '諏訪', '長野', '信州', '信濃',
+      '蓼科', '蓼科高原', '茅野', '茅野市', '霧ヶ峰', '諏訪大社', '諏訪氏', '縄文'];
+    let SUBS = [];
+    const subOf = id => SUBS.find(a => a.id === id) || {};
+    const hiddenSubs = new Set();
 
     const canvas = document.getElementById('stage');
     const ctx = canvas.getContext('2d');
@@ -206,9 +212,13 @@
       return [...out];
     }
 
-    fetch('data/fujimi-archive-db.json')
-      .then(r => r.json())
-      .then(d => build(d.records));
+    // 設定と、一つの台帳（data/archive-db.json）を読む
+    fetch('data/archive-config.json').then(r => r.json()).then(cfg => {
+      SUBS = cfg.subregions;
+      if (cfg.generic_names) GENERIC = cfg.generic_names;
+      return fetch(cfg.db.file).then(r => r.json());
+    }).then(db => build(db.records))
+      .catch(() => { document.querySelectorAll('.hint, .mobile-desc, .title-desc').forEach(e => { e.textContent = '台帳の読み込みに失敗しました。時間をおいてお試しください。'; }); });
 
     function build(records) {
       const R = 30;
@@ -218,14 +228,26 @@
         label: shortLabel(r.keyword),
         color: groupOf(r)[2],
         group: groupOf(r)[0],
-        x: Math.cos(i / records.length * Math.PI * 2) * R * 8 + (Math.sin(i * 7.3) * 60),
-        y: Math.sin(i / records.length * Math.PI * 2) * R * 8 + (Math.cos(i * 3.7) * 60),
+        sub: r.subregion || 'fujimi',
+        x: Math.cos(i / records.length * Math.PI * 2) * R * 8 + (Math.sin(i * 7.3) * 60) + (subOf(r.subregion).offset || [0, 0])[0],
+        y: Math.sin(i / records.length * Math.PI * 2) * R * 8 + (Math.cos(i * 3.7) * 60) + (subOf(r.subregion).offset || [0, 0])[1],
         vx: 0, vy: 0, deg: 0,
       }));
       byId = Object.fromEntries(nodes.map(n => [n.id, n]));
 
       const nameTable = nodes.map(n => ({ n, names: namesOf(n.r) }));
       const seen = new Set();
+      nodes.forEach(a => {
+        (a.r.related_records || []).forEach(id => {
+          const b = byId[id];
+          if (!b || b === a) return;
+          const key = a.id < b.id ? a.id + '|' + b.id : b.id + '|' + a.id;
+          if (seen.has(key)) return;
+          seen.add(key);
+          links.push({ a, b, w: 1, explicit: true, cross: a.sub !== b.sub });
+          a.deg++; b.deg++;
+        });
+      });
       nodes.forEach(a => {
         const text = a.r.background + ' ' + (a.r.confidence_note || '');
         nameTable.forEach(({ n: b, names }) => {
@@ -246,7 +268,7 @@
           const ta = nodes[i].r.sense_tags || [], tb = nodes[j].r.sense_tags || [];
           const shared = ta.filter(t => tb.includes(t)).length;
           if (shared >= 2) {
-            const key = nodes[i].id + '|' + nodes[j].id;
+            const key = nodes[i].id < nodes[j].id ? nodes[i].id + '|' + nodes[j].id : nodes[j].id + '|' + nodes[i].id;
             if (!seen.has(key)) { seen.add(key); links.push({ a: nodes[i], b: nodes[j], w: 0.25 }); }
           }
         }
@@ -255,7 +277,20 @@
       // ウォームアップ後に画面へフィット（スマホでも全体が見える倍率で開始）
       for (let i = 0; i < 140; i++) physics();
       fitView();
+      openHash();
+      window.addEventListener('hashchange', openHash);
       requestAnimationFrame(tick);
+    }
+
+    // #FJM-XXX-000 / #TSN-XXX-000 で該当の記録をひらく（台帳・記録の頁からの導線）
+    function openHash() {
+      const hashId = decodeURIComponent(location.hash.slice(1));
+      const t = hashId && byId[hashId];
+      if (!t) return;
+      cam.k = Math.max(cam.k, 0.9);
+      cam.x = -t.x * cam.k;
+      cam.y = -t.y * cam.k + 24;
+      openPanel(t);
     }
 
     let baseK = 1;
@@ -277,6 +312,25 @@
 
     function buildLegend() {
       const el = document.getElementById('legend');
+      const usedSubs = SUBS.filter(a => nodes.some(n => n.sub === a.id));
+      if (usedSubs.length > 1) {
+        usedSubs.forEach(a => {
+          const li = document.createElement('div');
+          li.className = 'li';
+          const dot = a.ring
+            ? `background:transparent;border:1.5px ${a.ring_dash ? 'dashed' : 'solid'} ${a.ring};`
+            : 'background:rgba(255,255,255,0.85);border:1.5px solid rgba(255,255,255,0.85);';
+          li.innerHTML = `<span class="dot" style="${dot}"></span>${a.label}`;
+          li.addEventListener('click', () => {
+            if (hiddenSubs.has(a.id)) hiddenSubs.delete(a.id); else hiddenSubs.add(a.id);
+            li.classList.toggle('dim', hiddenSubs.has(a.id));
+          });
+          el.appendChild(li);
+        });
+        const sep = document.createElement('div');
+        sep.style.cssText = 'height:1px;background:rgba(255,255,255,0.18);margin:4px 0;align-self:stretch';
+        el.appendChild(sep);
+      }
       const used = new Set(nodes.map(n => n.group));
       GROUPS.forEach(([name, , color]) => {
         if (!used.has(name)) return;
@@ -291,7 +345,16 @@
       });
     }
 
-    function visible(n) { return !hiddenGroups.has(n.group); }
+    // 凡例の高さが変わっても、その上の説明文と重ならないように、高さを CSS へ渡す
+    (function () {
+      const el = document.getElementById('legend');
+      const sync = () => document.documentElement.style.setProperty('--legend-h', el.offsetHeight + 'px');
+      if (window.ResizeObserver) new ResizeObserver(sync).observe(el);
+      window.addEventListener('resize', sync);
+      sync();
+    })();
+
+    function visible(n) { return !hiddenGroups.has(n.group) && !hiddenSubs.has(n.sub); }
 
     let alpha = 1;
     function physics() {
@@ -360,8 +423,9 @@
         if (!visible(l.a) || !visible(l.b)) return;
         const hot = focus && (l.a === focus || l.b === focus);
         ctx.strokeStyle = hot ? 'rgba(255,241,0,0.55)'
+          : l.cross ? 'rgba(255,241,0,0.30)'
           : l.w >= 1 ? 'rgba(255,255,255,0.20)' : 'rgba(255,255,255,0.06)';
-        ctx.lineWidth = (hot ? 1.4 : l.w >= 1 ? 0.8 : 0.6) / cam.k;
+        ctx.lineWidth = (hot ? 1.4 : l.cross ? 1.1 : l.w >= 1 ? 0.8 : 0.6) / cam.k;
         ctx.beginPath(); ctx.moveTo(l.a.x, l.a.y); ctx.lineTo(l.b.x, l.b.y); ctx.stroke();
       });
 
@@ -374,7 +438,18 @@
         ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
         ctx.fillStyle = n.color;
         ctx.fill();
+        const sr = subOf(n.sub);
+        if (sr.ring) {
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, r + 2.6 / cam.k, 0, Math.PI * 2);
+          if (sr.ring_dash) ctx.setLineDash([2.4 / cam.k, 1.8 / cam.k]);
+          ctx.strokeStyle = sr.ring; ctx.lineWidth = (sr.ring_dash ? 1.1 : 0.9) / cam.k; ctx.stroke();
+          ctx.setLineDash([]);
+        }
         if (n === focus) {
+          // 土地の輪の上ではなく、点そのものの縁に引く
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
           ctx.strokeStyle = 'rgba(255,241,0,0.9)'; ctx.lineWidth = 1.6 / cam.k; ctx.stroke();
         }
         // ラベルは「初期フィットから一段ズームインしたら」表示。ハブ(つながり5本以上)と選択中は常時。
@@ -508,13 +583,19 @@
       const linked = links
         .filter(l => l.w >= 1 && (l.a === n || l.b === n))
         .map(l => (l.a === n ? l.b : l.a));
+      const subLabel = id => subOf(id).label || '';
+      const here = linked.filter(m => m.sub === n.sub), across = linked.filter(m => m.sub !== n.sub);
+      const acrossNames = SUBS.filter(a => across.some(m => m.sub === a.id)).map(a => a.label).join('・');
       panelBody.innerHTML = `
-        <span class="badge">確度 ${esc(r.confidence)}</span><span class="badge" style="border-style:dashed">${esc(r.page_type)}</span>
+        <span class="badge">確度 ${esc(r.confidence)}</span><span class="badge" style="border-style:dashed">${esc(r.page_type)}</span>${SUBS.length > 1 ? `<span class="badge">${esc(subLabel(n.sub))}</span>` : ''}
         <h2 class="serif">${esc(r.keyword)}</h2>
         <p class="meta">${esc(r.category)}${r.era ? '｜' + esc(r.era) : ''}</p>
         <p class="bg">${esc(r.background.length > 350 ? r.background.slice(0, 350) + '……' : r.background)}</p>
-        ${linked.length ? `<div class="links-list"><b>つながる記録</b>${linked.map(m => `<a href="#" data-id="${esc(m.id)}">${esc(m.label)}</a>`).join('')}</div>` : ''}
-        <a class="goto" href="archive-db.html#${esc(r.id)}">台帳でぜんぶ読む →</a>`;
+        ${here.length ? `<div class="links-list"><b>つながる記録</b>${here.map(m => `<a href="#" data-id="${esc(m.id)}">${esc(m.label)}</a>`).join('')}</div>` : ''}
+        ${across.length ? `<div class="links-list"><b>となりの土地 — ${esc(acrossNames)}の記録</b>${across.map(m => `<a href="#" data-id="${esc(m.id)}">${esc(m.label)}</a>`).join('')}</div>` : ''}
+        <a class="goto" href="records/${esc(r.id)}.html">この記録の頁をひらく →</a>
+        <a class="goto" style="background:transparent;border:1px solid var(--navy-2);margin-left:10px" href="archive-db.html#${esc(r.id)}">台帳</a>
+        ${r.geo ? `<a class="goto" style="background:transparent;border:1px solid var(--navy-2);margin-left:10px" href="archive-map.html#${esc(r.id)}">絵図</a>` : ''}`;
       panelBody.querySelectorAll('a[data-id]').forEach(a => {
         a.addEventListener('click', ev => { ev.preventDefault(); openPanel(byId[a.dataset.id]); });
       });

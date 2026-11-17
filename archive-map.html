@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>記憶の絵図 — Local Archive Map | 8weeks Stay</title>
-  <meta name="description" content="富士見町ローカルアーカイブのうち、座標の確かめられた記録を地図の上に置いたページ。">
+  <meta name="description" content="富士見・蓼科・諏訪のローカルアーカイブのうち、座標の確かめられた記録を地図の上に置いたページ。">
   <link rel="icon" type="image/png" href="assets/logos/favicon_moon.png">
   <link rel="canonical" href="https://8weeksfujimi.github.io/8weeks-LP/archive-map.html">
 
   <meta property="og:title" content="記憶の絵図 — Local Archive Map">
-  <meta property="og:description" content="富士見町の記録を、土地の上に置いて眺める。">
+  <meta property="og:description" content="富士見・蓼科・諏訪の記録を、土地の上に置いて眺める。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://8weeksfujimi.github.io/8weeks-LP/archive-map.html">
   <meta property="og:site_name" content="8weeks Stay">
@@ -105,6 +105,19 @@
     }
     .basemap-switch button.active { background: var(--navy); color: var(--moon); border-color: var(--navy); }
 
+    .area-switch {
+      position: fixed; right: 24px; top: 122px; z-index: 1100;
+      display: none; gap: 0; font-size: 0.66rem; letter-spacing: 0.14em;
+    }
+    .area-switch.show { display: flex; }
+    .area-switch button {
+      font-family: var(--sans); cursor: pointer;
+      background: rgba(248, 246, 241, 0.9); color: var(--ink-soft);
+      border: 1px solid var(--line); padding: 5px 12px;
+    }
+    .area-switch button.active { background: var(--navy); color: var(--moon); border-color: var(--navy); }
+    .legend .note { font-size: 0.6rem; color: var(--ink-soft); letter-spacing: 0.06em; margin-top: 4px; max-width: 15em; line-height: 1.6; }
+
     .panel {
       position: fixed; right: 0; top: 0; bottom: 0; z-index: 1150;
       width: min(400px, 92vw); background: var(--washi); color: var(--ink);
@@ -139,7 +152,7 @@
       .title-block h1 { font-size: 1rem; letter-spacing: 0.22em; }
       .title-block .title-desc { display: none; }
       .mobile-desc {
-        display: block; position: fixed; left: 14px; right: 14px; bottom: 96px; z-index: 1100;
+        display: block; position: fixed; left: 14px; right: 14px; bottom: calc(var(--legend-h, 78px) + 18px); z-index: 1100;
         font-size: 0.62rem; letter-spacing: 0.08em; line-height: 1.8;
         color: var(--ink-soft); pointer-events: none;
         text-shadow: 0 0 6px rgba(248, 246, 241, 0.9);
@@ -150,6 +163,10 @@
         font-size: 0.62rem; padding: 8px 10px;
       }
       .basemap-switch { top: 64px; right: 12px; }
+      .area-switch { top: 100px; right: 12px; }
+      /* 拡大縮小のボタンは、下いっぱいに広がる凡例の下に隠れるので、土地の切り替えの下へ移す */
+      .leaflet-bottom .leaflet-control-zoom { position: fixed; top: 142px; right: 12px; margin: 0; }
+      .legend .note { max-width: none; flex-basis: 100%; margin-top: 0; }
       .panel { padding: 72px 20px 24px; }
       .panel .close { top: 60px; }
     }
@@ -166,6 +183,7 @@
       <a href="archive-db.html" class="keep">Ledger</a>
       <a href="archive-graph.html" class="keep">Graph</a>
       <a href="archive-map.html" class="current keep">Map</a>
+      <a href="archive-method.html">Method</a>
     </nav>
   </header>
 
@@ -181,6 +199,8 @@
     <button id="baseStd" class="active">淡色</button>
     <button id="basePhoto">写真</button>
   </div>
+
+  <div class="area-switch" id="areaSwitch" role="group" aria-label="土地"></div>
 
   <div class="legend" id="legend"></div>
 
@@ -232,12 +252,17 @@
       document.getElementById('basePhoto').classList.toggle('active', !std);
     }
 
-    let nodes = [], byId = {};
+    let nodes = [], byId = {}, SUBS = [];
+    const subOf = id => SUBS.find(a => a.id === id) || {};
     const hiddenGroups = new Set();
+    // 点の縁の色は土地のしるし（設定ファイルの subregions[].stroke）
 
-    fetch('data/fujimi-archive-db.json')
-      .then(r => r.json())
-      .then(d => build(d.records));
+    // 設定と、一つの台帳（data/archive-db.json）を読む
+    fetch('data/archive-config.json').then(r => r.json()).then(cfg => {
+      SUBS = cfg.subregions;
+      return fetch(cfg.db.file).then(r => r.json());
+    }).then(db => build(db.records))
+      .catch(() => { document.querySelectorAll('.title-desc, .mobile-desc').forEach(e => { e.textContent = '台帳の読み込みに失敗しました。時間をおいてお試しください。'; }); });
 
     function build(records) {
       const geoRecs = records.filter(r => r.geo && typeof r.geo.lat === 'number' && typeof r.geo.lng === 'number');
@@ -260,30 +285,66 @@
 
       nodes = geoRecs.map(r => {
         const g = groupOf(r);
+        const approx = r.geo_precision === 'approx';
         const marker = L.circleMarker([r._lat ?? r.geo.lat, r._lng ?? r.geo.lng], {
           radius: 7.5,
-          color: 'rgba(1, 38, 83, 0.55)',
-          weight: 1.2,
+          color: subOf(r.subregion).stroke || 'rgba(1, 38, 83, 0.6)',
+          weight: r.subregion === 'fujimi' ? 1.2 : 2,
+          dashArray: approx ? '2 3' : null,
           fillColor: g[2],
-          fillOpacity: 0.88,
+          fillOpacity: approx ? 0.6 : 0.88,
           bubblingMouseEvents: false,
         });
         marker.bindTooltip(esc(shortLabel(r.keyword)), { className: 'place-tip', direction: 'top', offset: [0, -8] });
-        const n = { r, id: r.id, group: g[0], color: g[2], marker };
+        const n = { r, id: r.id, sub: r.subregion || 'fujimi', group: g[0], color: g[2], marker };
         marker.on('click', () => openPanel(n));
         marker.addTo(map);
         return n;
       });
       byId = Object.fromEntries(nodes.map(n => [n.id, n]));
 
-      // 町内の記録に合わせて初期表示を調整
-      const townPts = nodes.filter(n => !n.r.town_outside).map(n => n.marker.getLatLng());
-      if (townPts.length) map.fitBounds(L.latLngBounds(townPts).pad(0.12), { maxZoom: 13, animate: false });
-
       const desc = document.querySelector('.title-desc');
       if (desc) desc.textContent = `LOCAL ARCHIVE MAP — 座標の確かめられた${nodes.length}の記録を、土地の上に置いたもの。`;
 
       buildLegend();
+      buildAreaSwitch();
+
+      // #FJM-XXX-000 のように記録を、?region=suwa のように土地を指定してひらける。指定がなければ全体
+      const want = new URLSearchParams(location.search).get('region');
+      const hashId = decodeURIComponent(location.hash.slice(1));
+      if (hashId && byId[hashId]) openById(hashId);
+      else showArea(SUBS.some(a => a.id === want) && nodes.some(n => n.sub === want) ? want : 'all');
+      window.addEventListener('hashchange', () => {
+        const id = decodeURIComponent(location.hash.slice(1));
+        if (id && byId[id]) openById(id);
+      });
+    }
+
+    function openById(id) {
+      const t = byId[id];
+      map.setView(t.marker.getLatLng(), 14, { animate: false });
+      markArea(t.sub);
+      openPanel(t);
+    }
+
+    // 土地ごとに、その記録が収まる範囲へ移る。富士見は、町内の記録に合わせる
+    function showArea(id) {
+      let pts = nodes.filter(n => id === 'all' || n.sub === id);
+      if (id === 'fujimi') { const town = pts.filter(n => !n.r.town_outside); if (town.length) pts = town; }
+      if (!pts.length) pts = nodes;
+      if (pts.length) map.fitBounds(L.latLngBounds(pts.map(n => n.marker.getLatLng())).pad(0.12), { maxZoom: 13, animate: false });
+      markArea(id);
+    }
+    function markArea(id) {
+      document.querySelectorAll('#areaSwitch button').forEach(b => b.classList.toggle('active', b.dataset.a === id));
+    }
+    function buildAreaSwitch() {
+      const used = SUBS.filter(a => nodes.some(n => n.sub === a.id));
+      if (used.length < 2) return;
+      const el = document.getElementById('areaSwitch');
+      el.innerHTML = '<button data-a="all">ぜんぶ</button>' + used.map(a => `<button data-a="${esc(a.id)}">${esc(a.label)}</button>`).join('');
+      el.querySelectorAll('button').forEach(b => b.addEventListener('click', () => showArea(b.dataset.a)));
+      el.classList.add('show');
     }
 
     function buildLegend() {
@@ -291,8 +352,8 @@
       const legend = document.getElementById('legend');
       legend.innerHTML = usedGroups.map(g =>
         `<div class="li" data-g="${esc(g[0])}"><span class="dot" style="background:${g[2]}"></span>${esc(g[0])}</div>`
-      ).join('');
-      legend.querySelectorAll('.li').forEach(li => {
+      ).join('') + `<div class="note">${SUBS.filter(a => a.stroke_name && nodes.some(n => n.sub === a.id)).map(a => `${esc(a.stroke_name)}の縁は${esc(a.label)}`).join('、')}。破線の点は、およその位置。</div>`;
+      legend.querySelectorAll('.li[data-g]').forEach(li => {
         li.addEventListener('click', () => {
           const g = li.dataset.g;
           if (hiddenGroups.has(g)) hiddenGroups.delete(g); else hiddenGroups.add(g);
@@ -304,6 +365,15 @@
         });
       });
     }
+
+    // 凡例の高さが変わっても、その上の説明文と重ならないように、高さを CSS へ渡す
+    (function () {
+      const el = document.getElementById('legend');
+      const sync = () => document.documentElement.style.setProperty('--legend-h', el.offsetHeight + 'px');
+      if (window.ResizeObserver) new ResizeObserver(sync).observe(el);
+      window.addEventListener('resize', sync);
+      sync();
+    })();
 
     // 詳細パネル（星図と同じ意匠）
     const panel = document.getElementById('panel');
@@ -318,14 +388,16 @@
         .sort((a, b) => a.d - b.d)
         .slice(0, 5);
       panelBody.innerHTML = `
-        <span class="badge">確度 ${esc(r.confidence)}</span><span class="badge" style="border-style:dashed">${esc(r.page_type)}</span>
+        <span class="badge">確度 ${esc(r.confidence)}</span><span class="badge" style="border-style:dashed">${esc(r.page_type)}</span>${SUBS.length > 1 ? `<span class="badge">${esc(subOf(n.sub).label || '')}</span>` : ''}
         <h2 class="serif">${esc(r.keyword)}</h2>
-        <p class="meta">${esc(r.category)}${r.era ? '｜' + esc(r.era) : ''}</p>
+        <p class="meta">${esc(r.category)}${r.era ? '｜' + esc(r.era) : ''}${r.municipality ? '｜' + esc(r.municipality) : ''}${r.geo_precision === 'approx' ? '｜およその位置' : ''}</p>
         <p class="bg">${esc(r.background.length > 350 ? r.background.slice(0, 350) + '……' : r.background)}</p>
         ${nearby.length ? `<div class="nearby"><b>あるいてゆける記録</b>${nearby.map(x =>
           `<a href="#" data-id="${esc(x.m.id)}">${esc(shortLabel(x.m.r.keyword))} <span style="color:var(--ink-soft)">— 約${x.d < 950 ? Math.round(x.d / 50) * 50 + 'm' : (x.d / 1000).toFixed(1) + 'km'}</span></a>`
         ).join('')}</div>` : ''}
-        <a class="goto" href="archive-db.html#${esc(r.id)}">台帳でぜんぶ読む →</a>`;
+        <a class="goto" href="records/${esc(r.id)}.html">この記録の頁をひらく →</a>
+        <a class="goto" style="background:transparent;border:1px solid var(--navy-2);margin-left:10px" href="archive-db.html#${esc(r.id)}">台帳</a>
+        <a class="goto" style="background:transparent;border:1px solid var(--navy-2);margin-left:10px" href="archive-graph.html#${esc(r.id)}">星図</a>`;
       panelBody.querySelectorAll('a[data-id]').forEach(a => {
         a.addEventListener('click', ev => {
           ev.preventDefault();
