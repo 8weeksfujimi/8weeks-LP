@@ -1,0 +1,283 @@
+/* 8weeks Local Archive — 記録の頁・総目録・方法の頁の共通スタイル
+   意匠は手帖(archive.html)・台帳(archive-db.html)と同じトークンを使う */
+:root {
+  --navy: #012653;
+  --navy-2: #12335C;
+  --moon: #FFF100;
+  --washi: #F8F6F1;
+  --white: #FFFFFF;
+  --ink: #1C2B3A;
+  --ink-soft: #4A5A6A;
+  --line: rgba(1, 38, 83, 0.14);
+  --earth: #8a5a3a;
+  --earth-line: #c9a88f;
+  --serif: 'Zen Old Mincho', 'Hiragino Mincho ProN', serif;
+  --sans: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans); font-weight: 400; color: var(--ink);
+  background: var(--washi); line-height: 1.9; letter-spacing: 0.04em;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+.serif { font-family: var(--serif); }
+
+/* ---------- ヘッダー ---------- */
+.header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 32px;
+  background: rgba(1, 38, 83, 0.96);
+  box-shadow: 0 1px 24px rgba(1, 38, 83, 0.25);
+}
+.header-brand img { height: 52px; width: auto; display: block; }
+.header-nav { display: flex; align-items: center; gap: 24px; }
+.header-nav a {
+  color: rgba(255, 255, 255, 0.88); font-size: 0.8rem; letter-spacing: 0.14em;
+  padding-bottom: 3px; border-bottom: 1px solid transparent;
+  transition: color 0.3s, border-color 0.3s;
+}
+.header-nav a:hover, .header-nav a.current { color: var(--moon); border-bottom-color: var(--moon); }
+
+/* ---------- 頁の頭 ---------- */
+.page-hero {
+  background: var(--navy); color: var(--white);
+  padding: 132px 24px 56px; text-align: center;
+}
+.page-hero h1 {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(1.5rem, 3.8vw, 2.3rem); letter-spacing: 0.16em; line-height: 1.7;
+}
+.page-hero .en {
+  margin-top: 10px; font-size: 0.7rem; letter-spacing: 0.3em;
+  text-transform: uppercase; color: rgba(255, 255, 255, 0.6);
+}
+.page-hero .lead {
+  margin: 26px auto 0; max-width: 660px;
+  font-size: 0.9rem; line-height: 2.2; color: rgba(255, 255, 255, 0.86); text-align: left;
+}
+.page-hero .lead a { border-bottom: 1px solid rgba(255, 255, 255, 0.4); }
+
+.wrap { max-width: 820px; margin: 0 auto; padding: 44px 20px 100px; }
+.wrap.wide { max-width: 960px; }
+
+/* ---------- パンくず ---------- */
+.crumbs { font-size: 0.7rem; letter-spacing: 0.12em; color: var(--ink-soft); margin-bottom: 22px; }
+.crumbs a { border-bottom: 1px dotted var(--line); }
+.crumbs a:hover { color: var(--navy); border-bottom-color: var(--navy); }
+.crumbs span { margin: 0 6px; opacity: 0.6; }
+
+/* ---------- 札（確度・頁の種類・エリア・資本） ---------- */
+.badges { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+.badge {
+  font-size: 0.68rem; letter-spacing: 0.12em; font-weight: 500;
+  padding: 2px 10px; border: 1px solid transparent; white-space: nowrap;
+}
+.badge.cS { background: var(--navy); color: var(--white); }
+.badge.cA { background: rgba(1, 38, 83, 0.08); color: var(--navy); border-color: var(--navy-2); }
+.badge.cB { background: transparent; color: var(--navy-2); border-color: var(--line); }
+.badge.cC { background: transparent; color: var(--ink-soft); border-color: var(--line); border-style: dashed; }
+.badge.cD { background: transparent; color: var(--earth); border-color: var(--earth-line); border-style: dashed; }
+.badge.sub { background: var(--white); color: var(--navy-2); border-color: var(--navy-2); }
+.badge.sub.tateshina { color: #2f6b55; border-color: #2f6b55; }
+.badge.sub.suwa { color: #1f5f96; border-color: #1f5f96; }
+.badge.sub.also { background: transparent; border-style: dashed; }
+.badge.cap { background: transparent; color: var(--ink-soft); border-color: var(--line); }
+.badge.outside { background: transparent; color: var(--earth); border-color: var(--earth-line); }
+.ptype { font-size: 0.68rem; letter-spacing: 0.16em; color: var(--ink-soft); }
+
+/* ---------- 記録の頁 ---------- */
+.rec-page { padding-top: 112px; }
+.rec-page h1 {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(1.3rem, 3vw, 1.75rem); letter-spacing: 0.08em;
+  color: var(--navy); line-height: 1.8;
+}
+.rec-page .yomi { font-size: 0.74rem; letter-spacing: 0.16em; color: var(--ink-soft); margin-top: 2px; }
+.rec-page .title-en { font-size: 0.8rem; letter-spacing: 0.08em; color: var(--ink-soft); font-style: italic; margin-top: 2px; }
+.rec-page .meta { font-size: 0.74rem; color: var(--ink-soft); margin: 8px 0 26px; letter-spacing: 0.06em; }
+.rec-body {
+  background: var(--white); border: 1px solid var(--line);
+  padding: 30px 32px; font-size: 0.95rem; line-height: 2.25;
+}
+.rec-body .en-sum {
+  display: block; margin-top: 1.6em; padding-top: 1.2em; border-top: 1px solid var(--line);
+  font-size: 0.82rem; line-height: 2; letter-spacing: 0.02em; color: var(--ink-soft); font-style: italic;
+}
+.tags { margin-top: 14px; font-size: 0.72rem; color: var(--navy-2); letter-spacing: 0.1em; }
+
+.sec { margin-top: 40px; }
+.sec h2 {
+  font-family: var(--serif); font-weight: 500; font-size: 1.02rem;
+  letter-spacing: 0.14em; color: var(--navy);
+  padding-bottom: 8px; border-bottom: 1px solid var(--line); margin-bottom: 14px;
+}
+.sec h2 small { font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.22em; color: var(--ink-soft); margin-left: 10px; text-transform: uppercase; }
+.sec p, .sec li { font-size: 0.84rem; line-height: 2.1; }
+.hint, .sec .hint { font-size: 0.72rem; color: var(--ink-soft); margin-top: 10px; line-height: 1.9; }
+.apparatus {
+  padding: 14px 18px; background: rgba(1, 38, 83, 0.03); border-left: 2px solid var(--line);
+  font-size: 0.8rem; line-height: 2.05; color: var(--ink-soft);
+}
+.apparatus a, .sec .src-list a, .cite-box a { color: #345; word-break: break-all; border-bottom: 1px dotted #9ab; }
+.apparatus b { color: var(--navy-2); font-weight: 500; }
+
+.src-list { list-style: none; counter-reset: src; }
+.src-list li { counter-increment: src; padding: 8px 0 8px 2.2em; border-bottom: 1px dotted var(--line); position: relative; }
+.src-list li::before { content: counter(src); position: absolute; left: 0; top: 8px; font-size: 0.7rem; color: var(--ink-soft); letter-spacing: 0.1em; }
+.src-kind {
+  display: inline-block; font-size: 0.64rem; letter-spacing: 0.1em; padding: 0 8px;
+  border: 1px solid var(--line); color: var(--navy-2); margin-right: 8px; background: var(--white); white-space: nowrap;
+}
+.src-kind.k-public, .src-kind.k-heritage, .src-kind.k-academic { border-color: var(--navy-2); }
+.src-kind.k-party { color: var(--earth); border-color: var(--earth-line); }
+.src-title { color: var(--ink); }
+.src-supports { display: block; font-size: 0.74rem; color: var(--ink-soft); }
+
+.link-list { list-style: none; }
+.link-list li { padding: 6px 0; border-bottom: 1px dotted var(--line); }
+.link-list a { color: var(--navy-2); }
+.link-list a:hover { color: var(--navy); }
+.link-list .sub { font-size: 0.72rem; color: var(--ink-soft); margin-left: 8px; }
+.link-group { font-size: 0.7rem; letter-spacing: 0.16em; color: var(--ink-soft); margin: 16px 0 4px; }
+.link-group:first-child { margin-top: 0; }
+
+.views { display: flex; flex-wrap: wrap; gap: 10px; }
+.views a, .btn-line {
+  color: var(--navy-2); border: 1px solid var(--line); background: var(--white);
+  padding: 6px 16px; font-size: 0.76rem; letter-spacing: 0.1em;
+  transition: background 0.25s, color 0.25s, border-color 0.25s; cursor: pointer; font-family: inherit;
+}
+.views a:hover, .btn-line:hover { background: var(--navy); color: var(--moon); border-color: var(--navy); }
+
+details.fold { margin-top: 14px; font-size: 0.8rem; }
+details.fold summary { cursor: pointer; color: var(--ink-soft); letter-spacing: 0.1em; padding: 6px 0; }
+details.fold .apparatus { margin-top: 6px; }
+
+.cite-box {
+  background: var(--white); border: 1px solid var(--line); padding: 18px 22px;
+  font-size: 0.8rem; line-height: 2; word-break: break-word;
+}
+.cite-box + .btn-line { margin-top: 10px; display: inline-block; }
+
+.disclose {
+  margin-top: 48px; padding: 22px 26px; border: 1px solid var(--line); background: var(--white);
+  font-size: 0.78rem; line-height: 2.1; color: var(--ink-soft);
+}
+.disclose b { color: var(--navy); font-weight: 500; }
+.disclose a { color: var(--navy-2); border-bottom: 1px solid var(--line); }
+.disclose a:hover { border-bottom-color: var(--navy); }
+
+.pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 40px; font-size: 0.76rem; }
+.pager a { color: var(--navy-2); max-width: 46%; line-height: 1.8; }
+.pager a:hover { color: var(--navy); }
+.pager .dir { display: block; font-size: 0.64rem; letter-spacing: 0.2em; color: var(--ink-soft); }
+.pager .next { text-align: right; margin-left: auto; }
+
+/* ---------- 総目録 ---------- */
+.cat-sub { margin-top: 44px; }
+.cat-sub:first-child { margin-top: 0; }
+.cat-sub > h2 {
+  font-family: var(--serif); font-weight: 500; font-size: 1.3rem; letter-spacing: 0.16em; color: var(--navy);
+}
+.cat-sub > p { font-size: 0.8rem; color: var(--ink-soft); line-height: 2; margin: 4px 0 6px; }
+.cat-group { margin-top: 24px; }
+.cat-group h3 { font-size: 0.74rem; letter-spacing: 0.22em; color: var(--navy-2); font-weight: 500; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+.cat-list { list-style: none; }
+.cat-list li { display: flex; gap: 12px; align-items: baseline; padding: 7px 0; border-bottom: 1px dotted var(--line); font-size: 0.86rem; }
+.cat-list .c { flex: none; width: 6em; font-size: 0.66rem; letter-spacing: 0.1em; color: var(--ink-soft); }
+.cat-list a:hover { color: var(--navy-2); border-bottom: 1px solid var(--line); }
+
+/* ---------- 方法の頁 ---------- */
+.method h2 {
+  font-family: var(--serif); font-weight: 500; font-size: 1.2rem; letter-spacing: 0.14em;
+  color: var(--navy); margin: 56px 0 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); line-height: 1.8;
+}
+.method h2:first-child { margin-top: 0; }
+.method h2 small { display: block; font-family: var(--sans); font-size: 0.64rem; letter-spacing: 0.3em; color: var(--ink-soft); text-transform: uppercase; }
+.method h3 { font-size: 0.86rem; font-weight: 500; letter-spacing: 0.1em; color: var(--navy-2); margin: 26px 0 8px; }
+.method p { font-size: 0.9rem; line-height: 2.2; }
+.method p + p { margin-top: 1em; }
+.method ul, .method ol { margin: 10px 0 0 1.4em; }
+.method li { font-size: 0.88rem; line-height: 2.1; }
+.method a { color: var(--navy-2); border-bottom: 1px solid var(--line); }
+.method a:hover { border-bottom-color: var(--navy); }
+.method .note { font-size: 0.78rem; color: var(--ink-soft); line-height: 2; }
+.method table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 0.82rem; background: var(--white); }
+.method th, .method td { border: 1px solid var(--line); padding: 10px 14px; text-align: left; vertical-align: top; line-height: 1.9; }
+.method th { font-weight: 500; color: var(--navy); background: rgba(1, 38, 83, 0.04); white-space: nowrap; letter-spacing: 0.08em; }
+.method td.g { width: 3.2em; text-align: center; font-family: var(--serif); font-size: 1.05rem; color: var(--navy); }
+.toc { background: var(--white); border: 1px solid var(--line); padding: 20px 26px; margin-bottom: 48px; }
+.toc b { font-size: 0.72rem; letter-spacing: 0.2em; color: var(--navy); font-weight: 500; }
+.toc ol { margin: 8px 0 0 1.4em; columns: 2; column-gap: 32px; }
+.toc li { font-size: 0.8rem; line-height: 2.1; }
+.toc a { border-bottom: none; }
+.toc a:hover { border-bottom: 1px solid var(--line); }
+
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 14px; }
+.stat { background: var(--white); border: 1px solid var(--line); padding: 16px 18px; }
+.stat .n { font-family: var(--serif); font-size: 1.7rem; color: var(--navy); line-height: 1.3; }
+.stat .l { font-size: 0.7rem; letter-spacing: 0.12em; color: var(--ink-soft); line-height: 1.7; }
+.bars { margin-top: 14px; background: var(--white); border: 1px solid var(--line); padding: 16px 20px; }
+.bars .row { display: grid; grid-template-columns: 11em 1fr 3.4em; gap: 10px; align-items: center; font-size: 0.76rem; padding: 3px 0; }
+.bars .track { height: 9px; background: rgba(1, 38, 83, 0.07); }
+.bars .fill { height: 100%; background: var(--navy-2); }
+.bars .fill.alt { background: #2f6b55; }
+.bars .v { text-align: right; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.bars .cap { font-size: 0.7rem; letter-spacing: 0.14em; color: var(--ink-soft); margin: 10px 0 4px; }
+.bars .cap:first-child { margin-top: 0; }
+.refs { list-style: none; margin-left: 0 !important; }
+.refs li { padding: 8px 0 8px 1.6em; text-indent: -1.6em; border-bottom: 1px dotted var(--line); font-size: 0.82rem !important; }
+
+/* ---------- フッター ---------- */
+.footer { background: var(--navy); color: rgba(255, 255, 255, 0.6); padding: 60px 24px 40px; text-align: center; }
+.footer img { height: 72px; margin: 0 auto; display: block; }
+.footer p { font-size: 0.74rem; letter-spacing: 0.08em; line-height: 2.1; margin-top: 18px; }
+.footer .foot-links { display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; margin-top: 22px; }
+.footer .foot-links a { font-size: 0.74rem; letter-spacing: 0.1em; color: rgba(255, 255, 255, 0.75); border-bottom: 1px solid transparent; }
+.footer .foot-links a:hover { color: var(--moon); border-bottom-color: var(--moon); }
+
+@media (max-width: 768px) {
+  .header { padding: 12px 16px; }
+  .header-brand img { height: 42px; }
+  .header-nav { gap: 14px; }
+  .header-nav a:not(.keep) { display: none; }
+  .header-nav a { font-size: 0.72rem; letter-spacing: 0.08em; }
+  .wrap { padding: 32px 16px 80px; }
+  .rec-page { padding-top: 92px; }
+  .rec-body { padding: 22px 20px; }
+  .toc ol { columns: 1; }
+  .bars .row { grid-template-columns: 8.5em 1fr 3em; }
+  .method table { font-size: 0.76rem; }
+  .method th, .method td { padding: 8px 10px; }
+  .method th { white-space: normal; }
+}
+/* 320px 前後の幅では、5つのリンクがロゴに届かないように、あいだを詰める */
+@media (max-width: 340px) {
+  .header-nav { gap: 10px; }
+  .header-nav a { letter-spacing: 0.04em; }
+}
+
+@media print {
+  .header, .footer, .views, .pager, .btn-line { display: none !important; }
+  .rec-page { padding-top: 0; }
+  body { background: #fff; }
+}
+
+[id] { scroll-margin-top: 96px; }
+
+/* 総目録: 土地への飛び先と、ほかの土地に置いた記録 */
+.page-hero .jump { margin-top: 16px; font-size: 0.78rem; letter-spacing: 0.12em; }
+.page-hero .jump a { border-bottom: 1px solid currentColor; padding-bottom: 1px; }
+.cat-group.also h3 { color: var(--ink-soft); border-bottom-style: dashed; }
+.cat-group.also .c { width: 6em; }
+.page-hero .jump b { font-weight: 500; border-bottom: 1px solid currentColor; padding-bottom: 1px; }
+.cat-sub > p a.more { margin-left: 10px; color: var(--navy-2); border-bottom: 1px solid var(--line); white-space: nowrap; }
+.cat-list .n { margin-left: auto; flex: none; padding-left: 10px; font-size: 0.66rem; letter-spacing: 0.08em; color: var(--ink-soft); white-space: nowrap; }
+.link-list.pair li { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+/* 折り返しを許す札と、目次の中の市町村（スマホ幅ではみ出さないように） */
+.badge.cap { white-space: normal; }
+.cat-list a { min-width: 0; }
+.cat-list .muni { display: block; margin-top: 2px; font-size: 0.68rem; letter-spacing: 0.06em; color: var(--ink-soft); line-height: 1.7; }

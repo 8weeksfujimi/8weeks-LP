@@ -1,0 +1,243 @@
+{
+ "generated": "2026-11-17",
+ "all": {
+  "records": 184,
+  "page_type": {
+   "地の頁": 164,
+   "余白の頁": 20
+  },
+  "top_grade": {
+   "S": 45,
+   "A": 120,
+   "B": 17,
+   "C": 2,
+   "D": 0
+  },
+  "contains_grade": {
+   "S": 45,
+   "A": 158,
+   "B": 138,
+   "C": 44,
+   "D": 24
+  },
+  "groups": {
+   "産業": 44,
+   "信仰・伝承": 36,
+   "縄文": 28,
+   "文学・芸術": 20,
+   "自然": 17,
+   "歴史": 14,
+   "街道": 13,
+   "ヒッピー": 6,
+   "現代・移住": 6
+  },
+  "capital": {
+   "文化資本": 119,
+   "人的資本": 41,
+   "自然資本": 24
+  },
+  "capital_provisional": 88,
+  "with_geo": 95,
+  "sources": 1073,
+  "sources_unique": 862,
+  "sources_per_record": 5.8,
+  "source_kinds": {
+   "public": 290,
+   "encyclopedia": 232,
+   "party": 117,
+   "other": 88,
+   "museum": 74,
+   "academic": 67,
+   "personal": 60,
+   "local": 53,
+   "heritage": 48,
+   "press": 44
+  },
+  "references": 63,
+  "open_questions": 348,
+  "reviewed": 183,
+  "with_source_details": 96,
+  "with_related_subregions": 16
+ },
+ "subregions": {
+  "fujimi": {
+   "records": 88,
+   "page_type": {
+    "地の頁": 76,
+    "余白の頁": 12
+   },
+   "top_grade": {
+    "S": 6,
+    "A": 65,
+    "B": 15,
+    "C": 2,
+    "D": 0
+   },
+   "contains_grade": {
+    "S": 6,
+    "A": 67,
+    "B": 48,
+    "C": 30,
+    "D": 24
+   },
+   "groups": {
+    "産業": 19,
+    "信仰・伝承": 18,
+    "縄文": 16,
+    "文学・芸術": 8,
+    "歴史": 6,
+    "ヒッピー": 6,
+    "現代・移住": 6,
+    "自然": 5,
+    "街道": 4
+   },
+   "capital": {
+    "文化資本": 61,
+    "人的資本": 21,
+    "自然資本": 6
+   },
+   "capital_provisional": 88,
+   "with_geo": 45,
+   "sources": 504,
+   "sources_unique": 409,
+   "sources_per_record": 5.7,
+   "source_kinds": {
+    "encyclopedia": 98,
+    "other": 88,
+    "public": 75,
+    "party": 67,
+    "personal": 53,
+    "local": 31,
+    "academic": 28,
+    "press": 27,
+    "museum": 24,
+    "heritage": 13
+   },
+   "references": 0,
+   "open_questions": null,
+   "reviewed": 87,
+   "with_source_details": 0,
+   "with_related_subregions": 0,
+   "label": "富士見",
+   "updated": "2026-07-11"
+  },
+  "tateshina": {
+   "records": 42,
+   "page_type": {
+    "地の頁": 40,
+    "余白の頁": 2
+   },
+   "top_grade": {
+    "S": 17,
+    "A": 25,
+    "B": 0,
+    "C": 0,
+    "D": 0
+   },
+   "contains_grade": {
+    "S": 17,
+    "A": 42,
+    "B": 40,
+    "C": 8,
+    "D": 0
+   },
+   "groups": {
+    "産業": 12,
+    "自然": 7,
+    "縄文": 6,
+    "信仰・伝承": 6,
+    "文学・芸術": 6,
+    "街道": 4,
+    "歴史": 1
+   },
+   "capital": {
+    "文化資本": 25,
+    "自然資本": 11,
+    "人的資本": 6
+   },
+   "capital_provisional": 0,
+   "with_geo": 22,
+   "sources": 280,
+   "sources_unique": 239,
+   "sources_per_record": 6.7,
+   "source_kinds": {
+    "public": 123,
+    "encyclopedia": 62,
+    "party": 20,
+    "academic": 20,
+    "local": 16,
+    "heritage": 13,
+    "museum": 13,
+    "press": 9,
+    "personal": 4
+   },
+   "references": 31,
+   "open_questions": 162,
+   "reviewed": 42,
+   "with_source_details": 42,
+   "with_related_subregions": 13,
+   "label": "蓼科",
+   "updated": "2026-11-17"
+  },
+  "suwa": {
+   "records": 54,
+   "page_type": {
+    "地の頁": 48,
+    "余白の頁": 6
+   },
+   "top_grade": {
+    "S": 22,
+    "A": 30,
+    "B": 2,
+    "C": 0,
+    "D": 0
+   },
+   "contains_grade": {
+    "S": 22,
+    "A": 49,
+    "B": 50,
+    "C": 6,
+    "D": 0
+   },
+   "groups": {
+    "産業": 13,
+    "信仰・伝承": 12,
+    "歴史": 7,
+    "縄文": 6,
+    "文学・芸術": 6,
+    "街道": 5,
+    "自然": 5
+   },
+   "capital": {
+    "文化資本": 33,
+    "人的資本": 14,
+    "自然資本": 7
+   },
+   "capital_provisional": 0,
+   "with_geo": 28,
+   "sources": 289,
+   "sources_unique": 247,
+   "sources_per_record": 5.4,
+   "source_kinds": {
+    "public": 92,
+    "encyclopedia": 72,
+    "museum": 37,
+    "party": 30,
+    "heritage": 22,
+    "academic": 19,
+    "press": 8,
+    "local": 6,
+    "personal": 3
+   },
+   "references": 32,
+   "open_questions": 186,
+   "reviewed": 54,
+   "with_source_details": 54,
+   "with_related_subregions": 3,
+   "label": "諏訪",
+   "updated": "2026-11-17"
+  }
+ },
+ "cross_subregion_links": 64,
+ "cross_subregion_explicit": 52
+}
