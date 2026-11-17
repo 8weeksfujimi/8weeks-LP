@@ -101,6 +101,7 @@ a { color: inherit; text-decoration: none; }
 .rec-body {
   background: var(--white); border: 1px solid var(--line);
   padding: 30px 32px; font-size: 0.95rem; line-height: 2.25;
+  overflow-wrap: anywhere;
 }
 .rec-body .en-sum {
   display: block; margin-top: 1.6em; padding-top: 1.2em; border-top: 1px solid var(--line);
@@ -120,6 +121,7 @@ a { color: inherit; text-decoration: none; }
 .apparatus {
   padding: 14px 18px; background: rgba(1, 38, 83, 0.03); border-left: 2px solid var(--line);
   font-size: 0.8rem; line-height: 2.05; color: var(--ink-soft);
+  overflow-wrap: anywhere;
 }
 .apparatus a, .sec .src-list a, .cite-box a { color: #345; word-break: break-all; border-bottom: 1px dotted #9ab; }
 .apparatus b { color: var(--navy-2); font-weight: 500; }
