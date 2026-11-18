@@ -274,7 +274,7 @@ def footer(prefix):
       <a href="{prefix}archive-method.html">方法と凡例</a>
     </div>
     <p>運営会社：{esc(CONFIG['site']['publisher'])}<br>〒399-0211 {esc(CONFIG['site']['publisher_address'])}</p>
-    <p style="font-size:0.68rem;color:rgba(255,255,255,0.4)">&copy; 2026 8weeks Stay. All rights reserved.</p>
+    <p style="font-size:0.68rem;color:rgba(255,255,255,0.4)">&copy; 2026 8weeks Local Archive. All rights reserved.</p>
   </footer>'''
 
 
@@ -298,26 +298,81 @@ def primary_municipality(r, sub):
     return sub['municipalities'][0]
 
 
+def title_name(keyword):
+    """題（title 要素）に使う名称。名称の括弧書き（読み・別名・補足）を落とす。入れ子の括弧は内側から順に落とす。
+    h1・og:title には全文を残す。括弧を落とすと2字に満たないときは、全文を使う（SEO の方針 A3③ 2026-11-17）。"""
+    s, prev = keyword, None
+    while s != prev:
+        prev, s = s, re.sub(r'\s*[（(][^（）()]*[）)]', '', s)
+    s = s.strip()
+    return s if len(s) >= 2 else keyword
+
+
+_TITLE_NAMES = {}   # 記録ID → 題に使う名称。build_outputs が、台帳の全体を見て埋める
+
+
+def title_names(records):
+    """記録ID → 題に使う名称。括弧を落とした名称が、ほかの記録の名称と同じになるときは、区別を残す:
+    重なる記録のうち全文が26字以内のものは括弧ごと全文を使い、それでも重なるときは、重なる記録すべてに全文を使う。"""
+    names = {r['id']: title_name(r['keyword']) for r in records}
+    while True:
+        count = Counter(names.values())
+        clash = [r for r in records if count[names[r['id']]] > 1 and names[r['id']] != r['keyword']]
+        if not clash:
+            return names
+        short = [r for r in clash if len(r['keyword']) <= 26]
+        for r in (short or clash):
+            names[r['id']] = r['keyword']
+
+
+SENT_OPEN, SENT_CLOSE = '（(「『【〔［[〈《', '）)」』】〕］]〉》'
+
+
+def lead_sentences(text, min_len=40):
+    """先頭から、完結した文を切り出す。括弧（「」『』（）など）の中の「。」では切らない。
+    一文が min_len 字に満たないときは、次の文も足す。文の途中では切らない（SEO の方針 A3④ 2026-11-17）。
+    括弧の外に「。」が無いときは全文を一つの文とみなす。括弧が閉じていない本文だけは、最初の「。」で止める。"""
+    depth, out = 0, ''
+    for i, ch in enumerate(text):
+        if ch in SENT_OPEN:
+            depth += 1
+        elif ch in SENT_CLOSE:
+            depth = max(0, depth - 1)
+        elif ch == '。' and depth == 0:
+            out = text[:i + 1]
+            if len(out) >= min_len:
+                break
+    if out:
+        return out
+    if depth > 0:
+        j = text.find('。')
+        if j >= 0:
+            return text[:j + 1]
+    return text
+
+
 def title_of(r, sub):
     """title の型: 名称｜分類の記録（主の市町村）｜ローカルアーカイブ。確度と出典数は description に出す。
     宣伝語・宿の名は入れない。土地の名（富士見／蓼科／諏訪）ではなく市町村を入れるのは、
     「諏訪」が広い意味（諏訪地方）と取り違えられやすいため（企画部門の発信設計 2026-11-17）。
-    市町村を決められない記録（富士見の「町域外を含む」記録）には、括弧を付けない。"""
-    kw = r["keyword"] if len(r["keyword"]) <= 26 else head_of(r["keyword"])
+    市町村を決められない記録（富士見の「町域外を含む」記録）には、括弧を付けない。
+    名称の括弧書きは題から落とす（title_name。ほかの記録と同じ名称になるときは title_names が区別を残す）。"""
+    kw = _TITLE_NAMES.get(r['id']) or title_name(r["keyword"])
     muni = primary_municipality(r, sub)
     return f"{kw}｜{r.get('category', '記録')}の記録{'（' + muni + '）' if muni else ''}｜ローカルアーカイブ"
 
 
 def description_of(r):
-    """description の型: 何の記録か。確度・出典数（種類）。確度の低い記録は冒頭で断る。"""
+    """description の型: 本文の先頭の完結した文（短ければ次の文も）。確度・出典数（種類）。確度の低い記録は冒頭で断る。"""
     bg = re.sub(r'（TOWN_OUTSIDE）|＝TOWN_OUTSIDE', '', r.get('background', ''))   # 書き出し元に残る内部の印
-    bg = re.sub(r'(?<=[A-Za-z0-9])[ \t]+(?=[A-Za-z0-9])', '\x00', bg)                # 英数字のあいだの空白は残す
-    bg = re.sub(r'\s+', '', bg).replace('\x00', ' ')
+    bg = re.sub(r'(?<=[A-Za-z0-9])[ \t]*\n\s*(?=[A-Za-z0-9])', ' ', bg)          # 英数字のあいだの改行は空白に
+    bg = re.sub(r'\s*\n\s*', '', bg)                                               # そのほかの改行と字下げは落とす
+    bg = re.sub(r'[ \t　]+', lambda m: m.group(0)[0], bg).strip()             # 空白の並びは一つに。書名の副題・碑文の句・人名の空白は残す
     bg = re.sub(r'^冒頭注：[^。]*。', '', bg)
-    first = bg[:72] + ('…' if len(bg) > 72 else '')
+    first = lead_sentences(bg)
     lead = '伝承・要検証の話が主の記録。' if top_grade(r['confidence']) in 'CD' else ''
     kinds = Counter(s['kind'] for s in sources_of(r))
-    kind_txt = '・'.join(CONFIG['source_kinds'][k] for k, _ in kinds.most_common(2)) + ('ほか' if len(kinds) > 2 else '')
+    kind_txt = '／'.join(CONFIG['source_kinds'][k] for k, _ in kinds.most_common(2)) + ('ほか' if len(kinds) > 2 else '')
     n = len(r.get('sources') or [])
     return f"{lead}{first} 確度{r['confidence']}、出典{n}件（{kind_txt}）。"
 
@@ -608,7 +663,7 @@ def render_index(records, meta, stats):
         by_sub[r['subregion']].append(r)
     used = [s for s in CONFIG['subregions'] if by_sub[s['id']]]
     labels = '・'.join(s['label'] for s in used)
-    jump = ' ／ '.join(f'<a href="#{s["id"]}">{esc(s["label"])} {len(by_sub[s["id"]])}件</a>' for s in used)
+    jump = ' ／ '.join(f'<a href="#{s["id"]}">{esc(s["label"])}</a>' for s in used)   # 土地別の数は公開頁に出さない（統括の線）
     blocks = []
     for sub in used:
         rs = by_sub[sub['id']]
@@ -632,7 +687,7 @@ def render_index(records, meta, stats):
                    f'<ul class="cat-list">{lis}</ul></div>')
         upd = meta.get(sub['id'], {}).get('updated', '')
         blocks.append(f'<section class="cat-sub" id="{sub["id"]}"><h2 class="serif">{esc(sub["label"])}の記録</h2>'
-                      f'<p>{esc(sub["desc"])} {len(rs)}件・{esc(upd)} 版。<a class="more" href="{sub["id"]}.html">{esc(sub["label"])}の入口の頁へ →</a></p>{gh}</section>')
+                      f'<p>{esc(sub["desc"])} {esc(upd)} 版。<a class="more" href="{sub["id"]}.html">{esc(sub["label"])}の入口の頁へ →</a></p>{gh}</section>')
     ld = {
         '@context': 'https://schema.org', '@type': 'CollectionPage',
         'name': '総目録 — 8weeks Local Archive', 'url': BASE + 'records/index.html', 'inLanguage': 'ja',
@@ -646,12 +701,12 @@ def render_index(records, meta, stats):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>総目録 — {esc(labels)}の記録 {len(records)}件｜8weeks Local Archive</title>
-  <meta name="description" content="長野県・八ヶ岳のすそから諏訪湖まで、{esc(labels)}の土地の記録 {len(records)}件の総目録。どの記録にも確からしさの度合いと出典を添えています。">
+  <title>総目録 — {esc(labels)}の土地の記録｜8weeks Local Archive</title>
+  <meta name="description" content="長野県・八ヶ岳のすそから諏訪湖まで、{esc(labels)}の土地の記録の総目録。どの記録にも確からしさの度合いと出典を添えています。">
   <link rel="icon" type="image/png" href="../assets/logos/favicon_moon.png">
   <link rel="canonical" href="{BASE}records/index.html">
   <meta property="og:title" content="総目録 — 8weeks Local Archive">
-  <meta property="og:description" content="{esc(labels)}。八ヶ岳のすそから諏訪湖までの土地の記録 {len(records)}件。確からしさの度合いと出典つき。">
+  <meta property="og:description" content="{esc(labels)}。八ヶ岳のすそから諏訪湖までの土地の記録。確からしさの度合いと出典つき。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{BASE}records/index.html">
   <meta property="og:site_name" content="8weeks Local Archive">
@@ -666,7 +721,7 @@ def render_index(records, meta, stats):
 {nav('../', 'catalogue')}
   <section class="page-hero">
     <h1 class="serif">総目録</h1>
-    <p class="en">Catalogue · {len(records)} records</p>
+    <p class="en">Catalogue</p>
     <p class="lead">台帳に収めた記録のすべてを、土地ごと・主題ごとに並べた目録です。見出しをひらくと、その記録だけの頁に移ります。どの頁にも、本文・確からしさの内訳・出典・つながる記録・引用の書式があります。ことばで探したいとき、絞り込みたいときは <a href="../archive-db.html">台帳</a> へ。台帳は一つで、土地を{len(used)}つに分けています。</p>
     <p class="jump">{jump}</p>
   </section>
@@ -693,10 +748,6 @@ def render_land(sub, records, by_id, rel, meta):
     used = [s for s in CONFIG['subregions'] if any(r['subregion'] == s['id'] for r in records)]
     url = f"{BASE}records/{sub['id']}.html"
     upd = meta.get(sub['id'], {}).get('updated', '')
-    n_src = sum(len(r.get('sources') or []) for r in rs)
-    has_oq = any('open_questions' in r for r in rs)   # 富士見の書き出し元には、この項目がまだ無い
-    n_open = sum(len(r.get('open_questions') or []) for r in rs) if has_oq else '—'
-    n_geo = sum(1 for r in rs if has_geo(r))
 
     groups = OrderedDict((g[0], []) for g in CONFIG['groups'])
     for r in rs:
@@ -716,7 +767,7 @@ def render_land(sub, records, by_id, rel, meta):
         lis = ''.join(
             f'<li><span class="c">{esc(sub_of(r["subregion"])["label"])}に置く</span><a href="{esc(r["id"])}.html">{esc(r["keyword"])}'
             f'<span class="muni">{esc(r.get("municipality", ""))}</span></a></li>' for r in also)
-        also_html = (f'<section class="sec"><h2>ほかの土地に置いた、{esc(sub["label"])}にもかかわる記録<small>Also here · {len(also)}</small></h2>'
+        also_html = (f'<section class="sec"><h2>ほかの土地に置いた、{esc(sub["label"])}にもかかわる記録<small>Also here</small></h2>'
                      f'<div class="cat-group also"><ul class="cat-list">{lis}</ul></div>'
                      '<p class="hint">記録の市町村が、この土地の市町村にもかかるものを、機械的に拾っています。</p></section>')
 
@@ -735,18 +786,17 @@ def render_land(sub, records, by_id, rel, meta):
             lis = ''.join(
                 f'<li><a href="{esc(r["id"])}.html">{esc(short_label(r["keyword"], 26))}</a>'
                 f'<span class="sub">と</span><a href="{esc(o["id"])}.html">{esc(short_label(o["keyword"], 26))}</a></li>' for r, o in pairs)
-            parts.append(f'<p class="link-group">{esc(sub_of(oid)["label"])}の記録と — {len(pairs)}本</p><ul class="link-list pair">{lis}</ul>')
+            parts.append(f'<p class="link-group">{esc(sub_of(oid)["label"])}の記録と</p><ul class="link-list pair">{lis}</ul>')
         cross_html = ('<section class="sec"><h2>となりの土地とのつながり<small>Across the lands</small></h2>' + ''.join(parts)
                       + '<p class="hint">考証者が、出典で確かめて張ったつながりだけを並べています。</p></section>')
 
     jump = ' ／ '.join(
         (f'<b>{esc(s["label"])}</b>' if s['id'] == sub['id'] else f'<a href="{s["id"]}.html">{esc(s["label"])}</a>') for s in used)
     munis = '・'.join(sub.get('municipalities', []))
-    tiles = [(len(rs), '記録'), (n_src, '出典（記録ごとの延べ数）'), (n_geo, '座標を置けた記録'), (n_open, 'まだ確かめられていないこと')]
-    tiles_html = '<div class="stat-grid">' + ''.join(f'<div class="stat"><div class="n">{n}</div><div class="l">{esc(l)}</div></div>' for n, l in tiles) + '</div>'
-    desc = (f'{sub["places"]}の土地の記録 {len(rs)}件の入口。主題ごとの目次、線引き、となりの土地とのつながり。'
+    # 土地別の数（記録・出典・座標・未確認の数）は、公開頁に出さない（統括の線。SEO の方針 A3② 2026-11-17）。
+    # 数は data/archive-stats.json に残る。題・説明にも件数を入れない。
+    desc = (f'{sub["places"]}の土地の記録の入口。主題ごとの目次、線引き、となりの土地とのつながり。'
             'どの記録にも確からしさの度合いと出典を添えています。')
-    oq_note = '' if has_oq else 'この土地の記録には、「まだ確かめられていないこと」の項目がまだありません（確かめられなかったことは、記録ごとの考証メモに書いてあります）。'
     ld = {
         '@context': 'https://schema.org', '@type': 'CollectionPage',
         'name': f'{sub["label"]}の記録 — 8weeks Local Archive', 'url': url, 'inLanguage': 'ja',
@@ -762,7 +812,7 @@ def render_land(sub, records, by_id, rel, meta):
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{esc(sub['label'])}の記録 {len(rs)}件 — {esc(sub['en'])}｜8weeks Local Archive</title>
+  <title>{esc(sub['label'])}の記録 — {esc(munis)}｜8weeks Local Archive</title>
   <meta name="description" content="{esc(desc)}">
   <link rel="icon" type="image/png" href="../assets/logos/favicon_moon.png">
   <link rel="canonical" href="{esc(url)}">
@@ -782,7 +832,7 @@ def render_land(sub, records, by_id, rel, meta):
 {nav('../', 'catalogue')}
   <section class="page-hero">
     <h1 class="serif">{esc(sub['label'])}の記録</h1>
-    <p class="en">{esc(sub['en'])} · {len(rs)} records</p>
+    <p class="en">{esc(sub['en'])}</p>
     <p class="lead">{esc(sub['desc'])} 台帳は一つで、土地を{len(used)}つに分けています。この頁は、そのうち{esc(sub['label'])}の入口です。</p>
     <p class="jump">{jump} ／ <a href="index.html">総目録</a></p>
   </section>
@@ -790,15 +840,14 @@ def render_land(sub, records, by_id, rel, meta):
     <nav class="crumbs" aria-label="現在地">
       <a href="../archive.html">Local Archive</a><span>›</span><a href="index.html">総目録</a><span>›</span>{esc(sub['label'])}の記録
     </nav>
-    {tiles_html}
-    <p class="hint">{esc(upd)} 版。数は台帳から機械的に数えたものです。{esc(oq_note)}</p>
+    <p class="hint">{esc(upd)} 版。</p>
 
     <section class="sec" id="line"><h2>線引き<small>Where the line runs</small></h2>
       <p class="apparatus"><b>{esc(sub['label'])}</b> — {esc(sub['desc'])}<br><b>基準にしている市町村</b> {esc(munis)}</p>
       <p class="hint">{esc(LAND_NOTE)} くわしくは <a href="../archive-method.html#areas">方法と凡例</a> に。</p>
     </section>
 
-    <section class="sec" id="contents"><h2>主題ごとの目次<small>Contents · {len(rs)}</small></h2>
+    <section class="sec" id="contents"><h2>主題ごとの目次<small>Contents</small></h2>
       {toc}
     </section>
 
@@ -958,6 +1007,13 @@ def build_outputs(records, meta):
     order = [r['id'] for r in sorted(records, key=lambda r: (aorder.index(r['subregion']), gorder.index(group_of(r)[0]), r['id']))]
     sorted_records = [by_id[i] for i in order]
     used_subs = [s for s in CONFIG['subregions'] if any(r['subregion'] == s['id'] for r in records)]
+    # 題に使う名称は、台帳の全体を見て決める（括弧を落として同じ名称になる記録は区別を残す）。題と説明文は記録ごとに一つ
+    _TITLE_NAMES.clear()
+    _TITLE_NAMES.update(title_names(records))
+    for what, fn in (('題', lambda r: title_of(r, sub_of(r['subregion']))), ('説明文', description_of)):
+        dup = sorted(t for t, n in Counter(fn(r) for r in records).items() if n > 1)
+        if dup:
+            sys.exit(f'ERROR: 記録の{what}が重なっています: {dup}')
     out = OrderedDict()
     out[CONFIG['db']['file']] = db_json(records, meta)
     for r in records:
