@@ -87,25 +87,57 @@
     .sh-sub { font-family: var(--sans); font-size: 0.88rem; letter-spacing: 0.08em; margin-top: 16px; }
 
     .voice-nav-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 5; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; background: var(--navy); color: var(--white); border: none; font-size: 1rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(1,38,83,0.25); }
+    /* ---- スマホの幅: ヘッダーを一行に収める。ロゴは縮めず、項目は横にすべらせ、言語の切り替えは右端に残す ---- */
+    .lp-nav-main, .lp-nav-lang { display: contents; }
+    @media (max-width: 860px) {
+      #lp-header { padding: 8px 16px !important; gap: 10px; }
+      .lp-brand { flex: none; }
+      .lp-brand img { height: 40px !important; }
+      .lp-nav { flex: 1 1 auto; min-width: 0; justify-content: flex-end; gap: 4px !important; flex-wrap: nowrap !important; }
+      .lp-nav-main {
+        display: flex; align-items: center; gap: 18px; min-width: 0;
+        overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; scrollbar-width: none;
+        padding: 12px 20px 12px 10px;
+        -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 10px, #000 calc(100% - 20px), transparent 100%);
+                mask-image: linear-gradient(90deg, transparent 0, #000 10px, #000 calc(100% - 20px), transparent 100%);
+      }
+      .lp-nav-main::-webkit-scrollbar { display: none; }
+      .lp-nav-lang { display: flex; align-items: center; gap: 10px; flex: none; }
+      .lp-nav-link { flex: none; white-space: nowrap; position: relative; font-size: 0.78rem; letter-spacing: 0.12em; }
+      .lp-nav-link::after { content: ''; position: absolute; left: -9px; right: -9px; top: -12px; bottom: -12px; }
+      .lp-footer-links { row-gap: 4px !important; }
+      .lp-footer-link { display: inline-block; padding: 11px 0; }
+    }
+    /* スライドの点は見た目の大きさのまま、指で押せる範囲だけを広げる */
+    .hero-dot { position: relative; }
+    .hero-dot::after { content: ''; position: absolute; left: -6px; right: -6px; top: -16px; bottom: -16px; }
+    @media (max-width: 600px) {
+      .lp-gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
+      .lp-book-row { flex-direction: column; align-items: flex-start !important; gap: 14px !important; }
+    }
   </style>
 </head>
 <body>
 
 <!-- ============ Header ============ -->
 <header id="lp-header" style="position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:16px 32px; background:transparent; box-shadow:none; transition:background 0.5s ease, box-shadow 0.5s ease, padding 0.5s ease;">
-  <a href="index-en.html" style="display:flex; align-items:center;">
+  <a class="lp-brand" href="index-en.html" style="display:flex; align-items:center;">
     <img src="assets/logos/logo_white.png" alt="8weeks" style="height:52px; width:auto;">
   </a>
-  <nav style="display:flex; align-items:center; gap:28px;">
-    <a href="#spaces" class="lp-nav-link">Spaces</a>
-    <a href="gallery.html" class="lp-nav-link">Gallery</a>
-    <a href="#voices" class="lp-nav-link">Voices</a>
-    <a href="https://www.airbnb.jp/s/guidebooks?refinement_paths[]=/guidebooks/4547042" class="lp-nav-link">Location</a>
-    <a href="archive.html" class="lp-nav-link">Archive</a>
-    <a href="#booking" class="lp-nav-link">Booking</a>
-    <span class="lp-nav-sep">|</span>
-    <span class="lp-nav-link lp-nav-lang-active" aria-current="page">English</span>
-    <a href="index.html" class="lp-nav-link">日本語</a>
+  <nav class="lp-nav" style="display:flex; align-items:center; gap:28px;">
+    <span class="lp-nav-main">
+      <a href="#spaces" class="lp-nav-link">Spaces</a>
+      <a href="gallery.html" class="lp-nav-link">Gallery</a>
+      <a href="#voices" class="lp-nav-link">Voices</a>
+      <a href="https://www.airbnb.jp/s/guidebooks?refinement_paths[]=/guidebooks/4547042" class="lp-nav-link">Location</a>
+      <a href="archive.html" class="lp-nav-link">Archive</a>
+      <a href="#booking" class="lp-nav-link">Booking</a>
+    </span>
+    <span class="lp-nav-lang">
+      <span class="lp-nav-sep">|</span>
+      <span class="lp-nav-link lp-nav-lang-active" aria-current="page">English</span>
+      <a href="index.html" class="lp-nav-link">日本語</a>
+    </span>
   </nav>
 </header>
 
@@ -232,7 +264,7 @@
       <h2 class="sh-title" style="color:var(--navy);">Property Gallery</h2>
       <p class="sh-sub" style="color:var(--ink-soft);">Special moments spent in tranquil spaces at the foot of Yatsugatake</p>
     </div>
-    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:12px; margin-top:48px;">
+    <div class="lp-gallery-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:12px; margin-top:48px;">
       <div style="position:relative; aspect-ratio:3 / 4; overflow:hidden;">
         <img src="assets/photos/fujimi_living.jpg" alt="" style="width:100%; height:100%; object-fit:cover;">
       </div>
@@ -370,7 +402,7 @@
     </div>
     <div style="border-top:1px solid rgba(255,255,255,0.14); margin-top:40px;">
 
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,0.14); flex-wrap:wrap;">
+      <div class="lp-book-row" style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,0.14); flex-wrap:wrap;">
         <div>
           <h4 style="font-family:var(--serif); font-weight:500; font-size:1.02rem; letter-spacing:0.1em; margin:0 0 2px;">8weeks Fujimi</h4>
           <p style="font-size:0.76rem; color:rgba(255,255,255,0.68); letter-spacing:0.06em; margin:0;">A private forest retreat with a grand piano</p>
@@ -378,7 +410,7 @@
         <a href="https://airbnb.com/h/8weeksfujimi"><button type="button" class="ds-btn ds-btn-moon ds-btn-sm">Book</button></a>
       </div>
 
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,0.14); flex-wrap:wrap;">
+      <div class="lp-book-row" style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,0.14); flex-wrap:wrap;">
         <div>
           <h4 style="font-family:var(--serif); font-weight:500; font-size:1.02rem; letter-spacing:0.1em; margin:0 0 2px;">8weeks Quriu</h4>
           <p style="font-size:0.76rem; color:rgba(255,255,255,0.68); letter-spacing:0.06em; margin:0;">A full floor over 100m² with mountain views</p>
@@ -386,7 +418,7 @@
         <a href="https://airbnb.com/h/8weeks-quriu"><button type="button" class="ds-btn ds-btn-moon ds-btn-sm">Book</button></a>
       </div>
 
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,0.14); flex-wrap:wrap;">
+      <div class="lp-book-row" style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,0.14); flex-wrap:wrap;">
         <div>
           <h4 style="font-family:var(--serif); font-weight:500; font-size:1.02rem; letter-spacing:0.1em; margin:0 0 2px;">8weeks Studio</h4>
           <p style="font-size:0.76rem; color:rgba(255,255,255,0.68); letter-spacing:0.06em; margin:0;">A renovated flat on the shopping street</p>
@@ -409,7 +441,7 @@
       <img src="assets/logos/logo_white.png" alt="8weeks" style="height:72px;">
     </div>
     <p style="font-size:0.8rem; letter-spacing:0.1em; color:rgba(255,255,255,0.75); margin-bottom:26px;">A quiet place to stay at the foot of the Yatsugatake mountains</p>
-    <div style="display:flex; justify-content:center; gap:26px; flex-wrap:wrap; margin-bottom:30px;">
+    <div class="lp-footer-links" style="display:flex; justify-content:center; gap:26px; flex-wrap:wrap; margin-bottom:30px;">
       <a href="#spaces" class="lp-footer-link">Spaces</a>
       <a href="gallery.html" class="lp-footer-link">Gallery</a>
       <a href="#voices" class="lp-footer-link">Voices</a>
