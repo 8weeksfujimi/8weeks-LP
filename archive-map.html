@@ -148,27 +148,39 @@
     .mobile-desc { display: none; }
     @media (max-width: 768px) {
       .header-nav a:not(.keep) { display: none; }
-      .title-block { top: 64px; left: 14px; max-width: 240px; }
+      .header { padding: 12px 16px; }
+      .header-brand img { height: 42px; }
+      /* ヘッダーの項目は、見た目はそのまま、指で押せる範囲だけを上下に広げる */
+      .header-nav a { position: relative; }
+      .header-nav a::after { content: ''; position: absolute; left: -7px; right: -7px; top: -12px; bottom: -10px; }
+      .title-block { top: 78px; left: 14px; max-width: 240px; }
       .title-block h1 { font-size: 1rem; letter-spacing: 0.22em; }
       .title-block .title-desc { display: none; }
       .mobile-desc {
         display: block; position: fixed; left: 14px; right: 14px; bottom: calc(var(--legend-h, 78px) + 18px); z-index: 1100;
-        font-size: 0.62rem; letter-spacing: 0.08em; line-height: 1.8;
+        font-size: 0.72rem; letter-spacing: 0.08em; line-height: 1.8;
         color: var(--ink-soft); pointer-events: none;
         text-shadow: 0 0 6px rgba(248, 246, 241, 0.9);
       }
       .legend {
         left: 10px; right: 10px; bottom: 8px;
-        flex-direction: row; flex-wrap: wrap; gap: 4px 12px;
-        font-size: 0.62rem; padding: 8px 10px;
+        flex-direction: row; flex-wrap: wrap; gap: 0 12px;
+        font-size: 0.7rem; padding: 8px 10px;
       }
-      .basemap-switch { top: 64px; right: 12px; }
-      .area-switch { top: 100px; right: 12px; }
+      .legend .li { padding: 3px 0; }
+      /* 切り替えのボタンはヘッダーの下から始め、押せる高さをとる */
+      .basemap-switch { top: 78px; right: 12px; }
+      .area-switch { top: 122px; right: 12px; }
+      .basemap-switch button, .area-switch button { padding: 9px 14px; }
+      .leaflet-touch .leaflet-bar a { width: 38px; height: 38px; line-height: 38px; }
       /* 拡大縮小のボタンは、下いっぱいに広がる凡例の下に隠れるので、土地の切り替えの下へ移す */
-      .leaflet-bottom .leaflet-control-zoom { position: fixed; top: 142px; right: 12px; margin: 0; }
+      .leaflet-bottom .leaflet-control-zoom { position: fixed; top: 170px; right: 12px; margin: 0; }
       .legend .note { max-width: none; flex-basis: 100%; margin-top: 0; }
-      .panel { padding: 72px 20px 24px; }
-      .panel .close { top: 60px; }
+      /* 閉じるボタンがヘッダーの下に隠れないように、ヘッダーの下に44pxの大きさで置く */
+      .panel { padding: 118px 20px 24px; }
+      .panel .close { top: 70px; right: 8px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; }
+      .panel .links-list a { padding: 7px 0; }
+      .panel .goto { padding: 11px 18px; }
     }
   </style>
 </head>
