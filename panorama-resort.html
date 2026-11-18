@@ -1037,6 +1037,13 @@
                 display: none;
             }
         }
+
+        /* 480px 以下の見出しの大きさが、上の 768px 以下の指定（28px）に負けて、二行目が画面の外で切れていた。後ろに置き直して効かせる */
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: clamp(14px, 5vw, 24px);
+            }
+        }
     </style>
 </head>
 <body>
