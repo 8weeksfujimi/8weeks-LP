@@ -193,6 +193,7 @@ details.fold .apparatus { margin-top: 6px; }
 .cat-list a:hover { color: var(--navy-2); border-bottom: 1px solid var(--line); }
 
 /* ---------- 方法の頁 ---------- */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .method h2 {
   font-family: var(--serif); font-weight: 500; font-size: 1.2rem; letter-spacing: 0.14em;
   color: var(--navy); margin: 56px 0 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); line-height: 1.8;
@@ -252,9 +253,13 @@ details.fold .apparatus { margin-top: 6px; }
   .rec-body { padding: 22px 20px; }
   .toc ol { columns: 1; }
   .bars .row { grid-template-columns: 8.5em 1fr 3em; }
-  .method table { font-size: 0.76rem; }
+  .method table { font-size: 0.84rem; }
   .method th, .method td { padding: 8px 10px; }
   .method th { white-space: normal; }
+  /* 行の見出しの列が1字幅まで細らないように（「土地の入/口」のような切れ方を防ぐ） */
+  .method > table th:has(+ td) { width: 8.4em; word-break: keep-all; overflow-wrap: anywhere; }
+  /* 6列の統計の表は、スマホの幅には収まらないので、表だけを横にすべらせる（「88/件」のような切れ方をさせない） */
+  .table-scroll th, .table-scroll td { white-space: nowrap; }
 }
 /* 320px 前後の幅では、5つのリンクがロゴに届かないように、あいだを詰める */
 @media (max-width: 340px) {
