@@ -109,22 +109,31 @@
     .mobile-desc { display: none; }
     @media (max-width: 768px) {
       .header-nav a:not(.keep) { display: none; }
-      .title-block { top: 64px; left: 16px; max-width: 240px; }
+      .header { padding: 12px 16px; }
+      .header-brand img { height: 42px; }
+      /* ヘッダーの項目は、見た目はそのまま、指で押せる範囲だけを上下に広げる */
+      .header-nav a { position: relative; }
+      .header-nav a::after { content: ''; position: absolute; left: -7px; right: -7px; top: -12px; bottom: -10px; }
+      .title-block { top: 78px; left: 16px; max-width: 240px; }
       .title-block h1 { font-size: 1rem; letter-spacing: 0.22em; }
       .title-block .title-desc { display: none; }
       .mobile-desc {
         display: block; position: fixed; left: 14px; right: 14px; bottom: calc(var(--legend-h, 48px) + 20px); z-index: 50;
-        font-size: 0.62rem; letter-spacing: 0.08em; line-height: 1.8;
+        font-size: 0.72rem; letter-spacing: 0.08em; line-height: 1.8;
         color: rgba(255, 255, 255, 0.5); pointer-events: none;
       }
       .legend {
         left: 12px; right: 12px; bottom: 10px;
-        flex-direction: row; flex-wrap: wrap; gap: 4px 12px;
-        font-size: 0.62rem;
+        flex-direction: row; flex-wrap: wrap; gap: 0 12px;
+        font-size: 0.7rem;
       }
+      .legend .li { padding: 3px 0; }
       .hint { display: none; }
-      .panel { padding: 72px 20px 24px; }
-      .panel .close { top: 60px; }
+      /* 閉じるボタンがヘッダーの下に隠れないように、ヘッダーの下に44pxの大きさで置く */
+      .panel { padding: 118px 20px 24px; }
+      .panel .close { top: 70px; right: 8px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; }
+      .panel .links-list a { padding: 7px 0; }
+      .panel .goto { padding: 11px 18px; }
     }
   </style>
 </head>
@@ -429,6 +438,9 @@
         ctx.beginPath(); ctx.moveTo(l.a.x, l.a.y); ctx.lineTo(l.b.x, l.b.y); ctx.stroke();
       });
 
+      // スマホの幅では、名前を最後にまとめて置き、重なるものは省く（drawLabelsNoOverlap）
+      const narrow = W <= 768;
+      const labels = [];
       nodes.forEach(n => {
         if (!visible(n)) return;
         const r = radius(n);
@@ -454,13 +466,42 @@
         }
         // ラベルは「初期フィットから一段ズームインしたら」表示。ハブ(つながり5本以上)と選択中は常時。
         if (cam.k > Math.max(0.45, baseK * 1.35) || n.deg >= 5 || n === focus || neighbors.has(n)) {
-          ctx.font = `${10.5 / cam.k}px 'Noto Sans JP', sans-serif`;
-          ctx.fillStyle = dimmed ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.82)';
-          ctx.textAlign = 'center';
-          ctx.fillText(n.label, n.x, n.y + r + 12 / cam.k);
+          if (narrow) {
+            labels.push({ n, r, dimmed });
+          } else {
+            ctx.font = `${10.5 / cam.k}px 'Noto Sans JP', sans-serif`;
+            ctx.fillStyle = dimmed ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.82)';
+            ctx.textAlign = 'center';
+            ctx.fillText(n.label, n.x, n.y + r + 12 / cam.k);
+          }
         }
         ctx.globalAlpha = 1;
       });
+      if (narrow) drawLabelsNoOverlap(labels, focus, neighbors);
+    }
+
+    // スマホの幅の名前の置き方: 選択中 → つながる記録 → つながりの多い記録の順に置き、
+    // すでに置いた名前と重なるもの・画面の端からはみ出すものは省く（拡大すれば、省いた名前も出てくる）
+    function drawLabelsNoOverlap(list, focus, neighbors) {
+      const rank = l => (l.n === focus ? 0 : neighbors.has(l.n) ? 1 : 2);
+      list.sort((a, b) => rank(a) - rank(b) || b.n.deg - a.n.deg);
+      ctx.font = `${10.5 / cam.k}px 'Noto Sans JP', sans-serif`;
+      ctx.textAlign = 'center';
+      const placed = [];
+      list.forEach(l => {
+        const n = l.n;
+        const w = ctx.measureText(n.label).width * cam.k;
+        const sx = W / 2 + cam.x + n.x * cam.k;
+        const sy = H / 2 + cam.y + (n.y + l.r) * cam.k + 12;
+        const box = { x0: sx - w / 2 - 3, x1: sx + w / 2 + 3, y0: sy - 11, y1: sy + 3 };
+        if (n !== focus && (box.x0 < 2 || box.x1 > W - 2)) return;
+        if (placed.some(p => box.x0 < p.x1 && box.x1 > p.x0 && box.y0 < p.y1 && box.y1 > p.y0)) return;
+        placed.push(box);
+        ctx.globalAlpha = l.dimmed ? 0.25 : 1;
+        ctx.fillStyle = l.dimmed ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.82)';
+        ctx.fillText(n.label, n.x, n.y + l.r + 12 / cam.k);
+      });
+      ctx.globalAlpha = 1;
     }
 
     function tick() { physics(); draw(); requestAnimationFrame(tick); }

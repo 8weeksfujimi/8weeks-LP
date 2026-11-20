@@ -193,6 +193,7 @@ details.fold .apparatus { margin-top: 6px; }
 .cat-list a:hover { color: var(--navy-2); border-bottom: 1px solid var(--line); }
 
 /* ---------- 方法の頁 ---------- */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .method h2 {
   font-family: var(--serif); font-weight: 500; font-size: 1.2rem; letter-spacing: 0.14em;
   color: var(--navy); margin: 56px 0 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); line-height: 1.8;
@@ -252,9 +253,52 @@ details.fold .apparatus { margin-top: 6px; }
   .rec-body { padding: 22px 20px; }
   .toc ol { columns: 1; }
   .bars .row { grid-template-columns: 8.5em 1fr 3em; }
-  .method table { font-size: 0.76rem; }
+  .method table { font-size: 0.84rem; }
   .method th, .method td { padding: 8px 10px; }
   .method th { white-space: normal; }
+  /* 行の見出しの列が1字幅まで細らないように（「土地の入/口」のような切れ方を防ぐ） */
+  .method > table th:has(+ td) { width: 8.4em; word-break: keep-all; overflow-wrap: anywhere; }
+  /* 6列の統計の表は、スマホの幅には収まらないので、表だけを横にすべらせる（「88/件」のような切れ方をさせない） */
+  .table-scroll th, .table-scroll td { white-space: nowrap; }
+
+  /* ヘッダーの項目は、見た目はそのまま、指で押せる範囲だけを上下に広げる */
+  .header-nav a { position: relative; }
+  .header-nav a::after { content: ''; position: absolute; left: -6px; right: -6px; top: -12px; bottom: -10px; }
+
+  /* 本文は16pxに。注記・出典・目次は一段大きく */
+  .rec-body { font-size: 1rem; }
+  .rec-body .en-sum { font-size: 0.86rem; }
+  .sec p, .sec li { font-size: 0.9rem; }
+  .hint, .sec .hint { font-size: 0.78rem; }
+  .apparatus { font-size: 0.86rem; }
+  .src-supports { font-size: 0.78rem; }
+  .cite-box { font-size: 0.86rem; }
+  .disclose { font-size: 0.84rem; padding: 20px; }
+  .method p { font-size: 1rem; }
+  .method li { font-size: 0.94rem; }
+  .method .note { font-size: 0.84rem; }
+  .method h2 small { font-size: 0.7rem; }
+  .refs li { font-size: 0.86rem !important; }
+  .page-hero .lead { font-size: 0.94rem; }
+  .cat-sub > p { font-size: 0.86rem; }
+  .cat-list li { font-size: 0.92rem; padding: 0; }
+  .cat-list .c, .cat-list .n { font-size: 0.7rem; }
+  .cat-list .muni { font-size: 0.72rem; }
+  .footer p { font-size: 0.78rem; }
+
+  /* 押すところは高さをとる（見た目の線や下線の位置は変えない） */
+  .crumbs { font-size: 0.76rem; }
+  .crumbs a, .page-hero .jump a, .cat-sub > p a.more { position: relative; }
+  .crumbs a::after, .page-hero .jump a::after, .cat-sub > p a.more::after { content: ''; position: absolute; left: -4px; right: -4px; top: -12px; bottom: -12px; }
+  .cat-list li > a { padding: 9px 0; }
+  .link-list li { padding: 2px 0; }
+  .link-list a { display: inline-block; padding: 7px 0; }
+  .views a, .btn-line { padding: 10px 16px; }
+  details.fold summary { padding: 10px 0; }
+  .toc li { font-size: 0.88rem; line-height: 1.7; }
+  .toc a { display: inline-block; padding: 7px 0; }
+  .footer .foot-links { row-gap: 4px; }
+  .footer .foot-links a { display: inline-block; padding: 10px 0; }
 }
 /* 320px 前後の幅では、5つのリンクがロゴに届かないように、あいだを詰める */
 @media (max-width: 340px) {

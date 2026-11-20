@@ -52,25 +52,50 @@
     #gl-lightbox-next { right: 24px; }
     #gl-lightbox-close { position: absolute; top: 24px; right: 24px; z-index: 5; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; background: rgba(255,255,255,0.12); color: var(--white); border: 1px solid rgba(255,255,255,0.35); font-size: 1.1rem; display: flex; align-items: center; justify-content: center; }
     #gl-lightbox-close:hover { background: rgba(255,255,255,0.22); }
+    /* ---- スマホの幅: ヘッダーを一行に収める。ロゴは縮めず、項目は横にすべらせ、言語の切り替えは右端に残す ---- */
+    .lp-nav-main, .lp-nav-lang { display: contents; }
+    @media (max-width: 860px) {
+      #lp-header { padding: 8px 16px !important; gap: 10px; }
+      .lp-brand { flex: none; }
+      .lp-brand img { height: 40px !important; }
+      .lp-nav { flex: 1 1 auto; min-width: 0; justify-content: flex-end; gap: 4px !important; flex-wrap: nowrap !important; }
+      .lp-nav-main {
+        display: flex; align-items: center; gap: 18px; min-width: 0;
+        overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; scrollbar-width: none;
+        padding: 12px 20px 12px 10px;
+        -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 10px, #000 calc(100% - 20px), transparent 100%);
+                mask-image: linear-gradient(90deg, transparent 0, #000 10px, #000 calc(100% - 20px), transparent 100%);
+      }
+      .lp-nav-main::-webkit-scrollbar { display: none; }
+      .lp-nav-lang { display: flex; align-items: center; gap: 10px; flex: none; }
+      .lp-nav-link { flex: none; white-space: nowrap; position: relative; font-size: 0.78rem; letter-spacing: 0.12em; }
+      .lp-nav-link::after { content: ''; position: absolute; left: -9px; right: -9px; top: -12px; bottom: -12px; }
+      .lp-footer-links { row-gap: 4px !important; }
+      .lp-footer-link { display: inline-block; padding: 11px 0; }
+    }
   </style>
 </head>
 <body>
 
 <!-- ============ Header ============ -->
 <header id="lp-header" style="position:sticky; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:14px 32px; background:var(--navy); box-shadow:0 1px 24px rgba(1,38,83,0.25);">
-  <a href="index.html" style="display:flex; align-items:center;">
+  <a class="lp-brand" href="index.html" style="display:flex; align-items:center;">
     <img src="assets/logos/logo_white.png" alt="8weeks" style="height:48px; width:auto;">
   </a>
-  <nav style="display:flex; align-items:center; gap:28px; flex-wrap:wrap;">
-    <a href="index.html#spaces" class="lp-nav-link">Spaces</a>
-    <a href="gallery.html" class="lp-nav-link is-current" aria-current="page">Gallery</a>
-    <a href="index.html#voices" class="lp-nav-link">Voices</a>
-    <a href="https://www.airbnb.jp/s/guidebooks?refinement_paths[]=/guidebooks/4547042" class="lp-nav-link">Location</a>
-    <a href="archive.html" class="lp-nav-link">Archive</a>
-    <a href="index.html#booking" class="lp-nav-link">Booking</a>
-    <span class="lp-nav-sep">|</span>
-    <span class="lp-nav-link lp-nav-lang-active" aria-current="page">日本語</span>
-    <a href="index-en.html" class="lp-nav-link">English</a>
+  <nav class="lp-nav" style="display:flex; align-items:center; gap:28px; flex-wrap:wrap;">
+    <span class="lp-nav-main">
+      <a href="index.html#spaces" class="lp-nav-link">Spaces</a>
+      <a href="gallery.html" class="lp-nav-link is-current" aria-current="page">Gallery</a>
+      <a href="index.html#voices" class="lp-nav-link">Voices</a>
+      <a href="https://www.airbnb.jp/s/guidebooks?refinement_paths[]=/guidebooks/4547042" class="lp-nav-link">Location</a>
+      <a href="archive.html" class="lp-nav-link">Archive</a>
+      <a href="index.html#booking" class="lp-nav-link">Booking</a>
+    </span>
+    <span class="lp-nav-lang">
+      <span class="lp-nav-sep">|</span>
+      <span class="lp-nav-link lp-nav-lang-active" aria-current="page">日本語</span>
+      <a href="index-en.html" class="lp-nav-link">English</a>
+    </span>
   </nav>
 </header>
 
@@ -542,7 +567,7 @@
       <img src="assets/logos/logo_white.png" alt="8weeks" style="height: 72px;">
     </div>
     <p style="font-size: 0.8rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.75); margin-bottom: 26px;">八ヶ岳山麓の静かな滞在空間</p>
-    <div style="display: flex; justify-content: center; gap: 26px; flex-wrap: wrap; margin-bottom: 30px;">
+    <div class="lp-footer-links" style="display: flex; justify-content: center; gap: 26px; flex-wrap: wrap; margin-bottom: 30px;">
       <a href="index.html#spaces" class="lp-footer-link">Spaces</a>
       <a href="gallery.html" class="lp-footer-link">Gallery</a>
       <a href="index.html#voices" class="lp-footer-link">Voices</a>

@@ -946,10 +946,10 @@ def stats_html(stats):
         kind_note += f'{by_domain}の記録では、URLのドメインから機械的に分類しています。'
     return f'''
       {tiles()}
-      <table>
+      <div class="table-scroll"><table>
         <tr><th>土地</th><th>記録</th><th>出典</th><th>地の頁／余白の頁</th><th>座標あり</th><th>版</th></tr>
         {sub_rows}
-      </table>
+      </table></div>
       <div class="bars">
         {bars('確度 — その等級の主張をひとつでも含む記録の数（一つの記録が複数に数えられます）', grade_rows, a['records'])}
         {bars('出典の種類 — 全 ' + str(a['sources']) + ' 件の内訳', kind_rows, a['sources'], alt=True)}
