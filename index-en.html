@@ -54,6 +54,15 @@
     .lp-area-link:hover { color: var(--navy-2); border-color: var(--moon); }
     @media (max-width: 860px) {
       .lp-space, .lp-host-grid, .lp-booking-cols, .lp-area-teaser { grid-template-columns: 1fr !important; }
+      /* 1列のときは、どの棟も「番号と名前 → 写真 → 評価と説明 → ボタン」の順にそろえる */
+      .lp-space { gap: 0 !important; }
+      .lp-space > div:first-child { order: 3 !important; }
+      .lp-space > div:last-child { display: contents; }
+      .lp-space > div:last-child > span { order: 1; }
+      .lp-space > div:last-child > h3 { order: 2; margin-bottom: 18px !important; }
+      .lp-space > div:last-child > p { order: 4; }
+      .lp-space > div:last-child > p:first-of-type { margin-top: 20px; }
+      .lp-space > div:last-child > a { order: 5; justify-self: start; }
     }
     @media (prefers-reduced-motion: reduce) { .lp-scroll-hint::after { animation: none; } }
 
