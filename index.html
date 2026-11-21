@@ -137,6 +137,7 @@
     .hero-dot { position: relative; }
     .hero-dot::after { content: ''; position: absolute; left: -6px; right: -6px; top: -16px; bottom: -16px; }
     @media (max-width: 600px) {
+      .lp-area-link { letter-spacing: 0.06em; }
       .lp-gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
       .lp-book-row { flex-direction: column; align-items: flex-start !important; gap: 14px !important; }
     }
@@ -395,8 +396,10 @@
       <h2 class="sh-title" style="color:var(--navy);">Location</h2>
       <p class="sh-sub" style="color:var(--ink-soft);">標高1000m・都心から約2時間。高原の拠点から、信州を旅する。</p>
     </div>
-    <div style="margin-top:48px;">
+    <div style="margin-top:48px; display:flex; flex-direction:column; align-items:center; gap:26px;">
       <a class="lp-area-link" href="https://www.airbnb.jp/s/guidebooks?refinement_paths[]=/guidebooks/4547042" target="_blank" rel="noopener">周辺エリアガイドを見る（Airbnbガイドブック）<span aria-hidden="true">↗</span></a>
+      <a class="lp-area-link" href="panorama-resort.html"><span><span style="display:inline-block;">富士見パノラマリゾートの</span><span style="display:inline-block;">近くに泊まる</span></span><span aria-hidden="true">→</span></a>
+      <a class="lp-area-link" href="https://www.fujimipanorama.com/" target="_blank" rel="noopener"><span><span style="display:inline-block;">富士見パノラマリゾート</span><span style="display:inline-block;">（公式サイト）</span></span><span aria-hidden="true">↗</span></a>
     </div>
   </div>
 </section>
