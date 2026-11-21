@@ -96,24 +96,40 @@
     .sh-sub { font-family: var(--sans); font-size: 0.88rem; letter-spacing: 0.08em; margin-top: 16px; }
 
     .voice-nav-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 5; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; background: var(--navy); color: var(--white); border: none; font-size: 1rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(1,38,83,0.25); }
-    /* ---- スマホの幅: ヘッダーを一行に収める。ロゴは縮めず、項目は横にすべらせ、言語の切り替えは右端に残す ---- */
+    /* ---- スマホの幅: ロゴと言語の切り替えはヘッダーに残し、ほかの項目はメニューボタンの奥にしまう ---- */
     .lp-nav-main, .lp-nav-lang { display: contents; }
+    .lp-menu-btn { display: none; }
     @media (max-width: 860px) {
-      #lp-header { padding: 8px 16px !important; gap: 10px; }
-      .lp-brand { flex: none; }
+      #lp-header { padding: 8px 10px 8px 16px !important; gap: 10px; }
+      .lp-brand { flex: none; position: relative; z-index: 2; }
       .lp-brand img { height: 40px !important; }
-      .lp-nav { flex: 1 1 auto; min-width: 0; justify-content: flex-end; gap: 4px !important; flex-wrap: nowrap !important; }
-      .lp-nav-main {
-        display: flex; align-items: center; gap: 18px; min-width: 0;
-        overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; scrollbar-width: none;
-        padding: 12px 20px 12px 10px;
-        -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 10px, #000 calc(100% - 20px), transparent 100%);
-                mask-image: linear-gradient(90deg, transparent 0, #000 10px, #000 calc(100% - 20px), transparent 100%);
+      .lp-nav { gap: 4px !important; flex-wrap: nowrap !important; }
+      .lp-nav-lang { display: flex; align-items: center; gap: 10px; flex: none; position: relative; z-index: 2; }
+      .lp-nav-link { white-space: nowrap; position: relative; font-size: 0.78rem; letter-spacing: 0.12em; }
+      .lp-nav-lang .lp-nav-link::after { content: ''; position: absolute; left: -8px; right: -8px; top: -14px; bottom: -14px; }
+      .lp-nav-lang .lp-nav-sep { display: none; }
+      .lp-menu-btn {
+        display: block; position: relative; z-index: 2; flex: none;
+        width: 44px; height: 44px; padding: 0; margin-left: 4px;
+        background: none; border: 0; cursor: pointer; color: var(--white);
       }
-      .lp-nav-main::-webkit-scrollbar { display: none; }
-      .lp-nav-lang { display: flex; align-items: center; gap: 10px; flex: none; }
-      .lp-nav-link { flex: none; white-space: nowrap; position: relative; font-size: 0.78rem; letter-spacing: 0.12em; }
-      .lp-nav-link::after { content: ''; position: absolute; left: -9px; right: -9px; top: -12px; bottom: -12px; }
+      .lp-menu-btn span {
+        position: absolute; left: 11px; top: 21px; width: 22px; height: 1.5px; background: currentColor;
+        transition: transform 0.35s ease, opacity 0.25s ease;
+      }
+      .lp-menu-btn span:nth-child(1) { transform: translateY(-7px); }
+      .lp-menu-btn span:nth-child(3) { transform: translateY(7px); }
+      #lp-header.menu-open .lp-menu-btn span:nth-child(1) { transform: rotate(45deg); }
+      #lp-header.menu-open .lp-menu-btn span:nth-child(2) { opacity: 0; }
+      #lp-header.menu-open .lp-menu-btn span:nth-child(3) { transform: rotate(-45deg); }
+      .lp-nav-main {
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+        position: fixed; inset: 0; z-index: 1; padding: 80px 24px 48px;
+        background: var(--navy);
+        opacity: 0; visibility: hidden; transition: opacity 0.35s ease, visibility 0s linear 0.35s;
+      }
+      #lp-header.menu-open .lp-nav-main { opacity: 1; visibility: visible; transition: opacity 0.35s ease; }
+      .lp-nav-main .lp-nav-link { font-family: var(--serif); font-size: 1.25rem; letter-spacing: 0.2em; padding: 12px 24px; border-bottom: 0; }
       .lp-footer-links { row-gap: 4px !important; }
       .lp-footer-link { display: inline-block; padding: 11px 0; }
     }
@@ -134,7 +150,7 @@
     <img src="assets/logos/logo_white.png" alt="8weeks" style="height:52px; width:auto;">
   </a>
   <nav class="lp-nav" style="display:flex; align-items:center; gap:28px;">
-    <span class="lp-nav-main">
+    <span class="lp-nav-main" id="lp-menu">
       <a href="#spaces" class="lp-nav-link">Spaces</a>
       <a href="gallery.html" class="lp-nav-link">Gallery</a>
       <a href="#voices" class="lp-nav-link">Voices</a>
@@ -147,6 +163,7 @@
       <span class="lp-nav-link lp-nav-lang-active" aria-current="page">English</span>
       <a href="index.html" class="lp-nav-link">日本語</a>
     </span>
+    <button type="button" class="lp-menu-btn" aria-expanded="false" aria-controls="lp-menu" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
 </header>
 
@@ -521,6 +538,26 @@
       track.scrollBy({ left: 372, behavior: 'smooth' });
     });
   }
+})();
+</script>
+<script>
+/* スマホの幅のメニュー: ボタンで開け閉めし、項目を押したら閉じる */
+(function () {
+  var header = document.getElementById('lp-header');
+  var btn = header && header.querySelector('.lp-menu-btn');
+  if (!btn) return;
+  function setOpen(open) {
+    header.classList.toggle('menu-open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  }
+  btn.addEventListener('click', function () { setOpen(!header.classList.contains('menu-open')); });
+  Array.prototype.forEach.call(header.querySelectorAll('.lp-nav-main a'), function (a) {
+    a.addEventListener('click', function () { setOpen(false); });
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+  var wide = window.matchMedia('(min-width: 861px)');
+  if (wide.addEventListener) wide.addEventListener('change', function (m) { if (m.matches) setOpen(false); });
 })();
 </script>
 </body>
