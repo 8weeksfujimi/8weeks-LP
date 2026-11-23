@@ -11,7 +11,7 @@
 ├── index.html              # 日本語版メインページ
 ├── index-en.html           # 英語版メインページ
 ├── index-photo-ready.html  # 写真準備版
-├── booking.html            # 予約ページ
+├── booking.html            # トップの「ご予約」へ送る頁
 ├── gallery-test.html       # ギャラリーテストページ
 │
 ├── assets/                 # アセットフォルダ
@@ -71,13 +71,13 @@
 ### HTMLファイル
 - **index.html**: 日本語版のメインランディングページ
 - **index-en.html**: 英語版のメインランディングページ
-- **booking.html**: 予約システムページ
+- **booking.html**: トップの「ご予約」へ送るだけの頁（検索には出さない）
 - **gallery-test.html**: ギャラリー機能のテストページ
 
 ### スクリプト
 - **airbnb-data.js**: Airbnbのリスティング情報を管理
 - **airbnb-proxy-server.js**: Airbnb APIアクセス用のプロキシサーバー
-- **booking.js**: 予約システムのJavaScript
+- **booking.js**: 以前の予約フォームのスクリプト（いまはどの頁からも読み込んでいない）
 - **gallery系スクリプト**: 画像ギャラリーの表示・管理
 - **Python系スクリプト**: 画像の圧縮・最適化処理
 
@@ -114,6 +114,7 @@
 - 予約のリンクには `data-book`（`direct`／`airbnb`）・`data-property`（`fujimi`／`quriu`／`studio`）・`data-pos`（頁の中の場所）を付けてある。解析の道具は入れていない（あとでクリックを数えるときの目印）
 - 料金の差を書いた要素には `data-claim="direct-rate"` を付けてある。料金の決まりを変えたら、`grep -n 'data-claim="direct-rate"' *.html` で出る場所をまとめて直す。`index-en.html` と `panorama-resort.html` は、構造化データ（FAQPage）の中にも同じ文がある
 - キャンセルの条件・支払い方法・予約の流れ（リクエスト制）を書いた場所は、予約欄の箇条書き（`.lp-assure`）と、`index-en.html` の「Frequently Asked Questions」（見える文と構造化データの両方）
+- `booking.html` は、トップの「ご予約」へ送るだけの頁（検索には出さない）。予約の入口は、各頁の予約欄に一本化している
 - ローカルアーカイブの頁（archive*.html・records/）には、この導線を足さない
 
 ## デプロイ情報
