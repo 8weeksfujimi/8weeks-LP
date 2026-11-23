@@ -96,6 +96,30 @@
     .sh-sub { font-family: var(--sans); font-size: 0.88rem; letter-spacing: 0.08em; margin-top: 16px; }
 
     .voice-nav-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 5; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; background: var(--navy); color: var(--white); border: none; font-size: 1rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(1,38,83,0.25); }
+
+    /* ---- 予約の導線: 主のボタンは公式サイトの予約ページ、従のリンクは Airbnb ---- */
+    .lp-cta { display: flex; align-items: center; gap: 14px 24px; flex-wrap: wrap; }
+    .lp-cta-sub { position: relative; font-size: 0.78rem; letter-spacing: 0.1em; color: var(--ink-soft); border-bottom: 1px solid var(--line); padding-bottom: 2px; white-space: nowrap; transition: color 0.3s, border-color 0.3s; }
+    .lp-cta-sub::after { content: ''; position: absolute; left: -8px; right: -8px; top: -12px; bottom: -12px; }
+    .lp-cta-sub:hover { color: var(--navy); border-bottom-color: var(--navy); }
+    .lp-cta-note { flex-basis: 100%; font-size: 0.74rem; letter-spacing: 0.06em; line-height: 1.8; color: var(--ink-soft); }
+    .lp-book-actions { display: flex; flex-direction: row-reverse; align-items: center; gap: 12px 22px; flex-wrap: wrap; margin-left: auto; }
+    .lp-book-actions .lp-cta-sub { color: rgba(255,255,255,0.72); border-bottom-color: rgba(255,255,255,0.3); }
+    .lp-book-actions .lp-cta-sub:hover { color: var(--moon); border-bottom-color: var(--moon); }
+    .lp-assure { list-style: none; margin: 36px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 44px; text-align: left; }
+    .lp-assure li { position: relative; padding-left: 20px; font-size: 0.8rem; line-height: 1.9; letter-spacing: 0.05em; color: rgba(255,255,255,0.82); }
+    .lp-assure li::before { content: ''; position: absolute; left: 1px; top: 0.72em; width: 7px; height: 7px; border-radius: 50%; background: var(--moon); }
+    .lp-book-note { margin-top: 18px; font-size: 0.72rem; letter-spacing: 0.06em; line-height: 1.9; color: rgba(255,255,255,0.55); }
+    .lp-trust-link { border-bottom: 1px solid rgba(255,255,255,0.35); padding-bottom: 2px; transition: color 0.3s, border-color 0.3s; }
+    .lp-trust-link:hover { color: var(--moon); border-bottom-color: var(--moon); }
+    @media (max-width: 860px) {
+      .lp-space > div:last-child > .lp-cta { order: 5; }
+    }
+    @media (max-width: 720px) {
+      .lp-book-row { flex-direction: column; align-items: flex-start !important; gap: 14px !important; }
+      .lp-book-actions { flex-direction: row; margin-left: 0; }
+      .lp-assure { grid-template-columns: 1fr; }
+    }
     /* ---- スマホの幅: ロゴと言語の切り替えはヘッダーに残し、ほかの項目はメニューボタンの奥にしまう ---- */
     .lp-nav-main, .lp-nav-lang { display: contents; }
     .lp-menu-btn { display: none; }
@@ -138,7 +162,6 @@
     .hero-dot::after { content: ''; position: absolute; left: -6px; right: -6px; top: -16px; bottom: -16px; }
     @media (max-width: 600px) {
       .lp-gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
-      .lp-book-row { flex-direction: column; align-items: flex-start !important; gap: 14px !important; }
     }
   </style>
 </head>
@@ -195,9 +218,10 @@
 
 <!-- ============ Trust bar ============ -->
 <div style="background:var(--navy); border-top:1px solid rgba(255,255,255,0.12); color:rgba(255,255,255,0.9); padding:16px 24px;">
-  <div style="max-width:1080px; margin:0 auto; display:flex; justify-content:center; gap:clamp(24px, 6vw, 72px); font-size:0.82rem; letter-spacing:0.1em; flex-wrap:wrap;">
+  <div style="max-width:1080px; margin:0 auto; display:flex; justify-content:center; gap:12px clamp(24px, 6vw, 72px); font-size:0.82rem; letter-spacing:0.1em; flex-wrap:wrap;">
     <div><span style="color:var(--moon);">★</span> 4.98 Airbnb Average Rating</div>
     <div>190+ Reviews</div>
+    <div><a href="#booking" class="lp-trust-link" data-claim="direct-rate">Book direct: about 5% less than Airbnb</a></div>
   </div>
 </div>
 
@@ -244,7 +268,11 @@
             <span style="color:#C9A227;">★</span> <b style="font-family:var(--serif); font-size:1.05rem;">4.99</b> · 94 reviews · 2 bedrooms · up to 6 guests
           </p>
           <p style="font-size:0.92rem; line-height:2.15; color:var(--ink-soft); margin-bottom:26px;">A private forest villa with a grand piano</p>
-          <a href="https://airbnb.com/h/8weeksfujimi"><button type="button" class="ds-btn ds-btn-primary">Book on Airbnb</button></a>
+          <div class="lp-cta">
+            <a class="ds-btn ds-btn-primary" href="https://beds24.com/booking2.php?propid=370159&amp;lang=en&amp;referer=lp-en-spaces" data-book="direct" data-property="fujimi" data-pos="spaces">Book direct</a>
+            <a class="lp-cta-sub" href="https://www.airbnb.com/h/8weeksfujimi" data-book="airbnb" data-property="fujimi" data-pos="spaces">Book on Airbnb</a>
+            <p class="lp-cta-note" data-claim="direct-rate">Booking direct costs about 5% less than Airbnb</p>
+          </div>
         </div>
       </div>
 
@@ -259,7 +287,11 @@
             <span style="color:#C9A227;">★</span> <b style="font-family:var(--serif); font-size:1.05rem;">4.97</b> · 66 reviews · 2 bedrooms · up to 6 guests
           </p>
           <p style="font-size:0.92rem; line-height:2.15; color:var(--ink-soft); margin-bottom:26px;">A full floor over 100m², with mountain views, perfect for multiple families</p>
-          <a href="https://airbnb.com/h/8weeks-quriu"><button type="button" class="ds-btn ds-btn-primary">Book on Airbnb</button></a>
+          <div class="lp-cta">
+            <a class="ds-btn ds-btn-primary" href="https://beds24.com/booking2.php?propid=370160&amp;lang=en&amp;referer=lp-en-spaces" data-book="direct" data-property="quriu" data-pos="spaces">Book direct</a>
+            <a class="lp-cta-sub" href="https://www.airbnb.com/h/8weeks-quriu" data-book="airbnb" data-property="quriu" data-pos="spaces">Book on Airbnb</a>
+            <p class="lp-cta-note" data-claim="direct-rate">Booking direct costs about 5% less than Airbnb</p>
+          </div>
         </div>
       </div>
 
@@ -274,7 +306,11 @@
             <span style="color:#C9A227;">★</span> <b style="font-family:var(--serif); font-size:1.05rem;">4.97</b> · 34 reviews · 2 bedrooms · up to 4 guests
           </p>
           <p style="font-size:0.92rem; line-height:2.15; color:var(--ink-soft); margin-bottom:26px;">A renovated flat on Fujimi's shopping street — no car needed</p>
-          <a href="https://airbnb.com/h/8weeks-studio"><button type="button" class="ds-btn ds-btn-primary">Book on Airbnb</button></a>
+          <div class="lp-cta">
+            <a class="ds-btn ds-btn-primary" href="https://beds24.com/booking2.php?propid=370161&amp;lang=en&amp;referer=lp-en-spaces" data-book="direct" data-property="studio" data-pos="spaces">Book direct</a>
+            <a class="lp-cta-sub" href="https://www.airbnb.com/h/8weeks-studio" data-book="airbnb" data-property="studio" data-pos="spaces">Book on Airbnb</a>
+            <p class="lp-cta-note" data-claim="direct-rate">Booking direct costs about 5% less than Airbnb</p>
+          </div>
         </div>
       </div>
 
@@ -422,8 +458,14 @@
   <div style="max-width:880px; margin:0 auto;">
     <div style="text-align:center;">
       <h2 class="sh-title" style="color:var(--white);">Reservations</h2>
-      <p class="sh-sub" style="color:rgba(255,255,255,0.75);">Check availability and rates for each property directly on Airbnb.</p>
+      <p class="sh-sub" style="color:rgba(255,255,255,0.75);">Check availability and rates on each stay's booking page.</p>
     </div>
+    <ul class="lp-assure">
+      <li data-claim="direct-rate">Booking on this site costs about 5% less than booking on Airbnb.</li>
+      <li>Bookings are by request: we check availability and reply by email.</li>
+      <li>As on Airbnb, cancellation is free until 5 days before check-in (30 days for stays of 28 nights or more).</li>
+      <li>Payment is by credit card. Nothing is charged when you send a request.</li>
+    </ul>
     <div style="border-top:1px solid rgba(255,255,255,0.14); margin-top:40px;">
 
       <div class="lp-book-row" style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,0.14); flex-wrap:wrap;">
@@ -431,7 +473,10 @@
           <h4 style="font-family:var(--serif); font-weight:500; font-size:1.02rem; letter-spacing:0.1em; margin:0 0 2px;">8weeks Fujimi</h4>
           <p style="font-size:0.76rem; color:rgba(255,255,255,0.68); letter-spacing:0.06em; margin:0;">A private forest retreat with a grand piano</p>
         </div>
-        <a href="https://airbnb.com/h/8weeksfujimi"><button type="button" class="ds-btn ds-btn-moon ds-btn-sm">Book</button></a>
+        <div class="lp-book-actions">
+          <a class="ds-btn ds-btn-moon ds-btn-sm" href="https://beds24.com/booking2.php?propid=370159&amp;lang=en&amp;referer=lp-en-booking" data-book="direct" data-property="fujimi" data-pos="booking">Book direct</a>
+          <a class="lp-cta-sub" href="https://www.airbnb.com/h/8weeksfujimi" data-book="airbnb" data-property="fujimi" data-pos="booking">Book on Airbnb</a>
+        </div>
       </div>
 
       <div class="lp-book-row" style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,0.14); flex-wrap:wrap;">
@@ -439,7 +484,10 @@
           <h4 style="font-family:var(--serif); font-weight:500; font-size:1.02rem; letter-spacing:0.1em; margin:0 0 2px;">8weeks Quriu</h4>
           <p style="font-size:0.76rem; color:rgba(255,255,255,0.68); letter-spacing:0.06em; margin:0;">A full floor over 100m² with mountain views</p>
         </div>
-        <a href="https://airbnb.com/h/8weeks-quriu"><button type="button" class="ds-btn ds-btn-moon ds-btn-sm">Book</button></a>
+        <div class="lp-book-actions">
+          <a class="ds-btn ds-btn-moon ds-btn-sm" href="https://beds24.com/booking2.php?propid=370160&amp;lang=en&amp;referer=lp-en-booking" data-book="direct" data-property="quriu" data-pos="booking">Book direct</a>
+          <a class="lp-cta-sub" href="https://www.airbnb.com/h/8weeks-quriu" data-book="airbnb" data-property="quriu" data-pos="booking">Book on Airbnb</a>
+        </div>
       </div>
 
       <div class="lp-book-row" style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,0.14); flex-wrap:wrap;">
@@ -447,10 +495,14 @@
           <h4 style="font-family:var(--serif); font-weight:500; font-size:1.02rem; letter-spacing:0.1em; margin:0 0 2px;">8weeks Studio</h4>
           <p style="font-size:0.76rem; color:rgba(255,255,255,0.68); letter-spacing:0.06em; margin:0;">A renovated flat on the shopping street</p>
         </div>
-        <a href="https://airbnb.com/h/8weeks-studio"><button type="button" class="ds-btn ds-btn-moon ds-btn-sm">Book</button></a>
+        <div class="lp-book-actions">
+          <a class="ds-btn ds-btn-moon ds-btn-sm" href="https://beds24.com/booking2.php?propid=370161&amp;lang=en&amp;referer=lp-en-booking" data-book="direct" data-property="studio" data-pos="booking">Book direct</a>
+          <a class="lp-cta-sub" href="https://www.airbnb.com/h/8weeks-studio" data-book="airbnb" data-property="studio" data-pos="booking">Book on Airbnb</a>
+        </div>
       </div>
 
     </div>
+    <p class="lp-book-note">“Book direct” opens our booking page on Beds24 (beds24.com), the booking system we use.</p>
     <a href="mailto:8weeks.fujimi@gmail.com" class="lp-contact" style="display:block; border:1px solid rgba(255,255,255,0.25); padding:20px 24px; margin-top:32px;">
       <strong style="display:block; font-size:0.88rem; letter-spacing:0.1em; font-weight:500;">Long stays & relocation-trial inquiries</strong>
       <span style="font-size:0.78rem; color:rgba(255,255,255,0.7); letter-spacing:0.06em;">8weeks.fujimi@gmail.com — we also welcome long stays and workations</span>
