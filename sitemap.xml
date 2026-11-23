@@ -85,6 +85,36 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://8weeksfujimi.github.io/8weeks-LP/en/records/index.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://8weeksfujimi.github.io/8weeks-LP/en/records/fujimi.html</loc>
+    <lastmod>2026-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://8weeksfujimi.github.io/8weeks-LP/en/records/tateshina.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://8weeksfujimi.github.io/8weeks-LP/en/records/suwa.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://8weeksfujimi.github.io/8weeks-LP/en/archive-method.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://8weeksfujimi.github.io/8weeks-LP/records/FJM-JOMON-001.html</loc>
     <lastmod>2026-07-11</lastmod>
     <changefreq>monthly</changefreq>

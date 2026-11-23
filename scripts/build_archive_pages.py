@@ -38,6 +38,7 @@ OUT = ROOT / 'records'
 
 DB_PATH = ROOT / CONFIG['db']['file']
 GENERIC = CONFIG['generic_names']
+EN_FILL = 'data/fujimi-archive-en.json'
 PUBLIC_DROP = ('caution', 'evidence', 'editor_note', 'internal_note', 'area')
 GRADE_WORD = {'S': '確立', 'A': '堅実', 'B': '諸説', 'C': '伝承', 'D': '俗説・要検証'}
 
@@ -90,7 +91,22 @@ def load_sources():
                     r['updated'] = db['updated']
             r['related_subregions'] = related_subregions_of(r, sub['id'])
             records.append(r)
+    fill_english(records)
     return records, meta
+
+
+def fill_english(records):
+    """書き出し元に keyword_en / summary_en が無い記録へ、data/fujimi-archive-en.json からIDで補う。
+    ファイルが無ければ何もしない。書き出し元のファイルは書き換えない。"""
+    p = ROOT / EN_FILL
+    if not p.exists():
+        return
+    en = json.loads(p.read_text(encoding='utf-8'))
+    for r in records:
+        add = en.get(r['id']) or {}
+        for k in ('keyword_en', 'summary_en'):
+            if not r.get(k) and add.get(k):
+                r[k] = add[k]
 
 
 def db_json(records, meta):
@@ -256,6 +272,7 @@ def nav(prefix, current=''):
         c = ' '.join(x for x in ('keep' if key in keep else '', 'current' if key == current else '') if x)
         return f' class="{c}"' if c else ''
     links = ''.join(f'<a href="{prefix}{href}"{cls(key)}>{label}</a>' for href, label, key in items)
+    links += f'<a href="{prefix}en/records/index.html" lang="en" hreflang="en">English</a>'
     return f'''  <header class="header">
     <a class="header-brand" href="{prefix}archive.html"><img src="{prefix}assets/logos/logo_white.png" alt="8weeks Local Archive"></a>
     <nav class="header-nav">{links}</nav>
@@ -272,6 +289,7 @@ def footer(prefix):
       <a href="{prefix}archive-map.html">絵図</a>
       <a href="{prefix}records/index.html">総目録</a>
       <a href="{prefix}archive-method.html">方法と凡例</a>
+      <a href="{prefix}en/records/index.html" lang="en" hreflang="en">English</a>
     </div>
     <p>運営会社：{esc(CONFIG['site']['publisher'])}<br>〒399-0211 {esc(CONFIG['site']['publisher_address'])}</p>
     <p style="font-size:0.68rem;color:rgba(255,255,255,0.4)">&copy; 2026 8weeks Local Archive. All rights reserved.</p>
@@ -281,6 +299,13 @@ def footer(prefix):
 HEAD_FONTS = '''  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">'''
+
+
+def hreflang(ja_path, en_path):
+    """日本語（x-default）と英語の相互の alternate。"""
+    return (f'  <link rel="alternate" hreflang="ja" href="{BASE}{ja_path}">\n'
+            f'  <link rel="alternate" hreflang="en" href="{BASE}{en_path}">\n'
+            f'  <link rel="alternate" hreflang="x-default" href="{BASE}{ja_path}">')
 
 
 def record_url(rid):
@@ -705,6 +730,7 @@ def render_index(records, meta, stats):
   <meta name="description" content="長野県・八ヶ岳のすそから諏訪湖まで、{esc(labels)}の土地の記録の総目録。どの記録にも確からしさの度合いと出典を添えています。">
   <link rel="icon" type="image/png" href="../assets/logos/favicon_moon.png">
   <link rel="canonical" href="{BASE}records/index.html">
+{hreflang('records/index.html', 'en/records/index.html')}
   <meta property="og:title" content="総目録 — 8weeks Local Archive">
   <meta property="og:description" content="{esc(labels)}。八ヶ岳のすそから諏訪湖までの土地の記録。確からしさの度合いと出典つき。">
   <meta property="og:type" content="website">
@@ -816,6 +842,7 @@ def render_land(sub, records, by_id, rel, meta):
   <meta name="description" content="{esc(desc)}">
   <link rel="icon" type="image/png" href="../assets/logos/favicon_moon.png">
   <link rel="canonical" href="{esc(url)}">
+{hreflang(f"records/{sub['id']}.html", f"en/records/{sub['id']}.html")}
   <meta property="og:title" content="{esc(sub['label'])}の記録 — 8weeks Local Archive">
   <meta property="og:description" content="{esc(desc)}">
   <meta property="og:type" content="website">
@@ -872,6 +899,132 @@ def render_land(sub, records, by_id, rel, meta):
 </body>
 </html>
 '''
+
+
+# ---------- 英語の層（第1段階: 見出しと要約の目録） ----------
+EN_NOTE = ('The full texts of the records are in Japanese. English headings and summaries are provided here as a guide. '
+           'Please cite a record by its stable URL, <code>records/&lt;ID&gt;.html</code> (for example <code>records/{ex}.html</code>).')
+
+
+def en_head(title, desc, path, ja_path, ld):
+    url = BASE + path
+    return f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{esc(title)} | 8weeks Local Archive</title>
+  <meta name="description" content="{esc(desc)}">
+  <link rel="icon" type="image/png" href="../../assets/logos/favicon_moon.png">
+  <link rel="canonical" href="{url}">
+{hreflang(ja_path, path)}
+  <meta property="og:title" content="{esc(title)} | 8weeks Local Archive">
+  <meta property="og:description" content="{esc(desc)}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{url}">
+  <meta property="og:site_name" content="8weeks Local Archive">
+  <meta property="og:locale" content="en_US">
+{HEAD_FONTS}
+  <link rel="stylesheet" href="../../assets/styles/archive-pages.css">
+  <script type="application/ld+json">
+{json.dumps(ld, ensure_ascii=False)}
+  </script>
+</head>'''
+
+
+def en_nav(ja_href):
+    return f'''  <header class="header">
+    <a class="header-brand" href="../../archive.html"><img src="../../assets/logos/logo_white.png" alt="8weeks Local Archive"></a>
+    <nav class="header-nav"><a href="index.html" class="keep current">Catalogue</a><a href="../archive-method.html" class="keep">Method</a><a href="{ja_href}" lang="ja" hreflang="ja" class="keep">日本語</a></nav>
+  </header>'''
+
+
+def en_footer(ja_href):
+    return f'''  <footer class="footer">
+    <img src="../../assets/logos/logo_white.png" alt="8weeks">
+    <div class="foot-links">
+      <a href="index.html">Catalogue</a>
+      <a href="../archive-method.html">Method</a>
+      <a href="{ja_href}" lang="ja" hreflang="ja">日本語</a>
+    </div>
+    <p>Publisher: 8weeks LLC (8weeks合同会社)</p>
+    <p style="font-size:0.68rem;color:rgba(255,255,255,0.4)">&copy; 2026 8weeks Local Archive. All rights reserved.</p>
+  </footer>'''
+
+
+def en_items(rs):
+    """記録の並び。見出しは keyword_en。無ければ日本語の見出しに (English heading pending) を添える。"""
+    out = []
+    for r in rs:
+        head = (esc(r['keyword_en']) if r.get('keyword_en')
+                else f'<span lang="ja">{esc(r["keyword"])}</span> (English heading pending)')
+        summ = f'<p class="n" style="margin:2px 0 0;font-size:0.82rem;color:var(--ink-soft)">{esc(r["summary_en"])}</p>' if r.get('summary_en') else ''
+        out.append(f'<li style="flex-wrap:wrap"><span class="c">{esc(r["id"])}<br>Grade {esc(top_grade(r["confidence"]))}</span>'
+                   f'<div style="flex:1;min-width:14em"><b>{head}</b>{summ}'
+                   f'<a href="../../records/{quote(r["id"])}.html" style="font-size:0.78rem">{esc(r["id"])} (full text in Japanese)</a></div></li>')
+    return ''.join(out)
+
+
+def en_groups(rs):
+    """分類ごとのまとまり。英語の分類名は設定に無いので、名前は付けず区切りだけで並べる。"""
+    groups = OrderedDict((g[0], []) for g in CONFIG['groups'])
+    for r in rs:
+        groups[group_of(r)[0]].append(r)
+    return ''.join(f'<div class="cat-group"><ul class="cat-list">{en_items(items)}</ul></div>' for items in groups.values() if items)
+
+
+def en_page(title, h1, sub_en, lead, body, path, ja_path, desc, rs):
+    ld = {'@context': 'https://schema.org', '@type': 'CollectionPage', 'name': f'{title} | 8weeks Local Archive',
+          'url': BASE + path, 'inLanguage': 'en',
+          'isPartOf': {'@type': 'WebSite', 'name': '8weeks Local Archive', 'url': BASE + 'archive.html'},
+          'mainEntity': {'@type': 'ItemList', 'numberOfItems': len(rs),
+                         'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'url': record_url(r['id']),
+                                              'name': (r.get('keyword_en') or r['keyword'])[:110]} for i, r in enumerate(rs)]}}
+    ja_href = '../../' + ja_path
+    note = EN_NOTE.format(ex=rs[0]['id'])
+    return f'''{en_head(title, desc, path, ja_path, ld)}
+<body>
+{en_nav(ja_href)}
+  <section class="page-hero">
+    <h1 class="serif">{h1}</h1>
+    <p class="en">{sub_en}</p>
+    <p class="lead">{lead}</p>
+  </section>
+  <main class="wrap wide">
+    <aside class="disclose"><b>About this page</b> &mdash; {note} Grades: S established, A solid, B contested, C tradition, D folk belief or needs verification; "A/C" means accounts of differing certainty sit in one record. The English layer is a first phase; the Japanese pages are the record.</aside>
+    {body}
+  </main>
+{en_footer(ja_href)}
+</body>
+</html>
+'''
+
+
+def render_en_index(records):
+    used = [s for s in CONFIG['subregions'] if any(r['subregion'] == s['id'] for r in records)]
+    blocks = []
+    for sub in used:
+        rs = [r for r in records if r['subregion'] == sub['id']]
+        blocks.append(f'<section class="cat-sub" id="{sub["id"]}"><h2 class="serif">{esc(sub["en"])}</h2>'
+                      f'<p>{len(rs)} records. <a class="more" href="{sub["id"]}.html">{esc(sub["en"])} entrance page &rarr;</a></p>{en_groups(rs)}</section>')
+    jump = ' / '.join(f'<a href="#{s["id"]}">{esc(s["en"])}</a>' for s in used)
+    lead = (f'All {len(records)} records of the archive, by land and then by theme: '
+            f'{", ".join(esc(s["en"]) for s in used)}. Each entry gives the stable record ID, an English heading and summary, and the grade of certainty.')
+    desc = 'English headings and summaries for the records of the 8weeks Local Archive: Fujimi, Tateshina and Suwa, Nagano, Japan. Full texts are in Japanese.'
+    body = ''.join(blocks)
+    return en_page('Catalogue of records', 'Catalogue', 'English index', lead + f' <span class="jump"><br>{jump}</span>', body,
+                   'en/records/index.html', 'records/index.html', desc, records)
+
+
+def render_en_land(sub, records):
+    rs = [r for r in records if r['subregion'] == sub['id']]
+    munis = ', '.join(sub.get('municipalities_en') or [])
+    muni_line = f' Municipalities used as the reference: {esc(munis)}.' if munis else ''
+    lead = f'{len(rs)} records placed in {esc(sub["en"])}.{muni_line}'
+    desc = f'English headings and summaries of the {sub["en"]} records in the 8weeks Local Archive (Nagano, Japan). Full texts are in Japanese.'
+    body = f'<section class="sec" id="contents">{en_groups(rs)}<p class="hint"><a href="index.html">Catalogue of all records</a></p></section>'
+    return en_page(f'{sub["en"]} records', f'{esc(sub["en"])}', 'Land entrance', lead, body,
+                   f'en/records/{sub["id"]}.html', f'records/{sub["id"]}.html', desc, rs)
 
 
 # ---------- 統計 ----------
@@ -965,6 +1118,9 @@ def method_with_stats(stats):
     if not p.exists():
         return None
     text = p.read_text(encoding='utf-8')
+    if 'hreflang=' not in text:
+        text = re.sub(r'(  <link rel="canonical" href="[^"]*archive-method\.html">\n)',
+                      lambda m: m.group(1) + hreflang('archive-method.html', 'en/archive-method.html') + '\n', text, count=1)
     new, n = re.subn(r'(<!-- STATS:BEGIN -->).*?(<!-- STATS:END -->)',
                      lambda m: m.group(1) + stats_html(stats) + '      ' + m.group(2), text, flags=re.S)
     return new if n else None
@@ -978,14 +1134,17 @@ def sitemap_text(records, meta, used_subs):
     if p.exists():
         for m in re.finditer(r'<url>.*?</url>', p.read_text(encoding='utf-8'), flags=re.S):
             loc = re.search(r'<loc>(.*?)</loc>', m.group(0)).group(1)
-            if '/archive' not in loc and '/records/' not in loc:
+            if '/archive' not in loc and '/records/' not in loc and '/en/' not in loc:
                 keep.append(re.sub(r'\n\s*', '\n    ', m.group(0).strip()).replace('\n    </url>', '\n  </url>'))
     latest = max(m.get('updated', '') for m in meta.values())
     pages = [('archive.html', latest, 'weekly', '0.8'), ('archive-db.html', latest, 'weekly', '0.7'),
              ('records/index.html', latest, 'weekly', '0.7'), ('archive-method.html', latest, 'monthly', '0.6'),
              ('archive-map.html', latest, 'weekly', '0.5'), ('archive-graph.html', latest, 'weekly', '0.5')]
+    pages += [('en/records/index.html', latest, 'weekly', '0.6')]
+    pages += [(f'en/records/{s["id"]}.html', meta[s['id']].get('updated', latest), 'weekly', '0.6') for s in used_subs]
+    pages += [('en/archive-method.html', latest, 'monthly', '0.5')]
     pages[3:3] = [(f'records/{s["id"]}.html', meta[s['id']].get('updated', latest), 'weekly', '0.7') for s in used_subs]
-    pages = [x for x in pages if (ROOT / x[0]).exists() or x[0].startswith('records/')]
+    pages = [x for x in pages if (ROOT / x[0]).exists() or x[0].startswith(('records/', 'en/'))]
     urls = ['  ' + k for k in keep]
     for path, lastmod, freq, prio in pages:
         urls.append(f'  <url>\n    <loc>{BASE}{path}</loc>\n    <lastmod>{lastmod}</lastmod>\n    <changefreq>{freq}</changefreq>\n    <priority>{prio}</priority>\n  </url>')
@@ -1021,6 +1180,9 @@ def build_outputs(records, meta):
     out['records/index.html'] = render_index(sorted_records, meta, stats)
     for sub in used_subs:
         out[f'records/{sub["id"]}.html'] = render_land(sub, sorted_records, by_id, rel, meta)
+    out['en/records/index.html'] = render_en_index(sorted_records)
+    for sub in used_subs:
+        out[f'en/records/{sub["id"]}.html'] = render_en_land(sub, sorted_records)
     out['data/archive-stats.json'] = json.dumps(stats, ensure_ascii=False, indent=1) + '\n'
     method = method_with_stats(stats)
     if method is not None:
@@ -1070,6 +1232,7 @@ def main():
     for name in stale:
         (OUT / name).unlink()
     for path, text in outputs.items():
+        (ROOT / path).parent.mkdir(parents=True, exist_ok=True)
         (ROOT / path).write_text(text, encoding='utf-8')
     print(f'台帳 {len(records)} 件 → {DB_PATH.relative_to(ROOT)}／記録の頁 {len(records)} 本／総目録 1 本／土地の入口 {len(used_subs)} 本／sitemap {n_urls} 行／統計の差し込み {"済" if injected else "なし（archive-method.html に目印が無い）"}')
     for aid, v in stats['subregions'].items():
