@@ -96,6 +96,30 @@
     .sh-sub { font-family: var(--sans); font-size: 0.88rem; letter-spacing: 0.08em; margin-top: 16px; }
 
     .voice-nav-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 5; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; background: var(--navy); color: var(--white); border: none; font-size: 1rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(1,38,83,0.25); }
+
+    /* ---- 予約の導線: 主のボタンは公式サイトの予約ページ、従のリンクは Airbnb ---- */
+    .lp-cta { display: flex; align-items: center; gap: 14px 24px; flex-wrap: wrap; }
+    .lp-cta-sub { position: relative; font-size: 0.78rem; letter-spacing: 0.1em; color: var(--ink-soft); border-bottom: 1px solid var(--line); padding-bottom: 2px; white-space: nowrap; transition: color 0.3s, border-color 0.3s; }
+    .lp-cta-sub::after { content: ''; position: absolute; left: -8px; right: -8px; top: -12px; bottom: -12px; }
+    .lp-cta-sub:hover { color: var(--navy); border-bottom-color: var(--navy); }
+    .lp-cta-note { flex-basis: 100%; font-size: 0.74rem; letter-spacing: 0.06em; line-height: 1.8; color: var(--ink-soft); }
+    .lp-book-actions { display: flex; flex-direction: row-reverse; align-items: center; gap: 12px 22px; flex-wrap: wrap; margin-left: auto; }
+    .lp-book-actions .lp-cta-sub { color: rgba(255,255,255,0.72); border-bottom-color: rgba(255,255,255,0.3); }
+    .lp-book-actions .lp-cta-sub:hover { color: var(--moon); border-bottom-color: var(--moon); }
+    .lp-assure { list-style: none; margin: 36px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 44px; text-align: left; }
+    .lp-assure li { position: relative; padding-left: 20px; font-size: 0.8rem; line-height: 1.9; letter-spacing: 0.05em; color: rgba(255,255,255,0.82); }
+    .lp-assure li::before { content: ''; position: absolute; left: 1px; top: 0.72em; width: 7px; height: 7px; border-radius: 50%; background: var(--moon); }
+    .lp-book-note { margin-top: 18px; font-size: 0.72rem; letter-spacing: 0.06em; line-height: 1.9; color: rgba(255,255,255,0.55); }
+    .lp-trust-link { border-bottom: 1px solid rgba(255,255,255,0.35); padding-bottom: 2px; transition: color 0.3s, border-color 0.3s; }
+    .lp-trust-link:hover { color: var(--moon); border-bottom-color: var(--moon); }
+    @media (max-width: 860px) {
+      .lp-space > div:last-child > .lp-cta { order: 5; }
+    }
+    @media (max-width: 720px) {
+      .lp-book-row { flex-direction: column; align-items: flex-start !important; gap: 14px !important; }
+      .lp-book-actions { flex-direction: row; margin-left: 0; }
+      .lp-assure { grid-template-columns: 1fr; }
+    }
     /* ---- スマホの幅: ロゴと言語の切り替えはヘッダーに残し、ほかの項目はメニューボタンの奥にしまう ---- */
     .lp-nav-main, .lp-nav-lang { display: contents; }
     .lp-menu-btn { display: none; }
@@ -139,7 +163,6 @@
     @media (max-width: 600px) {
       .lp-area-link { letter-spacing: 0.06em; }
       .lp-gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
-      .lp-book-row { flex-direction: column; align-items: flex-start !important; gap: 14px !important; }
     }
   </style>
 </head>
@@ -196,9 +219,10 @@
 
 <!-- ============ Trust bar ============ -->
 <div style="background:var(--navy); border-top:1px solid rgba(255,255,255,0.12); color:rgba(255,255,255,0.9); padding:16px 24px;">
-  <div style="max-width:1080px; margin:0 auto; display:flex; justify-content:center; gap:clamp(24px, 6vw, 72px); font-size:0.82rem; letter-spacing:0.1em; flex-wrap:wrap;">
+  <div style="max-width:1080px; margin:0 auto; display:flex; justify-content:center; gap:12px clamp(24px, 6vw, 72px); font-size:0.82rem; letter-spacing:0.1em; flex-wrap:wrap;">
     <div><span style="color:var(--moon);">★</span> 4.98 Airbnb 平均評価</div>
     <div>190+ レビュー</div>
+    <div><a href="#booking" class="lp-trust-link" data-claim="direct-rate">公式サイトからのご予約が約5%お得</a></div>
   </div>
 </div>
 
@@ -245,7 +269,11 @@
             <span style="color:#C9A227;">★</span> <b style="font-family:var(--serif); font-size:1.05rem;">4.99</b> · 94件のレビュー — 2寝室・定員6名
           </p>
           <p style="font-size:0.92rem; line-height:2.15; color:var(--ink-soft); margin-bottom:26px;">グランドピアノのある森の中の一棟貸切別荘</p>
-          <a href="https://airbnb.com/h/8weeksfujimi"><button type="button" class="ds-btn ds-btn-primary">予約する（Airbnb）</button></a>
+          <div class="lp-cta">
+            <a class="ds-btn ds-btn-primary" href="https://beds24.com/booking2.php?propid=370159&amp;lang=ja&amp;referer=lp-ja-spaces" data-book="direct" data-property="fujimi" data-pos="spaces">公式サイトで予約する</a>
+            <a class="lp-cta-sub" href="https://www.airbnb.jp/h/8weeksfujimi" data-book="airbnb" data-property="fujimi" data-pos="spaces">Airbnb で予約する</a>
+            <p class="lp-cta-note" data-claim="direct-rate">公式サイトからのご予約は、Airbnb より約5%お得です</p>
+          </div>
         </div>
       </div>
 
@@ -260,7 +288,11 @@
             <span style="color:#C9A227;">★</span> <b style="font-family:var(--serif); font-size:1.05rem;">4.97</b> · 66件のレビュー — 2寝室・定員6名
           </p>
           <p style="font-size:0.92rem; line-height:2.15; color:var(--ink-soft); margin-bottom:26px;">複数世帯で楽しめる100m²超のフロア貸切、マウンテンビュー</p>
-          <a href="https://airbnb.com/h/8weeks-quriu"><button type="button" class="ds-btn ds-btn-primary">予約する（Airbnb）</button></a>
+          <div class="lp-cta">
+            <a class="ds-btn ds-btn-primary" href="https://beds24.com/booking2.php?propid=370160&amp;lang=ja&amp;referer=lp-ja-spaces" data-book="direct" data-property="quriu" data-pos="spaces">公式サイトで予約する</a>
+            <a class="lp-cta-sub" href="https://www.airbnb.jp/h/8weeks-quriu" data-book="airbnb" data-property="quriu" data-pos="spaces">Airbnb で予約する</a>
+            <p class="lp-cta-note" data-claim="direct-rate">公式サイトからのご予約は、Airbnb より約5%お得です</p>
+          </div>
         </div>
       </div>
 
@@ -275,7 +307,11 @@
             <span style="color:#C9A227;">★</span> <b style="font-family:var(--serif); font-size:1.05rem;">4.97</b> · 34件のレビュー — 2寝室・定員4名
           </p>
           <p style="font-size:0.92rem; line-height:2.15; color:var(--ink-soft); margin-bottom:26px;">富士見商店街のリノベーションフラット、車がなくても</p>
-          <a href="https://airbnb.com/h/8weeks-studio"><button type="button" class="ds-btn ds-btn-primary">予約する（Airbnb）</button></a>
+          <div class="lp-cta">
+            <a class="ds-btn ds-btn-primary" href="https://beds24.com/booking2.php?propid=370161&amp;lang=ja&amp;referer=lp-ja-spaces" data-book="direct" data-property="studio" data-pos="spaces">公式サイトで予約する</a>
+            <a class="lp-cta-sub" href="https://www.airbnb.jp/h/8weeks-studio" data-book="airbnb" data-property="studio" data-pos="spaces">Airbnb で予約する</a>
+            <p class="lp-cta-note" data-claim="direct-rate">公式サイトからのご予約は、Airbnb より約5%お得です</p>
+          </div>
         </div>
       </div>
 
@@ -427,8 +463,14 @@
   <div style="max-width:880px; margin:0 auto;">
     <div style="text-align:center;">
       <h2 class="sh-title" style="color:var(--white);">ご予約</h2>
-      <p class="sh-sub" style="color:rgba(255,255,255,0.75);">各施設のカレンダー・料金はAirbnbでご確認いただけます。</p>
+      <p class="sh-sub" style="color:rgba(255,255,255,0.75);">空室と料金は、各宿の予約ページでご確認いただけます。</p>
     </div>
+    <ul class="lp-assure">
+      <li data-claim="direct-rate">公式サイトからのご予約は、Airbnb より約5%お得です。</li>
+      <li>ご予約はリクエスト制です。空き状況を確認のうえ、宿からメールでお返事します。</li>
+      <li>Airbnb と同じく、チェックインの5日前までキャンセル無料です（28泊以上は30日前まで）。</li>
+      <li>お支払いはクレジットカードです。リクエストの時点では、お支払いは発生しません。</li>
+    </ul>
     <div style="border-top:1px solid rgba(255,255,255,0.14); margin-top:40px;">
 
       <div class="lp-book-row" style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,0.14); flex-wrap:wrap;">
@@ -436,7 +478,10 @@
           <h4 style="font-family:var(--serif); font-weight:500; font-size:1.02rem; letter-spacing:0.1em; margin:0 0 2px;">8weeks Fujimi</h4>
           <p style="font-size:0.76rem; color:rgba(255,255,255,0.68); letter-spacing:0.06em; margin:0;">森の中の一棟貸切・グランドピアノ</p>
         </div>
-        <a href="https://airbnb.com/h/8weeksfujimi"><button type="button" class="ds-btn ds-btn-moon ds-btn-sm">予約する</button></a>
+        <div class="lp-book-actions">
+          <a class="ds-btn ds-btn-moon ds-btn-sm" href="https://beds24.com/booking2.php?propid=370159&amp;lang=ja&amp;referer=lp-ja-booking" data-book="direct" data-property="fujimi" data-pos="booking">公式サイトで予約する</a>
+          <a class="lp-cta-sub" href="https://www.airbnb.jp/h/8weeksfujimi" data-book="airbnb" data-property="fujimi" data-pos="booking">Airbnb で予約する</a>
+        </div>
       </div>
 
       <div class="lp-book-row" style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,0.14); flex-wrap:wrap;">
@@ -444,7 +489,10 @@
           <h4 style="font-family:var(--serif); font-weight:500; font-size:1.02rem; letter-spacing:0.1em; margin:0 0 2px;">8weeks Quriu</h4>
           <p style="font-size:0.76rem; color:rgba(255,255,255,0.68); letter-spacing:0.06em; margin:0;">100m²超のフロア貸切・マウンテンビュー</p>
         </div>
-        <a href="https://airbnb.com/h/8weeks-quriu"><button type="button" class="ds-btn ds-btn-moon ds-btn-sm">予約する</button></a>
+        <div class="lp-book-actions">
+          <a class="ds-btn ds-btn-moon ds-btn-sm" href="https://beds24.com/booking2.php?propid=370160&amp;lang=ja&amp;referer=lp-ja-booking" data-book="direct" data-property="quriu" data-pos="booking">公式サイトで予約する</a>
+          <a class="lp-cta-sub" href="https://www.airbnb.jp/h/8weeks-quriu" data-book="airbnb" data-property="quriu" data-pos="booking">Airbnb で予約する</a>
+        </div>
       </div>
 
       <div class="lp-book-row" style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,0.14); flex-wrap:wrap;">
@@ -452,10 +500,14 @@
           <h4 style="font-family:var(--serif); font-weight:500; font-size:1.02rem; letter-spacing:0.1em; margin:0 0 2px;">8weeks Studio</h4>
           <p style="font-size:0.76rem; color:rgba(255,255,255,0.68); letter-spacing:0.06em; margin:0;">商店街のリノベーションフラット</p>
         </div>
-        <a href="https://airbnb.com/h/8weeks-studio"><button type="button" class="ds-btn ds-btn-moon ds-btn-sm">予約する</button></a>
+        <div class="lp-book-actions">
+          <a class="ds-btn ds-btn-moon ds-btn-sm" href="https://beds24.com/booking2.php?propid=370161&amp;lang=ja&amp;referer=lp-ja-booking" data-book="direct" data-property="studio" data-pos="booking">公式サイトで予約する</a>
+          <a class="lp-cta-sub" href="https://www.airbnb.jp/h/8weeks-studio" data-book="airbnb" data-property="studio" data-pos="booking">Airbnb で予約する</a>
+        </div>
       </div>
 
     </div>
+    <p class="lp-book-note">「公式サイトで予約する」を押すと、予約システム Beds24（beds24.com）の予約ページに移動します。</p>
     <a href="mailto:8weeks.fujimi@gmail.com" class="lp-contact" style="display:block; border:1px solid rgba(255,255,255,0.25); padding:20px 24px; margin-top:32px;">
       <strong style="display:block; font-size:0.88rem; letter-spacing:0.1em; font-weight:500;">長期滞在・移住体験のご相談</strong>
       <span style="font-size:0.78rem; color:rgba(255,255,255,0.7); letter-spacing:0.06em;">8weeks.fujimi@gmail.com — ロングステイ・ワーケーションにも対応しています</span>
