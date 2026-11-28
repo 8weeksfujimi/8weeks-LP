@@ -44,7 +44,7 @@
           { "@type": "Question", "name": "駐車場はありますか？", "acceptedAnswer": { "@type": "Answer", "text": "3つの宿とも、無料の駐車場があります。" } },
           { "@type": "Question", "name": "チェックインの前や、チェックアウトのあとに荷物を預けられますか？", "acceptedAnswer": { "@type": "Answer", "text": "3つの宿とも、荷物の預かりに対応しています。時間などは、予約のあとにホストへご相談ください。" } },
           { "@type": "Question", "name": "子ども連れでも泊まれますか？", "acceptedAnswer": { "@type": "Answer", "text": "はい。ホストも富士見町で子育てをしています。パノラマにはキッズパークやスキースクールもあります（内容は公式サイトでご確認ください）。" } },
-          { "@type": "Question", "name": "料金や空き状況は、どこで見られますか？", "acceptedAnswer": { "@type": "Answer", "text": "各宿の Airbnb の頁で、カレンダーと料金をご確認のうえ、そのままご予約いただけます。" } },
+          { "@type": "Question", "name": "料金や空き状況は、どこで見られますか？", "acceptedAnswer": { "@type": "Answer", "text": "各宿の予約ページ（公式サイト）で、カレンダーと料金をご確認のうえ、予約リクエストをお送りいただけます。公式サイトからのご予約は、Airbnb より約5%お得です。Airbnb からもご予約いただけます。" } },
           { "@type": "Question", "name": "冬以外の季節もおすすめですか？", "acceptedAnswer": { "@type": "Answer", "text": "春から秋は、ゴンドラやMTBパーク、トレッキングが楽しめます。冬はスキー、夏はMTB、秋は紅葉、春は新緑。四季を通じて楽しめる町です。" } }
         ]
       }
@@ -121,6 +121,20 @@
     .pr-faq dd { margin: 0; padding: 0 0 26px 2em; border-bottom: 1px solid var(--line); font-size: 0.92rem; line-height: 2.05; color: var(--ink-soft); }
     .pr-faq a, .pr-row a.pr-inline { color: var(--navy); border-bottom: 1px solid var(--line); }
 
+    /* ---- 予約の導線: 主のボタンは公式サイトの予約ページ、従のリンクは Airbnb（トップと同じ） ---- */
+    .lp-cta { display: flex; align-items: center; gap: 14px 24px; flex-wrap: wrap; }
+    .lp-cta-sub { position: relative; font-size: 0.78rem; letter-spacing: 0.1em; color: var(--ink-soft); border-bottom: 1px solid var(--line); padding-bottom: 2px; white-space: nowrap; transition: color 0.3s, border-color 0.3s; }
+    .lp-cta-sub::after { content: ''; position: absolute; left: -8px; right: -8px; top: -12px; bottom: -12px; }
+    .lp-cta-sub:hover { color: var(--navy); border-bottom-color: var(--navy); }
+    .lp-cta-note { flex-basis: 100%; font-size: 0.74rem; letter-spacing: 0.06em; line-height: 1.8; color: var(--ink-soft); }
+    .lp-book-actions { display: flex; flex-direction: row-reverse; align-items: center; gap: 12px 22px; flex-wrap: wrap; margin-left: auto; }
+    .lp-book-actions .lp-cta-sub { color: rgba(255,255,255,0.72); border-bottom-color: rgba(255,255,255,0.3); }
+    .lp-book-actions .lp-cta-sub:hover { color: var(--moon); border-bottom-color: var(--moon); }
+    .lp-assure { list-style: none; margin: 36px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 44px; text-align: left; }
+    .lp-assure li { position: relative; padding-left: 20px; font-size: 0.8rem; line-height: 1.9; letter-spacing: 0.05em; color: rgba(255,255,255,0.82); }
+    .lp-assure li::before { content: ''; position: absolute; left: 1px; top: 0.72em; width: 7px; height: 7px; border-radius: 50%; background: var(--moon); }
+    .lp-book-note { margin-top: 18px; font-size: 0.72rem; letter-spacing: 0.06em; line-height: 1.9; color: rgba(255,255,255,0.55); }
+
     @media (max-width: 860px) {
       .lp-space, .pr-compare, .pr-reasons, .pr-links, .pr-host { grid-template-columns: 1fr !important; }
       /* 1列のときは、どの棟も「番号と名前 → 写真 → 説明 → ボタン」の順にそろえる（トップと同じ） */
@@ -132,6 +146,9 @@
       .lp-space > div:last-child > p { order: 4; }
       .lp-space > div:last-child > p:first-of-type { margin-top: 20px; }
       .lp-space > div:last-child > a { order: 5; justify-self: start; }
+      .lp-space > div:last-child > .lp-cta { order: 5; }
+      .lp-book-row { flex-direction: column; align-items: flex-start !important; gap: 14px !important; }
+      .lp-book-actions { flex-direction: row; margin-left: 0; }
       .pr-reasons { gap: 40px; }
       .pr-card { padding: 32px 24px; }
       .pr-row { grid-template-columns: 1fr; gap: 6px; }
@@ -181,7 +198,7 @@
     @media (max-width: 600px) {
       .pr-hero-cta .ds-btn { padding: 14px 20px; letter-spacing: 0.1em; }
       .lp-area-link { letter-spacing: 0.06em; }
-      .lp-book-row { flex-direction: column; align-items: flex-start !important; gap: 14px !important; }
+      .lp-assure { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -324,7 +341,11 @@
           <h3 style="font-family:var(--serif); font-weight:500; font-size:1.55rem; letter-spacing:0.1em; color:var(--navy); margin:0 0 10px;">8weeks Fujimi</h3>
           <p class="pr-meta">パノラマまで車で約3分 · 一棟貸切 · 無料駐車場</p>
           <p style="font-size:0.92rem; line-height:2.15; color:var(--ink-soft); margin-bottom:26px;">グランドピアノのある森の中の一棟貸切別荘</p>
-          <a href="https://www.airbnb.jp/h/8weeksfujimi" class="ds-btn ds-btn-primary">予約する（Airbnb）</a>
+          <div class="lp-cta">
+            <a class="ds-btn ds-btn-primary" href="https://beds24.com/booking2.php?propid=370159&amp;lang=ja&amp;referer=lp-panorama-stays" data-book="direct" data-property="fujimi" data-pos="stays">公式サイトで予約する</a>
+            <a class="lp-cta-sub" href="https://www.airbnb.jp/h/8weeksfujimi" data-book="airbnb" data-property="fujimi" data-pos="stays">Airbnb で予約する</a>
+            <p class="lp-cta-note" data-claim="direct-rate">公式サイトからのご予約は、Airbnb より約5%お得です</p>
+          </div>
         </div>
       </div>
 
@@ -337,7 +358,11 @@
           <h3 style="font-family:var(--serif); font-weight:500; font-size:1.55rem; letter-spacing:0.1em; color:var(--navy); margin:0 0 10px;">8weeks Quriu</h3>
           <p class="pr-meta">パノラマまで車で約5分 · フロア貸切 · 無料駐車場</p>
           <p style="font-size:0.92rem; line-height:2.15; color:var(--ink-soft); margin-bottom:26px;">複数世帯で楽しめる100m²超のフロア貸切、マウンテンビュー。薪ストーブのある部屋で、温まる夜を。</p>
-          <a href="https://www.airbnb.jp/h/8weeks-quriu" class="ds-btn ds-btn-primary">予約する（Airbnb）</a>
+          <div class="lp-cta">
+            <a class="ds-btn ds-btn-primary" href="https://beds24.com/booking2.php?propid=370160&amp;lang=ja&amp;referer=lp-panorama-stays" data-book="direct" data-property="quriu" data-pos="stays">公式サイトで予約する</a>
+            <a class="lp-cta-sub" href="https://www.airbnb.jp/h/8weeks-quriu" data-book="airbnb" data-property="quriu" data-pos="stays">Airbnb で予約する</a>
+            <p class="lp-cta-note" data-claim="direct-rate">公式サイトからのご予約は、Airbnb より約5%お得です</p>
+          </div>
         </div>
       </div>
 
@@ -350,7 +375,11 @@
           <h3 style="font-family:var(--serif); font-weight:500; font-size:1.55rem; letter-spacing:0.1em; color:var(--navy); margin:0 0 10px;">8weeks Studio</h3>
           <p class="pr-meta">富士見駅から徒歩3分 · 駅からパノラマの無料送迎バス（営業期間中） · 無料駐車場</p>
           <p style="font-size:0.92rem; line-height:2.15; color:var(--ink-soft); margin-bottom:26px;">富士見商店街のリノベーションフラット、車がなくても</p>
-          <a href="https://www.airbnb.jp/h/8weeks-studio" class="ds-btn ds-btn-primary">予約する（Airbnb）</a>
+          <div class="lp-cta">
+            <a class="ds-btn ds-btn-primary" href="https://beds24.com/booking2.php?propid=370161&amp;lang=ja&amp;referer=lp-panorama-stays" data-book="direct" data-property="studio" data-pos="stays">公式サイトで予約する</a>
+            <a class="lp-cta-sub" href="https://www.airbnb.jp/h/8weeks-studio" data-book="airbnb" data-property="studio" data-pos="stays">Airbnb で予約する</a>
+            <p class="lp-cta-note" data-claim="direct-rate">公式サイトからのご予約は、Airbnb より約5%お得です</p>
+          </div>
         </div>
       </div>
 
@@ -440,7 +469,7 @@
       <dt>子ども連れでも泊まれますか？</dt>
       <dd>はい。ホストも富士見町で子育てをしています。パノラマにはキッズパークやスキースクールもあります（内容は公式サイトでご確認ください）。</dd>
       <dt>料金や空き状況は、どこで見られますか？</dt>
-      <dd>各宿の Airbnb の頁で、カレンダーと料金をご確認のうえ、そのままご予約いただけます。</dd>
+      <dd data-claim="direct-rate">各宿の予約ページ（公式サイト）で、カレンダーと料金をご確認のうえ、予約リクエストをお送りいただけます。公式サイトからのご予約は、Airbnb より約5%お得です。Airbnb からもご予約いただけます。</dd>
       <dt>冬以外の季節もおすすめですか？</dt>
       <dd>春から秋は、ゴンドラやMTBパーク、トレッキングが楽しめます。冬はスキー、夏はMTB、秋は紅葉、春は新緑。四季を通じて楽しめる町です。</dd>
     </dl>
@@ -452,8 +481,14 @@
   <div style="max-width:880px; margin:0 auto;">
     <div style="text-align:center;">
       <h2 class="sh-title" style="color:var(--white);">泊まって、雪も町も。</h2>
-      <p class="sh-sub" style="color:rgba(255,255,255,0.75);">各宿のカレンダー・料金は Airbnb でご確認いただけます。</p>
+      <p class="sh-sub" style="color:rgba(255,255,255,0.75);">空室と料金は、各宿の予約ページでご確認いただけます。</p>
     </div>
+    <ul class="lp-assure">
+      <li data-claim="direct-rate">公式サイトからのご予約は、Airbnb より約5%お得です。</li>
+      <li>ご予約はリクエスト制です。空き状況を確認のうえ、48時間以内にメールでお返事します。</li>
+      <li>Airbnb と同じく、チェックインの5日前までキャンセル無料です（28泊以上は30日前まで）。</li>
+      <li>お支払いはクレジットカードです。リクエストの時点では、お支払いは発生しません。</li>
+    </ul>
     <div style="border-top:1px solid rgba(255,255,255,0.14); margin-top:40px;">
 
       <div class="lp-book-row" style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,0.14); flex-wrap:wrap;">
@@ -461,7 +496,10 @@
           <h3 style="font-family:var(--serif); font-weight:500; font-size:1.02rem; letter-spacing:0.1em; margin:0 0 2px;">8weeks Fujimi</h3>
           <p style="font-size:0.76rem; color:rgba(255,255,255,0.68); letter-spacing:0.06em; margin:0;">森の中の一棟貸切・グランドピアノ · パノラマまで車で約3分</p>
         </div>
-        <a href="https://www.airbnb.jp/h/8weeksfujimi" class="ds-btn ds-btn-moon ds-btn-sm">予約する</a>
+        <div class="lp-book-actions">
+          <a class="ds-btn ds-btn-moon ds-btn-sm" href="https://beds24.com/booking2.php?propid=370159&amp;lang=ja&amp;referer=lp-panorama-booking" data-book="direct" data-property="fujimi" data-pos="booking">公式サイトで予約する</a>
+          <a class="lp-cta-sub" href="https://www.airbnb.jp/h/8weeksfujimi" data-book="airbnb" data-property="fujimi" data-pos="booking">Airbnb で予約する</a>
+        </div>
       </div>
 
       <div class="lp-book-row" style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,0.14); flex-wrap:wrap;">
@@ -469,7 +507,10 @@
           <h3 style="font-family:var(--serif); font-weight:500; font-size:1.02rem; letter-spacing:0.1em; margin:0 0 2px;">8weeks Quriu</h3>
           <p style="font-size:0.76rem; color:rgba(255,255,255,0.68); letter-spacing:0.06em; margin:0;">100m²超のフロア貸切・マウンテンビュー · パノラマまで車で約5分</p>
         </div>
-        <a href="https://www.airbnb.jp/h/8weeks-quriu" class="ds-btn ds-btn-moon ds-btn-sm">予約する</a>
+        <div class="lp-book-actions">
+          <a class="ds-btn ds-btn-moon ds-btn-sm" href="https://beds24.com/booking2.php?propid=370160&amp;lang=ja&amp;referer=lp-panorama-booking" data-book="direct" data-property="quriu" data-pos="booking">公式サイトで予約する</a>
+          <a class="lp-cta-sub" href="https://www.airbnb.jp/h/8weeks-quriu" data-book="airbnb" data-property="quriu" data-pos="booking">Airbnb で予約する</a>
+        </div>
       </div>
 
       <div class="lp-book-row" style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,0.14); flex-wrap:wrap;">
@@ -477,10 +518,14 @@
           <h3 style="font-family:var(--serif); font-weight:500; font-size:1.02rem; letter-spacing:0.1em; margin:0 0 2px;">8weeks Studio</h3>
           <p style="font-size:0.76rem; color:rgba(255,255,255,0.68); letter-spacing:0.06em; margin:0;">商店街のリノベーションフラット · 富士見駅から徒歩3分</p>
         </div>
-        <a href="https://www.airbnb.jp/h/8weeks-studio" class="ds-btn ds-btn-moon ds-btn-sm">予約する</a>
+        <div class="lp-book-actions">
+          <a class="ds-btn ds-btn-moon ds-btn-sm" href="https://beds24.com/booking2.php?propid=370161&amp;lang=ja&amp;referer=lp-panorama-booking" data-book="direct" data-property="studio" data-pos="booking">公式サイトで予約する</a>
+          <a class="lp-cta-sub" href="https://www.airbnb.jp/h/8weeks-studio" data-book="airbnb" data-property="studio" data-pos="booking">Airbnb で予約する</a>
+        </div>
       </div>
 
     </div>
+    <p class="lp-book-note">「公式サイトで予約する」を押すと、予約システム Beds24（beds24.com）の予約ページに移動します。</p>
     <p style="margin-top:36px; text-align:center;"><a href="index.html" class="lp-footer-link" style="font-size:0.86rem;">8weeks Stay のトップへ →</a></p>
   </div>
 </section>

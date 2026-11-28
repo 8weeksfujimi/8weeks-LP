@@ -2,7 +2,7 @@
 
 ## プロジェクト概要
 8weeks Stayの宿泊施設を紹介するランディングページプロジェクト。
-富士見町にある3つの施設（8weeks Fujimi、8weeks Quriu、8weeks Studio）の情報とAirbnbリスティングへの誘導を行う。
+富士見町にある3つの施設（8weeks Fujimi、8weeks Quriu、8weeks Studio）の情報を載せ、公式サイトの予約ページ（直接予約）と Airbnb リスティングへ案内する。
 
 ## フォルダ構成
 
@@ -11,7 +11,7 @@
 ├── index.html              # 日本語版メインページ
 ├── index-en.html           # 英語版メインページ
 ├── index-photo-ready.html  # 写真準備版
-├── booking.html            # 予約ページ
+├── booking.html            # トップの「ご予約」へ送る頁
 ├── gallery-test.html       # ギャラリーテストページ
 │
 ├── assets/                 # アセットフォルダ
@@ -71,13 +71,13 @@
 ### HTMLファイル
 - **index.html**: 日本語版のメインランディングページ
 - **index-en.html**: 英語版のメインランディングページ
-- **booking.html**: 予約システムページ
+- **booking.html**: トップの「ご予約」へ送るだけの頁（検索には出さない）
 - **gallery-test.html**: ギャラリー機能のテストページ
 
 ### スクリプト
 - **airbnb-data.js**: Airbnbのリスティング情報を管理
 - **airbnb-proxy-server.js**: Airbnb APIアクセス用のプロキシサーバー
-- **booking.js**: 予約システムのJavaScript
+- **booking.js**: 以前の予約フォームのスクリプト（いまはどの頁からも読み込んでいない）
 - **gallery系スクリプト**: 画像ギャラリーの表示・管理
 - **Python系スクリプト**: 画像の圧縮・最適化処理
 
@@ -97,6 +97,25 @@
 - Airbnb API
 - Google Maps API
 - その他の予約システムAPI
+
+## 予約の導線（宿の頁）
+
+予約ボタンは、**主が公式サイトの予約ページ（予約システム Beds24）、従が Airbnb**。対象は `index.html`・`index-en.html`・`panorama-resort.html`・`fujimimachi-hotel.html`。
+
+| 棟 | 予約ページの物件ID | Airbnb の名前 |
+|---|---|---|
+| 8weeks Fujimi | 370159 | `8weeksfujimi` |
+| 8weeks Quriu | 370160 | `8weeks-quriu` |
+| 8weeks Studio | 370161 | `8weeks-studio` |
+
+- 予約ページのアドレス: `https://beds24.com/booking2.php?propid=<物件ID>&lang=<ja か en>&referer=<印>`。日本語の頁は `lang=ja`、英語の頁は `lang=en`
+- `referer` は、どの頁のどのボタンから来た予約かを、予約システムの側で見分けるための印（`lp-ja-spaces`・`lp-ja-booking`・`lp-en-spaces`・`lp-en-booking`・`lp-panorama-stays`・`lp-panorama-booking`・`lp-fujimimachi`）
+- Airbnb のリンクは、日本語の頁が `https://www.airbnb.jp/h/<名前>`、英語の頁が `https://www.airbnb.com/h/<名前>`
+- 予約のリンクには `data-book`（`direct`／`airbnb`）・`data-property`（`fujimi`／`quriu`／`studio`）・`data-pos`（頁の中の場所）を付けてある。解析の道具は入れていない（あとでクリックを数えるときの目印）
+- 料金の差を書いた要素には `data-claim="direct-rate"` を付けてある。料金の決まりを変えたら、`grep -n 'data-claim="direct-rate"' *.html` で出る場所をまとめて直す。`index-en.html` と `panorama-resort.html` は、構造化データ（FAQPage）の中にも同じ文がある
+- キャンセルの条件・支払い方法・予約の流れ（リクエスト制）を書いた場所は、予約欄の箇条書き（`.lp-assure`）と、`index-en.html` の「Frequently Asked Questions」（見える文と構造化データの両方）
+- `booking.html` は、トップの「ご予約」へ送るだけの頁（検索には出さない）。予約の入口は、各頁の予約欄に一本化している
+- ローカルアーカイブの頁（archive*.html・records/）には、この導線を足さない
 
 ## デプロイ情報
 - GitHubリポジトリ: https://github.com/8weeksfujimi/8weeks-LP
