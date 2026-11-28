@@ -98,7 +98,9 @@
      "verdict": "PASS",
      "note": "[高]なし。[低]confidence表記がS/Bだが考証メモは3水準（重文指定=S/A・展示点数=B）→S/A/Bに拡張して反映。他はIP・スクラブ語・著作権・地理・声・必須フィールドすべて適合。"
     }
-   ]
+   ],
+   "keyword_en": "Idojiri Sites (Idojiri and Sori Sites) and the Idojiri Culture",
+   "summary_en": "A core Middle Jomon settlement site on a plateau at about 880 m on the southern foot of the Yatsugatake range. Idojiri was designated a National Historic Site in 1966, and in 2025 the adjoining Sori site was added and the designation renamed 'Idojiri Sites'. The Idojiri Archaeological Museum holds the finds, including a set of 199 items from the nearby Tonai site (Important Cultural Property, 2002) and a figurine from the Sakaue site (Important Cultural Property, 2015)."
   },
   {
    "id": "FJM-JOMON-002",
@@ -136,7 +138,9 @@
      "verdict": "PASS",
      "note": "[高]なし・指摘なし。CAUTION_IPは匿名の匂わせ文に対し適切に付与、TOWN_OUTSIDE不使用（根拠地・展示会場が町内）の理由も考証メモで明示されており妥当。"
     }
-   ]
+   ],
+   "keyword_en": "The Jomon Agriculture Theory (Fujimori Eiichi and the Idojiri Site)",
+   "summary_en": "Fujimori Eiichi (1911-1973), an independent archaeologist born in Kamisuwa (now Suwa), proposed in 1950, after investigating the Idojiri site, that people of the Middle Jomon Central Highlands lived partly by farming. His reading of perforated-collar pots as seed containers was nearly ignored by academics, and he died in 1973 with its worth unsettled. Carbonized seeds thought to be egoma found in 1974, and later reports of managed cultivation of nuts and millets, have prompted a reassessment, but it remains a hypothesis under study rather than an established view."
   },
   {
    "id": "FJM-JOMON-003",
@@ -175,7 +179,9 @@
      "verdict": "PASS",
      "note": "[高]なし・指摘なし。リーチ・岡本太郎は歴史上の実在人物でIP規制の対象外。引用「これこそ世界一の土器」は15語未満・単一出典で適合。"
     }
-   ]
+   ],
+   "keyword_en": "Deep Pot with Swirling Water-Smoke Pattern",
+   "summary_en": "One of the vessels excavated from Pit Dwelling No. 4 at the Sori site; seven deep pots found together were designated Nagano Prefectural Treasures in 1975, not a national designation. Its swirling, rising handles are likened to flames or water mist. It was shown at an exhibition of Japanese art in Paris in 1963 and used in 1972 as the design of the printed stamp on postcards."
   },
   {
    "id": "FJM-HIST-001",
@@ -217,7 +223,9 @@
      "verdict": "PASS",
      "note": "[高]なし・指摘なし。冒頭一文目での町域外明示（桑原城=諏訪市・東光寺=甲府市）は開示のモデルケース。A/Dの内訳も具体的。"
     }
-   ]
+   ],
+   "keyword_en": "Takeda Harunobu (Shingen)'s Invasion of Shinano and the Fall of the Suwa Clan",
+   "summary_en": "The main scenes, Kuwabara Castle in Suwa and Toko-ji in Kofu, lie outside the town. In the sixth month of 1542 Takeda Harunobu, later known as Shingen, advanced into Suwa District; Suwa Yorishige surrendered Kuwabara Castle on the fourth day of the seventh month on condition that his life be spared, but on the 21st Harunobu broke the promise and had Yorishige and his brother Yoritaka take their own lives at Toko-ji, ending the Suwa main line (sources differ on where he was held)."
   },
   {
    "id": "FJM-HIST-002",
@@ -255,7 +263,9 @@
      "verdict": "PASS",
      "note": "[高]なし。[中]合戦実在性は「事実の核がある」とするBの下限からDの上限の境界にある→confidenceをA/B/Dに精緻化し考証メモに一文追記して反映。"
     }
-   ]
+   ],
+   "keyword_en": "Battle of Sezawa (1542)",
+   "summary_en": "On the ninth day of the third month of 1542, Takeda Harunobu is said to have met an allied force of the 'four great commanders' of Shinano (Ogasawara, Suwa, Murakami, Kiso) at Sezawa on the Kai-Shinano border, from present-day Ochiai Sezawa to Yokobuki in Fujimi. A local signboard records that 1,621 Shinano men were killed in a battle lasting from the hour of the Dragon to the hour of the Sheep, and the battlefield was given local historic-site status in 1965. No reliable primary source records the battle, and some suggest it was invented later by the Takeda to justify their conquest of Suwa."
   },
   {
    "id": "FJM-HIST-003",
@@ -296,7 +306,9 @@
      "verdict": "PASS",
      "note": "[高]なし。[中]「町内区間はごく短い」という核心的留保が本文末尾のみ→冒頭に先出しの一文を追加して反映。cx_ideaが「実は隣町にある」と正直に書く点は良い実践。"
     }
-   ]
+   ],
+   "keyword_en": "Shingen's Bomichi Road (Upper, Middle, Lower)",
+   "summary_en": "The stretch passing through Fujimi is very short; the main traces and the roadside Kannon stones lie in neighbouring Hokuto City. The Edo-period gazetteer Kai Kokushi (1814) says only that there are three 'bo' roads and does not credit Shingen with building them. Only the upper road is certain to survive; traces of the middle and lower roads are scarce, and the route and the origin of the road remain debated."
   },
   {
    "id": "FJM-FAITH-001",
@@ -336,7 +348,9 @@
      "verdict": "PASS",
      "note": "[高]なし。[低]confidence欄(S/A)と考証メモの4水準の対応が読み取りにくい→メモ冒頭に表記方針の注記を追加して反映。CAUTION_IPは地名への予防的フラグとして適切。"
     }
-   ]
+   ],
+   "keyword_en": "Okkoto Suwa Shrine (Suwa-zukuri, Important Cultural Property)",
+   "summary_en": "The shrine buildings are the worship hall and offering hall of the Suwa Taisha Kamisha Honmiya, relocated here and said to date from 1617. When the Kamisha began rebuilding in 1833, the village of Okkoto asked to take over the old buildings, and the move was completed in 1849. With no main hall and the rock behind the shrine serving as the seat of the deity, it keeps the 'Suwa-zukuri' form strongly and is one of few such buildings in Japan."
   },
   {
    "id": "FJM-FAITH-002",
@@ -372,7 +386,9 @@
      "verdict": "PASS",
      "note": "[高]なし。[低]「本殿を持たず」と「前宮のみ本殿あり」が初読で自己矛盾に見える→接続を「四社のうち前宮だけは本殿を有する」に改稿して反映。"
     }
-   ]
+   ],
+   "keyword_en": "The Old Layers of Suwa Belief (Mishaguji and Mount Moriya)",
+   "summary_en": "Mount Moriya and Suwa Taisha itself lie outside Fujimi, and no direct physical evidence has been found within the town. Suwa Taisha is traditionally said to preserve an old form of worship without a main hall, though of its four shrines the Maemiya has one, and the earliest textual reference to Mount Moriya as the sacred body of the Honmiya dates only to 1553, so that idea may be a fairly recent layer. The native deity Mishaguji, said to be older than Takeminakata, likewise has several competing explanations of its name and no settled view."
   },
   {
    "id": "FJM-LIT-001",
@@ -411,7 +427,9 @@
      "verdict": "PASS",
      "note": "[高]なし・指摘なし。開設年の二段階（1926発足/1928法人化）の切り分け、未確認の病棟名の削除など考証の顛末が明快。"
     }
-   ]
+   ],
+   "keyword_en": "Fujimi Kogen Sanatorium (Masaki Fujokyu)",
+   "summary_en": "Masaki Fujokyu (1887-1962) studied at the Pasteur Institute in Paris after graduating from the Faculty of Medicine of Tokyo Imperial University, and later taught haematology at Keio University. In 1926 he became the first director of the Fujimi Kogen Sanatorium, founded as a joint-stock general hospital, and built highland treatment for tuberculosis around fresh air, rest and nutrition. It was incorporated separately as a tuberculosis-specialist institution in 1928."
   },
   {
    "id": "FJM-LIT-002",
@@ -451,7 +469,9 @@
      "verdict": "PASS",
      "note": "[高]なし。[中]考証メモの「2013年公開アニメ映画」は公開年で実質特定可能→「後年の映像化作品」に抽象化しflagsにCAUTION_IPを追加して反映。ヴァレリー詩句は再現なし。"
     }
-   ]
+   ],
+   "keyword_en": "Hori Tatsuo's 'Kaze tachinu' (The Wind Has Risen)",
+   "summary_en": "In July 1935 Hori Tatsuo entered the Fujimi Kogen Sanatorium at the foot of Yatsugatake for tuberculosis, together with his fiancee Yano Ayako, who did not recover and died on 6 December that year, aged 24. Hori began publishing 'Kaze tachinu' in the magazine Kaizo in December 1936, followed by 'Winter', 'Spring' and 'The Valley of the Shadow of Death', and the book appeared from Noda Shobo in April 1938. The setting is concealed as 'F Highland' and 'K Village' (Karuizawa), but the landscape descriptions draw on his experience in Fujimi."
   },
   {
    "id": "FJM-LIT-003",
@@ -490,7 +510,9 @@
      "verdict": "PASS",
      "note": "[高]なし・指摘なし。享年の訂正（数え51/満49）は生没年と整合。「ありがとう」は許容範囲の短い引用。"
     }
-   ]
+   ],
+   "keyword_en": "Takehisa Yumeji: Place of His Last Days",
+   "summary_en": "The poet-painter known for his paintings of beautiful women embodying Taisho romanticism entered the Shinshu Fujimi Kogen Sanatorium in January 1934. He was received by his old friend Masaki Fujokyu, the first director, and is said to have been given a special ward free of charge. He died there on 1 September that year, aged 49 by Western reckoning; no monument dedicated to him alone has been found in the town."
   },
   {
    "id": "FJM-LIT-004",
@@ -530,7 +552,9 @@
      "verdict": "PASS",
      "note": "[高]なし・指摘なし。移住月の資料相違（9月/6月）を年のみ表記で矛盾なく処理。"
     }
-   ]
+   ],
+   "keyword_en": "Ozaki Kihachi's 'Bunsuiso' and the Highland Literary Salon",
+   "summary_en": "The poet Ozaki Kihachi, who deeply regretted having written war-supporting poems during the war, moved from Tokyo to this highland with his wife and children in 1946, aged 54. He settled in part of 'Bunsuiso', one of the oldest villas in Fujimi, built in 1907 by Watanabe Chiaki, Minister of the Imperial Household, and lived there for seven years in poverty and solitude among illustrated reference books and botany books. These years became the core of his poetry collection 'Hanasakeru kodoku', published in 1955."
   },
   {
    "id": "FJM-ROAD-001",
@@ -568,7 +592,9 @@
      "verdict": "PASS",
      "note": "[高]なし・指摘なし。宿番号の揺れ(42/43)・西側桝形のみ現存・本陣門の移設履歴(1864建替→1990資料館→1992復元)が本文と考証メモで正確に対応。"
     }
-   ]
+   ],
+   "keyword_en": "Tsutaki Post Station and Kokkai Bridge (First Post Station in Shinano)",
+   "summary_en": "A post town on the Koshu Kaido counted as the 42nd or 43rd depending on the way of counting. It was the first station in Shinano, corresponding to present-day Ochiai, Fujimi; crossing the Kamanashi River at Kokkai Bridge led from Kai Province into Shinano."
   },
   {
    "id": "FJM-ROAD-002",
@@ -608,7 +634,9 @@
      "verdict": "PASS",
      "note": "[高]なし・指摘なし。A（地理・分水界）とC（与兵衛の開設譚）の切り分けが明確。"
     }
-   ]
+   ],
+   "keyword_en": "Fujimi Pass, Hara no Chaya and the Watershed",
+   "summary_en": "The Koshu Kaido climbed about 20 km from Tsutaki to Kanazawa through sparsely settled moorland, a hard stretch. At the top, at about 960 m, stands Hara no Chaya; tradition says the settlement began when a man named Yohei opened a single tea house here around 1772. The area is also a watershed, though the dividing line is hard to draw precisely on the terrain."
   },
   {
    "id": "FJM-IND-001",
@@ -643,7 +671,9 @@
      "verdict": "PASS",
      "note": "[高]なし。[低]geo未取得（現・富士見中学校敷地と特定済みのため次サイクルで補完可）。毛皮産業を美化せず「問い」として扱う姿勢・SENSITIVE_ANIMAL_WELFAREは適合。"
     }
-   ]
+   ],
+   "keyword_en": "The 河西 Fox Farm: 'From Silkworms to Foxes'",
+   "summary_en": "In December 1933 河西荘三 (reading of the family name unconfirmed) opened a fox farm on the site of the present Fujimi Junior High School (about 10,000 tsubo), after trial breeding in Karuizawa. It is one example of industries that arose to earn foreign currency by exporting silver-fox fur to Europe and America after the Depression ruined the silk market, and doubts are said to have existed at first about whether Suwa's climate and a site near a station would suit the animals."
   },
   {
    "id": "FJM-IND-002",
@@ -682,7 +712,9 @@
      "verdict": "PASS",
      "note": "[高]なし・指摘なし。アニメ作品名・監督名はどのフィールドにも現れず「ある劇場アニメーション作品」と気配のみ、CAUTION_IP付与。未検証の逸話（岡谷の製糸会社が急がせた）の除去も誠実。"
     }
-   ]
+   ],
+   "keyword_en": "Former Tatsuba River Bridge (Baltimore Truss)",
+   "summary_en": "A single-track railway bridge built in 1904 with the construction of the Chuo Main Line, a Baltimore truss made by the American Bridge Company and said to be one of few of its type remaining in Japan. No firm record could be traced that its construction was hurried at the request of a particular company. Handed to the town in 1983, it is closed to entry, and in June 2024 the town announced a policy of removing it, with no date set."
   },
   {
    "id": "FJM-NAT-001",
@@ -722,7 +754,9 @@
      "verdict": "PASS",
      "note": "[高]なし・指摘なし。山頂の伊那市境は本文で明示。「深田久弥22座」の未検証な帰属を外し座数を幅で表現する処理も本文とメモが整合。"
     }
-   ]
+   ],
+   "keyword_en": "Mount Nyugasa, the Nyugasa Wetland and Lily of the Valley",
+   "summary_en": "The 1,955 m summit straddles the boundary between Fujimi in Suwa District and Ina City, and the number of the Hundred Famous Mountains visible from it is given variously, from the low twenties to over thirty. The Nyugasa Wetland on the mid-slope, at 1,730 m and 1.85 ha, is a Nagano Prefecture nature conservation area with a boardwalk, where about one million Japanese lily-of-the-valley plants bloom from early to mid June."
   },
   {
    "id": "FJM-LEGEND-001",
@@ -762,7 +796,9 @@
      "verdict": "PASS",
      "note": "[高]なし。[低]見出しの主題（通底伝説）自体はCである旨をメモ冒頭に明示して反映。TOWN_OUTSIDEは冒頭で明示済み。実在確認できない書名『諏訪効験』を実在文献『諏方大明神画詞』に差し替えた考証も適切。"
     }
-   ]
+   ],
+   "keyword_en": "The Kuzui Pure Pond and the 'Underground Passage Legend'",
+   "summary_en": "A tradition concerning the pond of Kuzui Shrine, an auxiliary shrine of the Suwa Taisha Kamisha in Chino, outside Fujimi. On New Year's Eve the offerings, sakaki, willow branches and oak leaves used at the Kamisha during the year are sunk into the pond at the Hour of the Tiger, signalled by the lamp at the Maemiya, in a rite (御手幣送り) recorded in the 14th-century 'Suwa Daimyojin Ekotoba' (1356). The sunken items are said to be connected underground and to surface on New Year's morning at the 'Sanagi pond' in Totomi (Shizuoka), one of the Seven Wonders of Suwa; Sakuragaike in Omaezaki is a leading candidate, but the identification is not settled."
   },
   {
    "id": "FJM-LEGEND-002",
@@ -798,7 +834,9 @@
      "verdict": "PASS",
      "note": "[高]なし。[低]category「廃村・怪異」の命名は内部整理用として現状維持。史料の核(B)と都市伝説の膨張(D)の分離、肝試しを煽らないcx_ideaは適合。"
     }
-   ]
+   ],
+   "keyword_en": "Site of the Old Village of Hienosoko",
+   "summary_en": "A small village at about 1,200 m on the Yatsugatake foothills, in Tatsuzawa along the Bomichi road, recorded in the land surveys of 1590 (36 koku 3 sho) and 1613. Because of cold weather that spoiled the fields and damage from wild boar and deer, it moved to Tatsuzawa Shinden in the 1640s, returned in the 1650s and fell into hardship again; a shogunate document of 1763 records the final move to Okkoto and Tatsuzawa. The town designated it a town historic site in 1965, and later retellings of an eerie incident there are not supported by primary sources."
   },
   {
    "id": "FJM-LEGEND-003",
@@ -833,7 +871,9 @@
      "verdict": "PASS",
      "note": "[高]なし・指摘なし。磐座の実在(C)と宇宙帰還説(D)を分離し、パワースポット消費を明示的に退けている。"
     }
-   ]
+   ],
+   "keyword_en": "The Rock Altar of Osaki Shrine (大先神社) and the Mysterious Stone Monument",
+   "summary_en": "A small shrine called Osaki Shrine (大先神社, reading unconfirmed) remains in the Hienosoko forest in Tatsuzawa, Fujimi. The focus of worship is said to be not the shrine itself but a rock bound with a shimenawa rope (iwakura), and a local signboard carries the names of the shrine, Yashikidaira and Hienosoko, linking it to the memory of the abandoned village. A blog describes a nearby stone monument as foretelling humanity's return to space, an interpretation also taken up on television, but no primary source supports it."
   },
   {
    "id": "FJM-HIPPIE-001",
@@ -876,7 +916,9 @@
      "verdict": "PASS",
      "note": "§3の『混在は分割して記す』という鉄則からすると、最も弱い要素（C/D）まで含めた表記（例 \"A/B/D\"）の方が、レコード単体を見たときの確度分布がより誠実に伝わる。 / [低]geo:§2は『geoは未取得ならnull（miner/verifierがTODO化）』と定めているが、本レコー。"
     }
-   ]
+   ],
+   "keyword_en": "The Kaminari Akagarasu Tribe and the Sacred Hall (Fujimi Base of the 'Tribe')",
+   "summary_en": "In April 1967, at the foot of Mount Nyugasa, what is said to be Japan's first hippie commune was formed; the 'Tribe' movement also had bases in Kokubunji, Tokyo, and on Suwanose Island, Tokara, both outside the town. The local historian Shimodaira Takeshi investigated the site, an exhibition was held in 2023, and stone-built hearths remain. The meditation hall 'Seiden' (Sacred Hall) is said to have been completed at the end of the year."
   },
   {
    "id": "FJM-HIPPIE-002",
@@ -926,7 +968,9 @@
      "verdict": "PASS",
      "note": "[中]flags / background:flagsに \"TOWN_OUTSIDE:インド(スナイダーとの出会い)\" があるが、background本文にはインドでの出来事への言及が一切ない(confidence_noteのみに記載)。§3-1「町域外はTOWN_OUTSIDEを付け、本文で明示」に反し、flagsと本文が不整合。 / [低]confidence_note:wasabipressのソースでは「スナイダーがインドで(サカキの英訳詩集Bellyfullsを)受け取り、のちサカキを探し出した」という経緯であり、confidence_noteの「出会いはインドで本を受け取った経緯」と"
     }
-   ]
+   ],
+   "keyword_en": "The Kaminari Akagarasu Tribe (Tribe Movement) and Nanao Sakaki",
+   "summary_en": "In 1967, at Misayama Godo at the foot of Mount Nyugasa, Nanao Sakaki, Yamao Sansei, Nagasawa Tetsuo and others opened the Kaminari Akagarasu Tribe, said to be among Japan's earliest communes. It was one base of the 'Tribe' movement, alongside the 'Gajumaru no Yume Tribe' on Suwanose Island and the 'Emerald-colored Breeze Tribe' in Kokubunji, and is said to have lived with little private property and shared harvests; it is also said to have dissolved within a few years, but no records confirming how were found. Nanao later died in Oshika Village in December 2008, outside Fujimi."
   },
   {
    "id": "FJM-MOD-001",
@@ -965,7 +1009,9 @@
      "verdict": "PASS",
      "note": "[中]review_status / last_editor / review_log:§2スキーマは全フィールド必須だが、草稿にreview_status・last_editor・review_logが存在しない。§7 DoD『全フィールドが埋まっている(未確定はnull/TODOを明示)』を満たしていない。 / [低]cx_idea:『働く場は消費ではなく土地への関与として設計された』のように設計意図を直接言い切る文体になっており、§4声のガイド『説明しすぎない。匂わせる』『断定を避ける』からやや外れる。"
     }
-   ]
+   ],
+   "keyword_en": "Fujimi Mori-no-Office (Fujimi Telework Town Initiative)",
+   "summary_en": "In December 2015 a building that had been a Musashino University retreat was leased and renovated and opened as the shared office 'Mori no Office', with private rooms, coworking space, a dining room and a kitchen; it is run by Route Design LLC. With housing subsidies already in place against population decline, the town is said to have shifted its emphasis to creating places to work."
   },
   {
    "id": "FJM-MOD-002",
@@ -1011,7 +1057,9 @@
      "verdict": "PASS",
      "note": "[中]confidence_note:「年間35トン・生産量日本一」の数値は二次資料にのみ現れ一次資料で裏付けできないとしているが、WebFetchで生産組合公式サイト(fujimi-aka-rhubarb.jp)自体が「日本一の赤いルバーブの産地」「出荷量も全国一」と明記しているのを確認した。出典整合の記述が実態と食い違う。 / [中]review_status / last_editor / review_log:憲章§2でスキーマの全フィールドが必須と定められているが、この3フィールドが草稿に存在しない（§7 DoD第1項『全フィールドが埋まっている』にも抵触）。 / [低]confid"
     }
-   ]
+   ],
+   "keyword_en": "Red Rhubarb (Fujimi Rhubarb Growers' Association)",
+   "summary_en": "The Fujimi Rhubarb Growers' Association was formed in 2006 to bring idle, abandoned land back as red rhubarb fields and to link cultivation, processing and sales under its own hands. Unlike ordinary rhubarb, whose stalks are only partly coloured, the variety here turns red throughout the stalk; the spring harvest from late May is fresh and tart, and the autumn harvest from late September to the first frost is deeper in colour and milder."
   },
   {
    "id": "FJM-NAT-002",
@@ -1048,7 +1096,9 @@
      "verdict": "PASS",
      "note": "[中]confidence:フィールドは\"B\"単独記載だが、confidence_note内では種指定・罰則・再生会議・ニチレイ協定・住所などをA、分布や個体数をB、2006年『わずか三株』の逸話を単一ソースの伝聞としてCに格付けており、明確にA/B/Cの3段階が混在している。§3の鉄則2『混在は分割して記す』・スキーマ§2の『複数の確度が混在する場合はB/Dのように主+従で記す』に反する。 / [中]sources / source_type:source_typeで『新聞報道（信濃毎日新聞・長野日報）』『環境用語集（EICネット）』を明記しているが、sources配列にはそれらに対応するU"
     }
-   ]
+   ],
+   "keyword_en": "Kamanashi Hotei-atsumoriso (Lady's Slipper Orchid) Restoration Activities",
+   "summary_en": "The naming of the orchid Hotei-atsumoriso varies between sources, and the town's official page and encyclopedic articles do not agree on the variety name. It was designated a nationally endangered wild species under the Act on Conservation of Endangered Species in 1997, making unauthorised collection or transfer punishable, and is rated Endangered (Category IB, EN) on the Ministry of the Environment Red List. Local-history accounts agree that conversion to larch plantations and later over-collecting during the wildflower boom caused its decline (primary sources not reached), and a restoration council of residents, companies and the town has been active since 2006."
   },
   {
    "id": "FJM-NAT-003",
@@ -1088,7 +1138,9 @@
      "verdict": "PASS",
      "note": "[中]review_status / last_editor / review_log:CLAUDE.md §2のスキーマでは全フィールド必須だが、本草稿には review_status・last_editor・review_log の3フィールドが存在しない。DoD §7の「全フィールドが埋まっている」を満たしていない。 / [低]confidence / confidence_note:confidence フィールドは \"A/C\" の2値だが、confidence_note 内では富士川支流・太平洋側水系の記述を「B（Wikipedia単独典拠）」と評価しており、実質3水準の確度が混在し"
     }
-   ]
+   ],
+   "keyword_en": "Mount Amikasa (Fujimi Kogen Route, Sakazuki-nagashi and Usukubo Rock Shelter)",
+   "summary_en": "Mount Amikasa (2,524 m) stands on the prefectural border between Kobuchizawa, Hokuto City, and Fujimi, and Fujimi presents the route from Fujimi Kogen, via Sakazuki-nagashi, the Usukubo rock shelter and Shakunage Park, as its own trail. Rocks near Sakazuki-nagashi carry inscriptions including 'Kyokusui', which town materials state is in Inukai Bokudo's calligraphy. A tale that Kosaka Danjo placed a beacon on a small peak in the later sixteenth century has little primary-source support."
   },
   {
    "id": "FJM-FAITH-003",
@@ -1132,7 +1184,9 @@
      "verdict": "PASS",
      "note": "[中]confidence:トップレベルの confidence は「A/C」の2値だが、confidence_note には明確にB相当（相殿諏訪明神とする由緒書き、蟇股鹿/鳩対比、花笠の風習、旧御射山の原村中新田所在、明治期紛争年代記引用）が主要な分量を占め、さらに末尾で「D寄り」の未解明事項にも言及している。憲章§2の『複数の確度が混在する場合はB/Dのように主+従で記す』というフォーマット例に対し、本レコードは実質A/B/C(/D)の4層が混在しており、2値表記では読者・後続キュレーターが確度分布を正確に把握できない。 / [低]sources（4436.pdf）:広報ふじみPDF（4"
     }
-   ]
+   ],
+   "keyword_en": "Godo Hachiman Shrine (with Suwa Myojin as Co-enshrined Deity) and the Misayama Shrine of Godo",
+   "summary_en": "Godo Hachiman Shrine and the Misayama Shrine of Godo stand within Fujimi (Misayama Godo), though the old Misayama of the Suwa Taisha Kamisha auxiliary shrine mentioned later is said to lie in Hara Village, so its grove may span both. The main hall of the Hachiman shrine, in the village along the old Koshu road, is a single-bay nagare-zukuri building built in 1762 by the carpenter Kato Kichizaemon and designated a town tangible cultural property; its deity is said to be Oyamatsumi. A 1969 history of the shrine calls it a 'special building' that enshrines Suwa Myojin in the co-enshrined seat on the left."
   },
   {
    "id": "FJM-FAITH-004",
@@ -1171,7 +1225,9 @@
      "verdict": "PASS",
      "note": "[中]review_status / last_editor / review_log:スキーマ必須フィールド（§2「全フィールドが埋まっている」§7DoD1項目目）である review_status, last_editor, review_log が草稿に存在しない。承認(approved)条件を満たせない。 / [中]background:「本殿を持たず幣拝殿がその機能を兼ねる諏訪造の特異な社殿とされる」との記述が断定的すぎる。実際に確認したところ、根拠元のhineriman.work自体が『この案内板の表現は乙事諏訪社自体に本殿がないという意味なのか、諏訪大社上社本宮が本殿を持たないと"
     }
-   ]
+   ],
+   "keyword_en": "Village-by-Village Onbashira (Komiya Festival) and Okkoto Suwa Shrine",
+   "summary_en": "The offering hall (heiden) of Okkoto Suwa Shrine, built in 1617, was designated a National Treasure on 23 May 1930 (now an Important Cultural Property); it is a Suwa-zukuri building with no main hall, whose offering-and-worship hall serves that function. It is said to have been moved to Okkoto in the Kaei era, but sources disagree on whether the year was 1849, 1853 or unknown. In the Suwa region even small shrines (komiya) raise onbashira pillars in a 'Komiya festival' that passes on the technique."
   },
   {
    "id": "FJM-HIST-004",
@@ -1213,7 +1269,9 @@
      "verdict": "PASS",
      "note": "[中]review_status / last_editor / review_log:スキーマ上必須の3フィールドがnullですらなく完全に欠落している。§2「全フィールド必須」および§7 DoD第1項「全フィールドが埋まっている」に未達。 / [中]background:「戦国期に国境がどの川筋であったかは堺川・立場川・甲六川のいずれかで諸説あり確定しておらず」という記述が出典と不整合。Wikipedia「立場川」を確認したところ、消失した史料上の境界川『堺川』の比定候補は立場川・松目沢・不明の川の三説であり甲六川は含まれない。甲六川が国境となったのは天正壬午の乱後、豊臣秀吉の所領安堵によ"
     }
-   ]
+   ],
+   "keyword_en": "Koroku River (Border River of Kai and Shinano)",
+   "summary_en": "A small river of the Fuji River system, about 9 km long, rising at about 1,420 m on the southern slope of Mount Amikasa and joining the Kamanashi River beneath the new Kokkai Bridge on the Koshu road. It forms the present prefectural border between Fujimi, Nagano, and Hokuto, Yamanashi, and Fujimi's official materials say 'bounded by the Kamanashi and Koroku Rivers'; however, which river formed the border in the Sengoku period, the Sakai, Tatsuba or Koroku, is disputed."
   },
   {
    "id": "FJM-IND-004",
@@ -1251,7 +1309,9 @@
      "verdict": "PASS",
      "note": "[中]review_status / last_editor / review_log:スキーマ必須の3フィールドが草稿に存在しない（null明示もされておらず完全欠落）。§2の『全フィールド必須』および§7 DoDの『全フィールドが埋まっている』要件に反する。 / [低]background:別荘地の区画数・地区名・景観保護区画の記述は、ヘッジ節『伝わるが…裏取りは未了である』の前段でやや断定的に書かれており、B格の情報としてはもう一段弱めた方が声のガイド（断定を弱める）により忠実になる。"
     }
-   ]
+   ],
+   "keyword_en": "Development of Fujimi Kogen (Sanatorium, Villa Areas, Ski Area)",
+   "summary_en": "In 1926 Masaki Fujokyu opened the Fujimi Kogen Sanatorium, a highland tuberculosis sanatorium, in Ochiai, Fujimi. To ease local aversion he added surgery, ophthalmology and otolaryngology, but personnel costs brought financial difficulty in the third year, and the director's own writing income is said to have supported its operation; Hori Tatsuo, Takehisa Yumeji and Yokomizo Seishi are among those who convalesced there. On the same highland, sales of 261 villa plots began in 1969 and later expanded to about 2,500, though this account comes from the developer's own records."
   },
   {
    "id": "FJM-LIT-005",
@@ -1298,7 +1358,9 @@
      "verdict": "PASS",
      "note": "第8便増補の監査: アララギ合同・油屋旅館解体の追記はLIT-006と矛盾なし。B格増補の確度表記反映。[中]赤彦祭の出典薄は継続課題。"
     }
-   ]
+   ],
+   "keyword_en": "Fujimi Park and the Aburaya Poetry Gathering (Ito Sachio)",
+   "summary_en": "Fujimi Park at Hara no Chaya was established in 1911 at the suggestion of Ito Sachio, a poet of the Araragi school, and designated a Fujimi town place of scenic beauty on 15 July 1966. It began with the 'Aburaya poetry gathering' at 3 p.m. on 10 October 1908, when Sachio and Koizumi Chikashi came from Tokyo and 16 people, including 14 locals, composed poems on the set theme 'grass'. Sachio is said to have urged that a small hill be left as a park in its natural state, though sources differ on how far he was involved in the actual design."
   },
   {
    "id": "FJM-HIPPIE-003",
@@ -1350,7 +1412,9 @@
      "verdict": "PASS",
      "note": "[中]background / confidence_note:一次裏付けの信濃毎日新聞(2023/5/8)は雷赤鴉族の設立を「67年4月」と明記しているが、草稿本文は「一九六七年五月」と記載しており月が食い違う。confidence_noteは『年(1967)』のみをA根拠として新聞報道に紐づけているが、本文が断定する具体的な『月』がどの出典(新聞か本人回想録か)に基づくのか未整理・未開示のまま提示されている。"
     }
-   ]
+   ],
+   "keyword_en": "Yamada Kaiya's 'I Am a Hippie' and the Kaminari Akagarasu Tribe at the Foot of Mount Nyugasa (the Birthplace Commune of the 'Tribe' and Its Bibliography)",
+   "summary_en": "'I Am a Hippie: A History of the Japanese Hippie Movement, 1960-90' is the memoir by Yamada Kaiya (known as Pon, born in 1937 in Takayama, Gifu, who suffered from spinal caries), who lived the 'Tribe' movement from within. Its story begins in Fujimi: in May 1967 the Tribe's first commune, the Kaminari Akagarasu Tribe, was set up at the trailhead of Mount Nyugasa, at about 1,000 m, on a plateau with views of both Yatsugatake and Mt Fuji. Yamada writes that he moved there himself, built a small hut, farmed, gathered firewood and kept young goats while living with a few others."
   },
   {
    "id": "FJM-MOD-003",
@@ -1392,7 +1456,9 @@
      "verdict": "PASS",
      "note": "[中]confidence:確度が『A/B(一部D)』という3値混在の独自表記になっており、§2/§3が想定する『主/従』2値表記（例『B/D』）から逸脱している。下流のconfidence層別・パース処理で不整合を起こす恐れがある。 / [低]sense_tags:『水』タグが含まれるが、background本文に灌漑・水資源への直接的な言及がなく、タグと本文内容の対応が薄い。 / [低]confidence_note / background:confidence_noteが挙げる2件目のTOWN_OUTSIDE対象（『原村単独の日本一記録』）が現行background本文には見当たらない"
     }
-   ]
+   ],
+   "keyword_en": "Suwa Celery (Highland Vegetable of the Yatsugatake Foothills)",
+   "summary_en": "Celery growing in the Suwa region began in 1922 in Tamagawa, Chino, next to Fujimi (the origin lies outside the town), was trialled in Hara Village in 1933 and began in earnest in 1940. The fields of the Yatsugatake foothills rise in steps between 700 and 1,200 m, and the cool inland climate, with an annual mean of about 11 degrees, suits the crop. In 1967 the Western-vegetable producers were unified as the Suwa Yosai Specialist Committee; details such as the introduction year of the local 'Suwa No. 3' variety could not be confirmed in primary sources."
   },
   {
    "id": "FJM-JOMON-004",
@@ -1437,7 +1503,9 @@
      "verdict": "PASS",
      "note": "[低]sources:kamisuwa-shinyu.com のURLが日本語パスを含み、標準的なフェッチ処理で404になりうる（記事自体はWebSearchで実在確認済み、捏造ではない） / [低]flags:flags:[\"TOWN_OUTSIDE\"] が記録全体に付与されているが、主題（藤内遺跡）自体は町内であり、町外なのは比較対象の長峯遺跡のみ。本文冒頭とconfidence_noteでは正しく切り分けられているが、flags配列だけを見るレビュアーには『主題が町外』と誤読されるリスクがわずかに残る"
     }
-   ]
+   ],
+   "keyword_en": "Finds from the Tonai Site (Cylindrical Pot with Deity Figure)",
+   "summary_en": "A page on the Tonai site (Sakai, Fujimi), one of the Idojiri Sites; the Nagamine site used for comparison is in Chino, outside the town. The Tonai finds are not a prefectural treasure but a set designated an Important Cultural Property in 2002, comprising 48 pottery and clay items and 151 stone tools, 199 in all, and assessed as a peak of modelling in the Middle Jomon Central Highlands. Its symbol is a cylindrical pot 55.7 cm high on which a human-shaped deity figure clings, with a large round hole, taken to be an eye, in its head."
   },
   {
    "id": "FJM-JOMON-005",
@@ -1478,7 +1546,9 @@
      "verdict": "PASS",
      "note": "[低]background/confidence_note:井戸尻編年の型式配列（九兵衛尾根式・狢沢式・新道式・藤内式・井戸尻式・曽利式）の6形式配列そのものについて、sources内に個別の典拠リンクが明示されておらず、confidence_noteでも触れられていない。"
     }
-   ]
+   ],
+   "keyword_en": "The Idojiri Chronology and Muto Yuroku",
+   "summary_en": "The Idojiri chronology is a Middle Jomon pottery sequence for the Central Highlands running Kyubeione, Mujinazawa, Shindo, Tonai, Idojiri and Sori styles, all named for sites of the Idojiri Sites within Fujimi; it is said to have been systematised by Fujimori Eiichi and others in the early 1960s and established in the 1965 report 'Idojiri' (some place the first presentation around 1963). Muto Yuroku, the first director of the Idojiri Archaeological Museum, was born in Ikebukuro, Tokyo, in 1930 and is said to have entered archaeology by collecting arrowheads while recovering from tuberculosis. The story that he was 'expelled' by Fujimori three times is hearsay lacking primary-source support."
   },
   {
    "id": "FJM-HIST-005",
@@ -1517,7 +1587,9 @@
      "verdict": "PASS",
      "note": "[中]confidence / confidence_note / background:「武田に仕えのち徳川へ移り関東移封で乙骨を名乗った五味氏」という具体的事実がconfidence Aに分類されているが、WebFetchで実地検証した出典のうち、この改名・関東移封の詳細を明示的に裏付けるものが見当たらなかった。oraho-fujimi.jp（乙事文化財ウォーキング）は乙事の文化財を扱う記事だが五味氏・乙骨氏の記述は無く、npmh.net（長野県立歴史館古文書目録）は『武田氏に仕えた』という一般言及のみで、徳川移り・関東移封・乙骨への改名は確認できない。 / [低]confidence_n"
     }
-   ]
+   ],
+   "keyword_en": "Sendatsu Castle (Kohigashi Castle, Shingoro Yashiki) and Castle Traditions of Okkoto",
+   "summary_en": "On the western foot of Yatsugatake in Shinano-Sakai, the ruins of Sendatsu Castle remain as a town-designated historic site. Also called Kohigashi Castle or Shingoro Yashiki, it is said to be the 'Shingoro Yashiki of Kohigashi' that a Suwa shrine record (『諏訪神使御頭之日記』) says Takeda Nobutora took when attacking Suwa in 1528, though who Shingoro was is still unknown. The lord is traditionally said to be a Takeda retainer, Tada Awaji-no-kami, but no primary source names him, and the Nihon Jokaku Taikei suggests it was a relay point on the western-foot road rather than a defensive castle."
   },
   {
    "id": "FJM-HIST-007",
@@ -1554,7 +1626,9 @@
      "verdict": "PASS",
      "note": "[中]confidence:confidence欄が\"A/C\"の2段階表記のみだが、confidence_note内では慶長16年連署状の記述を「実質B相当」と明記しており、3段階の確度混在（A/B相当/C）が確度フィールドそのものには反映されていない。§2の『複数の確度が混在する場合は主+従で記す』という運用と齟齬がある。 / [中]background:享保18年（1733）の家数・石高データについて、典拠のkotobank本文では出典史料を『諏方藩一村限村地図』（絵図）と呼んでいるが、草稿は同じ数値を『書上』（文書による報告）として記述しており、史料の種別呼称が原典と食い違う。数値自体（"
     }
-   ]
+   ],
+   "keyword_en": "Misayama Godo Village, Godo Shinmachi and the Lineage of 'Shinden' Villages",
+   "summary_en": "The earliest documentary mention of Misayama Godo (now in Fujimi) goes back to an entry in the text 祝祠段 (reading unconfirmed) with a colophon dated 1237. In the early modern period the settlement moved from the old town to Shinmachi along the Koshu road and became an intermediate stop between Kanazawa and Tsutaki; a joint-signed letter of 1611 from Suwa senior retainers is said to have encouraged house-building in Shinmachi, but whether it was issued under Yorimitsu or Yorimizu is not settled even in the original. A report of 1733 records 126 houses, and the word 'shinden' never appears in that source."
   },
   {
    "id": "FJM-ROAD-003",
@@ -1592,7 +1666,9 @@
      "verdict": "PASS",
      "note": "[中]background:東塚のエノキ枯死時期を「明治20年代」と明記しているが、根拠として挙げたアルピコ交通の記事は「明治初期に枯れてしまった」と記載しており、他4出典（八十二文化財団・富士見町公式・Wikipedia・おみやさんこむ）にはこの枯死時期の記載自体がない。「明治初期」（概ね1868〜70年代)と「明治20年代」（1887〜96年）は時期区分として一致しない。sources内に「明治20年代」を支持する典拠が存在せず、confidence_noteでもこの一点だけ切り分けられていない（他の中核事実と同じ『A』評価の中に埋没している）。 / [低]background:「国道から"
     }
-   ]
+   ],
+   "keyword_en": "Misayama Godo Ichirizuka (48th ri on the Koshu Road)",
+   "summary_en": "A mile mound at the 48th ri counting from Nihonbashi in Edo, on the northern edge of the Misayama Godo hamlet in Fujimi. It is said to date from the Keicho era, and mounds on both sides of the road survive; a large zelkova, said to have been planted from the start, grows on the west mound, with a trunk girth of 7.1 m, a height of 25 m and an estimated age of about 390 years. It is a town-designated historic site (25 April 1965), described as a rare case where both the mounds and the trees have been kept as they were."
   },
   {
    "id": "FJM-ROAD-004",
@@ -1631,7 +1707,9 @@
      "verdict": "PASS",
      "note": "[低]background（登山口の一文）:「赤坂または芝平とされる登山口もいずれも伊那市高遠から芝平峠へ向かう県道沿いにある」が、出典thejapanalps.com/access-hokkemichiの「古道法華道の入り口は赤坂か芝平。伊那市高遠から芝平峠へ向かう細い県道沿いにあります」と文構造がかなり近い。 / [低]confidence:confidenceは\"B/C\"のみだが、confidence_note内では日朝上人が身延山11世で文明5年に遠照寺を開いた事実をA/B級としており、記載されている確度レベル(A/B/C)とトップレベルのconfidence表記(B/C)がわずかに非"
     }
-   ]
+   ],
+   "keyword_en": "The Hokke Road (Old Road from Wakamiya over Mount Nyugasa)",
+   "summary_en": "The road begins at Wakamiya Hachimangu in Wakamiya, Fujimi, and climbs the eastern slope of Mount Nyugasa, but its trailhead and terminus beyond the pass are on the Ina City side, so the latter half lies outside the town. Sources differ on the endpoint, with several places in Ina given, and the height of the pass at 仏平 is variously given as 1,842, 1,845 or 1,850 m. Along the way, a point called Takamiiwa is said to have been a lookout or temporary hut site, and a legend tells of a Takashima domain gold official cut down by robbers at a spring there."
   },
   {
    "id": "FJM-FAITH-005",
@@ -1669,7 +1747,9 @@
      "verdict": "PASS",
      "note": "confidence_noteは『自治体資料・町観光サ。"
     }
-   ]
+   ],
+   "keyword_en": "Roadside Stone Deities (Dosojin of Tatsuzawa and the Hundred Koshin of Wakamiya)",
+   "summary_en": "The Fujimi Board of Education's list of designated cultural properties includes the Dosojin of the 中下組 group in Tatsuzawa and the 'Hundred Koshin' of Wakamiya, both as structures. The Hundred Koshin is said to have been set up by the then 63 households of Wakamiya Shinden, at the initiative of the village official Hosokawa Toshiro, after an epidemic and great flood in 1860, and moved slightly south and repaired in 1986 for a road improvement; this account is local tradition from an individual's research and has not been corroborated in town histories."
   },
   {
    "id": "FJM-FAITH-007",
@@ -1707,7 +1787,9 @@
      "verdict": "PASS",
      "note": "[中]background:「公益財団法人日本花の会の樹木医は、山梨・北杜市の山高神代桜とともにこの木の樹勢回復にも関わったとされる」の部分。出典として挙げたsakura-care-info1（山高神代桜の樹勢回復のみを記載）とsakura-care-info2（高森のしだれ桜の樹勢回復のみを記載）を実際にWebFetchで確認したが、両木の回復に同一の樹木医/組織が『ともに』関わったことを明示する記述はどちらのページにも見当たらなかった。『とされる』で断定は弱めてあり捏造ではないが、2ソースを合成して推論した連結であり、出典整合の観点でやや根拠が弱い。"
     }
-   ]
+   ],
+   "keyword_en": "Weeping Cherry at Takamori Kannon Hall",
+   "summary_en": "A weeping cherry on Mount Atago in Sakai Takamori, designated a Fujimi town natural monument (plant) on 1 July 1967. The base of its trunk has grown around the remains of a stone column, and its age is estimated at about 250 years; however, records vary on the trunk girth at eye level (3.7 or 3.8 m) and on the height (about 15 or about 10 m)."
   },
   {
    "id": "FJM-LIT-006",
@@ -1746,7 +1828,9 @@
      "verdict": "PASS",
      "note": "[低]confidence_note:82文化財団ページの実際の文言は「左千夫、赤彦、茂吉らの歌碑がある」と『ら』で曖昧に列挙しているだけで、汀川を積極的に除外してはいない。draftは『左千夫・赤彦・茂吉の3人』と断定的に要約しており、『含まないとする資料』という表現がやや強すぎる。"
     }
-   ]
+   ],
+   "keyword_en": "Moriyama Teisen and the Tanka Journal 'Himuro'",
+   "summary_en": "Moriyama Teisen (1880-1946) was a poet born in Ochiai Village, Suwa District (now Ochiai, Fujimi), who remained in the Suwa area and worked as an elementary-school teacher almost all his life. He began with haiku at Suwa Middle School as a follower of Masaoka Shiki, turned to tanka after meeting Shimaki Akahiko, founded the journal 'Himuro' with Akahiko, Ota Mizuho and others in 1903, and later joined Araragi and served as a selector from 1929. Sources disagree on whether the poem monuments in Fujimi Park include one for Teisen himself."
   },
   {
    "id": "FJM-LIT-007",
@@ -1792,7 +1876,9 @@
      "verdict": "PASS",
      "note": "第8便補記の監査: [中]初来訪年のズレ（新出典1921 vs 本文1922）を考証メモに明記し、紀要優先の判断理由を補記。老栗亭改築の裏付け不足は継続課題。"
     }
-   ]
+   ],
+   "keyword_en": "Inukai Tsuyoshi's Villa 'Hakurinso'",
+   "summary_en": "Hakurinso was the villa of Inukai Tsuyoshi (sobriquet Bokudo) in Fujimi, with its main house completed in 1924. It is said to have begun with a rental of a little over a month in the spring of 1922 of the 'Korean villa' owned by Song Byeong-jun; the name comes from the whiteness of the birches among the red pines on the grounds, and in his later years Inukai used the sobriquet 白林遯叟. After the war it passed to Yamagata Katsumi, and it remains privately owned and closed to the public."
   },
   {
    "id": "FJM-LIT-008",
@@ -1830,7 +1916,9 @@
      "verdict": "PASS",
      "note": "[低]flags / background:五・一五事件（犬養毅暗殺）という歴史的暴力事件に触れているが、flagsは空配列。憲章§5-4は自死・災害等の「節度」を求めており暗殺も同種の配慮対象になり得る。ただし本文は『凶弾に倒れた』と抑制的に記述し、cx_ideaでも『歴史の悲劇を物語の刺激として消費しない』と明記済みで、実質的な美化・扇情化は見られない。 / [低]confidence_note（白林荘修復者名）:『山縣勝見（表記に異同あり）』の表記ゆれを確度D相当としてconfidence_noteで正直に開示している点は良いが、sourcesのいずれもWebFetchで確認した限り修復"
     }
-   ]
+   ],
+   "keyword_en": "Villa Culture of Fujimi Kogen (Kikyoraiso, Hakurinso and the Writers)",
+   "summary_en": "Ogawa Heikichi, a politician from Misayama Godo (now Fujimi), built the villa 'Kikyoraiso' on this highland at the end of the Meiji era and is said to have been one of the pioneers of Fujimi becoming a villa area. Inukai Tsuyoshi, who first visited Fujimi in spring 1922 on Ogawa's recommendation, built Hakurinso at the foot of Yatsugatake in 1924 and spent several years there from about 1925; after he was shot in the May 15 Incident of 1932 it is said to have fallen into disrepair and been restored after the war by Yamagata Katsumi (the written form of the name varies). Whether Ogawa's grandson, the later prime minister Miyazawa Kiichi, spent boyhood summers on this highland could not be confirmed."
   },
   {
    "id": "FJM-IND-005",
@@ -1872,7 +1960,9 @@
      "verdict": "PASS",
      "note": "[低]background:『セミクローズ式の大型温室（周年型1ha・夏作型0.2ha）で...国内初とされる方式をとる』という書き方だと『国内初』が周年型1haと夏作型0.2haの両方にかかって読めるが、出典(ym-farm.com)の原文は『日本で初めてのプラスチックフィルムで覆われたセミクローズ式の大型温室（周年型1ha）』と、周年型部分に限定して『初』を謳っており、夏作型0.2haは並記されているだけで『初』の対象と明言されていない。 / [低]geo:geo座標(35.917933, 138.219233)の直接的な取得元となるsourcesのnavitime URL（spot=00"
     }
-   ]
+   ],
+   "keyword_en": "Kagome Fujimi Plant and Yasai Seikatsu Farm Fujimi / Yatsugatake Mirai Saien",
+   "summary_en": "The Kagome food plant in Fujimi began operating in 1968; closeness to the Tokyo area and abundant groundwater seeping from the Southern Alps are said to have decided the location, a point found in only one outlet. The company conceived the experience-type farm in 2013, concluded a regional-promotion agreement with the town in 2016, and opened it on 26 April 2019. The neighbouring agricultural corporation, established in 2015, grows fresh tomatoes in a large semi-closed greenhouse, a method said to be the first in Japan."
   },
   {
    "id": "FJM-IND-006",
@@ -1909,7 +1999,9 @@
      "verdict": "PASS",
      "note": "[低]confidence:confidence_noteでは『高遠藩を別系統とする整理はB』と第三の確度水準を明記しているが、トップレベルのconfidenceは「A/D」の2値のみで、B水準の主張がフィールド上に反映されていない。憲章§2の『主+従』表記のフォーマットとしては簡略化されすぎており、内部的な確度の切り分けが読み手にやや伝わりにくい。 / [低]background:『将軍家への献上は高遠藩にも慣例があり、高島藩系とは別系統の伝えとして区別される。』の一文はconfidence_note上ではB（諸説・一部未検証）とされているにもかかわらず、文体が言い切り（『区別される』）で断"
     }
-   ]
+   ],
+   "keyword_en": "Presentation Kanzarashi Soba (Offering to the Shogun from Takashima Domain)",
+   "summary_en": "(An industrial history of Chino and Ina; no direct link to Fujimi has been confirmed.) Kanzarashi soba is made by soaking hulled buckwheat in clean running water for about a week around Daikan, then drying it in the sun for about a month until the water content falls to sixteen per cent; part of the method is said to appear in the Edo-period 'Soba Zensho'. Nagano Prefecture tourism materials record that in 1789 the ninth lord of Takashima Domain presented it to the shogun's house."
   },
   {
    "id": "FJM-IND-007",
@@ -1957,7 +2049,9 @@
      "verdict": "PASS",
      "note": "SEIMITSU FUJIMI精読: ニシムラ疎開史の本人側証言（4代目社長談）を出典に追加。既存記述と一致し矛盾なし。"
     }
-   ]
+   ],
+   "keyword_en": "Precision Machining Cluster in Fujimi (Epson Fujimi Plant, Nishimura)",
+   "summary_en": "(The electrolytic capacitor maker Rubycon is an Ina company, outside Fujimi.) The town's cluster of precision machining has one starting point in wartime evacuation: Nishimura, founded in 1940 in Kamata, Tokyo, as a machine-engraving business, moved to Nagano during the war and chose Fujimi because a rail siding made it easy to bring in large machines, and after the war it turned to lens assembly with the rise of the camera and lens industry. Seiko Epson closed the semiconductor plant at its Fujimi site in March 2009, concentrating production in Sakata, Yamagata, and later set up an inkjet development base on the site."
   },
   {
    "id": "FJM-NAT-004",
@@ -1999,7 +2093,9 @@
      "verdict": "PASS",
      "note": "[低]background:「戦前は馬がいたと伝わるなど、古い歴史も語られる」が出典kyodoshi.com記事の『戦前は馬がいたと伝わるなど、歴史は古い』とほぼ同一の語順・表現で、著作権規則(原則15語未満・完全な言い換え推奨)に照らしぎりぎりの逐語的近似となっている。"
     }
-   ]
+   ],
+   "keyword_en": "Nyugasa Pasture",
+   "summary_en": "The pasture facilities themselves lie outside Fujimi, on land including national forest in Shibahira, Takato, Ina, and the Nyugasa massif straddles Fujimi and Ina. The grazing land of about 305 ha at about 1,600 m took in pregnant and young cattle from farms in southern Shinano from late June to early October, strengthening their legs and easing calving and feed costs; numbers fell from about 200 to under 50, with 38 head (Japanese Black and Holstein) entering in June 2024. JA Kamiina decided to close it, ending grazing after 2024, with land management continuing to the end of fiscal 2025."
   },
   {
    "id": "FJM-MOD-004",
@@ -2044,7 +2140,9 @@
      "verdict": "PASS",
      "note": "[中]flags:TOWN_OUTSIDEが付与されているが、本レコードの主題「富士見パノラマリゾート」自体は富士見町富士見6666-703番地（町内）に所在する。憲章§3鉄則1のTOWN_OUTSIDE運用は「主題が町域外の場合に付与し本文冒頭で明示する」ものであり、本レコードには本来該当しない。本文中で比較対象として触れる白馬岩岳（白馬村）が町域外である旨は既にインラインで適切に明示されているが、それは主題ではなく言及した比較対象の話であり、レコード全体のflagsに反映すべき理由にならない。DoD『flagsが正しい』の観点で誤用にあたる。 / [低]confidence_note / "
     }
-   ]
+   ],
+   "keyword_en": "Fujimi Panorama Resort (MTB and the All Japan Championships)",
+   "summary_en": "A resort on the eastern slope of Mount Nyugasa in Fujimi, whose eight-person gondola, up to 3,000 m long with a vertical drop of 730 m, carries skiers in winter and in summer becomes a lift for bikes. The All Japan Mountain Bike Championships have been held here ten times, the most of any single venue (next is Tazawako, Akita, with five), and the 33rd championships in 2020 were moved here at short notice from Tazawako. It has a permanent downhill course certified by the UCI and the JCF."
   },
   {
    "id": "FJM-MOD-005",
@@ -2090,7 +2188,9 @@
      "verdict": "PASS",
      "note": "[低]geo:座標(35.913254, 138.236849)が、出典に含めているWikipediaページ自体に記載された座標(35.913111, 138.236889、約16m差)と完全一致していない。confidence_noteで地図サービス逆引き推定であり出典URL未記録と正直に開示されているため捏造ではないが、より確度の高い座標が既存の出典内に存在する。"
     }
-   ]
+   ],
+   "keyword_en": "Fujimi Town Library (Highest Loans in Japan)",
+   "summary_en": "A small town library on the southern foot of Yatsugatake that long stood near the top nationwide in loans per resident. According to a National Diet Library news article, in fiscal 2008 it lent 20.5 items per resident, first among town and village libraries for the 12th straight year; in fiscal 2010 it lent 18.0 and was first for the 14th straight year in the 15,000-20,000 population class, and fifth nationwide regardless of size. A local essay speaks of '15 straight years', which does not simply match these official figures and has not been verified."
   },
   {
    "id": "FJM-HIPPIE-004",
@@ -2131,7 +2231,9 @@
      "verdict": "PASS",
      "note": "[中]confidence:confidence フィールドは \"A/C\" のみだが、confidence_note では長沢哲夫の諏訪之瀬島「バンヤン・アシュラマ」および解散後の島暮らしの記述が「個人noteの記事一本に依るためB」と明記されている。実際には3段階(A/B/C)の確度が混在しているのに、フィールド上ではBが欠落しており、confidence欄だけを見た読者・後続編集者が単一の個人ブログ依拠の記述の存在に気づけない。 / [低]confidence_note:confidence_note が「2023年企画展の会期と入館料…はA」と述べているが、background本文には入"
     }
-   ]
+   ],
+   "keyword_en": "The Fujimi 'Tribe' Movement and After (Yamao Sansei, Nagasawa Tetsuo)",
+   "summary_en": "The thread of the 'Tribe' counterculture that sprouted in Fujimi stretches long beyond the town. Nagasawa Tetsuo (Naga), who was involved with the Kaminari Akagarasu Tribe, crossed with the poet Gary Snyder and others to Suwanose Island in the Tokara Islands (outside Fujimi), called the community 'Banyan Ashram', and is said to have lived on the island fishing flying fish after its 1980 dissolution; Yamao Sansei, after pilgrimages in India and Nepal, moved with his family in 1977 to the abandoned village of Shirakawayama on Yakushima (also outside the town). Sources differ by a day, 23 or 24 December, on when Nanao Sakaki died in Oshika Village."
   },
   {
    "id": "FJM-LEGEND-004",
@@ -2165,7 +2267,9 @@
      "verdict": "PASS",
      "note": ""
     }
-   ]
+   ],
+   "keyword_en": "Koshogatsu Dondo-yaki and Yaku-nage",
+   "summary_en": "In the Suwa region, on Koshogatsu (roughly 10-15 January), dondo-yaki, the burning of brought-in New Year decorations, is held, and warming oneself at the fire and eating dumplings grilled in it is said to pray for health through the year. Overlapping it is 'yaku-nage', a gesture said to be distinctive to Suwa, in which people in an unlucky year scatter coins and sweets and children pick them up; no Fujimi-specific record has been traced, so it is best taken as a custom widely seen in the region."
   },
   {
    "id": "FJM-FAITH-006",
@@ -2212,7 +2316,9 @@
      "verdict": "PASS",
      "note": "[中]geo:geoがnullのまま。旧御射山（祭事起点とされる林中の地）・神戸の御射山社（町指定史跡）・神戸八幡社（神輿の立ち寄り先）の三施設が同一地点か近接別施設か未整理で、確定座標が置けていない。confidence_note内でも公開前TODOと自認しているが、DoD§7『地理検証済み』の座標確定はまだ未了。 / [低]background:『上社本宮からは車で二十分程度ともいわれる』という移動時間の数値がbackground本文に残存。出典未確認である旨は本文中とconfidence_noteの両方で明記済みで憲章のD許容方針とは整合するが、数値だけが独り歩きするリスクがある。 / "
     }
-   ]
+   ],
+   "keyword_en": "Misayama Shrine Festival and Kajikimen (Suwa Hunting Rite)",
+   "summary_en": "Suwa Taisha Kamisha, the centre of the Kajikimen and the Ontosai, lies outside Fujimi (in Suwa and Chino), but Misayama Shrine, which preserves its hunting faith, is a town-designated historic site in Misayama (Godo district), Fujimi. In the August Misayama festival the deities Kunitokotachi no Mikoto and Suwa Okami are welcomed from the Kamisha and a hut of susuki grass is built, where priests and warriors keep a vigil, offering game and praying for a good harvest. Known as 'Harayama-sama', it also doubles as a prayer for the health of two-year-olds by Japanese reckoning, and sources differ on whether the long-lived fish released into the river afterwards is an eel or a loach."
   },
   {
    "id": "FJM-IND-008",
@@ -2260,7 +2366,9 @@
      "verdict": "PASS",
      "note": "Note05リサーチ（第9便）に伴う訂正: 白岩→白谷、要望主体を富士見財産区関係者に精緻化（議会だよりNo.112原文の目視確認）。起源の語りが回顧文書のみである限界も注記。"
     }
-   ]
+   ],
+   "keyword_en": "Fujimi Panorama Resort (Former Fujimi Development Corporation / Panorama Ski Area)",
+   "summary_en": "The Fujimi Town Development Corporation was set up in 1969, with the town contributing 66.7 per cent (2 million yen of 3 million), as a regional-development body against depopulation, and diversified from housing and villa development into a ski area and public facility management. Amid the Prefectural Enterprise Bureau's leisure-area development, the Panorama Ski Area opened in 1987 for balanced development within the town, at a cost of about 2.2 billion yen borrowed almost entirely from local financial institutions, and the town took on a loss-compensation obligation of 2,224 million yen that year."
   },
   {
    "id": "FJM-IND-009",
@@ -2300,7 +2408,9 @@
      "verdict": "PASS",
      "note": "[中]confidence / confidence_note:トマトジュース『風立ちぬ』の名称由来はtabelogの一般ユーザーレビュー1件のみが根拠だが、これを『C｜伝承（社伝・口碑・言い伝え）』として扱っている。§3の定義上、単発のネット上のユーザー投稿はC（伝承）ではなく D｜俗説（ネット言説・要検証）の定義に近い。 / [低]background（諏訪洋菜の記述）:『諏訪洋菜』は富士見町を含む諏訪地域全体（3市2町1村）にまたがる広域組織であり、本文冒頭の括弧書きで文脈を明示している点は良いが、confidence_noteには言及がなく、TOWN_OUTSIDEに準ずる扱いの根拠が"
     }
-   ]
+   ],
+   "keyword_en": "Kagome Fujimi Plant and Recycling Agriculture of Yatsugatake",
+   "summary_en": "(The description of 'Suwa Yosai' refers to the wider Suwa region including Fujimi.) The Kagome Fujimi Plant was established in 1968 as the town's first corporate-attraction project, with access to the Tokyo area and groundwater from the Southern Alps, including Mount Nyugasa, given as the deciding factors; natural water drawn from a vein 100 m underground is still said to underpin the taste of its vegetable juice. Its role later shifted from processing fresh tomatoes to blending concentrate into juice, and tomato growing within the town is small, at 26 farm businesses on 3 ha."
   },
   {
    "id": "FJM-HIPPIE-006",
@@ -2347,7 +2457,9 @@
      "verdict": "PASS",
      "note": "会場について『アイ・アム・ヒッピー』p280の明記を確認し、未確認→単独証言Bに更新(2026-07-10)。"
     }
-   ]
+   ],
+   "keyword_en": "Inochi no Matsuri '88 (NO NUKES ONE LOVE)",
+   "summary_en": "This page includes elements outside Fujimi and unconfirmed links to the town. Inochi no Matsuri '88 is said to have been an outdoor gathering in August 1988 at a Yatsugatake-foothill ski area, held under the banner 'NO NUKES ONE LOVE' on anti-nuclear and environmental themes without corporate sponsors; WIRED (2012) reports eight days from 1 to 8 August with about 10,000 people in all, while nihoncity gives over 8,000 centred on 8 August. Only a single first-hand account, Yamada Kaiya's 'I Am a Hippie', names the Fujimi Panorama Ski Area as the venue."
   },
   {
    "id": "FJM-NAT-005",
@@ -2389,7 +2501,9 @@
      "verdict": "PASS",
      "note": "[中]background:「マナスル」の語源説明（『精霊・心』を意味する語と『国・土地』を意味する語の合成で『精霊の地』を意味する）が、唯一の裏付け出典であるja.wikipedia.org/wiki/マナスルの実際の本文『サンスクリット語で「精霊の山」を意味するManasaから付けられている』と一致しない。合成語による『地/土地』説自体はWeb上に類似記述が散見されるが、草稿のsourcesにはそれを裏付ける出典が含まれておらず、confidence_noteは『学術定説(Wikipedia)で確認』とA〜S相当を主張しているため、§3鉄則3(S/Aを名乗るには検証可能な出典が要る)・§7"
     }
-   ]
+   ],
+   "keyword_en": "Manasuru Sanso Observatory (Public Observatory on the Mid-slope of Mount Nyugasa)",
+   "summary_en": "Mount Nyugasa (1,955.10 m, second-class triangulation point) is the northernmost mountain of the Akaishi range of the Southern Alps, straddling Ina and Fujimi, and the public observatory 'Manasuru Sanso Tenmonkan' stands on its mid-slope at 1,800 m, within Fujimi. The name comes from the Himalayan peak Manaslu, said to mean 'land of the spirit' from Sanskrit words for spirit or mind and for country; on 9 May 1956 Imanishi Toshio and Gyalzen Norbu of the Japanese Alpine Club party led by Maki Yuko made the first ascent of Manaslu (8,163 m). That the name was taken from the resulting climbing boom is only a guess on mountaineering sites."
   },
   {
    "id": "FJM-MOD-006",
@@ -2427,7 +2541,9 @@
      "verdict": "PASS",
      "note": "[中]background / confidence_note:駅施設記述「改札口も券売機もSuicaチャージ機もない簡素な佇まい」は個人観光ブログ(yatsugatake.info)由来だが、Wikipedia本文には『簡易Suica改札機と乗車駅証明書発行機が各ホームに設置されている』との記載がある。両者は『簡易ICリーダー』と『改札口・チャージ機』の違いとして両立しうるが、confidence_noteでこの情報源間のニュアンス差(Wikipediaとブログで設備記述の粒度が異なる)に触れていないため、読み手には矛盾に見えかねない。 / [低]sources / geo:標高949.6m"
     }
-   ]
+   ],
+   "keyword_en": "Suzuran-no-Sato Station (Petition Station, Town Flower Lily of the Valley)",
+   "summary_en": "Mount Nyugasa and its wetland, which gave the station its name, are said to span Fujimi, Chino and Ina, so this entry includes areas outside the town. Suzuran-no-Sato Station opened on 31 October 1985 as an unstaffed, passenger-only petition station of Japanese National Railways, its cost of about 200 million yen borne entirely by Seiko Epson (Fujimi and Suwa-minami plants); the name was decided at Epson's request, without precedent for the railway and said to have caused controversy, and derives from 'Suzuran Kogen', another name for the Nyugasa highland. Lily of the valley was designated the town flower in 1984."
   },
   {
    "id": "FJM-IND-010",
@@ -2472,7 +2588,9 @@
      "verdict": "PASS",
      "note": "第8便監査の横断指摘: 乙事地名レコードなのにCAUTION_IP未付与だった慣例不徹底を是正。"
     }
-   ]
+   ],
+   "keyword_en": "Okkoto-tei (Okkoto's Kiridame Soba)",
+   "summary_en": "Okkoto-tei in Okkoto, Fujimi, on the Yatsugatake foothills, is a shop serving hand-made soba from local buckwheat flour and Yatsugatake subsoil water (the kanzarashi soba mentioned later for comparison is a separate technique from neighbouring Chino, outside the town, and unrelated to the shop). Its signature is 'kiridame soba' served in a wooden vessel, using buckwheat grown in Okkoto at 1,000 m. According to a personal blog account, local volunteers founded it around 1989 to revitalise the district, building it with a village-revitalisation project."
   },
   {
    "id": "FJM-FAITH-008",
@@ -2520,7 +2638,9 @@
      "verdict": "PASS",
      "note": "第8便補記の監査: 水利権裁判の言及をノート止まりにした処理は適切。[中]reciprocity_axisのC格伝承の断定をヘッジ（積み残し解消）。"
     }
-   ]
+   ],
+   "keyword_en": "Okkoto-segi Weir and the Water-Use Traditions of 'Segi' (Sakamoto Yosen, Hienosoko)",
+   "summary_en": "Introductory note: Takinoyu-segi and Ogawara-segi are background technical information from Chino and lie outside Fujimi. Okkoto-segi was conceived by Sakamoto Yosen, who submitted six opinions to the Suwa domain over eight years, and was completed in 1792 as a channel of over 6 km taking water from the Tatsuba River; where it crosses Koroku-segi the two are built as a grade-separated crossing so that the water does not mix, which is said to be unusual locally. Each year in mid-May representatives of Tatsuzawa and Okkoto districts attend, check the stones and adjust the flow so that the water is shared equally."
   },
   {
    "id": "FJM-JOMON-007",
@@ -2566,7 +2686,9 @@
      "verdict": "PASS",
      "note": "[中]keyword / background:見出しの「『縄文クッキー』発祥地」および本文「その呼称そのものは、富士見町の曽利遺跡で…はじめて出土した…に由来する」という一文は、『名称そのものの起源』を明言する強い主張である。実際にWebFetchで確認した典拠(ja.wikipedia.org/縄文クッキー、あめブロ記事)が支持するのは『曽利遺跡が最初に発見された遺跡である』という事実のみで、『呼称(縄文クッキーという言葉)自体が曽利遺跡に由来して命名された』と明示的に述べた一次資料は確認できなかった(Wikipedia再取得でも『名称の由来が記事内で明示的に結び付けられているわけではない"
     }
-   ]
+   ],
+   "keyword_en": "Bread-like Carbonized Material from the Sori Site (Birthplace of 'Jomon Cookies')",
+   "summary_en": "In the scholarly history of baked food known as 'Jomon cookies', the analysis dispute over the Oshidashi site in Takahata, Yamagata (outside Fujimi), is often cited, but the term itself derives from cookie-like or bread-like carbonized material from nuts first excavated at the Sori site in Fujimi, from the Middle Jomon. It was found in the first survey of 1960 in Pit Dwelling No. 5 (mid-Middle Jomon, Sori I style), and Muto Yuroku reconstructed the scattered fragments over many years. SEM observation by Matsutani Akiko, held at the University Museum of the University of Tokyo, shows grains over 1 mm long and the 'straw-sandal-shaped cells' characteristic of perilla (egoma) seeds."
   },
   {
    "id": "FJM-JOMON-008",
@@ -2611,7 +2733,9 @@
      "verdict": "PASS",
      "note": "第6便監査: 用途論争の学史記述（提唱者・年）がFJM-JOMON-012と矛盾→主筆のWikipedia原典確認により本レコード側の誤り（個人ブログ経由の要約に由来）と判明、訂正した。"
     }
-   ]
+   ],
+   "keyword_en": "Jomon Iconography and the Perforated-Collar Pot with Half-Human, Half-Frog Pattern (Idojiri Archaeological Museum)",
+   "summary_en": "It should be said first that the work of Tanaka Motoi, one of the interpreters discussed, extends beyond Fujimi to the whole Suwa region including Chino. The Idojiri Archaeological Museum has taken its own approach, Jomon iconography, treating pottery motifs not as decoration but as 'images' and reading the spiritual world of Middle Jomon people through myth and folklore. A set including the perforated-collar pot with half-human, half-frog pattern from the Tonai site (Sakai, Fujimi) is designated a national Important Cultural Property, but the museum's mythic reading is its own and not an established view in the field."
   },
   {
    "id": "FJM-JOMON-009",
@@ -2651,7 +2775,9 @@
      "verdict": "PASS",
      "note": ""
     }
-   ]
+   ],
+   "keyword_en": "Pot with Painted Human Figure from the Todonomiya Site (Idojiri Sites)",
+   "summary_en": "The Idojiri Sites comprise seven sites, including Idojiri, Sori, Tonai, Kyubeione, Idaira and Todonomiya, a group of settlements centred on the mid-Middle Jomon on ridges and plateaus at 800-1,000 m on the southern foot of Yatsugatake. At the Todonomiya site a large deep pot, 50 cm in diameter and 63 cm high, was found in 1968 during farm-road widening, with a human figure painted in black pigment near its base; it is a Fujimi town tangible cultural property held at the Idojiri Archaeological Museum (Sakai, Fujimi). Its reading is not settled: Agency for Cultural Affairs material itself gives both a childbirth theory and a theory linking it to death and burial."
   },
   {
    "id": "FJM-JOMON-010",
@@ -2692,7 +2818,9 @@
      "verdict": "PASS",
      "note": "[低]sources / source_type:『国指定史跡（星糞峠）』の裏付けとして実際にはWikipedia記事（ja.wikipedia.org/wiki/星糞峠黒曜石原産地遺跡）を用いている。内容自体は文化庁指定情報（195基・6.6ha・2001年指定・1986年分布調査／1991年本格調査、いずれもWebFetchで実在確認済み）と一致しており捏造ではないが、Wikipediaは三次資料であり『国指定史跡』を直接名乗る一次情報源ではない。同様に井戸尻遺跡の出土数（打製石斧43個・凹石10個、実在確認済み）もWikipedia経由。 / [低]id / category:既存see"
     }
-   ]
+   ],
+   "keyword_en": "The Obsidian Road (Hoshikuso Pass, Hoshigato and Idojiri)",
+   "summary_en": "The source side of the obsidian road, namely Hoshikuso Pass (Nagawa), Hoshigato (Shimosuwa) and Wada Pass (on the Nagawa/Shimosuwa border), lies entirely outside Fujimi; within the town is the receiving side around Idojiri. At the Hoshikuso Pass obsidian source site (Nagawa, about 1,500 m), investigation confirmed 195 mining pits about 10 m across and a protected area of 6.6 ha, and it was designated a National Historic Site in 2001, while at the Hoshigato site in Shimosuwa (1,500 m) 193 mining pits are spread over about 35,000 square metres. From Building No. 3 at the Idojiri site, 43 chipped stone axes and 10 hollow stones have been found, though the material is not stated to be obsidian."
   },
   {
    "id": "FJM-FAITH-009",
@@ -2737,7 +2865,9 @@
      "verdict": "PASS",
      "note": "[低]background:「守矢氏はその筆頭・神長を継ぎ」という序列の断定について、典拠の一つ（unesco.or.jp PDF掲載の新聞記事、今井則幸氏コメント）には「五官祝は上下関係がなく同列の神職だったとみられる一方、主導権争いもあったよう」という異説も併記されており、神長＝筆頭という序列を無条件の事実として断定するには一部揺れがある。 / [低]background:「明治初期成立の『神長守矢氏系譜』」という句が、ja.wikipedia「守矢氏」記事内の記述（「明治初期成立の『神長守矢氏系譜』によれば」）とほぼ同一の言い回しで、完全な言い換えになっていない。文書名自体は固有名詞なの"
     }
-   ]
+   ],
+   "keyword_en": "The Moriya Clan, the Jinchokan and the Dual System of Suwa Kamisha (Ohori / Jinchokan)",
+   "summary_en": "The Ohori's residence site (Nakasu, Suwa) and the Jinchokan Moriya Historical Museum (Miyagawa, Chino), central to this record, both lie outside Fujimi, and the only geographic link to the town is largely the Misayama festival (27 August each year, Misayama, Fujimi). At Suwa Taisha Kamisha the Ohori (hereditary from the Suwa family), regarded as the living deity and vessel of Takeminakata, is described as the 'chief holding political power', and the Jinchokan, hereditary in the Moriya clan, as the 'priest with ritual authority', a dual system (a 'dual kingship')."
   },
   {
    "id": "FJM-FAITH-011",
@@ -2780,7 +2910,9 @@
      "verdict": "PASS",
      "note": "[中]confidence_note / sources:background中「柳の弓矢で射て供える」という儀式ディテールはconfidence_noteで「複数の独立ソースで一致しA」と明記されているが、実際にsources配列にある6件のURL(ja.wikipedia.org/諏訪大社七不思議、omiyasan.com、cir.nii.ac.jp、zero-position.com、arcj.org、ameblo.jp)をWebFetchで確認したところ、いずれも「柳の弓矢」の記述を直接には含んでいない(omiyasan.comは供物段階の『竹の矢』のみ言及、Wikipediaは弓矢の"
     }
-   ]
+   ],
+   "keyword_en": "Frog-Hunting Rite (Suwa Taisha Kamisha Honmiya)",
+   "summary_en": "The rite takes place not in Fujimi but at the Suwa Taisha Kamisha Honmiya in neighbouring Suwa (outside the town). On New Year's Day the ice of the frozen Mitarashi River is broken, and a frog hiding beneath is caught, shot with a willow bow and arrow, and offered; a frog is said always to be found even in midwinter, and the rite has been counted among the Seven Wonders of Suwa Taisha."
   },
   {
    "id": "FJM-FAITH-012",
@@ -2829,7 +2961,9 @@
      "verdict": "PASS",
      "note": "[中]background（藤島神社の位置づけ）:岡谷市の洩矢神社・藤島神社の対岸関係を『この争いの中心地』と断定し、諏訪市中洲・上社本宮近くの藤島社を単なる無関係の別社として退けている。しかし典拠のja.wikipedia『藤島神社』自体が『中世文献（諏訪信重解状・画詞）が想定する舞台は上社本宮周辺、天竜川を挟む岡谷側の説は江戸時代に生まれた異伝（荒神塚古墳への比定）』と述べており、実際には中世本伝と江戸期異伝という重層的な伝承が存在する。これを単一の確定事実であるかのように記すのは、CLAUDE.md §3鉄則2『混在は分割して記す』に抵触するおそれがある。 / [中]confidence"
     }
-   ]
+   ],
+   "keyword_en": "The Struggle Between Moriya and Takeminakata (the Wisteria Kagi and the Iron Kagi)",
+   "summary_en": "The shrines central to this tradition lie outside Fujimi: Moriya Shrine in Kawagishi-higashi, Okaya, Fujishima Shrine in Kawagishi-kami, Okaya, and the Moriya residence (Jinchokan Moriya Historical Museum) in Miyagawa Takabe, Chino; the only firm point of contact in the town is Misayama Shrine (Fujimi Tomihara, about 985 m, enshrining Takeminakata no Mikoto and Kunitokotachi no Mikoto). The medieval 'Suwa Nobushige Gejo' (1249) records that the deity (Takeminakata) held a wisteria kagi and the minister an iron kagi, contested the land here, and the deity won and put down Minister Moriya (said to be the god Moriya)."
   },
   {
    "id": "FJM-FAITH-013",
@@ -2870,7 +3004,9 @@
      "verdict": "PASS",
      "note": "[低]confidence:「A/C/D」という三層表記は憲章§2の例示（「B/D」のような主+従の二層）から形式的に外れる。 / [低]geo:geoはnullだが、TODOであることの明示がconfidence_note内の一文に埋没しており、フィールド単体では未取得である旨が見えにくい。"
     }
-   ]
+   ],
+   "keyword_en": "Godo Hachiman Shrine and the Shrine 柏尾社 (Border Clan Shrines of Fujimi, and Suwa / Hachiman / Takeda Motifs)",
+   "summary_en": "All are clan shrines within Fujimi (Misayama Godo Hachiman Shrine and Fujimi Suwa Shrine in the district of Fujimi, and 柏尾社, reading unconfirmed, and Shinmei Shrine in the district of Sakai). A 1969 history of Godo Hachiman Shrine describes it as a 'special building' enshrining Suwa Myojin on the left of the co-enshrined seat, with the Suwa Kamisha crest 'Suwa kaji' on the doors and a pair of deer on the Suwa side (left) and doves on the Hachiman side (right) carved on the frog-leg struts of the main body. The master carpenter was Kato Kichizaemon, and it was built in 1762 and is a Fujimi town tangible cultural property."
   },
   {
    "id": "FJM-HIPPIE-005",
@@ -2916,7 +3052,9 @@
      "verdict": "PASS",
      "note": "監査指摘(私家版詳細の無出典)を削除で反映。会場の確度をA→B(単独証言)に是正——WIRED/Wikipedia原典を主筆が直接確認、パノラマ明記は回想録のみ。"
     }
-   ]
+   ],
+   "keyword_en": "Inochi no Matsuri (1988) and Oe Masanori",
+   "summary_en": "The centre of this page is an event inside Fujimi, but the related 'Inochi no Matsuri 2000' (Omachi, Nagano) and the current base of the executive committee chair Oe Masanori (Hokuto, Yamanashi) are treated as outside the town. In August 1988 the outdoor gathering 'Inochi no Matsuri', prompted by the Chernobyl accident, was held under the theme 'NO NUKES ONE LOVE', with Oe Masanori as chair of the executive committee. Yamada Kaiya's 'I Am a Hippie' places the venue at the Fujimi Panorama Ski Area at the foot of the Southern Alps (a single first-hand account), and sources differ on the duration and attendance."
   },
   {
    "id": "FJM-JOMON-006",
@@ -2965,7 +3103,9 @@
      "verdict": "PASS",
      "note": "第6便監査に伴う横断整合: 種子壺説の提唱年・提唱者をWikipedia原典に合わせて訂正（1970→1963、藤森栄一・武藤雄六の共同提唱）。"
     }
-   ]
+   ],
+   "keyword_en": "Snake Designs at Idojiri (Snake-Pattern Pots and the Half-Human, Half-Frog Perforated-Collar Pot)",
+   "summary_en": "The centre of this entry is the Idojiri Sites in Sakai, Fujimi, but the Togariishi site used for comparison is in Toyohira, Chino, outside the town. Pots bearing snake designs, such as snake-patterned deep pots, have been excavated from the Idojiri Sites, and the Idojiri Archaeological Museum, which holds about 2,000 items, builds its displays around deciphering the frogs, half-human frogs, snakes and moons in the patterns. The half-human, half-frog perforated-collar pot from the Tonai site was excavated by the Idojiri Preservation Society in 1962 and is an Important Cultural Property; Fujimori Eiichi and Muto Yuroku proposed in 1963 that it was a seed jar, a view Muto revised in 1970 to a sake-brewing vessel."
   },
   {
    "id": "FJM-FAITH-010",
@@ -3016,7 +3156,9 @@
      "verdict": "PASS",
      "note": "監査指摘のJ-STAGE著者名誤記(伊藤冨雄→武井正弘)を修正して確定。"
     }
-   ]
+   ],
+   "keyword_en": "Ontosai (Omitachi-za Shinji) and the Ear-Split Deer of Koya",
+   "summary_en": "The main venue, the Maemiya and Jikkenro of Suwa Taisha Kamisha, and the Jinchokan Moriya Historical Museum with its reconstructed display, are all in Miyagawa, Chino, outside Fujimi. The Ontosai (festival of the Rooster) is the Kamisha's grand festival, formally called 'Omitachi-za Shinji'; deer heads were once offered, but the number varies by source, with Kaibara Ekiken's 'Kisoji no Ki' (1713) giving seventy-five among the oldest records and Sugae Masumi's 'Suwa no Umi' (1784) giving seventy-two. Sugae wrote that one of the heads he saw was of a deer with a split ear, the 'ear-split deer of Koya' (神野, also written 高野), one of the Seven Wonders of Suwa Taisha."
   },
   {
    "id": "FJM-JOMON-011",
@@ -3055,7 +3197,9 @@
      "verdict": "PASS",
      "note": "[高]なし。[中]016との立地一般論の重複→本レコードを型式編年と沢境界の揺れに焦点を絞る改稿で反映。[低]図録書誌の出典強化（Amazon→NDL等）は次サイクル課題。比較対象の尖石・与助尾根（茅野市）にTOWN_OUTSIDEを付与し運用を統一。"
     }
-   ]
+   ],
+   "keyword_en": "Kyubeione Site and the Settlement Layout of the Idojiri Sites (Ridges, Valleys and Springs)",
+   "summary_en": "The Idojiri Sites are said to consist of the Idojiri, Sori, Tonai, Kyubeione and Idaira sites and others, but their contents and boundaries vary by source. Dwelling remains, centred on the Middle Jomon, lie scattered and overlapping across each ridge and terrace group, and the Kyubeione site contains remains from the Early to Middle Jomon; the 'Kyubeione style' of pottery named for it is part of the Idojiri chronology and is also used as a dating scale in reports on the Togariishi and Yosukeone sites in neighbouring Chino. Since 1949 several excavations have confirmed well over a hundred dwelling remains across the group."
   },
   {
    "id": "FJM-JOMON-012",
@@ -3096,7 +3240,9 @@
      "verdict": "PASS",
      "note": "初回FAIL→修正済み。[高]既存FJM-JOMON-008と用途論争の学史（提唱者・年・構造）が正面から矛盾→主筆がWikipedia「有孔鍔付土器」原典（脚注文献付き）を直接確認し、本レコードの記述（種子壺説=藤森栄一・武藤雄六1963／太鼓説=山内清男1964／酒造説=武藤雄六1970の自説変更）が正しいと裁定。008・006側の誤記を訂正して整合させた。[低]比較対象の酒呑場遺跡（北杜市）にTOWN_OUTSIDEを付与。"
     }
-   ]
+   ],
+   "keyword_en": "The Debate over the Use of the Perforated-Collar Pot (Seed-Storage, Sake-Brewing and Drum Theories)",
+   "summary_en": "The perforated-collar pot is a vessel type with a row of small holes at the rim and a collar-like ridge around the middle of the body, distributed from the Central Highlands to the Kanto, mainly in the Middle Jomon. In 1963 Fujimori Eiichi and Muto Yuroku, from the Jomon agriculture viewpoint, read it as a seed container, and in 1964 Yamanouchi Sugao proposed a percussion-instrument theory, comparing the snake and human motifs and the hole arrangement to clay drums around the world; in 1970 Muto himself changed his view to a sake-brewing vessel. In 2023 a complete bamboo-tube-shaped example was excavated from a dwelling in Trench 9 of the Sori site."
   },
   {
    "id": "FJM-JOMON-013",
@@ -3134,7 +3280,9 @@
      "verdict": "PASS",
      "note": "[高]なし。[中]考証メモにのみ現れる韮崎市への言及を削除し、初出地（現茅野市）の町域外を本文で明示して整合。指定書が出産・再生に言及しないことの明記など、事実と解釈の峻別は良好。"
     }
-   ]
+   ],
+   "keyword_en": "Birth and Rebirth Imagery Read in Face-Shaped Handles and the Sakaue Site Figurine",
+   "summary_en": "'Face-handled pottery' is the general term for Middle Jomon deep pots with a human-face projection attached to the rim; the first example is said to have been found in 1904 at Yukawa, Kitayama Village, Suwa District (now Chino, outside Fujimi). Centred on the Katsusaka (Idojiri) culture, they became large and standardised from the end of the Tonai period to the Idojiri period but survive only on incense-burner-type pots in the Sori period; readings as goddess worship, a Hainuwele-type myth or a rite of rebirth are only views within the field. The standing figurine from the Sakaue site was designated an Important Cultural Property in 2015, but the designation text does not mention birth or rebirth."
   },
   {
    "id": "FJM-JOMON-014",
@@ -3171,7 +3319,9 @@
      "verdict": "PASS",
      "note": "[高]なし・指摘なし。衰退原因の諸説（冷涼化・生業限界・移動・4.2ka懐疑論）を決着させず宙吊りのまま差し出す扱いが適切。観光メディア由来の単純化言説を出典から外した判断も妥当。"
     }
-   ]
+   ],
+   "keyword_en": "Decline of Settlements at the End of the Middle Jomon (Yatsugatake Foothills, Central Highlands) and the Idojiri Sites",
+   "summary_en": "The Middle Jomon settlements packed onto the Yatsugatake foothills fell rapidly in number after the Sori period and never regained their former density in the Late Jomon. A similar decline is known to have occurred at about the same time across wide areas of the Kanto and Chubu at the end of the Middle Jomon, as the archaeologist Taniguchi Yasuhiro traced through studies of ring-shaped settlements, and why it happened is still not settled: climatic cooling shrinking food resources, a limit reached by Jomon subsistence, and people moving elsewhere are all argued without agreement. Specialist journals have also recently questioned dating links between the decline and the 4.2 ka event."
   },
   {
    "id": "FJM-JOMON-015",
@@ -3217,7 +3367,9 @@
      "verdict": "PASS",
      "note": "[高]なし。[低]武藤雄六1958年エピソードの三度目の言及は、主内容（境史学会・保存会・館長系譜・応援団）の新規性から許容。「井戸尻遺跡保存会」（本レコード）と「井戸尻保存会」（006）の表記揺れは要現地確認として保留。単一ソース事実のB格付けは丁寧。"
     }
-   ]
+   ],
+   "keyword_en": "Idojiri Archaeological Museum and Its Local Preservation History (Sakai Historical Society, Idojiri Preservation Society, Successive Directors, Idojiri Supporters)",
+   "summary_en": "The excavation of Idojiri began not with an office or a university but with the local 'Sakai Historical Society' and students of Suwa Seiryo High School. In March 1958, under the guidance of the independent archaeologist Fujimori Eiichi and Miyasaka Hideichi of the Togariishi site, a young man who joined the trial excavation was Muto Yuroku, later the first director, and in September of that year pottery was already being restored and displayed, said to be the origin of the museum. Management passed to the town board of education in 1965 and the present building opened in 1974, and local volunteers known as the Idojiri Supporters now help with tasks such as tending the lotus pond."
   },
   {
    "id": "FJM-JOMON-016",
@@ -3265,7 +3417,9 @@
      "verdict": "PASS",
      "note": "おらほー！富士見精読（第8便）: 井戸尻湧水と遺跡の空間的近接（竪穴住居の東側崖下）・町内湧水の一覧を増補。縄文立地論の傍証を強化。"
     }
-   ]
+   ],
+   "keyword_en": "Springs and the Siting of Jomon Settlements (Idojiri Spring, the Spring Line on the Southern Yatsugatake)",
+   "summary_en": "On a long, narrow plateau at 800 to 1,000 m on the southern foot of Yatsugatake (900-1,000 m in academic sources), Middle Jomon settlements of about 5,000 years ago, including Idojiri, Sori, Tonai, Kyubeione, Idaira and Todonomiya, crowd together over several kilometres. The name 'Idojiri' is thought to derive from a spring that still wells just east of the site, and Agency for Cultural Affairs materials also state that the settlement stood on the ridge where this spring rises; rainwater soaked into the volcano seeps out along the boundaries of lava layers of differing permeability. The layout of settlements divided by small valleys looks like traces of people choosing to live along the line where water wells up."
   },
   {
    "id": "FJM-IND-011",
@@ -3314,7 +3468,9 @@
      "verdict": "PASS",
      "note": "ソース性格の補正（観光媒体→商工会系PRサイト）とaboutページの水言説を補記。格付け変更なし。"
     }
-   ]
+   ],
+   "keyword_en": "The Groundwater Narrative of the Kagome Fujimi Plant and the Absence of a Water-Resource Conservation Area",
+   "summary_en": "The location of the Kagome Fujimi Plant is described as 'groundwater from the Southern Alps and Mount Nyugasa', but the source is a single company-interview article in a tourism outlet, and the well depth appears only as '100 m underground' in another interview. No public materials showing the water system or the volume drawn were reached, and Fujimi does not appear in either Nagano Prefecture's list of water-resource conservation areas or its list of water-source protection districts. The Idojiri spring is about 7 km from the plant on the opposite slope across a valley, and whether it is the same water cannot now be confirmed."
   },
   {
    "id": "FJM-IND-012",
@@ -3367,7 +3523,9 @@
      "verdict": "FAIL→修正済み",
      "note": "[高]「たしかに生きていた」の無条件断定が§3/§4に抵触（単一企業のB格証言の格上げ・継承物語の無自覚な美化リスク）→伝聞水準に弱めて反映。[中]IND-007との本文重複（61社・ニシムラ）は次サイクルで参照化を検討。"
     }
-   ]
+   ],
+   "keyword_en": "'Switzerland of the Orient' and Fujimi's Place / The Kagome Plant, 1968",
+   "summary_en": "'Switzerland of the Orient' is a name used for the way metalworking skills nurtured in the silk-reeling industry, joined by wartime evacuated factories, led to a cluster of precision-machinery industries (watches, cameras, music boxes) on the lakeshore. But the subject of that story is consistently Suwa, Okaya and Shimosuwa, and neither the Cabinet Office analysis nor industry-group articles name Fujimi specifically, although administratively the 'Suwa area' means the six municipalities of Okaya, Suwa, Chino, Shimosuwa, Fujimi and Hara. A Kagome plant began operating in Fujimi in 1968, called the town's first corporate-attraction project by tourism media, though no primary town source confirms this."
   },
   {
    "id": "FJM-IND-013",
@@ -3409,7 +3567,9 @@
      "verdict": "PASS",
      "note": "SEIMITSU FUJIMI精読: 若手後継者座談会を現代側の口述資料として追加。経営側の声は残り従業員の声は残らないという非対称の現在形を注記。"
     }
-   ]
+   ],
+   "keyword_en": "The End of the Farm Off-Season: Part-time Farmers and Factory Work",
+   "summary_en": "Fujimi's statistics for commercial farm households show full-time farm households falling sharply from 1,233 in 1954 to 387 in 1965, while Type 2 part-time households, with farming as a sideline, rose from 310 to 889 over the same period and reached 1,392 in 1975, the first time they formed a majority. In the Suwa area as a whole the skills of evacuated precision-machinery factories took root and some part-time farmers who learned the lathe set up small factories themselves, but no record was found of which factories Fujimi farmers went to, or how."
   },
   {
    "id": "FJM-IND-014",
@@ -3446,7 +3606,9 @@
      "verdict": "PASS",
      "note": "[高]なし。[低]「ここにはある」の断定がRei基調より一段強い→「あったはずだ」に緩和して反映。個人名はconfidence_noteのみに留め本文非掲載（禁止事項2遵守）。記録の欠落を主題の核として本文に明記した点は本サブセクターの要求を最も徹底。"
     }
-   ]
+   ],
+   "keyword_en": "Women Assemblers in Precision Machinery: The Absence of Records",
+   "summary_en": "The regional industrial history often says that precision-machinery assembly, which demands nimble fingers and patience, left many of its processes to women's hands. Before that lies another lineage: the labour and lives of the women silk-reelers who gathered in Okaya were recorded in newspapers and memoirs of the time, and later given words many times over in books, scholarly reassessment and permanent museum exhibitions. For the women who did this work in Fujimi's factories, no account of individual work or life could be found in company histories, town histories or statistics."
   },
   {
    "id": "FJM-IND-015",
@@ -3489,7 +3651,9 @@
      "verdict": "PASS",
      "note": "[高]なし・指摘なし。観光ブログの誤情報をカゴメ公式で訂正する適切な用法。誤った団地名（埼玉の同名団地との混同）を検索で是正した経緯も透明。廃業工場・社宅の痕跡不明を本文に明記。"
     }
-   ]
+   ],
+   "keyword_en": "Industrial Siting along the Chuo Main Line and Route 20 (Epson Fujimi Plant, Kagome Fujimi Plant)",
+   "summary_en": "The Chuo Main Line opened on 21 December 1904 with the opening of Shinano-Sakai and Fujimi Stations, and factories for precision machinery and food processing have since been built beside the same tracks. The Epson Fujimi Plant is close to Suzuran-no-Sato Station, a petition station opened in 1985 with Epson bearing the full construction cost, and Wikipedia states that the station's opening 'dramatically improved' access to Epson's Fujimi and Suwa-minami plants. The Kagome Fujimi Plant also lies along National Route 20, a few minutes by car from Suwa-minami Interchange."
   },
   {
    "id": "FJM-IND-016",
@@ -3524,7 +3688,9 @@
      "verdict": "PASS",
      "note": "[高]なし。単一ソース・B/C格・商工会PRサイトという利害の開示が徹底、黒曜石系譜への接続は解釈と明示、代表者は本文で役職のみ。[中]review_status運用の齟齬→approved化で解消。[低]TOWN_OUTSIDEの「言及に町域外を含む」用途の運用統一は次サイクル課題（§3鉄則1への一文追記を検討）。[低]一級宝石研磨士の取得年1998は記事プロフィール欄由来、次回verifierで再照合。"
     }
-   ]
+   ],
+   "keyword_en": "The Southern End of Stone-Polishing Work: Lineages of Suwa Jewellery Crafts and Koshu Crystal Crafts",
+   "summary_en": "In Ochiai, at the southern end of Fujimi, a small workshop is devoted to gem polishing and rounding beads for rosaries. According to an interview on a site run by the town's chamber of commerce, it was founded in 1968 by the previous owner on the strength of subcontract work for a Tokyo jewellery shop; the jewellery industry on the Yamanashi side across the Kamanashi River (outside the town) is said to have grown from the crystal crafts of the Edo period, and the present head holds a Yamanashi prefectural jewellery qualification, Pre-Jewelry Master (obtained in 2010)."
   },
   {
    "id": "FJM-MOD-007",
@@ -3560,7 +3726,9 @@
      "verdict": "PASS",
      "note": "[高]なし。事実と編集的解釈の峻別（「読み取れる」「数えたい」の主観明示）・PRという利害と従業員の声の不在の本文明記・循環参照の限界開示を確認。[中]3件（運営主体名の限界を本文へ／era「継続中」の外挿を確認範囲表記へ／本手帖への自己言及3→2箇所に整理）を反映してapproved。メタレコード（対象=アーカイブする意志そのもの）という新しい型。"
     }
-   ]
+   ],
+   "keyword_en": "SEIMITSU FUJIMI: The Town's Will to Begin Recording Its Own Industry",
+   "summary_en": "In autumn 2022 the website 'SEIMITSU FUJIMI' began, under the headline 'Fujimi, Town of Precision', prompted by a broadcast from the Suwa Area Industrial Messe. Since then it has visited the workplaces of precision machining, moulds, die-casting and jewellery in the town one company at a time, accumulating nearly thirty interview articles with owners and successors (still updating in autumn 2025); its footer links to the town's chamber of commerce, but the operator is not named on the site, and its aim is to attract firms and promote sales channels."
   },
   {
    "id": "FJM-IND-017",
@@ -3598,7 +3766,9 @@
      "verdict": "PASS",
      "note": "[高]なし・指摘なし。CAUTION_IP付与とcx_ideaの地名話題回避は模範的。起点記事に固有IP言及が皆無なことも監査側で直接確認。「メロンの香り」→「瓜の香り」の言い換えは著作権規則の遵守。"
     }
-   ]
+   ],
+   "keyword_en": "Okkoto-uri (Okkoto Red Uri): Hands That Carry On a Native Cucumber's Seeds",
+   "summary_en": "Okkoto-uri, handed down in Okkoto, Fujimi, is a native red-skinned cucumber with fruit about three times the size of commercial ones, valued for its crisp bite and a faint melon scent when ripe. It continues only by saving its own seed, since it crosses with other cucumbers. It was selected as a Shinshu traditional vegetable in November 2011 and, with fewer growers, is now treated as a rare variety."
   },
   {
    "id": "FJM-IND-018",
@@ -3633,7 +3803,9 @@
      "verdict": "PASS",
      "note": "初回FAIL→修正済み。[高]茅野のあんぎんの会（町外）明示にもかかわらずTOWN_OUTSIDE欠落→付与し本文でも町域外を明示。[高]単一ソースの町固有実践をA格化→B格に是正し本文を伝聞表現に調整（「内容が具体的だからA」という理由づけを削除）。一般繊維史=A・町固有=B・青苧座=Bの内訳に整理。"
     }
-   ]
+   ],
+   "keyword_en": "Drawing Thread from Karamushi (Ramie): The Oldest Layer of the Lineage of Thread",
+   "summary_en": "Regional records say that drawing thread from karamushi (ramie) grown on the grounds of the Idojiri Archaeological Museum continues today. The cut stalks are soaked in water to loosen the skin, the stripped bark is scraped on a board with a spatula, and the remaining fibre is split fine and twisted into thread; only the tools have changed to metal, and the outline of the process is said to be little different from Jomon times. Ramie is among the oldest plant fibres used in the Japanese archipelago, with Final Jomon woven cloth (angin) found at about twelve sites, though no material survives from the Yayoi to the Kamakura period and how the technique continued is unknown."
   },
   {
    "id": "FJM-LEGEND-005",
@@ -3670,7 +3842,9 @@
      "verdict": "PASS",
      "note": "[高]なし。[中]縄文接続のD相当評価がconfidence欄に未反映→A/C/Dへ拡張して反映。信州一般（A）と町固有の実践（C）の切り分けは適切。奇習扱いを避けた声も良好。"
     }
-   ]
+   ],
+   "keyword_en": "Bee-Chasing (Sugare-oi)",
+   "summary_en": "In the mountains of Fujimi there are still people who chase sugare, the small ground-nesting wasp known as kurosuzumebachi. Bait is hung up, and at the moment a wasp takes off carrying food for its larvae a light white thread is gently tied to it; then, relying only on the sound of wings and the thread's path, the chaser pushes through brush and climbs slopes to work out where the nest is. In the mountain villages of Shinano this is called hachi-oi or sugare-oi, and the larvae caught were traditionally cooked as tsukudani."
   },
   {
    "id": "FJM-MOD-008",
@@ -3706,7 +3880,9 @@
      "verdict": "PASS",
      "note": "[高]なし。運営主体（市民団体「知ってもらざぁ おらほーのまち会」）の直接確認、集落数の不一致（記事39 vs 町統計48）を「四十前後」に丸めて内訳明示した処理は適切。MOD-007・JOMON-002と「土地の自己記録」の主題系譜を共有（将来の横断タグ候補）。"
     }
-   ]
+   ],
+   "keyword_en": "Kushi (Village Histories): The Culture of Hamlets Writing Their Own History",
+   "summary_en": "Fujimi has some forty hamlets (ku), and several of them have compiled their own village histories apart from the town's official history. In Kuzukubo, Sakai, three volunteers began sorting materials, a compilation committee took it up in earnest in 2009, and the 'Kuzukubo Kushi' was published in 2013, compiled from the starting point of having lost most of its old documents in the 1938 fire at Sakai Elementary School. Ikebukuro published its village history in 1970, and Eboshi began compiling its own in 2011, still at work in 2022."
   },
   {
    "id": "TSN-JOMON-001",
